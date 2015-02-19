@@ -2,6 +2,8 @@ package com.synature.mpos.database.table;
 
 import android.database.sqlite.SQLiteDatabase;
 
+import com.synature.mpos.database.MPOSDatabase;
+
 public class OrderDetailTable extends BaseColumn{
 	public static final String TABLE_ORDER = "OrderDetail";
 	public static final String TEMP_ORDER = "OrderDetailTemp";
@@ -17,6 +19,7 @@ public class OrderDetailTable extends BaseColumn{
 	public static final String COLUMN_PRICE_OR_PERCENT = "price_or_percent";
 	public static final String COLUMN_DEDUCT_AMOUNT = "deduct_amount";
 	public static final String COLUMN_PARENT_ORDER_ID = "parent_order_id";
+    public static final String COLUMN_ORDER_STATUS = "order_status";
 
 	private static final String ORDER_SQL_CREATE = 
 			" create table " + TABLE_ORDER + " ( " 
@@ -45,6 +48,7 @@ public class OrderDetailTable extends BaseColumn{
 			+ PromotionPriceGroupTable.COLUMN_COUPON_HEADER + " text,"
 			+ COLUMN_PARENT_ORDER_ID + " integer default 0, "
 			+ COLUMN_REMARK + " text, "
+            + COLUMN_ORDER_STATUS + " integer default 1, "
 			+ " primary key (" + COLUMN_ORDER_ID + " desc));";
 
 	public static void onCreate(SQLiteDatabase db) {
@@ -55,27 +59,32 @@ public class OrderDetailTable extends BaseColumn{
 
 	public static void onUpgrade(SQLiteDatabase db, int oldVersion,
 			int newVersion) {
-		// upgrade schema from 2 to 3
-		if(oldVersion < 4){
-			db.beginTransaction();
-			try{
-				String tbCopy = "OrderDetailCopy";
-				db.execSQL("create table " + tbCopy + " as select * from " + TABLE_ORDER);
-				db.execSQL("drop table if exists " + TABLE_ORDER);
-				db.execSQL("drop table if exists " + TEMP_ORDER);
-				onCreate(db);
-				db.execSQL("insert into " + TABLE_ORDER + " select * from " + tbCopy);
-				db.execSQL("drop table " + tbCopy);
-				db.setTransactionSuccessful();
-			}finally{
-				db.endTransaction();
-			}
-		}else if(oldVersion < 8){
-			db.execSQL("create table " + TABLE_ORDER_WASTE + " as select * from " + TABLE_ORDER + " where 0;");
-			db.execSQL("create index ord_idx on " + TABLE_ORDER + "(" + COLUMN_ORDER_ID + ");");
-			db.execSQL("create index ord_waste_idx on " + TABLE_ORDER_WASTE + "(" + COLUMN_ORDER_ID + ");");
-			db.execSQL("reindex ord_idx;");
-			db.execSQL("reindex ord_waste_idx;");
-		}
+        boolean isOrderWasteExists = MPOSDatabase.checkTableExists(db, TABLE_ORDER_WASTE);
+        db.beginTransaction();
+        try{
+            String tbOrderCopy = "OrderDetailCopy";
+            String tbOrderWasteCopy = "OrderWasteCopy";
+            db.execSQL("create table " + tbOrderCopy + " as select * from " + TABLE_ORDER);
+            db.execSQL("drop table if exists " + TABLE_ORDER);
+            db.execSQL("drop table if exists " + TEMP_ORDER);
+            if(isOrderWasteExists){
+                db.execSQL("create table " + tbOrderWasteCopy + " as select * from " + TABLE_ORDER_WASTE);
+                db.execSQL("drop table if exists " + TABLE_ORDER_WASTE);
+            }
+            onCreate(db);
+            db.execSQL("insert into " + TABLE_ORDER + " select * from " + tbOrderCopy);
+            db.execSQL("drop table " + tbOrderCopy);
+            if(isOrderWasteExists){
+                db.execSQL("insert into " + TABLE_ORDER_WASTE + " select * from " + tbOrderWasteCopy);
+                db.execSQL("drop table " + tbOrderWasteCopy);
+            }
+            db.execSQL("create index if not exists ord_idx on " + TABLE_ORDER + "(" + COLUMN_ORDER_ID + ");");
+            db.execSQL("create index if not exists ord_waste_idx on " + TABLE_ORDER_WASTE + "(" + COLUMN_ORDER_ID + ");");
+            db.execSQL("reindex ord_idx;");
+            db.execSQL("reindex ord_waste_idx;");
+            db.setTransactionSuccessful();
+        }finally{
+            db.endTransaction();
+        }
 	}
 }

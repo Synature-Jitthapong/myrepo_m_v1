@@ -250,6 +250,7 @@ public class SaleTransaction extends MPOSDatabase{
 					order.setfTotalVatAmount(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_TOTAL_VAT))));
 					order.setfPriceDiscountAmount(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_PRICE_DISCOUNT))));
 					order.setiSaleMode(cursor.getInt(cursor.getColumnIndex(ProductTable.COLUMN_SALE_MODE)));
+                    order.setiStatusID(cursor.getInt(cursor.getColumnIndex(OrderDetailTable.COLUMN_ORDER_STATUS)));
 					order.setxListChildOrderSetLinkType7(buildChildOfSet(queryOrderSet(transId, ordId)));
 					order.setxListCommentInfo(buildOrderComment(queryOrderComment(transId, ordId)));
 					orderDetailLst.add(order);
@@ -520,7 +521,8 @@ public class SaleTransaction extends MPOSDatabase{
 				+ ProductTable.COLUMN_VAT_TYPE + ", "
 				+ PromotionPriceGroupTable.COLUMN_PROMOTION_TYPE_ID + ", "
 				+ PromotionPriceGroupTable.COLUMN_PRICE_GROUP_ID + ", "
-				+ PromotionPriceGroupTable.COLUMN_COUPON_HEADER
+				+ PromotionPriceGroupTable.COLUMN_COUPON_HEADER + ", "
+                + OrderDetailTable.COLUMN_ORDER_STATUS
 				+ " FROM " + OrderDetailTable.TABLE_ORDER
 				+ " WHERE " + selection
 				+ " UNION " 
@@ -543,7 +545,8 @@ public class SaleTransaction extends MPOSDatabase{
 				+ ProductTable.COLUMN_VAT_TYPE + ", "
 				+ PromotionPriceGroupTable.COLUMN_PROMOTION_TYPE_ID + ", "
 				+ PromotionPriceGroupTable.COLUMN_PRICE_GROUP_ID + ", "
-				+ PromotionPriceGroupTable.COLUMN_COUPON_HEADER
+				+ PromotionPriceGroupTable.COLUMN_COUPON_HEADER + ", "
+                + OrderDetailTable.COLUMN_ORDER_STATUS
 				+ " FROM " + OrderDetailTable.TABLE_ORDER_WASTE
 				+ " WHERE " + selection;
 		return getReadableDatabase().rawQuery(sqlQuery, selectionArgs);
@@ -1307,6 +1310,7 @@ public class SaleTransaction extends MPOSDatabase{
 		private int iProductID;
 		private int iProductTypeID;
 		private int iSaleMode;
+        private int iStatusID;
 		private String fQty;
 		private String fPricePerUnit;
 		private String fRetailPrice;
@@ -1334,7 +1338,15 @@ public class SaleTransaction extends MPOSDatabase{
 			return xListCommentInfo;
 		}
 
-		public int getiOrderDetailID() {
+        public int getiStatusID() {
+            return iStatusID;
+        }
+
+        public void setiStatusID(int iStatusID) {
+            this.iStatusID = iStatusID;
+        }
+
+        public int getiOrderDetailID() {
 			return iOrderDetailID;
 		}
 

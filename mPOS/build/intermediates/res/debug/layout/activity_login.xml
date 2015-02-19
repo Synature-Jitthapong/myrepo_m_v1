@@ -132,4 +132,4 @@
         android:layout_toLeftOf="@+id/tvDeviceCode"
         android:src="@drawable/ic_action_about" />
 
-</RelativeLayout><!-- From: file:/C:/Users/j1tth4/Documents/GitHub/myrepo_m_v1/mPOS/src/main/res/layout/activity_login.xml -->
+</RelativeLayout><!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m/mPOS/src/main/res/layout/activity_login.xml -->

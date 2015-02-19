@@ -75,7 +75,6 @@ public class OrderTransTable extends BaseColumn {
 
 	public static void onUpgrade(SQLiteDatabase db, int oldVersion,
 			int newVersion) {
-		// upgrade schema from 2 to 3
 		if(oldVersion < 4){
 			db.beginTransaction();
 			try {
@@ -125,7 +124,7 @@ public class OrderTransTable extends BaseColumn {
 			} finally {
 				db.endTransaction();
 			}
-		}else if(oldVersion < 8){
+		}else if(oldVersion > 4 && oldVersion < 8){
 			db.execSQL("create table " + TABLE_ORDER_TRANS_WASTE + " as select * from " + TABLE_ORDER_TRANS + " where 0;");
 			db.execSQL("create index trans_idx on " + TABLE_ORDER_TRANS + "(" + COLUMN_TRANS_ID + ");");
 			db.execSQL("create index trans_waste_idx on " + TABLE_ORDER_TRANS_WASTE + "(" + COLUMN_TRANS_ID + ");");

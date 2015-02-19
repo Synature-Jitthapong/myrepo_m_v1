@@ -72,7 +72,22 @@ public class TransactionDao extends MPOSDatabase {
 	 * Waste void status
 	 */
 	public static final int WASTE_TRANS_STATUS_VOID = 13;
-	
+
+    /**
+     * Order status normal
+     */
+    public static final int ORDER_STATUS_NORMAL = 1;
+
+    /**
+     * Order status void
+     */
+    public static final int ORDER_STATUS_VOID = 4;
+
+    /**
+     * Order status free
+     */
+    public static final int ORDER_STATUS_FREE = 5;
+
 	/**
 	 * All columns
 	 */
@@ -2111,6 +2126,7 @@ public class TransactionDao extends MPOSDatabase {
 	 */
 	public int updateOrderDetailFreePrice(int transactionId, int orderDetailId) {
 		ContentValues cv = new ContentValues();
+        cv.put(OrderDetailTable.COLUMN_ORDER_STATUS, ORDER_STATUS_FREE);
         cv.put(ProductTable.COLUMN_PRODUCT_PRICE, 0);
         cv.put(OrderDetailTable.COLUMN_TOTAL_RETAIL_PRICE, 0);
 		cv.put(OrderDetailTable.COLUMN_TOTAL_SALE_PRICE, 0);
@@ -2230,9 +2246,8 @@ public class TransactionDao extends MPOSDatabase {
 	 * @param transactionId
 	 * @param staffId
 	 * @param reason
-	 * @return row affected
 	 */
-	public int voidTransactionWaste(int transactionId, int staffId, String reason) {
+	public void voidTransactionWaste(int transactionId, int staffId, String reason) {
 		ContentValues cv = new ContentValues();
 		cv.put(OrderTransTable.COLUMN_STATUS_ID, WASTE_TRANS_STATUS_VOID);
 		cv.put(OrderTransTable.COLUMN_VOID_STAFF_ID, staffId);
@@ -2240,19 +2255,23 @@ public class TransactionDao extends MPOSDatabase {
 		cv.put(COLUMN_SEND_STATUS, MPOSDatabase.NOT_SEND);
 		cv.put(OrderTransTable.COLUMN_VOID_TIME, Utils.getCalendar()
 				.getTimeInMillis());
-		return getWritableDatabase().update(
+		getWritableDatabase().update(
 				OrderTransTable.TABLE_ORDER_TRANS_WASTE, cv,
 				OrderTransTable.COLUMN_TRANS_ID + "=? ",
 				new String[] { String.valueOf(transactionId) });
+        cv = new ContentValues();
+        cv.put(OrderDetailTable.COLUMN_ORDER_STATUS, ORDER_STATUS_VOID);
+        getWritableDatabase().update(OrderDetailTable.TABLE_ORDER_WASTE, cv,
+                OrderTransTable.COLUMN_TRANS_ID + "=?",
+                new String[]{String.valueOf(transactionId)});
 	}
 	
 	/**
 	 * @param transactionId
 	 * @param staffId
 	 * @param reason
-	 * @return row affected
 	 */
-	public int voidTransaction(int transactionId, int staffId, String reason) {
+	public void voidTransaction(int transactionId, int staffId, String reason) {
 		ContentValues cv = new ContentValues();
 		cv.put(OrderTransTable.COLUMN_STATUS_ID, TRANS_STATUS_VOID);
 		cv.put(OrderTransTable.COLUMN_VOID_STAFF_ID, staffId);
@@ -2260,10 +2279,15 @@ public class TransactionDao extends MPOSDatabase {
 		cv.put(COLUMN_SEND_STATUS, MPOSDatabase.NOT_SEND);
 		cv.put(OrderTransTable.COLUMN_VOID_TIME, Utils.getCalendar()
 				.getTimeInMillis());
-		return getWritableDatabase().update(
+		getWritableDatabase().update(
 				OrderTransTable.TABLE_ORDER_TRANS, cv,
 				OrderTransTable.COLUMN_TRANS_ID + "=? ",
 				new String[] { String.valueOf(transactionId) });
+        cv = new ContentValues();
+        cv.put(OrderDetailTable.COLUMN_ORDER_STATUS, ORDER_STATUS_VOID);
+        getWritableDatabase().update(OrderDetailTable.TABLE_ORDER, cv,
+                OrderTransTable.COLUMN_TRANS_ID + "=?",
+                new String[]{String.valueOf(transactionId)});
 	}
 
 	/**

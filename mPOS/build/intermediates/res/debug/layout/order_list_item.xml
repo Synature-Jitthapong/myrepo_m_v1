@@ -104,4 +104,4 @@
         android:text="@string/minus"
         android:textAppearance="?android:attr/textAppearanceLargeInverse" />
 
-</RelativeLayout><!-- From: file:/C:/Users/j1tth4/Documents/GitHub/myrepo_m_v1/mPOS/src/main/res/layout/order_list_item.xml -->
+</RelativeLayout><!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m/mPOS/src/main/res/layout/order_list_item.xml -->
