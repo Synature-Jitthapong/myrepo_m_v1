@@ -2204,6 +2204,7 @@ public class TransactionDao extends MPOSDatabase {
 		cv.put(OrderDetailTable.COLUMN_TOTAL_VAT, vat);
 		cv.put(ProductTable.COLUMN_PRODUCT_TYPE_ID, productType);
 		cv.put(OrderDetailTable.COLUMN_REMARK, "");
+        cv.put(OrderDetailTable.COLUMN_ORDER_STATUS, ORDER_STATUS_NORMAL);
 		if (vatType == ProductsDao.VAT_TYPE_EXCLUDE)
 			cv.put(OrderDetailTable.COLUMN_TOTAL_VAT_EXCLUDE, vat);
 		long rowId = getWritableDatabase().insertOrThrow(
@@ -2698,6 +2699,7 @@ public class TransactionDao extends MPOSDatabase {
 		cv.put(ProductComponentGroupTable.COLUMN_REQ_MIN_AMOUNT, reqMinAmount);
 		cv.put(OrderDetailTable.COLUMN_REMARK, "");
 		cv.put(OrderDetailTable.COLUMN_PARENT_ORDER_ID, orderDetailId);
+        cv.put(OrderDetailTable.COLUMN_ORDER_STATUS, ORDER_STATUS_NORMAL);
 		try {
 			getWritableDatabase().insertOrThrow(OrderDetailTable.TEMP_ORDER, null, cv);
 		} catch (SQLException e) {
@@ -2915,6 +2917,7 @@ public class TransactionDao extends MPOSDatabase {
 		cv.put(ProductTable.COLUMN_PRODUCT_TYPE_ID, productTypeId);
 		cv.put(OrderDetailTable.COLUMN_REMARK, "");
 		cv.put(OrderDetailTable.COLUMN_PARENT_ORDER_ID, orderDetailId);
+        cv.put(OrderDetailTable.COLUMN_ORDER_STATUS, ORDER_STATUS_NORMAL);
 		getWritableDatabase().insertOrThrow(OrderDetailTable.TEMP_ORDER, null, cv);
 	}
 	

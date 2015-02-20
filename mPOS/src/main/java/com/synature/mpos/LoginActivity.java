@@ -15,6 +15,7 @@ import com.synature.mpos.database.UserVerification;
 import com.synature.pos.Staff;
 import com.synature.util.FileManager;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;

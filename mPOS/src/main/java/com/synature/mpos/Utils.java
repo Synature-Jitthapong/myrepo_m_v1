@@ -42,6 +42,9 @@ import com.synature.util.Logger;
 
 @SuppressLint("ShowToast")
 public class Utils {
+
+    public static final String TAG = Utils.class.getSimpleName();
+
 	/**
 	 * @param context
 	 * @param shopId
@@ -635,6 +638,8 @@ public class Utils {
 				cLast.add(Calendar.DAY_OF_MONTH, -1);
 			}
 			if(cLast.compareTo(cFirst) > 0){
+                Log.i(TAG, DateFormat.getTimeInstance().format(Calendar.getInstance().getTime())
+                        + " begin clear over sale");
 				TransactionDao trans = new TransactionDao(context);
 				trans.deleteSale(firstDate, String.valueOf(cLast.getTimeInMillis()));
 			
@@ -642,6 +647,10 @@ public class Utils {
 				Logger.appendLog(context, MPOSApplication.LOG_PATH, MPOSApplication.LOG_FILE_NAME, 
 						"Clear sale from: " + format.format(cFirst.getTime()) + "\n"
 								+ " to: " + format.format(cLast.getTime()));
+
+                Log.i(TAG, DateFormat.getTimeInstance().format(Calendar.getInstance().getTime())
+                        + "Clear sale from: " + format.format(cFirst.getTime()) + "\n"
+                                + " to: " + format.format(cLast.getTime()));
 			}
 		}
 	}

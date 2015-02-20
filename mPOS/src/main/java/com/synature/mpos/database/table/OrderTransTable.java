@@ -1,8 +1,14 @@
 package com.synature.mpos.database.table;
 
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
+import com.synature.util.Logger;
 
 public class OrderTransTable extends BaseColumn {
+
+    public static final String TAG = OrderTransTable.class.getSimpleName();
+
 	public static final String TABLE_ORDER_TRANS = "OrderTransaction";
 	public static final String TEMP_ORDER_TRANS = "OrderTransactionTemp";
 	public static final String TABLE_ORDER_TRANS_WASTE = "OrderTransactionWaste";
@@ -125,7 +131,7 @@ public class OrderTransTable extends BaseColumn {
 				db.endTransaction();
 			}
 		}else if(oldVersion > 4 && oldVersion < 8){
-			db.execSQL("create table " + TABLE_ORDER_TRANS_WASTE + " as select * from " + TABLE_ORDER_TRANS + " where 0;");
+            db.execSQL("create table " + TABLE_ORDER_TRANS_WASTE + " as select * from " + TABLE_ORDER_TRANS + " where 0;");
 			db.execSQL("create index trans_idx on " + TABLE_ORDER_TRANS + "(" + COLUMN_TRANS_ID + ");");
 			db.execSQL("create index trans_waste_idx on " + TABLE_ORDER_TRANS_WASTE + "(" + COLUMN_TRANS_ID + ");");
 			db.execSQL("reindex trans_idx;");

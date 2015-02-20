@@ -83,6 +83,7 @@ public class MPOSDatabase extends BaseColumn{
 	public static class MPOSOpenHelper extends SQLiteOpenHelper {
 
 		private static MPOSOpenHelper sHelper;
+        private static Context sContext;
 
 		/**
 		 * @param context
@@ -139,7 +140,7 @@ public class MPOSDatabase extends BaseColumn{
 		
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-			MaxTransIdTable.onUpgrade(db, oldVersion, newVersion);
+            MaxTransIdTable.onUpgrade(db, oldVersion, newVersion);
 			MaxOrderIdTable.onUpgrade(db, oldVersion, newVersion);
 			MaxPaymentIdTable.onUpgrade(db, oldVersion, newVersion);
 			BankTable.onUpgrade(db, oldVersion, newVersion);

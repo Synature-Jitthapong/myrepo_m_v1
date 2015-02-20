@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.synature.mpos"
     android:installLocation="auto"
-    android:versionCode="26"
-    android:versionName="1.2.12" >
+    android:versionCode="27"
+    android:versionName="1.2.13" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -70,7 +70,7 @@
             android:windowSoftInputMode="stateAlwaysHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.syn.mpos.MainActivity" />
+                android:value="com.synature.mpos.MainActivity" />
         </activity>
         <activity
             android:name="com.synature.mpos.SaleReportActivity"
@@ -79,7 +79,7 @@
             android:windowSoftInputMode="stateAlwaysHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.syn.mpos.MainActivity" />
+                android:value="com.synature.mpos.MainActivity" />
         </activity>
         <activity
             android:name="com.synature.mpos.VoidBillActivity"
@@ -88,7 +88,7 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.syn.mpos.MainActivity" />
+                android:value="com.synature.mpos.MainActivity" />
         </activity>
         <activity
             android:name="com.synature.mpos.SettingsActivity"
@@ -157,6 +157,14 @@
             android:theme="@style/ActivityDialogTheme"
             android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
+        <activity
+            android:name="com.synature.mpos.DatabaseUpgradingActivity"
+            android:label="@string/title_activity_database_upgrading"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/ActivityDialogTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" >
+        </activity>
 
         <receiver
             android:name="com.synature.mpos.BootUpReceiver"
@@ -184,11 +192,6 @@
         </service>
         <service android:name="com.synature.mpos.EnddaySenderService" >
         </service>
-
-        <activity
-            android:name="com.synature.mpos.DatabaseUpgradingActivity"
-            android:label="@string/title_activity_database_upgrading" >
-        </activity>
     </application>
 
 </manifest>
