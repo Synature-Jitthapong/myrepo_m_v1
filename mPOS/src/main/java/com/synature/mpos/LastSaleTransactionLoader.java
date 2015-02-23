@@ -2,18 +2,13 @@ package com.synature.mpos;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
-import com.synature.mpos.database.MPOSDatabase;
-import com.synature.mpos.database.SaleTransaction;
-import com.synature.mpos.database.TransactionDao;
-import com.synature.mpos.database.table.ComputerTable;
-import com.synature.mpos.database.table.OrderDetailTable;
-import com.synature.mpos.database.table.OrderTransTable;
-import com.synature.mpos.database.table.PaymentDetailTable;
-import com.synature.mpos.database.table.ProductComponentGroupTable;
-import com.synature.mpos.database.table.ProductComponentTable;
-import com.synature.mpos.database.table.ProductGroupTable;
-import com.synature.mpos.database.table.ProductTable;
-import com.synature.pos.PComponentGroup;
+import com.synature.mpos.datasource.MPOSDatabase;
+import com.synature.mpos.datasource.SaleTransaction;
+import com.synature.mpos.datasource.table.ComputerTable;
+import com.synature.mpos.datasource.table.OrderDetailTable;
+import com.synature.mpos.datasource.table.OrderTransTable;
+import com.synature.mpos.datasource.table.PaymentDetailTable;
+import com.synature.mpos.datasource.table.ProductTable;
 import com.synature.pos.WebServiceResult;
 
 import android.content.ContentValues;
@@ -23,13 +18,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.ResultReceiver;
+import android.text.TextUtils;
 
 public class LastSaleTransactionLoader extends MPOSServiceBase{
 
 	public static final String METHOD = "WSmPOS_GenerateAllSaleTransBackToMPos";
-	
-	public LastSaleTransactionLoader(Context context, ResultReceiver receiver) {
+
+    private LoadSaleTransactionCallback mCallback;
+
+	public LastSaleTransactionLoader(Context context, ResultReceiver receiver,
+                                     LoadSaleTransactionCallback callback) {
 		super(context, METHOD, receiver);
+        mCallback = callback;
 	}
 
 	@Override
@@ -41,10 +41,12 @@ public class LastSaleTransactionLoader extends MPOSServiceBase{
 				Gson gson = new Gson();
 				BackSaleTransaction saleTrans = 
 						gson.fromJson(ws.getSzResultData(), BackSaleTransaction.class);
-				
-			}
+				mCallback.onLoadSuccess(saleTrans);
+			}else{
+                mCallback.onLoadError(TextUtils.isEmpty(ws.getSzResultData()) ? result : ws.getSzResultData());
+            }
 		} catch (JsonSyntaxException e) {
-			
+            mCallback.onLoadError("cannot parsing==>" + result);
 		}
 	}
 	
@@ -129,4 +131,9 @@ public class LastSaleTransactionLoader extends MPOSServiceBase{
 		}
 		
 	}
+
+    public static interface LoadSaleTransactionCallback{
+        void onLoadSuccess(BackSaleTransaction saleTrans);
+        void onLoadError(String msg);
+    }
 }
