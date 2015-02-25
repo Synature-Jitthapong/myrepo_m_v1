@@ -1336,10 +1336,12 @@ public class OrderTransDataSource extends MPOSDatabase {
 	 * @param docType
 	 * @param docTypeHeader
 	 * @param totalSalePrice
+     * @param sessionDate
 	 */
 	public void closeWasteTransaction(int transactionId, int staffId, 
-			int docType, String docTypeHeader, double totalSalePrice) {
+			int docType, String docTypeHeader, double totalSalePrice, String sessionDate) {
 		Calendar date = Utils.getDate();
+        date.setTimeInMillis(Long.parseLong(sessionDate));
 		Calendar dateTime = Utils.getCalendar();
 		int receiptId = getMaxWasteReceiptId(String.valueOf(date.getTimeInMillis()));
 		String receiptNo = formatWasteReceiptNo(docTypeHeader,
@@ -1373,9 +1375,12 @@ public class OrderTransDataSource extends MPOSDatabase {
 	 * @param transactionId
 	 * @param staffId
 	 * @param totalSalePrice
+     * @param sessionDate
 	 */
-	public void closeTransaction(int transactionId, int staffId, double totalSalePrice) {
+	public void closeTransaction(int transactionId, int staffId,
+                                 double totalSalePrice, String sessionDate) {
 		Calendar date = Utils.getDate();
+        date.setTimeInMillis(Long.parseLong(sessionDate));
 		Calendar dateTime = Utils.getCalendar();
 		int receiptId = getMaxReceiptId(String.valueOf(date.getTimeInMillis()));
 		String receiptNo = formatReceiptNo(date.get(Calendar.YEAR), 

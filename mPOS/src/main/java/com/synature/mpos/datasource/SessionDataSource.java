@@ -163,8 +163,10 @@ public class SessionDataSource extends MPOSDatabase{
 				+ SessionDetailTable.COLUMN_TOTAL_QTY_RECEIPT + ", "
 				+ SessionDetailTable.COLUMN_TOTAL_AMOUNT_RECEIPT
 				+ " FROM " + SessionDetailTable.TABLE_SESSION_ENDDAY_DETAIL
-				+ " WHERE " + COLUMN_SEND_STATUS + "=?", 
+				+ " WHERE " + SessionDetailTable.COLUMN_TOTAL_QTY_RECEIPT + " >? "
+                + " AND " + COLUMN_SEND_STATUS + "=?",
 				new String[]{
+                    String.valueOf(0),
 					String.valueOf(NOT_SEND)
 				}
 		);
@@ -214,8 +216,10 @@ public class SessionDataSource extends MPOSDatabase{
 		Cursor cursor = getReadableDatabase().rawQuery(
 				"SELECT COUNT(" + SessionTable.COLUMN_SESS_DATE +")"
 				+ " FROM " + SessionDetailTable.TABLE_SESSION_ENDDAY_DETAIL
-				+ " WHERE " + COLUMN_SEND_STATUS + "=?", 
+				+ " WHERE " + SessionDetailTable.COLUMN_TOTAL_QTY_RECEIPT + " >? "
+                + " AND " + COLUMN_SEND_STATUS + "=?",
 				new String[]{
+                    String.valueOf(0),
 					String.valueOf(NOT_SEND)
 				}
 		);
@@ -591,7 +595,7 @@ public class SessionDataSource extends MPOSDatabase{
 	}
 
 	/**
-	 * Get opened session of current sale date
+	 * Get opened session
 	 * @return 0 if not have opened session
 	 */
 	public int getCurrentSessionId() {
@@ -600,11 +604,8 @@ public class SessionDataSource extends MPOSDatabase{
 				SessionTable.TABLE_SESSION,
 				new String[] { 
 					SessionTable.COLUMN_SESS_ID 
-				},
-				SessionTable.COLUMN_SESS_DATE + "=?"
-				+ " AND " + OrderTransTable.COLUMN_CLOSE_STAFF + "=?",
+				}, OrderTransTable.COLUMN_CLOSE_STAFF + "=?",
 				new String[] {
-					String.valueOf(Utils.getDate().getTimeInMillis()),
 					String.valueOf(0) 
 				}, null, null, SessionTable.COLUMN_SESS_ID + " DESC ", "1");
 		if (cursor.moveToFirst()) {

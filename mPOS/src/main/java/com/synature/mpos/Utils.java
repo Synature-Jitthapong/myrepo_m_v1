@@ -40,6 +40,8 @@ import com.synature.mpos.datasource.ProductsDataSource;
 import com.synature.mpos.datasource.SessionDataSource;
 import com.synature.util.Logger;
 
+import org.w3c.dom.Text;
+
 @SuppressLint("ShowToast")
 public class Utils {
 
@@ -572,7 +574,7 @@ public class Utils {
         String time = sharedPref.getString(SettingsActivity.KEY_PREF_SYNC_TIME, "");
         if(!TextUtils.isEmpty(time)){
             try {
-                String isoFormat = "yyyy-MM-dd hh:mm:ss";
+                String isoFormat = "yyyy-MM-dd HH:mm:ss";
                 SimpleDateFormat sFormat = new SimpleDateFormat(isoFormat);
                 Calendar calendar = Calendar.getInstance();
                 long millisec = Long.parseLong(time);
@@ -590,6 +592,21 @@ public class Utils {
     public static boolean isAlreadySync(Context context){
         boolean isSync = false;
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+        String syncTime = sharedPref.getString(SettingsActivity.KEY_PREF_SYNC_TIME, "");
+        if(!TextUtils.isEmpty(syncTime)){
+            Calendar current = Calendar.getInstance();
+            Calendar lastSync = Calendar.getInstance();
+            try {
+                lastSync.setTimeInMillis(Long.parseLong(syncTime));
+                if(current.get(Calendar.DAY_OF_YEAR) > lastSync.get(Calendar.DAY_OF_YEAR)){
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putBoolean(SettingsActivity.KEY_PREF_IS_SYNC, false);
+                    editor.commit();
+                }
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+        }
         isSync = sharedPref.getBoolean(SettingsActivity.KEY_PREF_IS_SYNC, false);
         return isSync;
     }

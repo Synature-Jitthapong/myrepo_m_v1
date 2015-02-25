@@ -375,7 +375,7 @@ public class FoodCourtCardPayActivity extends Activity implements Runnable{
 				getFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
 				
 				ShopDataSource shop = new ShopDataSource(FoodCourtCardPayActivity.this);
-				mTrans.closeTransaction(mTransactionId, mStaffId, mTotalSalePrice);
+				mTrans.closeTransaction(mTransactionId, mStaffId, mTotalSalePrice, "");
 				new PrintReceiptFoodCourtTask().execute();
 			}
 		}

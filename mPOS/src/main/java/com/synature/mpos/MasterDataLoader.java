@@ -3,8 +3,10 @@ package com.synature.mpos;
 import org.ksoap2.serialization.PropertyInfo;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.ResultReceiver;
+import android.preference.PreferenceManager;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
@@ -23,9 +25,10 @@ import com.synature.mpos.datasource.ProgramFeatureDataSource;
 import com.synature.mpos.datasource.PromotionDiscountDataSource;
 import com.synature.mpos.datasource.ShopDataSource;
 import com.synature.mpos.datasource.StaffsDataSource;
-import com.synature.mpos.datasource.SyncHistoryDao;
 import com.synature.pos.MasterData;
 import com.synature.util.Logger;
+
+import java.util.Calendar;
 
 public class MasterDataLoader extends MPOSServiceBase{
 	
@@ -62,7 +65,6 @@ public class MasterDataLoader extends MPOSServiceBase{
 	}
 
 	private void updateMasterData(MasterData master){
-		SyncHistoryDao sync = new SyncHistoryDao(mContext);
 		ShopDataSource shop = new ShopDataSource(mContext);
 		ComputerDataSource computer = new ComputerDataSource(mContext);
 		GlobalPropertyDataSource format = new GlobalPropertyDataSource(mContext);
@@ -79,7 +81,6 @@ public class MasterDataLoader extends MPOSServiceBase{
 		PromotionDiscountDataSource promo = new PromotionDiscountDataSource(mContext);
 		ProgramFeatureDataSource feature = new ProgramFeatureDataSource(mContext);
 		try {
-			sync.insertSyncLog();
 			shop.insertShopProperty(master.getShopProperty());
 			computer.insertComputer(master.getComputerProperty());
 			format.insertProperty(master.getGlobalProperty());
@@ -102,17 +103,15 @@ public class MasterDataLoader extends MPOSServiceBase{
 			promo.insertPromotionPriceGroup(master.getPromotionPriceGroup());
 			promo.insertPromotionProductDiscount(master.getPromotionProductDiscount());
 			feature.insertProgramFeature(master.getProgramFeature());
-			
-			// log sync history
-			sync.updateSyncStatus(SyncHistoryDao.SYNC_STATUS_SUCCESS);
+
+            setSyncStatus(true, String.valueOf(Calendar.getInstance().getTimeInMillis()));
 			if(mReceiver != null)
 				mReceiver.send(RESULT_SUCCESS, null);
 		} catch (Exception e) {
-			// log sync history
-			sync.updateSyncStatus(SyncHistoryDao.SYNC_STATUS_FAIL);
 			Logger.appendLog(mContext, MPOSApplication.LOG_PATH, 
 					MPOSApplication.LOG_FILE_NAME, 
 					"Error when add shop data : " + e.getMessage());
+            setSyncStatus(false, "");
 			if(mReceiver != null){
 				Bundle b = new Bundle();
 				b.putString("msg", e.getMessage());
@@ -120,4 +119,12 @@ public class MasterDataLoader extends MPOSServiceBase{
 			}
 		}
 	}
+
+    private void setSyncStatus(boolean isAlreadySync, String syncTime){
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(mContext);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean(SettingsActivity.KEY_PREF_IS_SYNC, isAlreadySync);
+        editor.putString(SettingsActivity.KEY_PREF_SYNC_TIME, syncTime);
+        editor.commit();
+    }
 }

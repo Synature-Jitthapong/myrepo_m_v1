@@ -751,7 +751,17 @@ public class SaleTransaction extends MPOSDatabase{
 		private List<SaleTable_Session> xAryTableSession;
 		private SaleTable_SessionEndDay xTableSessionEndDay;
 		private List<SaleData_SaleTransaction> xArySaleTransaction;
-		public List<SaleTable_Session> getxAryTableSession() {
+        private List<SaleData_CashInOutTransaction> xAryCashInOutTransaction;
+
+        public List<SaleData_CashInOutTransaction> getxAryCashInOutTransaction() {
+            return xAryCashInOutTransaction;
+        }
+
+        public void setxAryCashInOutTransaction(List<SaleData_CashInOutTransaction> xAryCashInOutTransaction) {
+            this.xAryCashInOutTransaction = xAryCashInOutTransaction;
+        }
+
+        public List<SaleTable_Session> getxAryTableSession() {
 			return xAryTableSession;
 		}
 		public void setxAryTableSession(List<SaleTable_Session> xAryTableSession) {
@@ -779,7 +789,17 @@ public class SaleTransaction extends MPOSDatabase{
 	public static class POSData_SaleTransaction{
         private SaleTable_Session xTableSession;
         private List<SaleData_SaleTransaction> xArySaleTransaction;
-		public SaleTable_Session getxTableSession() {
+        private List<SaleData_CashInOutTransaction> xAryCashInOutTransaction;
+
+        public List<SaleData_CashInOutTransaction> getxAryCashInOutTransaction() {
+            return xAryCashInOutTransaction;
+        }
+
+        public void setxAryCashInOutTransaction(List<SaleData_CashInOutTransaction> xAryCashInOutTransaction) {
+            this.xAryCashInOutTransaction = xAryCashInOutTransaction;
+        }
+
+        public SaleTable_Session getxTableSession() {
 			return xTableSession;
 		}
 		public void setxTableSession(SaleTable_Session xTableSession) {
@@ -1796,4 +1816,237 @@ public class SaleTransaction extends MPOSDatabase{
 			this.szRemark = szRemark;
 		}
 	}
+
+    public static class SaleData_CashInOutTransaction
+    {
+        private int iTransID;
+        private int iCompID;
+        private String szCashOutDate;
+        private int iStaffID;
+        private String szCashOutDateTime;
+        private double fTotalPrice;
+        private int iStatusID;
+        private int iMovement;
+        private double szCashOutNote;
+        private int iVoidStaffID;
+        private String szVoidReason;
+        private String szVoidDateTime;
+        private String szUDDID;
+        private int iDocType;
+        private int iReceiptYear;
+        private int iReceiptMonth;
+        private int iReceiptID;
+        private String szReceiptNo;
+        private int iSessionID;
+        private List<SaleData_CashInOutDetail> xListCashInOutDetail;
+
+        public int getiTransID() {
+            return iTransID;
+        }
+
+        public void setiTransID(int iTransID) {
+            this.iTransID = iTransID;
+        }
+
+        public int getiCompID() {
+            return iCompID;
+        }
+
+        public void setiCompID(int iCompID) {
+            this.iCompID = iCompID;
+        }
+
+        public String getSzCashOutDate() {
+            return szCashOutDate;
+        }
+
+        public void setSzCashOutDate(String szCashOutDate) {
+            this.szCashOutDate = szCashOutDate;
+        }
+
+        public int getiStaffID() {
+            return iStaffID;
+        }
+
+        public void setiStaffID(int iStaffID) {
+            this.iStaffID = iStaffID;
+        }
+
+        public String getSzCashOutDateTime() {
+            return szCashOutDateTime;
+        }
+
+        public void setSzCashOutDateTime(String szCashOutDateTime) {
+            this.szCashOutDateTime = szCashOutDateTime;
+        }
+
+        public double getfTotalPrice() {
+            return fTotalPrice;
+        }
+
+        public void setfTotalPrice(double fTotalPrice) {
+            this.fTotalPrice = fTotalPrice;
+        }
+
+        public int getiStatusID() {
+            return iStatusID;
+        }
+
+        public void setiStatusID(int iStatusID) {
+            this.iStatusID = iStatusID;
+        }
+
+        public int getiMovement() {
+            return iMovement;
+        }
+
+        public void setiMovement(int iMovement) {
+            this.iMovement = iMovement;
+        }
+
+        public double getSzCashOutNote() {
+            return szCashOutNote;
+        }
+
+        public void setSzCashOutNote(double szCashOutNote) {
+            this.szCashOutNote = szCashOutNote;
+        }
+
+        public int getiVoidStaffID() {
+            return iVoidStaffID;
+        }
+
+        public void setiVoidStaffID(int iVoidStaffID) {
+            this.iVoidStaffID = iVoidStaffID;
+        }
+
+        public String getSzVoidReason() {
+            return szVoidReason;
+        }
+
+        public void setSzVoidReason(String szVoidReason) {
+            this.szVoidReason = szVoidReason;
+        }
+
+        public String getSzVoidDateTime() {
+            return szVoidDateTime;
+        }
+
+        public void setSzVoidDateTime(String szVoidDateTime) {
+            this.szVoidDateTime = szVoidDateTime;
+        }
+
+        public String getSzUDDID() {
+            return szUDDID;
+        }
+
+        public void setSzUDDID(String szUDDID) {
+            this.szUDDID = szUDDID;
+        }
+
+        public int getiDocType() {
+            return iDocType;
+        }
+
+        public void setiDocType(int iDocType) {
+            this.iDocType = iDocType;
+        }
+
+        public int getiReceiptYear() {
+            return iReceiptYear;
+        }
+
+        public void setiReceiptYear(int iReceiptYear) {
+            this.iReceiptYear = iReceiptYear;
+        }
+
+        public int getiReceiptMonth() {
+            return iReceiptMonth;
+        }
+
+        public void setiReceiptMonth(int iReceiptMonth) {
+            this.iReceiptMonth = iReceiptMonth;
+        }
+
+        public int getiReceiptID() {
+            return iReceiptID;
+        }
+
+        public void setiReceiptID(int iReceiptID) {
+            this.iReceiptID = iReceiptID;
+        }
+
+        public String getSzReceiptNo() {
+            return szReceiptNo;
+        }
+
+        public void setSzReceiptNo(String szReceiptNo) {
+            this.szReceiptNo = szReceiptNo;
+        }
+
+        public int getiSessionID() {
+            return iSessionID;
+        }
+
+        public void setiSessionID(int iSessionID) {
+            this.iSessionID = iSessionID;
+        }
+
+        public List<SaleData_CashInOutDetail> getxListCashInOutDetail() {
+            return xListCashInOutDetail;
+        }
+
+        public void setxListCashInOutDetail(List<SaleData_CashInOutDetail> xListCashInOutDetail) {
+            this.xListCashInOutDetail = xListCashInOutDetail;
+        }
+    }
+
+    public class SaleData_CashInOutDetail
+    {
+        private int iOrderID;
+        private int iProductID;
+        private double fCashOutPrice;
+        private int iCashOutType;
+        private int iStatusID;
+
+        public int getiOrderID() {
+            return iOrderID;
+        }
+
+        public void setiOrderID(int iOrderID) {
+            this.iOrderID = iOrderID;
+        }
+
+        public int getiProductID() {
+            return iProductID;
+        }
+
+        public void setiProductID(int iProductID) {
+            this.iProductID = iProductID;
+        }
+
+        public double getfCashOutPrice() {
+            return fCashOutPrice;
+        }
+
+        public void setfCashOutPrice(double fCashOutPrice) {
+            this.fCashOutPrice = fCashOutPrice;
+        }
+
+        public int getiCashOutType() {
+            return iCashOutType;
+        }
+
+        public void setiCashOutType(int iCashOutType) {
+            this.iCashOutType = iCashOutType;
+        }
+
+        public int getiStatusID() {
+            return iStatusID;
+        }
+
+        public void setiStatusID(int iStatusID) {
+            this.iStatusID = iStatusID;
+        }
+    }
 }

@@ -10,8 +10,10 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -436,39 +438,7 @@ public class MainActivity extends FragmentActivity implements
 
 	@Override
 	protected void onResume() {
-		String curDateMillisec = String.valueOf(Utils.getDate().getTimeInMillis());
-		// check current day is already end day ?
-		if(!mSession.checkEndday(curDateMillisec)){
-			/*
-			 * If resume when system date > session date || 
-			 * session date > system date. It means the system date
-			 * is not valid.
-			 * It will be return to LoginActivity for new initial
-			 */
-			String lastSessDate = mSession.getLastSessionDate();
-			if(!TextUtils.isEmpty(lastSessDate)){
-				Calendar sessCal = Calendar.getInstance();
-				sessCal.setTimeInMillis(Long.parseLong(lastSessDate));
-				if(Utils.getDate().getTime().compareTo(sessCal.getTime()) > 0 || 
-					sessCal.getTime().compareTo(Utils.getDate().getTime()) > 0){
-					// check last session is already end day ?
-					if(!mSession.checkEndday(mSession.getLastSessionDate())){
-						startActivity(new Intent(MainActivity.this, LoginActivity.class));
-						finish();
-					}else{
-						init();
-					}
-				}else{
-					init();
-				}
-			}else{
-				// not have any session
-				init();
-			}
-		}else{
-			startActivity(new Intent(MainActivity.this, LoginActivity.class));
-			finish();
-		}
+        init();
 		super.onResume();
 	}
 
@@ -798,7 +768,8 @@ public class MainActivity extends FragmentActivity implements
 					drw.openCashDrawer();
 					drw.close();
 					
-					mTrans.closeTransaction(mTransactionId, mStaffId, totalSalePrice);
+					mTrans.closeTransaction(mTransactionId, mStaffId, totalSalePrice,
+                            mSession.getLastSessionDate());
 					successTransaction(mTransactionId, mStaffId, totalSalePrice, 
 							totalSalePrice, 0, PrintReceipt.NORMAL);
 					
@@ -1822,34 +1793,34 @@ public class MainActivity extends FragmentActivity implements
 		}
 	}
 
-	private void openTransaction(){
-		openSession();	
-		mTransactionId = mTrans.getCurrentTransactionId(mSessionId);
-		if(mTransactionId == 0){
-			mTransactionId = mTrans.openTransaction(mSession.getLastSessionDate(), 
-					mShopId, mComputerId, mSessionId, mStaffId, mShop.getCompanyVatRate());
-		}
+	private void openSession(){
+        mSessionId = mSession.getCurrentSessionId();
+        if (mSessionId == 0) {
+            mSessionId = mSession.openSession(mShopId, mComputerId, mStaffId, 0);
+
+            ManageCashAmountFragment mf = ManageCashAmountFragment
+                    .newInstance(getString(R.string.open_shift), 0,
+                            ManageCashAmountFragment.OPEN_SHIFT_MODE);
+            mf.show(getSupportFragmentManager(), "ManageCashAmount");
+            WintecCashDrawer dsp = new WintecCashDrawer(MainActivity.this);
+            dsp.openCashDrawer();
+            dsp.close();
+        }
 	}
 
-	private void openSession(){
-		mSessionId = mSession.getCurrentSessionId(); 
-		if(mSessionId == 0){
-			mSessionId = mSession.openSession(mShopId, mComputerId, mStaffId, 0);
-			
-			ManageCashAmountFragment mf = ManageCashAmountFragment
-					.newInstance(getString(R.string.open_shift), 0,
-							ManageCashAmountFragment.OPEN_SHIFT_MODE);
-			mf.show(getSupportFragmentManager(), "ManageCashAmount");
-			WintecCashDrawer dsp = new WintecCashDrawer(MainActivity.this);
-			dsp.openCashDrawer();
-			dsp.close();
-		}
-	}
+    private void openTransaction(){
+        openSession();
+        mTransactionId = mTrans.getCurrentTransactionId(mSessionId);
+        if(mTransactionId == 0){
+            mTransactionId = mTrans.openTransaction(mSession.getLastSessionDate(),
+                    mShopId, mComputerId, mSessionId, mStaffId, mShop.getCompanyVatRate());
+        }
+        // update when changed user
+        mTrans.updateTransaction(mTransactionId, mStaffId);
+    }
 
 	private void init(){
 		openTransaction();
-		// update when changed user
-		mTrans.updateTransaction(mTransactionId, mStaffId);
 		countHoldOrder();
 		countSaleDataNotSend();
 		loadOrder();
@@ -1859,7 +1830,26 @@ public class MainActivity extends FragmentActivity implements
 			initSecondDisplay();
 		}
 	}
-	
+
+    private boolean checkShopClosingTime(){
+        boolean isClose = false;
+        Calendar current = Calendar.getInstance();
+        Calendar closeTime = Calendar.getInstance();
+        SimpleDateFormat iso8601format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+            Date date = iso8601format.parse(mShop.getShopProperty().getCloseHour());
+            closeTime.set(Calendar.HOUR_OF_DAY, date.getHours());
+            closeTime.set(Calendar.MINUTE, date.getMinutes());
+            closeTime.set(Calendar.SECOND, date.getSeconds());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        if(current.getTime().compareTo(closeTime.getTime()) > 0){
+            isClose = true;
+        }
+        return isClose;
+    }
+
 	private void showHoldBill() {
 		final OrderTransaction holdTrans = new OrderTransaction();
 		LayoutInflater inflater = getLayoutInflater();
@@ -2028,7 +2018,7 @@ public class MainActivity extends FragmentActivity implements
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					ManageCashAmountFragment mf = ManageCashAmountFragment
-							.newInstance(getString(R.string.close_shift), 0, 
+							.newInstance(getString(R.string.endday), 0,
 									ManageCashAmountFragment.END_DAY_MODE);
 					mf.show(getSupportFragmentManager(), "ManageCashAmount");
 					WintecCashDrawer dsp = new WintecCashDrawer(MainActivity.this);

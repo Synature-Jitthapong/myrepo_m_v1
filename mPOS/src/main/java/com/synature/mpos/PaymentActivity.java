@@ -8,6 +8,7 @@ import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.PaymentAmountButtonDataSource;
 import com.synature.mpos.datasource.PaymentDetailDataSource;
+import com.synature.mpos.datasource.SessionDataSource;
 import com.synature.mpos.datasource.model.MPOSPaymentDetail;
 import com.synature.mpos.datasource.model.OrderDetail;
 import com.synature.pos.PayType;
@@ -338,7 +339,9 @@ public class PaymentActivity extends Activity implements OnClickListener,
 	}
 	
 	private void closeTransaction(){
-		mTrans.closeTransaction(mTransactionId, mStaffId, mTotalPrice);
+        SessionDataSource sessionDataSource = new SessionDataSource(this);
+		mTrans.closeTransaction(mTransactionId, mStaffId, mTotalPrice,
+                sessionDataSource.getLastSessionDate());
 	}
 
 	private void cancel() {
@@ -596,9 +599,11 @@ public class PaymentActivity extends Activity implements OnClickListener,
 
 	@Override
 	public void onWasteConfirm(int payTypeId, int docTypeId, String docTypeHeader, double totalPrice, String remark){
+        SessionDataSource sessionDataSource = new SessionDataSource(this);
 		mPayment.addPaymentDetailWaste(mTransactionId, mComputerId, payTypeId, totalPrice, remark);
 		mPayment.confirmWastePayment(mTransactionId);
-		mTrans.closeWasteTransaction(mTransactionId, mStaffId, docTypeId, docTypeHeader, totalPrice);
+		mTrans.closeWasteTransaction(mTransactionId, mStaffId, docTypeId,
+                docTypeHeader, totalPrice, sessionDataSource.getLastSessionDate());
 		setResultAndFinish(PrintReceipt.WASTE);
 	}
 	
