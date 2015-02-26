@@ -34,14 +34,15 @@ public class MyDigitalClock extends TextView {
     }
 
     private void initClock(Context context) {
+        mCalendar = Utils.getCalendar();
         GlobalPropertyDataSource global = new GlobalPropertyDataSource(context);
         GlobalProperty globalProperty = global.getGlobalProperty();
-        mFormat = globalProperty.getDateFormat()
-                + " " + globalProperty.getTimeFormat();
-        if(!TextUtils.isEmpty(mFormat)){
+        if(!TextUtils.isEmpty(globalProperty.getDateFormat())
+                && !TextUtils.isEmpty(globalProperty.getTimeFormat())) {
+            mFormat = globalProperty.getDateFormat()
+                    + " " + globalProperty.getTimeFormat();
             mSimFormat = new SimpleDateFormat(mFormat);
         }
-    	mCalendar = Utils.getCalendar();
     }
     
     @Override

@@ -34,6 +34,7 @@ public abstract class MPOSServiceBase extends Ksoap2WebServiceTask{
 	public static final String STAFF_ID_PARAM = "iStaffID";
 	public static final String DEVICE_CODE_PARAM = "szDeviceCode";
 	public static final String JSON_SALE_PARAM = "szJsonSaleTransData";
+    public static final String SALE_DATE_PARAM = "dtSaleDate";
 	
 	protected ResultReceiver mReceiver;
 	

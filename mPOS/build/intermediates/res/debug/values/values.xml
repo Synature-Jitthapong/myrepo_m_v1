@@ -71,11 +71,11 @@
         <item>-90</item>
     </string-array>
     <string-array name="pref_printer_name">
-        <item>TM-T81</item>
+        <item>@string/tm_t81</item>
         <item>@string/tm_t88v</item>
     </string-array>
     <string-array name="pref_printer_value">
-        <item>TM-T88V</item>
+        <item>@string/tm_t81</item>
         <item>@string/tm_t88v</item>
     </string-array>
     <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m/mPOS/src/main/res/values/colors.xml -->
@@ -114,35 +114,35 @@
     <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m/mPOS/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="about">About MPOS</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings" translatable="false">Settings</string>
     <string name="all_session">--All Session--</string>
     <string name="alredy_endday">Already endday.</string>
     <string name="amount">Amount</string>
-    <string name="app_name">mPOS</string>
+    <string name="app_name" translatable="false">mPOS</string>
     <string name="apply">Apply</string>
-    <string name="auto_backup_database">Auto backup database</string>
-    <string name="backup">Backup</string>
-    <string name="backup_db">Backup Database</string>
-    <string name="backup_db_success">Backup database successfully.</string>
-    <string name="backup_restore">Backup &amp; Restore Database</string>
+    <string name="auto_backup_database" translatable="false">Auto backup database</string>
+    <string name="backup" translatable="false">Backup</string>
+    <string name="backup_db" translatable="false">Backup Database</string>
+    <string name="backup_db_success" translatable="false">Backup database successfully.</string>
+    <string name="backup_restore" translatable="false">Backup &amp; Restore Database</string>
     <string name="balance">Balance</string>
     <string name="bank">Bank</string>
     <string name="barcode">Barcode</string>
-    <string name="baud_rate">Baud Rate</string>
-    <string name="because_deduct_at">because this item deducted at</string>
+    <string name="baud_rate" translatable="false">Baud Rate</string>
+    <string name="because_deduct_at" translatable="false">because this item deducted at</string>
     <string name="before_vat">Before VAT</string>
-    <string name="bill_check">Bill Check</string>
-    <string name="cannot_add">Cannot add</string>
+    <string name="bill_check" translatable="false">Bill Check</string>
+    <string name="cannot_add" translatable="false">Cannot add</string>
     <string name="cannot_connect_to_network">Cannot connect to network.</string>
     <string name="cannot_send_endday_data_on_this_time">Cannot send endday data on this time.\nDo you want to try again?</string>
-    <string name="cannot_update">Cannot update</string>
+    <string name="cannot_update" translatable="false">Cannot update</string>
     <string name="cannot_update_data">Cannot update data.</string>
     <string name="card_holder_name">Card Holder Name</string>
     <string name="card_no">Card No.</string>
     <string name="card_type">Card type</string>
     <string name="cash">Cash</string>
-    <string name="cash_count">Cash Count</string>
-    <string name="cash_in_drawer">Cash In Drawer</string>
+    <string name="cash_count" translatable="false">Cash Count</string>
+    <string name="cash_in_drawer" translatable="false">Cash In Drawer</string>
     <string name="cash_paid">Cash Paid</string>
     <string name="cashier">Cashier</string>
     <string name="change">Change</string>
@@ -151,19 +151,19 @@
     <string name="check_not_complete_orders">Some orders are not complete Please check those orders before do this function.</string>
     <string name="check_update">Check for update</string>
     <string name="checking_update">Checking update</string>
-    <string name="clear">Clear</string>
+    <string name="clear" translatable="false">Clear</string>
     <string name="clear_sale_data">Clear sale data</string>
     <string name="clear_sale_msg">Are you sure you want to clear sale data</string>
     <string name="close">Close</string>
     <string name="close_by">Closed by</string>
     <string name="close_shift">Close Shift</string>
     <string name="code">Code</string>
-    <string name="comment">Comment</string>
+    <string name="comment" translatable="false">Comment</string>
     <string name="computer_setting_not_valid">Computer settings not valid!</string>
     <string name="confirm">Confirm</string>
     <string name="confirm_cancel">Are you sure to cancel?</string>
     <string name="confirm_cancel_order">Are you sure you want to cancel orders?</string>
-    <string name="confirm_clear_discount">Are you sure you want to clear discount?</string>
+    <string name="confirm_clear_discount" translatable="false">Are you sure you want to clear discount?</string>
     <string name="confirm_close_shift">Are you sure you want to close shift?</string>
     <string name="confirm_delete">Are you sure you want to delete selected</string>
     <string name="confirm_delete_item">Are you sure you want to delete this item?</string>
@@ -177,8 +177,8 @@
     <string name="confirm_void_bill">Are you sure you want to void bill?</string>
     <string name="connection">Connection</string>
     <string name="connection_summary">Setting server url.</string>
-    <string name="connection_time_out">Connection time out</string>
-    <string name="copy">Copy</string>
+    <string name="connection_time_out" translatable="false">Connection time out</string>
+    <string name="copy" translatable="false">Copy</string>
     <string name="credit_card">Credit Card</string>
     <string name="credit_card_no">Credit card NO</string>
     <string name="credit_pay">Credit Card</string>
@@ -186,7 +186,7 @@
     <string name="current_version">Current Version</string>
     <string name="date">Date</string>
     <string name="date_time_setting">Date &amp; time Settings</string>
-    <string name="default_second_display_port">6600</string>
+    <string name="default_second_display_port" translatable="false">6600</string>
     <string name="delete">Delete</string>
     <string name="detail">Detail</string>
     <string name="device_code">Device Code: </string>
@@ -198,35 +198,35 @@
     <string name="downloading">Downloading</string>
     <string name="edit_open_shift">Edit Open Shift</string>
     <string name="enable_second_display">Enable Second Display</string>
-    <string name="enable_wintec_customer_display">Enable mPOS Customer Display</string>
+    <string name="enable_wintec_customer_display" translatable="false">Enable mPOS Customer Display</string>
     <string name="endday">End Day</string>
     <string name="endday_progress">Ending day please wait…</string>
     <string name="endday_success">Endday successfully.</string>
-    <string name="enter">Enter</string>
+    <string name="enter" translatable="false">Enter</string>
     <string name="enter_enough_money">Not enough money.</string>
     <string name="enter_password">Please enter password</string>
     <string name="enter_price">Please enter product price.</string>
     <string name="enter_staff_code">Please enter staff code</string>
     <string name="enter_valid_numeric">Please enter valid numeric.</string>
-    <string name="epson_printer">Epson Printer</string>
+    <string name="epson_printer" translatable="false">Epson Printer</string>
     <string name="exit">Exit</string>
     <string name="expire_date">Expire</string>
-    <string name="finish_waste">Finish Waste</string>
-    <string name="float_in">Float In</string>
+    <string name="finish_waste" translatable="false">Finish Waste</string>
+    <string name="float_in" translatable="false">Float In</string>
     <string name="font">Font</string>
-    <string name="free_short">F</string>
+    <string name="free_short" translatable="false">F</string>
     <string name="from">From</string>
     <string name="general_setting">General Settings</string>
-    <string name="go">Go!</string>
+    <string name="go" translatable="false">Go!</string>
     <string name="grand_total">Grand Total</string>
     <string name="have_not_endday">have not end day.</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world" translatable="false">Hello world!</string>
     <string name="hold">Hold</string>
     <string name="hold_bill">Show Hold Bill</string>
     <string name="hold_current_order">Please hold current order first.</string>
     <string name="incorrect_password">Incorrect password!</string>
     <string name="incorrect_staff_code">Incorrect staff code!</string>
-    <string name="info_cat">Information</string>
+    <string name="info_cat" translatable="false">Information</string>
     <string name="install_update">Install Update</string>
     <string name="internal_printer">Internal Printer</string>
     <string name="internal_printer_wintec">mPOS Printer</string>
@@ -241,8 +241,9 @@
     <string name="last_time_update_version">Last update</string>
     <string name="last_update">Last data update: </string>
     <string name="later">Later</string>
+    <string name="load_last_sale">Loading sale data…</string>
     <string name="load_master_progress">Loading master data…</string>
-    <string name="loading">Loading…</string>
+    <string name="loading" translatable="false">Loading…</string>
     <string name="login">Login</string>
     <string name="logout">Logout</string>
     <string name="max_months_to_keep_sale">Max months to keep sale data.</string>
@@ -262,10 +263,10 @@
     <string name="one_month">1 month</string>
     <string name="open_by">Opened by</string>
     <string name="open_price">Open price</string>
-    <string name="open_shift">Open Shift</string>
+    <string name="open_shift" translatable="false">Open Shift</string>
     <string name="open_time">Open Time</string>
     <string name="other_discount_short">Other Dist.</string>
-    <string name="over_or_short">Over/-Short</string>
+    <string name="over_or_short" translatable="false">Over/-Short</string>
     <string name="paid_time">Paid Time</string>
     <string name="password">Password</string>
     <string name="pay_type">Pay type</string>
@@ -277,7 +278,7 @@
     <string name="please_select">Please select</string>
     <string name="please_select_bank">Please select bank.</string>
     <string name="please_select_card">Please select card type.</string>
-    <string name="please_select_db">Please select database that you want to restore.</string>
+    <string name="please_select_db" translatable="false">Please select database that you want to restore.</string>
     <string name="please_wait">Please wait…</string>
     <string name="plus">+</string>
     <string name="port">Port</string>
@@ -286,13 +287,13 @@
     <string name="print_by">Printed By</string>
     <string name="print_date">Print Date</string>
     <string name="print_test">Print test</string>
-    <string name="print_test_text">123xxstreet,xxxcity,xxxxstate\n******TEL**9999-99-9999****C#2\n***November.23,*2007***PM*4:24\napples******************$20.00\ngrapes******************$30.00\nbananas*****************$40.00\nlemons******************$50.00\noranges*****************$60.00\nTax*excluded.**********$200.00\nTax*****5.0%************$10.00\n______________________________\nTotal******************$210.00\n</string>
+    <string name="print_test_text" translatable="false">123xxstreet,xxxcity,xxxxstate\n******TEL**9999-99-9999****C#2\n***November.23,*2007***PM*4:24\napples******************$20.00\ngrapes******************$30.00\nbananas*****************$40.00\nlemons******************$50.00\noranges*****************$60.00\nTax*excluded.**********$200.00\nTax*****5.0%************$10.00\n______________________________\nTotal******************$210.00\n</string>
     <string name="printer_ip">Printer IP</string>
     <string name="printer_ip_summary">ip address of printer</string>
     <string name="printer_name">Printer Name</string>
     <string name="printer_setting">Printer Settings</string>
     <string name="product_name">Product Name</string>
-    <string name="promise_system">pRoMiSe System</string>
+    <string name="promise_system" translatable="false">pRoMiSe System</string>
     <string name="promotion_short">Promotion</string>
     <string name="qty">Qty</string>
     <string name="reason">Reason</string>
@@ -305,8 +306,9 @@
     <string name="reset_endday">Reset Endday</string>
     <string name="reset_endday_success">Reset end day successfully.</string>
     <string name="reset_send_status">Reset send data status</string>
-    <string name="restore_db">Restore Database</string>
-    <string name="restore_db_success">Restore database successfully.</string>
+    <string name="restore_db" translatable="false">Restore Database</string>
+    <string name="restore_db_success" translatable="false">Restore database successfully.</string>
+    <string name="restore_last_sale">Do you want to restore lastes sale data?</string>
     <string name="rounding">Rounding</string>
     <string name="sale_by_bill_report">Sale By Bill Report</string>
     <string name="sale_by_product_report">Sale By Product Report</string>
@@ -320,7 +322,7 @@
     <string name="second_display_setting_summary">Setting ipaddress, connection port of second display.</string>
     <string name="select_item">Please selecte item first.</string>
     <string name="send_all">Send All</string>
-    <string name="send_data">Send Data</string>
+    <string name="send_data" translatable="false">Send Data</string>
     <string name="send_endday_data">Send endday data</string>
     <string name="send_endday_data_progress">Sending endday data to server…</string>
     <string name="send_endday_data_success">Send endday data successfully.</string>
@@ -330,11 +332,11 @@
     <string name="setting">Setting</string>
     <string name="shift_close_report">Shift close report</string>
     <string name="shop">Shop</string>
-    <string name="shop_info">Shop Info</string>
+    <string name="shop_info" translatable="false">Shop Info</string>
     <string name="show_menu_image">Show menu image</string>
     <string name="software_expired">Software Expired</string>
     <string name="software_expired_msg">mPOS has already expired! You can use until </string>
-    <string name="software_info">© 2013 All Rights Reserved. Synature Technology Co., Ltd.\n 
+    <string name="software_info" translatable="false">© 2013 All Rights Reserved. Synature Technology Co., Ltd.\n
 55/165 M.Banklangmuang, Soi Ladprao 88, Ladprao Rd.\n Wangthonglang, Bangkok, Thailand. 10310\n
 Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com</string>
     <string name="software_locked">mPOS has already locked. Please contact us for unlock.</string>
@@ -350,34 +352,35 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <string name="system_date">System Date</string>
     <string name="system_date_less">System date less than session date. Please check system date on your device.</string>
     <string name="system_date_more_than_session">System date more than session date. You must end previous sale date first.</string>
-    <string name="system_upgrade">System upgrading please wait…</string>
+    <string name="system_upgrade" translatable="false">System upgrading please wait…</string>
     <string name="team_viewer">Open TeamViewer</string>
     <string name="test">Test</string>
-    <string name="text_line1">Text Line 1</string>
-    <string name="text_line2">Text Line 2</string>
+    <string name="text_line1" translatable="false">Text Line 1</string>
+    <string name="text_line2" translatable="false">Text Line 2</string>
     <string name="three_month">3 month</string>
     <string name="time">Time</string>
-    <string name="title_activity_database_upgrading">DatabaseUpgradingActivity</string>
-    <string name="title_activity_send_log">Send Log</string>
-    <string name="tm_t88v">TM-T88V</string>
+    <string name="title_activity_database_upgrading" translatable="false">DatabaseUpgradingActivity</string>
+    <string name="title_activity_send_log" translatable="false">Send Log</string>
+    <string name="tm_t81" translatable="false">TM-T81II</string>
+    <string name="tm_t88v" translatable="false">TM-T88V</string>
     <string name="to">To</string>
     <string name="total">Total</string>
-    <string name="total_cash">Total Cash</string>
+    <string name="total_cash" translatable="false">Total Cash</string>
     <string name="total_payment">Total pay</string>
     <string name="total_price">Total price</string>
-    <string name="total_qty">Total Qty.</string>
+    <string name="total_qty" translatable="false">Total Qty.</string>
     <string name="total_receipt">Total Receipt</string>
     <string name="total_receive">Total receive</string>
     <string name="total_sale">Total Sale</string>
     <string name="total_sale_include_vat">Total Sale Include VAT</string>
     <string name="total_vat">Total VAT</string>
-    <string name="try_again">Try again</string>
+    <string name="try_again" translatable="false">Try again</string>
     <string name="two_month">2 month</string>
     <string name="unit_price">Unit Price</string>
     <string name="update_available">Update Available</string>
     <string name="update_data">Update Data</string>
     <string name="update_data_success">Update data successfully.</string>
-    <string name="url">Url</string>
+    <string name="url" translatable="false">Url</string>
     <string name="utility">Utility</string>
     <string name="vat">Vat</string>
     <string name="vat_exclude">Vat Excluded</string>
@@ -387,13 +390,13 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <string name="void_bill_after_paid">Void Bill After Paid</string>
     <string name="void_bill_success">Void bill successfully.</string>
     <string name="void_by">Voided By </string>
-    <string name="void_finish_waste">Void Finish Waste</string>
+    <string name="void_finish_waste" translatable="false">Void Finish Waste</string>
     <string name="void_receipt">Void Receipt</string>
     <string name="void_time">Void Time </string>
-    <string name="wintec_cash_drawer_settings">mPOS Cash Drawer Settings</string>
-    <string name="wintec_customer_display_settings">mPOS Customer Display Settings</string>
-    <string name="wintec_dev_path">Device path</string>
-    <string name="wintec_magnetic_reader_settings">mPOS Magnetic Reader Settings</string>
+    <string name="wintec_cash_drawer_settings" translatable="false">mPOS Cash Drawer Settings</string>
+    <string name="wintec_customer_display_settings" translatable="false">mPOS Customer Display Settings</string>
+    <string name="wintec_dev_path" translatable="false">Device path</string>
+    <string name="wintec_magnetic_reader_settings" translatable="false">mPOS Magnetic Reader Settings</string>
     <string name="wintec_setting">mPOS Settings</string>
     <string name="yes">Yes</string>
     <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m/mPOS/src/main/res/values/styles.xml -->

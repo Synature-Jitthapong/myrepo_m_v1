@@ -83,15 +83,50 @@ public class BillViewerFragment extends DialogFragment implements OnClickListene
 		return d;
 	}
 	
-	private class TextPrint extends WintecPrinter{
+	private class TextPrint extends PrinterBase{
 
 		public TextPrint(Context context) {
 			super(context);
 		}
 	}
 
+    private class PrintCheck extends PrintReceipt{
+
+        /**
+         * @param context
+         * @param listener
+         */
+        public PrintCheck(Context context, OnPrintReceiptListener listener) {
+            super(context, listener);
+        }
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            if(Utils.isInternalPrinterSetting(getActivity())){
+                WintecPrinter wtPrinter = new WintecPrinter(getActivity());
+                wtPrinter.mTextToPrint.append(mTextPrint.getTextToPrint());
+                wtPrinter.print();
+            }else{
+                EPSONPrinter epPrinter = new EPSONPrinter(getActivity());
+                epPrinter.mTextToPrint.append(mTextPrint.getTextToPrint());
+                epPrinter.print();
+            }
+            return null;
+        }
+    }
 	@Override
 	public void onClick(View v) {
-		mTextPrint.print();
+        PrintCheck printCheck = new PrintCheck(getActivity(), new PrintReceipt.OnPrintReceiptListener() {
+            @Override
+            public void onPrePrint() {
+                mBtnPrint.setEnabled(false);
+            }
+
+            @Override
+            public void onPostPrint() {
+                mBtnPrint.setEnabled(true);
+            }
+        });
+        printCheck.execute();
 	}
 }
