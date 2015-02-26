@@ -566,23 +566,11 @@ public class Utils {
 
     /**
      * @param context
-     * @return sync date time in iso8601 format
+     * @return sync date time in millisec
      */
     public static String getSyncDateTime(Context context){
-        String syncTime = "";
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-        String time = sharedPref.getString(SettingsActivity.KEY_PREF_SYNC_TIME, "");
-        if(!TextUtils.isEmpty(time)){
-            try {
-                String isoFormat = "yyyy-MM-dd HH:mm:ss";
-                SimpleDateFormat sFormat = new SimpleDateFormat(isoFormat);
-                Calendar calendar = Calendar.getInstance();
-                long millisec = Long.parseLong(time);
-                calendar.setTimeInMillis(millisec);
-                syncTime = sFormat.format(calendar.getTime());
-            } catch (NumberFormatException e) {}
-        }
-        return syncTime;
+        return sharedPref.getString(SettingsActivity.KEY_PREF_SYNC_TIME, "");
     }
 
     /**

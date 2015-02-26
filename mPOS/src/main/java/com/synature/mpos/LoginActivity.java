@@ -103,7 +103,13 @@ public class LoginActivity extends Activity implements OnClickListener,
 				setTitle(mShop.getShopName());
 				getActionBar().setSubtitle(mComputer.getComputerProperty().getComputerName());
 			}
-			mTvLastSyncTime.setText(getString(R.string.last_update) + " " + Utils.getSyncDateTime(this));
+            String updateDateMillisec = Utils.getSyncDateTime(this);
+            if(!TextUtils.isEmpty(updateDateMillisec)) {
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTimeInMillis(Long.parseLong(updateDateMillisec));
+                String updateDate = mFormat.dateTimeFormat(calendar.getTime());
+                mTvLastSyncTime.setText(getString(R.string.last_update) + " " + updateDate);
+            }
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -265,6 +271,7 @@ public class LoginActivity extends Activity implements OnClickListener,
 						intent.putExtra("staffId", 1);
 						intent.putExtra("shopId", mShop.getShopId());
 						intent.putExtra("computerId", mComputer.getComputerId());
+                        intent.putExtra("ignoreSendStatus", SendEnddayActivity.IGNORE_SEND_STATUS);
 						startActivity(intent);
 						return true;
 					case R.id.itemSendSale:
@@ -272,6 +279,7 @@ public class LoginActivity extends Activity implements OnClickListener,
 						intent.putExtra("staffId", 1);
 						intent.putExtra("shopId", mShop.getShopId());
 						intent.putExtra("computerId", mComputer.getComputerId());
+                        intent.putExtra("ignoreSendStatus", SendEnddayActivity.IGNORE_SEND_STATUS);
 						startActivity(intent);
 						return true;
 					case R.id.itemResetEndday:

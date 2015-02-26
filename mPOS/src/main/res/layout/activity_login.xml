@@ -91,9 +91,10 @@
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_action_time"
+        android:layout_alignParentTop="false"
         android:layout_toLeftOf="@+id/myDigitalClock1"
-        android:src="@drawable/ic_action_time" />
+        android:layout_toStartOf="@+id/myDigitalClock1" />
 
     <com.synature.mpos.MyDigitalClock
         android:id="@+id/myDigitalClock1"

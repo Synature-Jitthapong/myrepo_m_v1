@@ -358,7 +358,9 @@ public class SaleTransaction extends MPOSDatabase{
 					saleSess.setfOpenSessionAmount(Utils.fixesDigitLength(mFormat, 4,cursor.getDouble(cursor.getColumnIndex(SessionTable.COLUMN_OPEN_AMOUNT))));
 					saleSess.setfCloseSessionAmount(Utils.fixesDigitLength(mFormat, 4,cursor.getDouble(cursor.getColumnIndex(SessionTable.COLUMN_CLOSE_AMOUNT))));
 					saleSess.setiIsEndDaySession(cursor.getInt(cursor.getColumnIndex(SessionTable.COLUMN_IS_ENDDAY)));
-					saleSessLst.add(saleSess);
+					saleSess.setiOpenStaffID(cursor.getInt(cursor.getColumnIndex(SessionTable.COLUMN_OPEN_STAFF)));
+                    saleSess.setiCloseStaffID(cursor.getInt(cursor.getColumnIndex(SessionTable.COLUMN_CLOSE_STAFF)));
+                    saleSessLst.add(saleSess);
 				} while (cursor.moveToNext());
 			}
 			cursor.close();
@@ -2001,7 +2003,7 @@ public class SaleTransaction extends MPOSDatabase{
         }
     }
 
-    public class SaleData_CashInOutDetail
+    public static class SaleData_CashInOutDetail
     {
         private int iOrderID;
         private int iProductID;

@@ -1,17 +1,24 @@
 package com.synature.mpos;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import com.synature.mpos.datasource.GlobalPropertyDataSource;
+import com.synature.mpos.datasource.MPOSDatabase;
 import com.synature.mpos.datasource.SessionDataSource;
 import com.synature.mpos.datasource.model.Session;
+import com.synature.mpos.datasource.table.BaseColumn;
+import com.synature.mpos.datasource.table.SessionDetailTable;
+import com.synature.mpos.datasource.table.SessionTable;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
@@ -31,13 +38,15 @@ import android.widget.TextView;
 
 public class SendEnddayActivity extends Activity {
 
+    public static final int IGNORE_SEND_STATUS = 1;
+
 	private GlobalPropertyDataSource mFormat;
 	
 	private int mStaffId;
 	private int mShopId;
 	private int mComputerId;
-	
-	private SessionDataSource mSession;
+    private int mIgnoreSendStatus;
+
 	private List<Session> mSessLst;
 	private EnddayListAdapter mEnddayAdapter;
 	
@@ -65,9 +74,11 @@ public class SendEnddayActivity extends Activity {
 		mStaffId = intent.getIntExtra("staffId", 0);
 		mShopId = intent.getIntExtra("shopId", 0);
 		mComputerId = intent.getIntExtra("computerId", 0);
-		
+        int ignoreSendStatus = intent.getIntExtra("ignoreSendStatus", 0);
+        if(ignoreSendStatus == 1){
+            mIgnoreSendStatus = ignoreSendStatus;
+        }
 		mFormat = new GlobalPropertyDataSource(this);
-		mSession = new SessionDataSource(this);
 		setupAdapter();
 	}
 
@@ -93,7 +104,7 @@ public class SendEnddayActivity extends Activity {
 	}
 	
 	private void setupAdapter(){
-		mSessLst = mSession.listSessionEnddayNotSend();
+		mSessLst = listSessionEnddayNotSend();
 		if(mSessLst != null){
 			if(mEnddayAdapter == null){
 				mEnddayAdapter = new EnddayListAdapter();
@@ -207,5 +218,45 @@ public class SendEnddayActivity extends Activity {
 			TextView tvSummary;
 			ImageButton btnSend;
 		}
+	}
+
+    public List<com.synature.mpos.datasource.model.Session> listSessionEnddayNotSend(){
+        MPOSDatabase.MPOSOpenHelper helper = MPOSDatabase.MPOSOpenHelper.getInstance(this);
+        SQLiteDatabase db = helper.getReadableDatabase();
+		List<com.synature.mpos.datasource.model.Session> sessLst = null;
+        String sql = "SELECT " + SessionTable.COLUMN_SESS_DATE + ","
+                + SessionDetailTable.COLUMN_TOTAL_QTY_RECEIPT + ", "
+                + SessionDetailTable.COLUMN_TOTAL_AMOUNT_RECEIPT
+                + " FROM " + SessionDetailTable.TABLE_SESSION_ENDDAY_DETAIL
+                + " WHERE " + SessionDetailTable.COLUMN_TOTAL_QTY_RECEIPT + " >? "
+                + " AND " + BaseColumn.COLUMN_SEND_STATUS + "=?";
+        String[] args = new String[]{
+                String.valueOf(0),
+                String.valueOf(MPOSDatabase.NOT_SEND)
+        };
+        if(mIgnoreSendStatus == 1){
+            sql = "SELECT " + SessionTable.COLUMN_SESS_DATE + ","
+                    + SessionDetailTable.COLUMN_TOTAL_QTY_RECEIPT + ", "
+                    + SessionDetailTable.COLUMN_TOTAL_AMOUNT_RECEIPT
+                    + " FROM " + SessionDetailTable.TABLE_SESSION_ENDDAY_DETAIL
+                    + " WHERE " + SessionDetailTable.COLUMN_TOTAL_QTY_RECEIPT + " >? ";
+            args = new String[]{
+                    String.valueOf(0)
+            };
+        }
+		Cursor cursor = db.rawQuery(sql, args);
+		if(cursor.moveToFirst()){
+			sessLst = new ArrayList<Session>();
+			do{
+				com.synature.mpos.datasource.model.Session session
+					= new com.synature.mpos.datasource.model.Session();
+				session.setSessionDate(cursor.getString(cursor.getColumnIndex(SessionTable.COLUMN_SESS_DATE)));
+				session.setTotalQtyReceipt(cursor.getInt(cursor.getColumnIndex(SessionDetailTable.COLUMN_TOTAL_QTY_RECEIPT)));
+				session.setTotalAmountReceipt(cursor.getDouble(cursor.getColumnIndex(SessionDetailTable.COLUMN_TOTAL_AMOUNT_RECEIPT)));
+				sessLst.add(session);
+			}while(cursor.moveToNext());
+		}
+		cursor.close();
+		return sessLst;
 	}
 }

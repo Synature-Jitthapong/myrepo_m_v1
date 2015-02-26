@@ -62,7 +62,7 @@ public class DiscountActivity extends Activity implements OnItemClickListener,
 	
 	private int mTransactionId;
 	private int mPosition = -1;
-	private int mDisAllType = PERCENT_DISCOUNT_TYPE;	// default is percent discount
+	private int mDisAllType = PRICE_DISCOUNT_TYPE;
 	
 	private LinearLayout mSummaryContainer;
 	private ListView mLvDiscount;
@@ -154,7 +154,7 @@ public class DiscountActivity extends Activity implements OnItemClickListener,
 			mTotalRetailPrice = getArguments().getDouble("totalRetailPrice");
 			mPriceOrPercent = getArguments().getInt("priceOrPercent");
 			if(mPriceOrPercent == 0)
-				mPriceOrPercent = PERCENT_DISCOUNT_TYPE;
+				mPriceOrPercent = PRICE_DISCOUNT_TYPE;
 			
 			LayoutInflater inflater = (LayoutInflater)
 					getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);

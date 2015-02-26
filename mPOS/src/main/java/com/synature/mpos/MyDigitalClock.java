@@ -1,32 +1,46 @@
 package com.synature.mpos;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import android.content.Context;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.text.format.DateFormat;
+import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
+
+import com.synature.mpos.datasource.GlobalPropertyDataSource;
+import com.synature.pos.GlobalProperty;
 
 public class MyDigitalClock extends TextView {
     private Calendar mCalendar;
     private Runnable mTicker;
     private Handler mHandler;
+    private String mFormat;
+    private SimpleDateFormat mSimFormat;
     private boolean mTickerStopped = false;
-    private String mFormat = "d/MM/yyyy hh:mm:ss";
 
     public MyDigitalClock(Context context) {
         super(context);
-        initClock();
+        initClock(context);
     }
 
     public MyDigitalClock(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initClock();
+        initClock(context);
     }
 
-    private void initClock() {
+    private void initClock(Context context) {
+        GlobalPropertyDataSource global = new GlobalPropertyDataSource(context);
+        GlobalProperty globalProperty = global.getGlobalProperty();
+        mFormat = globalProperty.getDateFormat()
+                + " " + globalProperty.getTimeFormat();
+        if(!TextUtils.isEmpty(mFormat)){
+            mSimFormat = new SimpleDateFormat(mFormat);
+        }
     	mCalendar = Utils.getCalendar();
     }
     
@@ -43,7 +57,11 @@ public class MyDigitalClock extends TextView {
             public void run() {
                 if (mTickerStopped) return;
                 mCalendar.setTimeInMillis(System.currentTimeMillis());
-                setText(DateFormat.format(mFormat, mCalendar.getTime()));
+                if(mSimFormat != null) {
+                    setText(mSimFormat.format(mCalendar.getTime()));
+                }else{
+                    setText(DateFormat.getDateTimeInstance().format(mCalendar.getTime()));
+                }
                 invalidate();
                 long now = SystemClock.uptimeMillis();
                 long next = now + (1000 - now % 1000);

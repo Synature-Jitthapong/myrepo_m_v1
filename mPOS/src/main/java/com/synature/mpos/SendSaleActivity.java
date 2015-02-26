@@ -46,6 +46,7 @@ public class SendSaleActivity extends Activity{
 	private int mShopId;
 	private int mComputerId;
 	private int mStaffId;
+    private int mIgnoreSendStatus;
 	private String mDate;
 	private GlobalPropertyDataSource mGlobal;
 	private List<OrderTransaction> mTransLst;
@@ -79,6 +80,10 @@ public class SendSaleActivity extends Activity{
 		mStaffId = intent.getIntExtra("staffId", 0);
 		mShopId = intent.getIntExtra("shopId", 0);
 		mComputerId = intent.getIntExtra("computerId", 0);
+        int ignoreSendStatus = intent.getIntExtra("ignoreSendStatus", 0);
+        if(ignoreSendStatus == 1){
+            mIgnoreSendStatus = ignoreSendStatus;
+        }
 		mDate = String.valueOf(Utils.getDate().getTimeInMillis());
 
 		setupCustomView();
@@ -204,6 +209,24 @@ public class SendSaleActivity extends Activity{
 	private List<OrderTransaction> listNotSendTransaction(){
 		List<OrderTransaction> transLst = new ArrayList<OrderTransaction>();
 		MPOSDatabase.MPOSOpenHelper helper = MPOSDatabase.MPOSOpenHelper.getInstance(getApplicationContext());
+        String selection = OrderTransTable.COLUMN_SALE_DATE + "=?"
+                + " AND " + OrderTransTable.COLUMN_STATUS_ID + " IN(?,?) "
+                + " AND " + BaseColumn.COLUMN_SEND_STATUS + " =? ";
+        String[] selectArgs = new String[]{
+                mDate,
+                String.valueOf(OrderTransDataSource.TRANS_STATUS_VOID),
+                String.valueOf(OrderTransDataSource.TRANS_STATUS_SUCCESS),
+                String.valueOf(MPOSDatabase.NOT_SEND)
+        };
+        if(mIgnoreSendStatus == 1){
+            selection = OrderTransTable.COLUMN_SALE_DATE + "=?"
+                    + " AND " + OrderTransTable.COLUMN_STATUS_ID + " IN(?,?) ";
+            selectArgs = new String[]{
+                    mDate,
+                    String.valueOf(OrderTransDataSource.TRANS_STATUS_VOID),
+                    String.valueOf(OrderTransDataSource.TRANS_STATUS_SUCCESS)
+            };
+        }
 		Cursor cursor = helper.getReadableDatabase().query(OrderTransTable.TABLE_ORDER_TRANS,
 				new String[]{
 					OrderTransTable.COLUMN_TRANS_ID,
@@ -212,15 +235,7 @@ public class SendSaleActivity extends Activity{
 					OrderTransTable.COLUMN_RECEIPT_NO,
 					OrderTransTable.COLUMN_CLOSE_TIME,
 					BaseColumn.COLUMN_SEND_STATUS
-				}, OrderTransTable.COLUMN_SALE_DATE + "=?" 
-				+ " AND " + OrderTransTable.COLUMN_STATUS_ID + " IN(?,?) "
-                + " AND " + BaseColumn.COLUMN_SEND_STATUS + " =? ",
-				new String[]{
-					mDate,
-                    String.valueOf(OrderTransDataSource.TRANS_STATUS_VOID),
-					String.valueOf(OrderTransDataSource.TRANS_STATUS_SUCCESS),
-				 	String.valueOf(MPOSDatabase.NOT_SEND)
-				}, null, null, OrderTransTable.COLUMN_TRANS_ID);
+				}, selection, selectArgs, null, null, OrderTransTable.COLUMN_TRANS_ID);
 		if(cursor.moveToFirst()){
 			do{
 				OrderTransaction trans = new OrderTransaction();
