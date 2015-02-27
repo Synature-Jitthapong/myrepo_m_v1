@@ -352,7 +352,6 @@ public class LoginActivity extends Activity implements OnClickListener,
 		}
 		displayWelcome();
 		checkUpdate();
-        checkLocalSaleData();
 		super.onResume();
 	}
 	

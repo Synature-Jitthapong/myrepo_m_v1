@@ -64,11 +64,13 @@ public class SaleReportActivity extends Activity{
 	public static final int REPORT_ENDDAY = 2;
 	
 	private ShopDataSource mShop;
+    private SessionDataSource mSession;
 	private GlobalPropertyDataSource mFormat;
 	private Reporting mReporting;
 
 	private int mStaffId;
-	
+
+    private String mSessionDate;
 	private String mDateFrom;
 	private String mDateTo;
 	
@@ -80,9 +82,11 @@ public class SaleReportActivity extends Activity{
 		setTitle(null);
 		
 		mShop = new ShopDataSource(this);
+        mSession = new SessionDataSource(this);
 		mFormat = new GlobalPropertyDataSource(SaleReportActivity.this);
-		mDateFrom = String.valueOf(Utils.getDate().getTimeInMillis());
-		mDateTo = String.valueOf(Utils.getDate().getTimeInMillis());
+        mSessionDate = mSession.getLastSessionDate();
+		mDateFrom = mSessionDate;
+		mDateTo = mSessionDate;
 
 		mReporting = new Reporting(SaleReportActivity.this, mDateFrom, mDateTo);
 		
@@ -119,7 +123,7 @@ public class SaleReportActivity extends Activity{
 		@Override
 		public void onItemSelected(AdapterView<?> parent, View v, int position,
 				long id) {
-            mDateTo = String.valueOf(Utils.getDate().getTimeInMillis());
+            mDateTo = mSessionDate;
             mReporting.setDateTo(mDateTo);
 			switch(position){
 			case REPORT_BY_BILL:
@@ -149,8 +153,8 @@ public class SaleReportActivity extends Activity{
 		MenuItem itemCondition = (MenuItem) menu.findItem(R.id.itemDateCondition);
 		Button btnDateFrom = (Button) itemCondition.getActionView().findViewById(R.id.btnDateFrom);
 		Button btnDateTo = (Button) itemCondition.getActionView().findViewById(R.id.btnDateTo);
-		btnDateFrom.setText(mFormat.dateFormat(Utils.getDate().getTime()));
-		btnDateTo.setText(mFormat.dateFormat(Utils.getDate().getTime()));
+		btnDateFrom.setText(mFormat.dateFormat(mSessionDate));
+		btnDateTo.setText(mFormat.dateFormat(mSessionDate));
 		btnDateFrom.setOnClickListener(new OnDateClickListener());
 		btnDateTo.setOnClickListener(new OnDateClickListener());
 		return super.onCreateOptionsMenu(menu);

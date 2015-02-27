@@ -212,6 +212,7 @@
     <string name="total_sale">ราคาสุทธิ</string>
     <string name="total_sale_include_vat">ราคารวมภาษี</string>
     <string name="total_vat">ภาษีขาย</string>
+    <string name="try_again" translatable="false">ลองอีกครั้ง</string>
     <string name="two_month">2 เดือน</string>
     <string name="unit_price">ราคา/หน่วย</string>
     <string name="update_available">แจ้งอัพเดตโปรแกรม</string>

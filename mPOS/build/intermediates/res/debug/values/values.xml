@@ -374,7 +374,7 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <string name="total_sale">Total Sale</string>
     <string name="total_sale_include_vat">Total Sale Include VAT</string>
     <string name="total_vat">Total VAT</string>
-    <string name="try_again" translatable="false">Try again</string>
+    <string name="try_again">Try again</string>
     <string name="two_month">2 month</string>
     <string name="unit_price">Unit Price</string>
     <string name="update_available">Update Available</string>

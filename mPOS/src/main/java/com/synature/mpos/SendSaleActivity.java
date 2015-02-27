@@ -7,6 +7,7 @@ import java.util.List;
 import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.MPOSDatabase;
 import com.synature.mpos.datasource.OrderTransDataSource;
+import com.synature.mpos.datasource.SessionDataSource;
 import com.synature.mpos.datasource.table.BaseColumn;
 import com.synature.mpos.datasource.table.ComputerTable;
 import com.synature.mpos.datasource.table.OrderTransTable;
@@ -84,7 +85,8 @@ public class SendSaleActivity extends Activity{
         if(ignoreSendStatus == 1){
             mIgnoreSendStatus = ignoreSendStatus;
         }
-		mDate = String.valueOf(Utils.getDate().getTimeInMillis());
+        SessionDataSource session = new SessionDataSource(this);
+		mDate = session.getLastSessionDate();
 
 		setupCustomView();
 		loadTransNotSend();

@@ -46,8 +46,9 @@ import android.widget.TextView;
 public class VoidBillActivity extends Activity {
 	
 	private OrderTransDataSource mTrans;
+    private SessionDataSource mSession;
 	private GlobalPropertyDataSource mFormat;
-	
+
 	private List<OrderTransaction> mTransLst;
 	private BillAdapter mBillAdapter;
 	
@@ -56,6 +57,7 @@ public class VoidBillActivity extends Activity {
 	private int mShopId;
 	private int mStaffId;
 	private int mVoidType = 1;
+    private String mSessionDate;
 	
 	private ListView mLvBill;
 	private TextView tvSaleDate;
@@ -75,13 +77,15 @@ public class VoidBillActivity extends Activity {
 	    btnSearch = (Button) findViewById(R.id.btnSearch);
 	    mScrBill = (ScrollView) findViewById(R.id.scrollView1);
 
-		mTrans = new OrderTransDataSource(getApplicationContext());
-		mFormat = new GlobalPropertyDataSource(getApplicationContext());
+		mTrans = new OrderTransDataSource(this);
+        mSession = new SessionDataSource(this);
+		mFormat = new GlobalPropertyDataSource(this);
 		mTransLst = new ArrayList<OrderTransaction>();
 		mBillAdapter = new BillAdapter();
 		mLvBill.setAdapter(mBillAdapter);
-		
-		tvSaleDate.setText(mFormat.dateFormat(Utils.getCalendar().getTime()));
+
+        mSessionDate = mSession.getLastSessionDate();
+		tvSaleDate.setText(mFormat.dateFormat(mSessionDate));
 	    
 	    btnSearch.setOnClickListener(new OnClickListener(){
 
@@ -246,9 +250,9 @@ public class VoidBillActivity extends Activity {
 	
 	private void searchBill(){	
 		if(mVoidType == 1){
-			mTransLst = mTrans.listTransaction(String.valueOf(Utils.getDate().getTimeInMillis()));
+			mTransLst = mTrans.listTransaction(mSessionDate);
 		}else if(mVoidType == 2){
-			mTransLst = mTrans.listTransactionWaste(String.valueOf(Utils.getDate().getTimeInMillis()));
+			mTransLst = mTrans.listTransactionWaste(mSessionDate);
 		}
 		if(mTransLst.size() == 0){
 			new AlertDialog.Builder(VoidBillActivity.this)

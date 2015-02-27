@@ -228,4 +228,5 @@
     <string name="team_viewer">เปิด TeamViewer</string>
     <string name="load_last_sale">กำลังโหลดข้อมูลการขายล่าสุด&#8230;</string>
     <string name="restore_last_sale">ต้องการนำข้อมูลการขายล่าสุดเข้าเครื่องขายหรือไม่?</string>
+    <string name="try_again" translatable="false">ลองอีกครั้ง</string>
 </resources>
