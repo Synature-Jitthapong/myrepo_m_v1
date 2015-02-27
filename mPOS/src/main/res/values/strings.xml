@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">mPOS</string>
-    <string name="tm_t88v">TM-T88V</string>
-    <string name="default_second_display_port">6600</string>
+    <string name="app_name" translatable="false">mPOS</string>
+    <string name="tm_t81" translatable="false">TM-T81II</string>
+    <string name="tm_t88v" translatable="false">TM-T88V</string>
+    <string name="default_second_display_port" translatable="false">6600</string>
     <string name="login">Login</string>
     <string name="staff_code">Staff code</string>
     <string name="password">Password</string>
@@ -30,7 +31,7 @@
     <string name="bank">Bank</string>
     <string name="card_type">Card type</string>
     <string name="expire_date">Expire</string>
-    <string name="enter">Enter</string>
+    <string name="enter" translatable="false">Enter</string>
     <string name="qty">Qty</string>
     <string name="sale_price">Sale price</string>
     <string name="vat_exclude">Vat Excluded</string>
@@ -64,14 +65,14 @@
     <string name="printer_ip">Printer IP</string>
     <string name="printer_name">Printer Name</string>
     <string name="printer_setting">Printer Settings</string>
-    <string name="software_info">© 2013 All Rights Reserved. Synature Technology Co., Ltd.\n 
+    <string name="software_info" translatable="false">© 2013 All Rights Reserved. Synature Technology Co., Ltd.\n
 55/165 M.Banklangmuang, Soi Ladprao 88, Ladprao Rd.\n Wangthonglang, Bangkok, Thailand. 10310\n
 Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com</string>
     <string name="void_bill">Void Bill</string>
     <string name="endday">End Day</string>
-    <string name="info_cat">Information</string>
-    <string name="shop_info">Shop Info</string>
-    <string name="open_shift">Open Shift</string>
+    <string name="info_cat" translatable="false">Information</string>
+    <string name="shop_info" translatable="false">Shop Info</string>
+    <string name="open_shift" translatable="false">Open Shift</string>
     <string name="close_shift">Close Shift</string>
     <string name="search">Search</string>
     <string name="paid_time">Paid Time</string>
@@ -112,7 +113,7 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <string name="minus">-</string>
     <string name="print_test">Print test</string>
     <string name="print">Print</string>
-    <string name="print_test_text">123xxstreet,xxxcity,xxxxstate\n******TEL**9999-99-9999****C#2\n***November.23,*2007***PM*4:24\napples******************$20.00\ngrapes******************$30.00\nbananas*****************$40.00\nlemons******************$50.00\noranges*****************$60.00\nTax*excluded.**********$200.00\nTax*****5.0%************$10.00\n______________________________\nTotal******************$210.00\n</string>
+    <string name="print_test_text" translatable="false">123xxstreet,xxxcity,xxxxstate\n******TEL**9999-99-9999****C#2\n***November.23,*2007***PM*4:24\napples******************$20.00\ngrapes******************$30.00\nbananas*****************$40.00\nlemons******************$50.00\noranges*****************$60.00\nTax*excluded.**********$200.00\nTax*****5.0%************$10.00\n______________________________\nTotal******************$210.00\n</string>
     <string name="not_found_printer">Not found printer!</string>
     <string name="cashier">Cashier</string>
     <string name="computer_setting_not_valid">Computer settings not valid!</string>
@@ -147,7 +148,7 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <string name="summary_sale_report">Summary sale report</string>
     <string name="cannot_update_data">Cannot update data.</string>
     <string name="cannot_connect_to_network">Cannot connect to network.</string>
-    <string name="promise_system">pRoMiSe System</string>
+    <string name="promise_system" translatable="false">pRoMiSe System</string>
     <string name="show_menu_image">Show menu image</string>
     <string name="general_setting">General Settings</string>
     <string name="menu_comment">Menu Comment</string>
@@ -157,7 +158,7 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <string name="enable_second_display">Enable Second Display</string>
     <string name="open_time">Open Time</string>
     <string name="staff">Staff</string>
-    <string name="url">Url</string>
+    <string name="url" translatable="false">Url</string>
     <string name="sale_date">Sale Date</string>
     <string name="set_menu">Set Menu</string>
     <string name="send_sale_data_success">Send sale data successfully.</string>
@@ -173,56 +174,56 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <string name="apply">Apply</string>
     <string name="balance">Balance</string>
     <string name="card_no">Card No.</string>
-    <string name="comment">Comment</string>
-    <string name="clear">Clear</string>
+    <string name="comment" translatable="false">Comment</string>
+    <string name="clear" translatable="false">Clear</string>
     <string name="reset">Reset</string>
     <string name="send_endday_data">Send endday data</string>
     <string name="confirm_send_endday_now">Do you want to send endday data now?</string>
     <string name="send_endday_data_success">Send endday data successfully.</string>
     <string name="last_session">Last Session: </string>
     <string name="current_sale_date">Current sale date: </string>
-    <string name="loading">Loading&#8230;</string>
-    <string name="epson_printer">Epson Printer</string>
-    <string name="baud_rate">Baud Rate</string>
-    <string name="wintec_dev_path">Device path</string>
-    <string name="wintec_magnetic_reader_settings">mPOS Magnetic Reader Settings</string>
-    <string name="wintec_cash_drawer_settings">mPOS Cash Drawer Settings</string>
-    <string name="wintec_customer_display_settings">mPOS Customer Display Settings</string>
-    <string name="enable_wintec_customer_display">Enable mPOS Customer Display</string>
-    <string name="connection_time_out">Connection time out</string>
+    <string name="loading" translatable="false">Loading&#8230;</string>
+    <string name="epson_printer" translatable="false">Epson Printer</string>
+    <string name="baud_rate" translatable="false">Baud Rate</string>
+    <string name="wintec_dev_path" translatable="false">Device path</string>
+    <string name="wintec_magnetic_reader_settings" translatable="false">mPOS Magnetic Reader Settings</string>
+    <string name="wintec_cash_drawer_settings" translatable="false">mPOS Cash Drawer Settings</string>
+    <string name="wintec_customer_display_settings" translatable="false">mPOS Customer Display Settings</string>
+    <string name="enable_wintec_customer_display" translatable="false">Enable mPOS Customer Display</string>
+    <string name="connection_time_out" translatable="false">Connection time out</string>
     <string name="exit">Exit</string>
     <string name="other_discount_short">Other Dist.</string>
     <string name="cash_paid">Cash Paid</string>
     <string name="promotion_short">Promotion</string>
     <string name="confirm_fast_payment">Confirm fast payment?</string>
     <string name="edit_open_shift">Edit Open Shift</string>
-    <string name="send_data">Send Data</string>
+    <string name="send_data" translatable="false">Send Data</string>
     <string name="send_endday_data_progress">Sending endday data to server&#8230;</string>
     <string name="cannot_send_endday_data_on_this_time">Cannot send endday data on this time.\nDo you want to try again?</string>
-    <string name="copy">Copy</string>
-    <string name="confirm_clear_discount">Are you sure you want to clear discount?</string>
-    <string name="backup_db">Backup Database</string>
-    <string name="backup_db_success">Backup database successfully.</string>
-    <string name="total_qty">Total Qty.</string>
-    <string name="float_in">Float In</string>
-    <string name="total_cash">Total Cash</string>
-    <string name="cash_in_drawer">Cash In Drawer</string>
-    <string name="over_or_short">Over/-Short</string>
-    <string name="cash_count">Cash Count</string>
+    <string name="copy" translatable="false">Copy</string>
+    <string name="confirm_clear_discount" translatable="false">Are you sure you want to clear discount?</string>
+    <string name="backup_db" translatable="false">Backup Database</string>
+    <string name="backup_db_success" translatable="false">Backup database successfully.</string>
+    <string name="total_qty" translatable="false">Total Qty.</string>
+    <string name="float_in" translatable="false">Float In</string>
+    <string name="total_cash" translatable="false">Total Cash</string>
+    <string name="cash_in_drawer" translatable="false">Cash In Drawer</string>
+    <string name="over_or_short" translatable="false">Over/-Short</string>
+    <string name="cash_count" translatable="false">Cash Count</string>
     <string name="wintec_setting">mPOS Settings</string>
     <string name="confirm_cancel_order">Are you sure you want to cancel orders?</string>
-    <string name="text_line1">Text Line 1</string>
-    <string name="text_line2">Text Line 2</string>
+    <string name="text_line1" translatable="false">Text Line 1</string>
+    <string name="text_line2" translatable="false">Text Line 2</string>
     <string name="item_selection">Selected item</string>
     <string name="confirm_exit">Are you sure you want to exit program?</string>
     <string name="language">Language</string>
-    <string name="go">Go!</string>
-    <string name="backup">Backup</string>
+    <string name="go" translatable="false">Go!</string>
+    <string name="backup" translatable="false">Backup</string>
     <string name="last_update">Last data update: </string>
     <string name="version">Version: </string>
-    <string name="cannot_add">Cannot add</string>
-    <string name="cannot_update">Cannot update</string>
-    <string name="because_deduct_at">because this item deducted at</string>
+    <string name="cannot_add" translatable="false">Cannot add</string>
+    <string name="cannot_update" translatable="false">Cannot update</string>
+    <string name="because_deduct_at" translatable="false">because this item deducted at</string>
     <string name="please_wait">Please wait&#8230;</string>
     <string name="from">From</string>
     <string name="all_session">--All Session--</string>
@@ -236,9 +237,9 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <string name="not_have_permission_to_other_discount">You not have permission to do Other Discount.</string>
     <string name="not_have_permission_to_access_pos">You not have permission to access mPOS.</string>
     <string name="test">Test</string>
-    <string name="restore_db_success">Restore database successfully.</string>
-    <string name="restore_db">Restore Database</string>
-    <string name="please_select_db">Please select database that you want to restore.</string>
+    <string name="restore_db_success" translatable="false">Restore database successfully.</string>
+    <string name="restore_db" translatable="false">Restore Database</string>
+    <string name="please_select_db" translatable="false">Please select database that you want to restore.</string>
     <string name="software_update">Software Update</string>
     <string name="total_sale_include_vat">Total Sale Include VAT</string>
     <string name="check_network_progress">Checking network connection&#8230;</string>
@@ -250,15 +251,15 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <string name="rounding">Rounding</string>
     <string name="diff">Diff</string>
     <string name="num_menu_columns">Display Menu Columns</string>
-    <string name="title_activity_send_log">Send Log</string>
+    <string name="title_activity_send_log" translatable="false">Send Log</string>
     <string name="reset_endday">Reset Endday</string>
     <string name="confirm_reset_endday">Are you sure you want to reset end day on</string>
     <string name="have_not_endday">have not end day.</string>
     <string name="reset_endday_success">Reset end day successfully.</string>
-    <string name="backup_restore">Backup &amp; Restore Database</string>
+    <string name="backup_restore" translatable="false">Backup &amp; Restore Database</string>
     <string name="reset_send_status">Reset send data status</string>
     <string name="confirm_reset_send_status">Are you sure you want to reset send data status</string>
-    <string name="finish_waste">Finish Waste</string>
+    <string name="finish_waste" translatable="false">Finish Waste</string>
     <string name="downloading">Downloading</string>
     <string name="check_update">Check for update</string>
     <string name="download_complete">Download complete.</string>
@@ -275,13 +276,15 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <string name="one_month">1 month</string>
     <string name="two_month">2 month</string>
     <string name="three_month">3 month</string>
-    <string name="auto_backup_database">Auto backup database</string>
-    <string name="void_finish_waste">Void Finish Waste</string>
-    <string name="bill_check">Bill Check</string>
-    <string name="free_short">F</string>
-    <string name="title_activity_database_upgrading">DatabaseUpgradingActivity</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="system_upgrade">System upgrading please wait&#8230;</string>
+    <string name="auto_backup_database" translatable="false">Auto backup database</string>
+    <string name="void_finish_waste" translatable="false">Void Finish Waste</string>
+    <string name="bill_check" translatable="false">Bill Check</string>
+    <string name="free_short" translatable="false">F</string>
+    <string name="title_activity_database_upgrading" translatable="false">DatabaseUpgradingActivity</string>
+    <string name="hello_world" translatable="false">Hello world!</string>
+    <string name="action_settings" translatable="false">Settings</string>
+    <string name="system_upgrade" translatable="false">System upgrading please wait&#8230;</string>
     <string name="team_viewer">Open TeamViewer</string>
+    <string name="load_last_sale">Loading sale data&#8230;</string>
+    <string name="restore_last_sale">Do you want to restore lastes sale data?</string>
 </resources>

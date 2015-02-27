@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="pref_printer_name">
-        <item>TM-T81</item>
+        <item>@string/tm_t81</item>
         <item>@string/tm_t88v</item>
     </string-array>
     <string-array name="pref_printer_value">
-        <item>TM-T88V</item>
+        <item>@string/tm_t81</item>
         <item>@string/tm_t88v</item>
     </string-array>
     <string-array name="baudrates_name">

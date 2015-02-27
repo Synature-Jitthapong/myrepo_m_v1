@@ -269,21 +269,11 @@ public class DiscountActivity extends Activity implements OnItemClickListener,
 		return true;
 	}
 
-	/*
-	 * this following by 
-	 * if discount = 200
-	 * A 100 (100 / 1000) * 200 = x
-	 * B 200 (200 / 1000) * 200 = y
-	 * C 300 (300 / 1000) * 200 = z
-	 * D 400 = 200 - (x + y + z)
-	 * Total 1000
-	 */
 	private void discountAll(){
 		if(!TextUtils.isEmpty(mTxtDisAll.getText())){
 			InputMethodManager imm = (InputMethodManager)getSystemService(
 				      Context.INPUT_METHOD_SERVICE);
 				imm.hideSoftInputFromWindow(mTxtDisAll.getWindowToken(), 0);
-			// clear discount first
 			clearDiscount();
 			try {
 				ProductsDataSource product = new ProductsDataSource(this);

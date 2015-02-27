@@ -70,7 +70,7 @@ public class EPSONPrinter extends PrinterBase implements
 		}
 		close();
 	}
-	
+
 	private void createLaoBuilderCommand() throws EposException{
 		ThreeLevelByteCode level = LevelTextPrint.parsingLaoLevel(mTextToPrint.toString());
 		mBuilder.addCommand(level.getLine2());

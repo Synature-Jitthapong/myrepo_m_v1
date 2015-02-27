@@ -101,6 +101,7 @@
     <string name="last_time_update_version">อัพเดตเวอร์ชันล่าสุดเมื่อ</string>
     <string name="last_update">อัพเดตข้อมูลล่าสุด: </string>
     <string name="later">ภายหลัง</string>
+    <string name="load_last_sale">กำลังโหลดข้อมูลการขายล่าสุด…</string>
     <string name="load_master_progress">กำลังโหลดข้อมูล master…</string>
     <string name="login">ล็อกอิน</string>
     <string name="logout">ออกจากระบบ</string>
@@ -159,6 +160,7 @@
     <string name="reset_endday">รีเซ็ตการปิดสิ้นวัน</string>
     <string name="reset_endday_success">รีเซ็ตการปิดสิ้นวันสำเร็จ</string>
     <string name="reset_send_status">รีเซ็ทสถานะการส่งข้อมูล</string>
+    <string name="restore_last_sale">ต้องการนำข้อมูลการขายล่าสุดเข้าเครื่องขายหรือไม่?</string>
     <string name="rounding">ปัดเศษ</string>
     <string name="sale_by_bill_report">รายงานการขายตามบิล</string>
     <string name="sale_by_product_report">รายงานการขายตามสินค้า</string>
@@ -210,6 +212,7 @@
     <string name="total_sale">ราคาสุทธิ</string>
     <string name="total_sale_include_vat">ราคารวมภาษี</string>
     <string name="total_vat">ภาษีขาย</string>
+    <string name="try_again" translatable="false">ลองอีกครั้ง</string>
     <string name="two_month">2 เดือน</string>
     <string name="unit_price">ราคา/หน่วย</string>
     <string name="update_available">แจ้งอัพเดตโปรแกรม</string>

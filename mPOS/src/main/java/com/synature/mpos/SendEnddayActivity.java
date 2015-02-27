@@ -105,13 +105,11 @@ public class SendEnddayActivity extends Activity {
 	
 	private void setupAdapter(){
 		mSessLst = listSessionEnddayNotSend();
-		if(mSessLst != null){
-			if(mEnddayAdapter == null){
-				mEnddayAdapter = new EnddayListAdapter();
-				mLvEndday.setAdapter(mEnddayAdapter);
-			}
-			mEnddayAdapter.notifyDataSetChanged();
-		}
+        if(mEnddayAdapter == null){
+            mEnddayAdapter = new EnddayListAdapter();
+            mLvEndday.setAdapter(mEnddayAdapter);
+        }
+        mEnddayAdapter.notifyDataSetChanged();
 	}
 	
 	private class EnddayReceiver extends ResultReceiver{

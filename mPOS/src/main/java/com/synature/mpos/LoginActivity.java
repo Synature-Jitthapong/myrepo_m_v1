@@ -7,13 +7,19 @@ import java.util.concurrent.Executors;
 import com.synature.mpos.SoftwareExpirationChecker.SoftwareExpirationCheckerListener;
 import com.synature.mpos.datasource.ComputerDataSource;
 import com.synature.mpos.datasource.GlobalPropertyDataSource;
+import com.synature.mpos.datasource.MPOSDatabase;
+import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.SessionDataSource;
 import com.synature.mpos.datasource.ShopDataSource;
 import com.synature.mpos.datasource.StaffsDataSource;
 import com.synature.mpos.datasource.UserVerification;
+import com.synature.mpos.datasource.model.OrderTransaction;
+import com.synature.mpos.datasource.table.OrderTransTable;
 import com.synature.pos.Staff;
 import com.synature.util.FileManager;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -409,7 +415,7 @@ public class LoginActivity extends Activity implements OnClickListener,
 					progress.dismiss();
 
 				checkUpdate();
-				
+
 				FileManager fm = new FileManager(LoginActivity.this, MPOSApplication.IMG_DIR);
 				fm.clear();
 				startActivity(new Intent(LoginActivity.this, LoginActivity.class));
@@ -670,7 +676,25 @@ public class LoginActivity extends Activity implements OnClickListener,
 		startActivity(new Intent(LoginActivity.this, LoginActivity.class));
 		finish();
 	}
-	
+
+    private void checkLocalSaleData(){
+        int total = 0;
+        MPOSDatabase.MPOSOpenHelper helper = MPOSDatabase.MPOSOpenHelper.getInstance(this);
+        SQLiteDatabase db = helper.getReadableDatabase();
+        String sql = "select count(" + OrderTransTable.COLUMN_TRANS_ID + ")"
+                + " from " + OrderTransTable.TABLE_ORDER_TRANS;
+        Cursor cursor = db.rawQuery(sql, null);
+        if(cursor.moveToFirst()){
+            total = cursor.getInt(0);
+        }
+        cursor.close();
+        if(total == 0){
+            RestoreLastSaleFragment restoreDialog =
+                    RestoreLastSaleFragment.newInstance(mShop.getShopId(), mComputer.getComputerId());
+            restoreDialog.show(getFragmentManager(), RestoreLastSaleFragment.TAG);
+        }
+    }
+
 	private void openTeamViewer(){
 		String teamViewerPkg = "com.teamviewer.quicksupport.market";
 		Intent intent = getPackageManager().getLaunchIntentForPackage(teamViewerPkg);
