@@ -416,9 +416,9 @@ int id txtStaffPass 0x7f0c00f5
 int id txtTotal 0x7f0c0083
 int id txtTotalPay 0x7f0c005d
 int id txtUser 0x7f0c0023
-int integer activity_dialog_height 0x7f080000
-int integer large_text_size 0x7f080001
-int integer larger_text_size 0x7f080002
+int integer activity_dialog_height 0x7f080002
+int integer large_text_size 0x7f080000
+int integer larger_text_size 0x7f080001
 int layout action_input_discount 0x7f030000
 int layout activity_about 0x7f030001
 int layout activity_check_update 0x7f030002

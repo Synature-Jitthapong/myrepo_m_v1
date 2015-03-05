@@ -191,7 +191,7 @@ public class MainActivity extends FragmentActivity implements
 					MPOSApplication.IMG_DIR, ImageLoader.IMAGE_SIZE.MEDIUM);
 
 		mDsp = new WintecCustomerDisplay(this);
-		
+
 		setupTitle();
 		setupBarCodeEvent();
 		setupMenuDeptPager();
@@ -288,6 +288,7 @@ public class MainActivity extends FragmentActivity implements
 							addOrder(p.getProductId(), p.getProductName(), 
 									p.getProductTypeId(), p.getVatType(), p.getVatRate(), 
 									getOrderingQty(), p.getProductPrice());
+                            scrollOrderLv(mOrderDetailAdapter.getGroupCount() - 1);
 						}else{
 							new AlertDialog.Builder(MainActivity.this)
 							.setTitle(R.string.search)
@@ -1450,7 +1451,6 @@ public class MainActivity extends FragmentActivity implements
 	
 	/**
 	 * @param productId
-	 * @param productCode
 	 * @param productName
 	 * @param productName2
 	 * @param productTypeId
@@ -1641,6 +1641,7 @@ public class MainActivity extends FragmentActivity implements
 							com.synature.pos.Staff s = login.checkLogin();
 							if(s != null){
 								mStaffId = s.getStaffID();
+                                setupTitle();
 								init();
 								d.dismiss();
 							}else{
@@ -2154,7 +2155,6 @@ public class MainActivity extends FragmentActivity implements
 	/**
 	 * Add Order
 	 * @param productId
-	 * @param productCode
 	 * @param productName
 	 * @param productTypeId
 	 * @param vatType
