@@ -108,7 +108,6 @@
     <dimen name="min_margin">3dp</dimen>
     <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m/mPOS/src/main/res/values/integers.xml -->
     <eat-comment/>
-    <integer name="activity_dialog_height">390</integer>
     <integer name="large_text_size">32</integer>
     <integer name="larger_text_size">48</integer>
     <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m/mPOS/src/main/res/values/strings.xml -->

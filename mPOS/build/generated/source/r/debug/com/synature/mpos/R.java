@@ -439,9 +439,9 @@ public final class R {
         public static final int txtUser=0x7f0c0023;
     }
     public static final class integer {
-        public static final int activity_dialog_height=0x7f080000;
-        public static final int large_text_size=0x7f080001;
-        public static final int larger_text_size=0x7f080002;
+        public static final int activity_dialog_height=0x7f080002;
+        public static final int large_text_size=0x7f080000;
+        public static final int larger_text_size=0x7f080001;
     }
     public static final class layout {
         public static final int action_input_discount=0x7f030000;
