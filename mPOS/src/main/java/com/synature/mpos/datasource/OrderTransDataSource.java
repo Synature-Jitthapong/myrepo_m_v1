@@ -297,7 +297,6 @@ public class OrderTransDataSource extends MPOSDatabase {
 	
 	/**
 	 * @param transId
-	 * @param computerId
 	 * @param isLoadTemp
 	 * @return OrderTransaction
 	 */
@@ -874,7 +873,6 @@ public class OrderTransDataSource extends MPOSDatabase {
 	 * Query order detail by parsing selection string and selectionArgs
 	 * @param selection
 	 * @param selectionArgs
-	 * @param groupBy
 	 * @return Cursor
 	 */
 	private Cursor queryOrderDetail(String selection, String[] selectionArgs){
@@ -1246,8 +1244,7 @@ public class OrderTransDataSource extends MPOSDatabase {
 	
 	/**
 	 * Get max receiptId
-	 * @param year
-	 * @param month
+     * @param saleDate
 	 * @return max receiptId
 	 */
 	public int getMaxReceiptId(String saleDate) {
@@ -2012,7 +2009,6 @@ public class OrderTransDataSource extends MPOSDatabase {
 	/**
 	 * Update transaction vat
 	 * @param transactionId
-	 * @param totalSalePrice
 	 * @return row affected
 	 */
 	private int updateTransactionVat(int transactionId) {
@@ -2181,8 +2177,6 @@ public class OrderTransDataSource extends MPOSDatabase {
 	 * @param transactionId
 	 * @param computerId
 	 * @param productId
-	 * @param productCode
-	 * @param productName
 	 * @param productType
 	 * @param vatType
 	 * @param vatRate

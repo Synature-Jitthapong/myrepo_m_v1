@@ -1829,7 +1829,7 @@ public class SaleTransaction extends MPOSDatabase{
         private double fTotalPrice;
         private int iStatusID;
         private int iMovement;
-        private double szCashOutNote;
+        private String szCashOutNote;
         private int iVoidStaffID;
         private String szVoidReason;
         private String szVoidDateTime;
@@ -1906,11 +1906,11 @@ public class SaleTransaction extends MPOSDatabase{
             this.iMovement = iMovement;
         }
 
-        public double getSzCashOutNote() {
+        public String getSzCashOutNote() {
             return szCashOutNote;
         }
 
-        public void setSzCashOutNote(double szCashOutNote) {
+        public void setSzCashOutNote(String szCashOutNote) {
             this.szCashOutNote = szCashOutNote;
         }
 
