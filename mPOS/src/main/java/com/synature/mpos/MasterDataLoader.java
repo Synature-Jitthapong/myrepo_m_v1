@@ -11,6 +11,7 @@ import android.preference.PreferenceManager;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.synature.mpos.datasource.BankDataSource;
+import com.synature.mpos.datasource.CashInOutDataSource;
 import com.synature.mpos.datasource.ComputerDataSource;
 import com.synature.mpos.datasource.CreditCardDataSource;
 import com.synature.mpos.datasource.GlobalPropertyDataSource;
@@ -36,7 +37,7 @@ public class MasterDataLoader extends MPOSServiceBase{
 
 	/**
 	 * @param context
-	 * @param listener
+	 * @param receiver
 	 */
 	public MasterDataLoader(Context context, int shopId, ResultReceiver receiver) {
 		super(context, LOAD_MASTER_METHOD, receiver);
@@ -80,6 +81,7 @@ public class MasterDataLoader extends MPOSServiceBase{
 		MenuCommentDataSource mc = new MenuCommentDataSource(mContext);
 		PromotionDiscountDataSource promo = new PromotionDiscountDataSource(mContext);
 		ProgramFeatureDataSource feature = new ProgramFeatureDataSource(mContext);
+        CashInOutDataSource cashOut = new CashInOutDataSource(mContext);
 		try {
 			shop.insertShopProperty(master.getShopProperty());
 			computer.insertComputer(master.getComputerProperty());
@@ -103,6 +105,7 @@ public class MasterDataLoader extends MPOSServiceBase{
 			promo.insertPromotionPriceGroup(master.getPromotionPriceGroup());
 			promo.insertPromotionProductDiscount(master.getPromotionProductDiscount());
 			feature.insertProgramFeature(master.getProgramFeature());
+            cashOut.insertCashInOutProduct(master.getCashInOut());
 
             setSyncStatus(true, String.valueOf(Calendar.getInstance().getTimeInMillis()));
 			if(mReceiver != null)

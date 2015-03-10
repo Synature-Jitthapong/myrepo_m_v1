@@ -5,6 +5,9 @@ import java.util.UUID;
 import com.synature.mpos.MPOSApplication;
 import com.synature.mpos.datasource.table.BankTable;
 import com.synature.mpos.datasource.table.BaseColumn;
+import com.synature.mpos.datasource.table.CashInOutOrderDetailTable;
+import com.synature.mpos.datasource.table.CashInOutOrderTransTable;
+import com.synature.mpos.datasource.table.CashInOutProductTable;
 import com.synature.mpos.datasource.table.ComputerTable;
 import com.synature.mpos.datasource.table.CreditCardTable;
 import com.synature.mpos.datasource.table.GlobalPropertyTable;
@@ -36,6 +39,7 @@ import com.synature.mpos.datasource.table.SessionTable;
 import com.synature.mpos.datasource.table.ShopTable;
 import com.synature.mpos.datasource.table.StaffPermissionTable;
 import com.synature.mpos.datasource.table.StaffTable;
+import com.synature.pos.CashInOutProduct;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -134,6 +138,9 @@ public class MPOSDatabase extends BaseColumn{
 			PayTypeFinishWasteTable.onCreate(db);
 			ProgramFeatureTable.onCreate(db);
 			PaymentDetailWasteTable.onCreate(db);
+            CashInOutProductTable.onCreate(db);
+            CashInOutOrderTransTable.onCreate(db);
+            CashInOutOrderDetailTable.onCreate(db);
 		}
 		
 		@Override
@@ -168,6 +175,9 @@ public class MPOSDatabase extends BaseColumn{
 			PayTypeFinishWasteTable.onUpgrade(db, oldVersion, newVersion);
 			ProgramFeatureTable.onUpgrade(db, oldVersion, newVersion);
 			PaymentDetailWasteTable.onUpgrade(db, oldVersion, newVersion);
+            CashInOutProductTable.onUpgrade(db, oldVersion, newVersion);
+            CashInOutOrderTransTable.onUpgrade(db, oldVersion, newVersion);
+            CashInOutOrderDetailTable.onUpgrade(db, oldVersion, newVersion);
 		}
 	}
 	

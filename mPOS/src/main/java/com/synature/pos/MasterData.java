@@ -24,7 +24,7 @@ public class MasterData {
 	private List<ProductComponent> ProductComponent;
 	private List<PComponentGroup> PComponentGroup;
 	private List<CommentTransDept> CommentTransDept;
-	private List<CommentTransItem> COmmentTransItem;
+	private List<CommentTransItem> CommentTransItem;
 	private List<CommentProduct> CommentProduct;
 	private List<SaleMode> SaleMode;
 	private List<MenuCommentGroup> MenuCommentGroup;
@@ -33,8 +33,13 @@ public class MasterData {
 	
 	private List<PromotionPriceGroup> PromotionPriceGroup;
 	private List<PromotionProductDiscount> PromotionProductDiscount;
-	
-	public List<PayType> getPayTypeFinishWaste() {
+
+    private List<CashInOutProduct> CashInOut;
+
+    public List<CashInOutProduct> getCashInOut() {
+        return CashInOut;
+    }
+    public List<PayType> getPayTypeFinishWaste() {
 		return PayTypeFinishWaste;
 	}
 	public List<ShopProperty> getShopProperty() {
@@ -109,8 +114,8 @@ public class MasterData {
 	public List<CommentTransDept> getCommentTransDept() {
 		return CommentTransDept;
 	}
-	public List<CommentTransItem> getCOmmentTransItem() {
-		return COmmentTransItem;
+	public List<CommentTransItem> getCommentTransItem() {
+		return CommentTransItem;
 	}
 	public List<PromotionPriceGroup> getPromotionPriceGroup() {
 		return PromotionPriceGroup;

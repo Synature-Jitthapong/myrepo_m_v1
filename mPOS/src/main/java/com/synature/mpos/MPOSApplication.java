@@ -82,7 +82,7 @@ public class MPOSApplication extends Application {
 	 * Image path on server
 	 */
 	public static final String SERVER_IMG_PATH = "Resources/Shop/MenuImage/";
-	
+
 	/**
 	 * The minimum date
 	 */

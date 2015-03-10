@@ -722,7 +722,17 @@ public class Utils {
 		}
 		return inFiles;
 	}
-	
+
+    public static String getISODateTimeFormat(){
+        String format = getISODateFormat();
+        return format + " HH:mm:ss";
+    }
+
+    public static String getISODateFormat(){
+        String format = "yyyy-MM-dd";
+        return format;
+    }
+
 	public static LinearLayout.LayoutParams getLinHorParams(float weight){
 		return new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, weight);
 	}
