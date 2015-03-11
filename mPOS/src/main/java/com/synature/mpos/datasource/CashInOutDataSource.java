@@ -64,7 +64,8 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
             ProductTable.COLUMN_PRODUCT_ID,
             CashInOutOrderDetailTable.COLUMN_CASH_INOUT_PRICE,
             CashInOutProductTable.COLUMN_CASH_INOUT_TYPE,
-            CashInOutOrderTransTable.COLUMN_STATUS_ID
+            CashInOutOrderTransTable.COLUMN_STATUS_ID,
+            CashInOutProductTable.COLUMN_CASH_INOUT_NAME
     };
 
     public static final String[] ALL_CASH_INOUT_PRODUCT_COLUMNS = {
@@ -170,12 +171,24 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
 
     @Override
     public boolean cancelTransaction(int transactionId, int computerId) {
-        getWritableDatabase().delete(CashInOutOrderTransTable.TABLE_CASH_INOUT_ORDER_TRANS,
-                OrderTransTable.COLUMN_TRANS_ID + "=?",
-                new String[]{
-                   String.valueOf(transactionId)
-                });
-        return false;
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        try {
+            db.delete(CashInOutOrderTransTable.TABLE_CASH_INOUT_ORDER_TRANS,
+                    CashInOutOrderTransTable.COLUMN_STATUS_ID + "=?",
+                    new String[]{
+                            String.valueOf(OrderTransDataSource.TRANS_STATUS_NEW)
+                    });
+            db.delete(CashInOutOrderDetailTable.TABLE_CASH_INOUT_ORDER_DETAIL,
+                    OrderTransTable.COLUMN_TRANS_ID + "=?",
+                    new String[]{
+                            String.valueOf(transactionId)
+                    });
+            db.setTransactionSuccessful();
+        } finally{
+            db.endTransaction();
+        }
+        return true;
     }
 
     @Override
@@ -238,14 +251,36 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
     }
 
     @Override
+    public double getTotalCashAmount(int transactionId, int computerId) {
+        double totalCashAmount = 0;
+        String sql = "select sum(" + CashInOutOrderDetailTable.COLUMN_CASH_INOUT_PRICE + ")" +
+                " from " + CashInOutOrderDetailTable.TABLE_CASH_INOUT_ORDER_DETAIL +
+                " where " + OrderTransTable.COLUMN_TRANS_ID + "=?";
+        Cursor cursor = getReadableDatabase().rawQuery(
+                sql,
+                new String[]{
+                    String.valueOf(transactionId)
+                });
+        if(cursor.moveToFirst()){
+            totalCashAmount = cursor.getDouble(0);
+        }
+        cursor.close();
+        return totalCashAmount;
+    }
+
+    @Override
     public List<CashInOutOrderDetail> listAllCashInOutDetail(int transactionId) {
         List<CashInOutOrderDetail> cashDetailLst = null;
-        Cursor cursor = getReadableDatabase().query(CashInOutOrderDetailTable.TABLE_CASH_INOUT_ORDER_DETAIL,
-                ALL_CASH_INOUT_DETAIL_COLUMNS,
-                OrderTransTable.COLUMN_TRANS_ID + "=?",
+        String sql = "select a.*, b." + CashInOutProductTable.COLUMN_CASH_INOUT_NAME +
+                " from " + CashInOutOrderDetailTable.TABLE_CASH_INOUT_ORDER_DETAIL + " a " +
+                " left join " + CashInOutProductTable.TABLE_CASH_INOUT_PRODUCT + " b " +
+                " on a." + ProductTable.COLUMN_PRODUCT_ID + "=b." + CashInOutProductTable.COLUMN_CASH_INOUT_ID +
+                " where a." + OrderTransTable.COLUMN_TRANS_ID + "=?" ;
+        Cursor cursor = getReadableDatabase().rawQuery(
+                sql,
                 new String[]{
                         String.valueOf(transactionId)
-                }, null, null, null);
+                });
         if(cursor.moveToFirst()){
             cashDetailLst = new ArrayList<CashInOutOrderDetail>();
             do{
@@ -296,13 +331,15 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
     }
 
     @Override
-    public List<CashInOutProduct> listAllCashInOutProduct() {
+    public List<CashInOutProduct> listAllCashInOutProduct(int type) {
         List<CashInOutProduct> cashInOutLst = null;
         Cursor cursor = getReadableDatabase().query(
                 CashInOutProductTable.TABLE_CASH_INOUT_PRODUCT,
                 ALL_CASH_INOUT_PRODUCT_COLUMNS,
-                BaseColumn.COLUMN_DELETED + "=?",
+                CashInOutProductTable.COLUMN_CASH_INOUT_TYPE + "=?" +
+                " and " + BaseColumn.COLUMN_DELETED + "=?",
                 new String[]{
+                        String.valueOf(type),
                         String.valueOf(NOT_DELETE)
                 }, null, null, COLUMN_ORDERING);
         if(cursor.moveToFirst()){
@@ -347,6 +384,7 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
         cashDetail.setfCashOutPrice(cursor.getDouble(cursor.getColumnIndex(CashInOutOrderDetailTable.COLUMN_CASH_INOUT_PRICE)));
         cashDetail.setiCashOutType(cursor.getInt(cursor.getColumnIndex(CashInOutProductTable.COLUMN_CASH_INOUT_TYPE)));
         cashDetail.setiStatusID(cursor.getInt(cursor.getColumnIndex(CashInOutOrderTransTable.COLUMN_STATUS_ID)));
+        cashDetail.setProductName(cursor.getString(cursor.getColumnIndex(CashInOutProductTable.COLUMN_CASH_INOUT_NAME)));
         return cashDetail;
     }
 

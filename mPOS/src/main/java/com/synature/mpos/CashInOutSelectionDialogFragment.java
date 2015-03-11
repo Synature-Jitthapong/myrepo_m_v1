@@ -44,6 +44,7 @@ public class CashInOutSelectionDialogFragment extends DialogFragment{
         setupCashInOutSelectionAdapter();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle(R.string.cash_inout);
         builder.setView(contentView);
         builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
@@ -96,6 +97,7 @@ public class CashInOutSelectionDialogFragment extends DialogFragment{
                 holder = new ViewHolder();
                 convertView = getActivity().getLayoutInflater().inflate(R.layout.button_template, parent, false);
                 holder.btn = (Button) convertView;
+                holder.btn.setMinHeight(96);
                 convertView.setTag(holder);
             }else{
                 holder = (ViewHolder) convertView.getTag();

@@ -11,6 +11,7 @@ import android.preference.PreferenceManager;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.synature.mpos.datasource.BankDataSource;
+import com.synature.mpos.datasource.CashInOutDao;
 import com.synature.mpos.datasource.CashInOutDataSource;
 import com.synature.mpos.datasource.ComputerDataSource;
 import com.synature.mpos.datasource.CreditCardDataSource;
@@ -81,7 +82,7 @@ public class MasterDataLoader extends MPOSServiceBase{
 		MenuCommentDataSource mc = new MenuCommentDataSource(mContext);
 		PromotionDiscountDataSource promo = new PromotionDiscountDataSource(mContext);
 		ProgramFeatureDataSource feature = new ProgramFeatureDataSource(mContext);
-        CashInOutDataSource cashOut = new CashInOutDataSource(mContext);
+        CashInOutDao cashInout = new CashInOutDataSource(mContext);
 		try {
 			shop.insertShopProperty(master.getShopProperty());
 			computer.insertComputer(master.getComputerProperty());
@@ -105,7 +106,7 @@ public class MasterDataLoader extends MPOSServiceBase{
 			promo.insertPromotionPriceGroup(master.getPromotionPriceGroup());
 			promo.insertPromotionProductDiscount(master.getPromotionProductDiscount());
 			feature.insertProgramFeature(master.getProgramFeature());
-            cashOut.insertCashInOut(master.getCashInOut());
+            cashInout.insertCashInOut(master.getCashInOut());
 
             setSyncStatus(true, String.valueOf(Calendar.getInstance().getTimeInMillis()));
 			if(mReceiver != null)

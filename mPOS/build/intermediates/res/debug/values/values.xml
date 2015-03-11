@@ -34,6 +34,10 @@
         <item>@string/receipt</item>
         <item>@string/finish_waste</item>
     </string-array>
+    <string-array name="cash_type">
+        <item>@string/cash_out</item>
+        <item>@string/cash_in</item>
+    </string-array>
     <string-array name="connection_time_out_name">
         <item>10ms.</item>
         <item>15ms.</item>
@@ -141,7 +145,10 @@
     <string name="card_type">Card type</string>
     <string name="cash">Cash</string>
     <string name="cash_count" translatable="false">Cash Count</string>
+    <string name="cash_in">Cash In</string>
     <string name="cash_in_drawer" translatable="false">Cash In Drawer</string>
+    <string name="cash_inout">Cash-In/Out</string>
+    <string name="cash_out">Cash Out</string>
     <string name="cash_paid">Cash Paid</string>
     <string name="cashier">Cashier</string>
     <string name="change">Change</string>
@@ -307,7 +314,7 @@
     <string name="reset_send_status">Reset send data status</string>
     <string name="restore_db" translatable="false">Restore Database</string>
     <string name="restore_db_success" translatable="false">Restore database successfully.</string>
-    <string name="restore_last_sale">Do you want to restore lastes sale data?</string>
+    <string name="restore_last_sale">Do you want to restore last sale data?</string>
     <string name="rounding">Rounding</string>
     <string name="sale_by_bill_report">Sale By Bill Report</string>
     <string name="sale_by_product_report">Sale By Product Report</string>

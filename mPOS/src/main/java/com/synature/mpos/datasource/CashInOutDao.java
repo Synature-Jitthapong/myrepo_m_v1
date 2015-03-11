@@ -18,10 +18,11 @@ public interface CashInOutDao {
     public int openTransaction(int computerId, int staffId, int sessionId, int movement);
     public SaleTransaction.SaleData_CashInOutDetail getCashInOutDetail(int transactionId,
                                                                        int detailId);
+    public double getTotalCashAmount(int transactionId, int computerId);
     public List<CashInOutOrderDetail> listAllCashInOutDetail(int transactionId);
     public SaleTransaction.SaleData_CashInOutTransaction getCashInOutTransaction(int transactionId);
     public List<SaleTransaction.SaleData_CashInOutTransaction> listCashInOutTransaction(String date);
     public CashInOutProduct getCashInOutProduct(int cashInOutId);
-    public List<CashInOutProduct> listAllCashInOutProduct();
+    public List<CashInOutProduct> listAllCashInOutProduct(int type);
     public int insertCashInOut(List<CashInOutProduct> cashInOutProductList);
 }

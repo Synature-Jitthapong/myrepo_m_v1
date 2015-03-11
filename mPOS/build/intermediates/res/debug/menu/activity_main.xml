@@ -44,6 +44,9 @@
                 android:title="@string/void_bill"
                 android:titleCondensed="Void receipt if incorrect."/>
             <item
+                android:id="@+id/itemCashInOut"
+                android:title="@string/cash_inout"/>
+            <item
                 android:id="@+id/itemEditCash"
                 android:title="@string/edit_open_shift"/><item
                 android:id="@+id/itemCloseShift"
