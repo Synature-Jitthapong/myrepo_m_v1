@@ -76,4 +76,8 @@
         <item>@string/receipt</item>
         <item>@string/finish_waste</item>
     </string-array>
+    <string-array name="cash_type">
+        <item>@string/cash_out</item>
+        <item>@string/cash_in</item>
+    </string-array>
 </resources>

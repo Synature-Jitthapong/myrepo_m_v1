@@ -97,7 +97,8 @@ import android.widget.TextView.OnEditorActionListener;
 
 public class MainActivity extends FragmentActivity implements 
 	MenuCommentDialogFragment.OnCommentDismissListener, ManageCashAmountFragment.OnManageCashAmountDismissListener, 
-	UserVerifyDialogFragment.OnCheckPermissionListener, OnChangeLanguageListener{
+	UserVerifyDialogFragment.OnCheckPermissionListener, OnChangeLanguageListener,
+        CashInOutSelectionDialogFragment.CashInOutSelectionListener{
 	
 	public static final String TAG = MainActivity.class.getSimpleName();
 	
@@ -198,7 +199,21 @@ public class MainActivity extends FragmentActivity implements
 		setupOrderingKeypadUtils();
 	}
 
-	private class MasterDataReceiver extends ResultReceiver{
+    /**
+     * Cash-In/Out callback listener
+     * @param type
+     */
+    @Override
+    public void onSelected(int type) {
+        Intent intent = new Intent(this, CashInOutActivity.class);
+        intent.putExtra("computerId", mComputerId);
+        intent.putExtra("staffId", mStaffId);
+        intent.putExtra("sessionId", mSessionId);
+        intent.putExtra("cashType", type);
+        startActivity(intent);
+    }
+
+    private class MasterDataReceiver extends ResultReceiver{
 
 		private ProgressDialog progress;
 		
@@ -351,6 +366,11 @@ public class MainActivity extends FragmentActivity implements
 			case R.id.itemVoid:
 				voidBill();
 				return true;
+            case R.id.itemCashInOut:
+                CashInOutSelectionDialogFragment cf =
+                        new CashInOutSelectionDialogFragment();
+                cf.show(getFragmentManager(), CashInOutSelectionDialogFragment.TAG);
+                return true;
 			case R.id.itemEditCash:
 				editCash();
 				return true;

@@ -39,6 +39,9 @@
         android:required="false" />
 
     <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
 
     <application
         android:name="com.synature.mpos.MPOSApplication"
@@ -185,6 +188,11 @@
         </service>
         <service android:name="com.synature.mpos.EnddaySenderService" >
         </service>
+
+        <activity
+            android:name="com.synature.mpos.CashInOutActivity"
+            android:label="@string/title_activity_cash_in_out" >
+        </activity>
     </application>
 
 </manifest>

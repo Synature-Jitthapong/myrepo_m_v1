@@ -105,7 +105,7 @@ public class MasterDataLoader extends MPOSServiceBase{
 			promo.insertPromotionPriceGroup(master.getPromotionPriceGroup());
 			promo.insertPromotionProductDiscount(master.getPromotionProductDiscount());
 			feature.insertProgramFeature(master.getProgramFeature());
-            cashOut.insertCashInOutProduct(master.getCashInOut());
+            cashOut.insertCashInOut(master.getCashInOut());
 
             setSyncStatus(true, String.valueOf(Calendar.getInstance().getTimeInMillis()));
 			if(mReceiver != null)
