@@ -1798,7 +1798,6 @@ public class MainActivity extends FragmentActivity implements
         mSessionId = mSession.getCurrentSessionId();
         if (mSessionId == 0) {
             mSessionId = mSession.openSession(mShopId, mComputerId, mStaffId, 0);
-
             ManageCashAmountFragment mf = ManageCashAmountFragment
                     .newInstance(getString(R.string.open_shift), 0,
                             ManageCashAmountFragment.OPEN_SHIFT_MODE);
@@ -1820,16 +1819,60 @@ public class MainActivity extends FragmentActivity implements
         mTrans.updateTransaction(mTransactionId, mStaffId);
     }
 
+    private void start(){
+        openTransaction();
+        countHoldOrder();
+        countSaleDataNotSend();
+        loadOrder();
+
+        // init second display
+        if(Utils.isEnableSecondDisplay(this)){
+            initSecondDisplay();
+        }
+    }
+
 	private void init(){
-		openTransaction();
-		countHoldOrder();
-		countSaleDataNotSend();
-		loadOrder();
-		
-		// init second display
-		if(Utils.isEnableSecondDisplay(this)){
-			initSecondDisplay();
-		}
+        String curDateMillisec = String.valueOf(Utils.getDate().getTimeInMillis());
+        // check current day is already end day ?
+        if(!mSession.checkEndday(curDateMillisec)){
+			/*
+			 * If resume when system date > session date ||
+			 * session date > system date. It means the system date
+			 * is not valid.
+			 * It will be return to LoginActivity for new initial
+			 */
+            String lastSessDate = mSession.getLastSessionDate();
+            if(!TextUtils.isEmpty(lastSessDate)){
+                Calendar sessCal = Calendar.getInstance();
+                sessCal.setTimeInMillis(Long.parseLong(lastSessDate));
+                if(Utils.getDate().getTime().compareTo(sessCal.getTime()) > 0 ||
+                        sessCal.getTime().compareTo(Utils.getDate().getTime()) > 0){
+                    // check last session is already end day ?
+                    if(!mSession.checkEndday(mSession.getLastSessionDate())){
+                        new AlertDialog.Builder(this)
+                                .setTitle(R.string.endday)
+                                .setMessage(R.string.close_sale_automatically)
+                                .setCancelable(false)
+                                .setNeutralButton(R.string.close, new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                                                finish();
+                                            }
+                                 }).show();
+                    }else{
+                        start();
+                    }
+                }else{
+                    start();
+                }
+            }else{
+                start();
+            }
+        }else{
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            finish();
+        }
 	}
 
     private boolean checkShopClosingTime(){

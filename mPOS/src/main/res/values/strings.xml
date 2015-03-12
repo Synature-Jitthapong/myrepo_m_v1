@@ -287,4 +287,5 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <string name="team_viewer">Open TeamViewer</string>
     <string name="load_last_sale">Loading sale data&#8230;</string>
     <string name="restore_last_sale">Do you want to restore lastes sale data?</string>
+    <string name="close_sale_automatically">This time is new date. System will be automatically end day.</string>
 </resources>

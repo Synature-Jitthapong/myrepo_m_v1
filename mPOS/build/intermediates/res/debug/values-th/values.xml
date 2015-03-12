@@ -30,6 +30,7 @@
     <string name="clear_sale_msg">คุณต้องการลบข้อมูลการขาย</string>
     <string name="close">ปิด</string>
     <string name="close_by">ปิดโดย</string>
+    <string name="close_sale_automatically">วันนี้เป็นวันใหม่แล้ว โปรแกรมจะปิดสิ้นวันให้อัตโนมัติเพื่อเริ่มวันขายใหม่</string>
     <string name="close_shift">ปิดกะ</string>
     <string name="code">รหัส</string>
     <string name="computer_setting_not_valid">การตั้งค่าเครื่องไม่ถูกต้อง</string>
