@@ -155,6 +155,7 @@
     <string name="clear_sale_msg">Are you sure you want to clear sale data</string>
     <string name="close">Close</string>
     <string name="close_by">Closed by</string>
+    <string name="close_sale_automatically">This time is new date. System will be automatically end day.</string>
     <string name="close_shift">Close Shift</string>
     <string name="code">Code</string>
     <string name="comment" translatable="false">Comment</string>
