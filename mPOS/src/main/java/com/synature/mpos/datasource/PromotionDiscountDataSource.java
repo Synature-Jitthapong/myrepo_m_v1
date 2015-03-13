@@ -70,7 +70,7 @@ public class PromotionDiscountDataSource extends MPOSDatabase{
 				+ " AND " + PromotionPriceGroupTable.COLUMN_PRICE_FROM_DATE + "<=?";
 		String[] selectionArgs = new String[]{
 				String.valueOf(PROMOTION_TYPE_COUPON),
-				String.valueOf(Utils.getDate().getTimeInMillis())
+				String.valueOf(Utils.getISODate())
 			};
 		Cursor cursor = getReadableDatabase().query(
 				PromotionPriceGroupTable.TABLE_PROMOTION_PRICE_GROUP, 
@@ -99,7 +99,9 @@ public class PromotionDiscountDataSource extends MPOSDatabase{
 				String toDate = getToDateCondition(pgId);
 				if(!TextUtils.isEmpty(toDate)){
 					isActive = false;
-					if(Utils.getCalendar().getTimeInMillis() <= Long.parseLong(toDate)){
+                    Calendar cDate = Calendar.getInstance();
+                    Calendar cToDate = Utils.convertISODateToCalendar(toDate);
+					if(cDate.compareTo(cToDate) <= 0){
 						isActive = true;
 					}
 				}
@@ -109,7 +111,7 @@ public class PromotionDiscountDataSource extends MPOSDatabase{
 					String[] days = weekly.split(",");
 					if(days.length > 0){
 						for(String day : days){
-							int dayOfWeek = Utils.getCalendar().get(Calendar.DAY_OF_WEEK);
+							int dayOfWeek = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
 							if(dayOfWeek == Integer.parseInt(day)){
 								isActive = true;
 								break;
@@ -123,7 +125,7 @@ public class PromotionDiscountDataSource extends MPOSDatabase{
 					String[] days = monthly.split(",");
 					if(days.length > 0){
 						for(String day : days){
-							if(Utils.getCalendar().get(Calendar.DAY_OF_MONTH) == Integer.parseInt(day)){
+							if(Calendar.getInstance().get(Calendar.DAY_OF_MONTH) == Integer.parseInt(day)){
 								isActive = true;
 								break;
 							}
@@ -245,15 +247,11 @@ public class PromotionDiscountDataSource extends MPOSDatabase{
 			getWritableDatabase().delete(PromotionPriceGroupTable.TABLE_PROMOTION_PRICE_GROUP, null, null);
 			for(com.synature.pos.PromotionPriceGroup promoPriceGroup : promoLst){
 				String strDf = promoPriceGroup.getPriceFromDate();
-				String strDt = promoPriceGroup.getPriceToDate();
 				try {
-					Calendar c = Utils.getCalendar();
+					Calendar c = Calendar.getInstance();
 					DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 					c.setTime(df.parse(promoPriceGroup.getPriceFromDate()));
-					strDf = String.valueOf(c.getTimeInMillis());
-					df = new SimpleDateFormat("yyyy-MM-dd");
-					c.setTime(df.parse(promoPriceGroup.getPriceToDate()));
-					strDt = String.valueOf(c.getTimeInMillis());
+					strDf = Utils.isoDateFormat(c);
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -267,7 +265,7 @@ public class PromotionDiscountDataSource extends MPOSDatabase{
 				cv.put(PromotionPriceGroupTable.COLUMN_COUPON_HEADER, promoPriceGroup.getCouponHeader());
 				cv.put(PromotionPriceGroupTable.COLUMN_PRICE_FROM_DATE, strDf);
 				cv.put(PromotionPriceGroupTable.COLUMN_PRICE_FROM_TIME, promoPriceGroup.getPriceFromTime());
-				cv.put(PromotionPriceGroupTable.COLUMN_PRICE_TO_DATE, strDt);
+				cv.put(PromotionPriceGroupTable.COLUMN_PRICE_TO_DATE, promoPriceGroup.getPriceToDate());
 				cv.put(PromotionPriceGroupTable.COLUMN_PRICE_TO_TIME, promoPriceGroup.getPriceToTime());
 				cv.put(PromotionPriceGroupTable.COLUMN_PROMOTION_WEEKLY, promoPriceGroup.getPromotionWeekly());
 				cv.put(PromotionPriceGroupTable.COLUMN_PROMOTION_MONTHLY, promoPriceGroup.getPromotionMonthly());

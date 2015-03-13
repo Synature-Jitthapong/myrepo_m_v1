@@ -18,6 +18,9 @@
     <string name="card_no">หมายเลขบัตร</string>
     <string name="card_type">ประเภทบัตร</string>
     <string name="cash">เงินสด</string>
+    <string name="cash_in">เงินเข้า</string>
+    <string name="cash_inout">เงิน-เข้า/ออก</string>
+    <string name="cash_out">เงินออก</string>
     <string name="cash_paid">จ่ายเงินพอดี</string>
     <string name="cashier">แคชเชียร์</string>
     <string name="change">เงินทอน</string>

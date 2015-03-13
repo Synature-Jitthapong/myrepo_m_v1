@@ -1301,9 +1301,8 @@ public class OrderTransDataSource extends MPOSDatabase {
 	public int openTransaction(String saleDate, int shopId, int computerId, int sessionId,
 			int staffId, double vatRate) throws SQLException {
 		int transactionId = getMaxTransaction();
-		Calendar date = Utils.getDate();
-		date.setTimeInMillis(Long.parseLong(saleDate));
-		Calendar dateTime = Utils.getCalendar();
+        String dateSeperate[] = saleDate.split("-");
+		String dateTime = Utils.getISODateTime();
 		ContentValues cv = new ContentValues();
 		cv.put(COLUMN_UUID, getUUID());
 		cv.put(OrderTransTable.COLUMN_TRANS_ID, transactionId);
@@ -1314,10 +1313,10 @@ public class OrderTransDataSource extends MPOSDatabase {
 		cv.put(OrderTransTable.COLUMN_STATUS_ID, 1);
 		cv.put(OrderTransTable.COLUMN_DOC_TYPE_ID, 8);
 		cv.put(COLUMN_SEND_STATUS, 0);
-		cv.put(OrderTransTable.COLUMN_OPEN_TIME, dateTime.getTimeInMillis());
-		cv.put(OrderTransTable.COLUMN_SALE_DATE, date.getTimeInMillis());
-		cv.put(OrderTransTable.COLUMN_RECEIPT_YEAR, date.get(Calendar.YEAR));
-		cv.put(OrderTransTable.COLUMN_RECEIPT_MONTH, date.get(Calendar.MONTH) + 1);
+		cv.put(OrderTransTable.COLUMN_OPEN_TIME, dateTime);
+		cv.put(OrderTransTable.COLUMN_SALE_DATE, saleDate);
+		cv.put(OrderTransTable.COLUMN_RECEIPT_YEAR, dateSeperate[0]);
+		cv.put(OrderTransTable.COLUMN_RECEIPT_MONTH, dateSeperate[1]);
 		cv.put(ProductTable.COLUMN_VAT_RATE, vatRate);
 		long rowId = getWritableDatabase().insertOrThrow(
 				OrderTransTable.TEMP_ORDER_TRANS, null, cv);
@@ -1337,20 +1336,19 @@ public class OrderTransDataSource extends MPOSDatabase {
 	 */
 	public void closeWasteTransaction(int transactionId, int staffId, 
 			int docType, String docTypeHeader, double totalSalePrice, String sessionDate) {
-		Calendar date = Utils.getDate();
-        date.setTimeInMillis(Long.parseLong(sessionDate));
-		Calendar dateTime = Utils.getCalendar();
-		int receiptId = getMaxWasteReceiptId(String.valueOf(date.getTimeInMillis()));
+		String dateSeperate[] = sessionDate.split("-");
+        String dateTime = Utils.getISODateTime();
+		int receiptId = getMaxWasteReceiptId(sessionDate);
+        int year = Integer.parseInt(dateSeperate[0]);
+        int month = Integer.parseInt(dateSeperate[1]);
+        int dayOfMonth = Integer.parseInt(dateSeperate[2]);
 		String receiptNo = formatWasteReceiptNo(docTypeHeader,
-				date.get(Calendar.YEAR), 
-				date.get(Calendar.MONTH) + 1, 
-				date.get(Calendar.DAY_OF_MONTH), receiptId);
-		
+				year, month, dayOfMonth, receiptId);
 		ContentValues cv = new ContentValues();
 		cv.put(OrderTransTable.COLUMN_STATUS_ID, WASTE_TRANS_STATUS_SUCCESS);
 		cv.put(OrderTransTable.COLUMN_RECEIPT_ID, receiptId);
-		cv.put(OrderTransTable.COLUMN_CLOSE_TIME, dateTime.getTimeInMillis());
-		cv.put(OrderTransTable.COLUMN_PAID_TIME, dateTime.getTimeInMillis()); 
+		cv.put(OrderTransTable.COLUMN_CLOSE_TIME, dateTime);
+		cv.put(OrderTransTable.COLUMN_PAID_TIME, dateTime);
 		cv.put(OrderTransTable.COLUMN_TRANS_VATABLE, 0); 
 		cv.put(OrderTransTable.COLUMN_TRANS_VAT, 0); 
 		cv.put(OrderTransTable.COLUMN_TRANS_EXCLUDE_VAT, 0);
@@ -1376,13 +1374,13 @@ public class OrderTransDataSource extends MPOSDatabase {
 	 */
 	public void closeTransaction(int transactionId, int staffId,
                                  double totalSalePrice, String sessionDate) {
-		Calendar date = Utils.getDate();
-        date.setTimeInMillis(Long.parseLong(sessionDate));
-		Calendar dateTime = Utils.getCalendar();
-		int receiptId = getMaxReceiptId(String.valueOf(date.getTimeInMillis()));
-		String receiptNo = formatReceiptNo(date.get(Calendar.YEAR), 
-				date.get(Calendar.MONTH) + 1, 
-				date.get(Calendar.DAY_OF_MONTH), receiptId);
+        String dateSeperate[] = sessionDate.split("-");
+		String dateTime = Utils.getISODateTime();
+		int receiptId = getMaxReceiptId(sessionDate);
+        int year = Integer.parseInt(dateSeperate[0]);
+        int month = Integer.parseInt(dateSeperate[1]);
+        int dayOfMonth = Integer.parseInt(dateSeperate[2]);
+		String receiptNo = formatReceiptNo(year, month, dayOfMonth, receiptId);
 		
 		ContentValues cv = new ContentValues();
 		// Calculate VAT when amount of receipt is zero
@@ -1400,8 +1398,8 @@ public class OrderTransDataSource extends MPOSDatabase {
 		}
 		cv.put(OrderTransTable.COLUMN_STATUS_ID, TRANS_STATUS_SUCCESS);
 		cv.put(OrderTransTable.COLUMN_RECEIPT_ID, receiptId);
-		cv.put(OrderTransTable.COLUMN_CLOSE_TIME, dateTime.getTimeInMillis());
-		cv.put(OrderTransTable.COLUMN_PAID_TIME, dateTime.getTimeInMillis()); 
+		cv.put(OrderTransTable.COLUMN_CLOSE_TIME, dateTime);
+		cv.put(OrderTransTable.COLUMN_PAID_TIME, dateTime);
 		cv.put(OrderTransTable.COLUMN_TRANS_VATABLE, totalSalePrice);
 		cv.put(OrderTransTable.COLUMN_PAID_STAFF_ID, staffId);
 		cv.put(OrderTransTable.COLUMN_CLOSE_STAFF, staffId);
@@ -2248,13 +2246,13 @@ public class OrderTransDataSource extends MPOSDatabase {
 	 * @param reason
 	 */
 	public void voidTransactionWaste(int transactionId, int staffId, String reason) {
+        String dateTime = Utils.getISODateTime();
 		ContentValues cv = new ContentValues();
 		cv.put(OrderTransTable.COLUMN_STATUS_ID, WASTE_TRANS_STATUS_VOID);
 		cv.put(OrderTransTable.COLUMN_VOID_STAFF_ID, staffId);
 		cv.put(OrderTransTable.COLUMN_VOID_REASON, reason);
 		cv.put(COLUMN_SEND_STATUS, MPOSDatabase.NOT_SEND);
-		cv.put(OrderTransTable.COLUMN_VOID_TIME, Utils.getCalendar()
-				.getTimeInMillis());
+		cv.put(OrderTransTable.COLUMN_VOID_TIME, dateTime);
 		getWritableDatabase().update(
 				OrderTransTable.TABLE_ORDER_TRANS_WASTE, cv,
 				OrderTransTable.COLUMN_TRANS_ID + "=? ",
@@ -2272,13 +2270,13 @@ public class OrderTransDataSource extends MPOSDatabase {
 	 * @param reason
 	 */
 	public void voidTransaction(int transactionId, int staffId, String reason) {
+        String dateTime = Utils.getISODateTime();
 		ContentValues cv = new ContentValues();
 		cv.put(OrderTransTable.COLUMN_STATUS_ID, TRANS_STATUS_VOID);
 		cv.put(OrderTransTable.COLUMN_VOID_STAFF_ID, staffId);
 		cv.put(OrderTransTable.COLUMN_VOID_REASON, reason);
 		cv.put(COLUMN_SEND_STATUS, MPOSDatabase.NOT_SEND);
-		cv.put(OrderTransTable.COLUMN_VOID_TIME, Utils.getCalendar()
-				.getTimeInMillis());
+		cv.put(OrderTransTable.COLUMN_VOID_TIME, dateTime);
 		getWritableDatabase().update(
 				OrderTransTable.TABLE_ORDER_TRANS, cv,
 				OrderTransTable.COLUMN_TRANS_ID + "=? ",

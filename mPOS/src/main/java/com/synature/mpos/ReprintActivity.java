@@ -34,7 +34,6 @@ public class ReprintActivity extends Activity {
 	public static final int WASTE = 2;
 	
 	private OrderTransDataSource mTrans;
-	private GlobalPropertyDataSource mFormat;
 	private List<OrderTransaction> mTransLst;
 	private int mBillType = RECEIPT;
 	
@@ -60,7 +59,6 @@ public class ReprintActivity extends Activity {
 		mLvTrans = (ListView) findViewById(R.id.listView1);
 
 		mTrans = new OrderTransDataSource(this);
-		mFormat = new GlobalPropertyDataSource(this);
 
 		loadTransaction();
 		setupCustomView();
@@ -143,10 +141,8 @@ public class ReprintActivity extends Activity {
 			holder.tvNo.setText(String.valueOf(position + 1) + ".");
 			holder.tvReceiptNo.setText(trans.getReceiptNo());
 			if(!TextUtils.isEmpty(trans.getPaidTime())){
-				Calendar c = Calendar.getInstance();
 				try {
-					c.setTimeInMillis(Long.parseLong(trans.getPaidTime()));
-					holder.tvAd.setText(mFormat.timeFormat(c.getTime()));
+					holder.tvAd.setText(Utils.timeFormat(Utils.convertISODateToCalendar(trans.getPaidTime())));
 				} catch (NumberFormatException e) {}
 			}
 			holder.btnPrint.setOnClickListener(new OnClickListener(){

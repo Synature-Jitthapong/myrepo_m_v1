@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.synature.mpos.Utils;
 import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.model.OrderDetail;
 import com.synature.pos.SecondDisplayProperty;
@@ -36,13 +37,12 @@ public class SecondDisplayJSON {
 	}
 
 	/**
-	 * @param format
 	 * @param orderDetailLst
 	 * @param transSummLst
 	 * @param grandTotal
 	 * @return
 	 */
-	public static String genDisplayItem(GlobalPropertyDataSource format, List<OrderDetail> orderDetailLst,
+	public static String genDisplayItem(List<OrderDetail> orderDetailLst,
 			List<clsSecDisplay_TransSummary> transSummLst, String grandTotal){
 		Gson gson = new Gson();
 		clsSecDisplayItemData displayData = new clsSecDisplayItemData();
@@ -50,8 +50,8 @@ public class SecondDisplayJSON {
 		for(OrderDetail orderDetail : orderDetailLst){
 			clsSecDisplay_DetailItem item = new clsSecDisplay_DetailItem();
 			item.szItemName = orderDetail.getProductName();
-			item.szItemQty = format.qtyFormat(orderDetail.getOrderQty());
-			item.szItemTotalPrice = format.currencyFormat(orderDetail.getTotalRetailPrice());
+			item.szItemQty = Utils.qtyFormat(orderDetail.getOrderQty());
+			item.szItemTotalPrice = Utils.currencyFormat(orderDetail.getTotalRetailPrice());
 			item.szImageUrl = "";
 			itemLst.add(item);
 		}

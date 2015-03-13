@@ -30,7 +30,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/tvCashInOutTotalPrice"
-        android:background="@drawable/light_gray_shape_radius" />
+        android:background="@drawable/light_gray_shape_right_top_radius" />
 
     <GridView
         android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
         android:layout_alignParentEnd="true"
         android:numColumns="3"
         android:padding="@dimen/default_margin"
-        android:background="@drawable/light_blue_gray_shape_radius"
+        android:background="@drawable/light_blue_gray_shape_right_radius"
         android:verticalSpacing="@dimen/default_margin"
         android:horizontalSpacing="@dimen/default_margin" />
 </RelativeLayout>

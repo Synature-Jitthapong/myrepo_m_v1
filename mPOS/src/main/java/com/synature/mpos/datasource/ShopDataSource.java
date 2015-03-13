@@ -86,10 +86,11 @@ public class ShopDataSource extends MPOSDatabase{
 	 * @return ShopData.ShopProperty
 	 */
 	public com.synature.pos.ShopProperty getShopProperty(){
-		com.synature.pos.ShopProperty sp = new com.synature.pos.ShopProperty();
+		com.synature.pos.ShopProperty sp = null;
 		Cursor cursor = getReadableDatabase().query(ShopTable.TABLE_SHOP, 
 				ALL_SHOP_COLUMNS, null, null, null, null, null);
 		if(cursor.moveToFirst()){
+            sp = new com.synature.pos.ShopProperty();
 			sp.setShopID(cursor.getInt(cursor.getColumnIndex(ShopTable.COLUMN_SHOP_ID)));
 			sp.setShopCode(cursor.getString(cursor.getColumnIndex(ShopTable.COLUMN_SHOP_CODE)));
 			sp.setShopName(cursor.getString(cursor.getColumnIndex(ShopTable.COLUMN_SHOP_NAME)));

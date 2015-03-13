@@ -39,8 +39,6 @@ import android.widget.TextView;
 public class SendEnddayActivity extends Activity {
 
     public static final int IGNORE_SEND_STATUS = 1;
-
-	private GlobalPropertyDataSource mFormat;
 	
 	private int mStaffId;
 	private int mShopId;
@@ -72,13 +70,12 @@ public class SendEnddayActivity extends Activity {
 
 		Intent intent = getIntent();
 		mStaffId = intent.getIntExtra("staffId", 0);
-		mShopId = intent.getIntExtra("shopId", 0);
-		mComputerId = intent.getIntExtra("computerId", 0);
+		mShopId = MPOSApplication.sShopId;
+		mComputerId = MPOSApplication.sComputerId;
         int ignoreSendStatus = intent.getIntExtra("ignoreSendStatus", 0);
         if(ignoreSendStatus == 1){
             mIgnoreSendStatus = ignoreSendStatus;
         }
-		mFormat = new GlobalPropertyDataSource(this);
 		setupAdapter();
 	}
 
@@ -202,11 +199,9 @@ public class SendEnddayActivity extends Activity {
 			}
 			Session session = mSessLst.get(position); 
 			String sessionDate = session.getSessionDate();
-			Calendar cal = Calendar.getInstance();
-			cal.setTimeInMillis(Long.parseLong(sessionDate));
-			holder.tvSessionDate.setText(mFormat.dateFormat(cal.getTime()));
-			holder.tvSummary.setText("#Bill " + mFormat.qtyFormat(session.getTotalQtyReceipt()) 
-					+ " Total " + mFormat.currencyFormat(session.getTotalAmountReceipt()));
+			holder.tvSessionDate.setText(Utils.dateFormat(Utils.convertISODateToCalendar(sessionDate)));
+			holder.tvSummary.setText("#Bill " + Utils.qtyFormat(session.getTotalQtyReceipt())
+					+ " Total " + Utils.currencyFormat(session.getTotalAmountReceipt()));
 			holder.btnSend.setOnClickListener(new SendEnddayClickListener(sessionDate));
 			return convertView;
 		}

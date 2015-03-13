@@ -138,15 +138,17 @@ public final class R {
         public static final int ic_action_warning=0x7f020051;
         public static final int ic_launcher=0x7f020052;
         public static final int light_blue_gray_shape_radius=0x7f020053;
-        public static final int light_gray_shape_radius=0x7f020054;
-        public static final int list_selector=0x7f020055;
-        public static final int login_bg=0x7f020056;
-        public static final int menu_default=0x7f020057;
-        public static final int menu_pressed=0x7f020058;
-        public static final int menu_selector=0x7f020059;
-        public static final int mposlogo=0x7f02005a;
-        public static final int my_progressbar=0x7f02005b;
-        public static final int red_button_default=0x7f02005c;
+        public static final int light_blue_gray_shape_right_radius=0x7f020054;
+        public static final int light_gray_shape_radius=0x7f020055;
+        public static final int light_gray_shape_right_top_radius=0x7f020056;
+        public static final int list_selector=0x7f020057;
+        public static final int login_bg=0x7f020058;
+        public static final int menu_default=0x7f020059;
+        public static final int menu_pressed=0x7f02005a;
+        public static final int menu_selector=0x7f02005b;
+        public static final int mposlogo=0x7f02005c;
+        public static final int my_progressbar=0x7f02005d;
+        public static final int red_button_default=0x7f02005e;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f0c0041;

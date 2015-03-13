@@ -2,18 +2,19 @@ package com.synature.mpos;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.SQLException;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,14 +25,10 @@ import android.widget.TextView;
 
 import com.synature.mpos.datasource.CashInOutDataSource;
 import com.synature.mpos.datasource.GlobalPropertyDataSource;
-import com.synature.mpos.datasource.SaleTransaction;
 import com.synature.mpos.datasource.model.CashInOutOrderDetail;
 import com.synature.pos.CashInOutProduct;
-import com.synature.pos.GlobalProperty;
 
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -44,11 +41,14 @@ public class CashInOutActivity extends Activity {
     private CashInOutDetailAdapter mCashDetailAdapter;
     private CashInOutProductAdapter mCashProductAdapter;
 
+    private double mTotalPrice;
+
     private int mCashInOutTransId;
     private int mCashInOutCompId;
     private int mStaffId;
     private int mSessionId;
     private int mCashType;
+    private String mCashTypeName;
 
     private DecimalFormat mDecFormat;
 
@@ -69,10 +69,11 @@ public class CashInOutActivity extends Activity {
         mTvCashInOutTotalPrice = (TextView) findViewById(R.id.tvCashInOutTotalPrice);
 
         Intent intent = getIntent();
-        mCashInOutCompId = intent.getIntExtra("computerId", 0);
+        mCashInOutCompId = MPOSApplication.sComputerId;
         mStaffId = intent.getIntExtra("staffId", 0);
         mSessionId = intent.getIntExtra("sessionId", 0);
         mCashType = intent.getIntExtra("cashType", -1);
+        mCashTypeName = intent.getStringExtra("cashTypeName");
 
         mCashDataSource = new CashInOutDataSource(this);
         GlobalPropertyDataSource global = new GlobalPropertyDataSource(this);
@@ -81,6 +82,7 @@ public class CashInOutActivity extends Activity {
         openCashInOutTransaction();
         setupCashProductAdapter();
         setupCashDetailAdapter();
+        setTitle(mCashTypeName);
     }
 
 
@@ -100,6 +102,7 @@ public class CashInOutActivity extends Activity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_confirm) {
+            confirm();
             return true;
         }else if(id == android.R.id.home){
             finish();
@@ -135,8 +138,8 @@ public class CashInOutActivity extends Activity {
     }
 
     private void totalCashAmount(){
-        double totalCashAmount = mCashDataSource.getTotalCashAmount(mCashInOutTransId, mCashInOutCompId);
-        mTvCashInOutTotalPrice.setText(mDecFormat.format(totalCashAmount));
+        mTotalPrice = mCashDataSource.getTotalCashAmount(mCashInOutTransId, mCashInOutCompId);
+        mTvCashInOutTotalPrice.setText(mDecFormat.format(mTotalPrice));
     }
 
     private void loadCashDetail(){
@@ -148,20 +151,51 @@ public class CashInOutActivity extends Activity {
         mCashLst = mCashDataSource.listAllCashInOutProduct(mCashType);
     }
 
+    private void confirm(){
+        if(mCashDetailLst != null && mCashDetailLst.size() > 0) {
+            View inputView = getLayoutInflater().inflate(R.layout.input_text_layout, null, false);
+            final EditText txt = (EditText) inputView.findViewById(R.id.editText1);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(R.string.remark);
+            builder.setView(inputView);
+            builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+            builder.setPositiveButton(android.R.string.ok, null);
+            final AlertDialog dialog = builder.create();
+            dialog.show();
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String remark = txt.getText().toString();
+                    mCashDataSource.closeTransaction(mCashInOutTransId, mCashInOutCompId,
+                            mSessionId, mTotalPrice, remark);
+                    openCashInOutTransaction();
+                    setupCashDetailAdapter();
+                    dialog.dismiss();
+                }
+            });
+        }
+    }
+
     private void cancelCashInOutTransaction(){
         mCashDataSource.cancelTransaction(mCashInOutTransId, mCashInOutCompId);
     }
 
     private void openCashInOutTransaction(){
-        mCashDataSource.openTransaction(mCashInOutCompId, mStaffId, mSessionId, mCashType);
+        mCashInOutTransId = mCashDataSource.openTransaction(mCashInOutCompId, mStaffId, mSessionId, mCashType);
     }
 
-    private void addCashInOut(final int cashInOutId, final int cashType){
+    private void addCashInOut(final int cashInOutId, String cashInOutName, final int cashType){
         View inputView = getLayoutInflater().inflate(R.layout.input_text_layout, null, false);
         final EditText txt = (EditText) inputView.findViewById(R.id.editText1);
+        txt.setHint(getString(R.string.enter_price));
         txt.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.enter_price);
+        builder.setTitle(cashInOutName);
         builder.setView(inputView);
         builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
@@ -174,7 +208,7 @@ public class CashInOutActivity extends Activity {
             @Override
             public void onClick(View v) {
                 String txtPrice = txt.getText().toString();
-                if ( !TextUtils.isEmpty(txtPrice)) {
+                if (!TextUtils.isEmpty(txtPrice)) {
                     try {
                         double price = Double.parseDouble(txtPrice);
                         mCashDataSource.insertDetail(mCashInOutTransId, cashInOutId, price, cashType);
@@ -185,7 +219,7 @@ public class CashInOutActivity extends Activity {
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
-                }else{
+                } else {
                     txt.setError(getString(R.string.enter_price));
                 }
             }
@@ -228,8 +262,49 @@ public class CashInOutActivity extends Activity {
             holder.btnDel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mCashDataSource.deleteDetail(mCashInOutTransId, cashDetail.getiOrderID());
-                    setupCashDetailAdapter();
+                    new AlertDialog.Builder(CashInOutActivity.this)
+                            .setTitle(R.string.delete)
+                            .setMessage(R.string.confirm_delete_item)
+                            .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            })
+                            .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    mCashDataSource.deleteDetail(mCashInOutTransId, cashDetail.getiOrderID());
+                                    setupCashDetailAdapter();
+                                }
+                            }).show();
+                }
+            });
+            holder.txtCashInOutAmount.setOnKeyListener(new View.OnKeyListener() {
+                @Override
+                public boolean onKey(View v, int keyCode, KeyEvent event) {
+                    if(event.getAction() != KeyEvent.ACTION_DOWN)
+                        return true;
+
+                    if(keyCode == KeyEvent.KEYCODE_ENTER){
+                        EditText txt = (EditText) v;
+                        if(!TextUtils.isEmpty(txt.getText().toString())) {
+                            try {
+                                double price = Double.parseDouble(txt.getText().toString());
+                                int affectedRow = mCashDataSource.updateDetail(
+                                        mCashInOutTransId, cashDetail.getiOrderID(), price);
+                                InputMethodManager imm = (InputMethodManager) getSystemService(
+                                        Context.INPUT_METHOD_SERVICE);
+                                imm.hideSoftInputFromWindow(txt.getWindowToken(), 0);
+                            } catch (NumberFormatException e) {
+                                e.printStackTrace();
+                                txt.setError(getString(R.string.enter_valid_numeric));
+                            }
+                        }else{
+                            txt.setError(getString(R.string.enter_price));
+                        }
+                    }
+                    return false;
                 }
             });
             return convertView;
@@ -276,7 +351,7 @@ public class CashInOutActivity extends Activity {
             holder.btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    addCashInOut(cash.getCashInOutId(), cash.getCashInOutType());
+                    addCashInOut(cash.getCashInOutId(), cash.getCashInOutName(), cash.getCashInOutType());
                 }
             });
             return convertView;

@@ -33,184 +33,170 @@ public class GlobalPropertyDataSource extends MPOSDatabase{
 	}
 	
 	/**
-	 * Get rounding type 
-	 * 1 - 6 up/down not follow by function
-	 * 7 0, 1
-	 * 8 0, 0.5, 1
-	 * 9 0, 0.25, 0.5, 0.75, 1
-	 * @return rounding type
-	 */
-	public int getRoundingType(){
-		int roundingType = 0;
-		com.synature.pos.GlobalProperty gb = getGlobalProperty();
-		roundingType = gb.getTotalDiscountRoundType();
-		return roundingType;
-	}
-	
-	/**
 	 * @param d
 	 * @param pattern
 	 * @return String format date
 	 */
-	public String dateFormat(Date d, String pattern){
-		SimpleDateFormat dateFormat = getSimpleDateFormat();
-		dateFormat.applyPattern(pattern);
-		return dateFormat.format(d);	
-	}
-	
-	/**
-	 * @param d
-	 * @return String format date
-	 */
-	public String dateFormat(Date d){
-		SimpleDateFormat dateFormat = getSimpleDateFormat();
-		if(!getGlobalProperty().getDateFormat().equals(""))
-			dateFormat.applyPattern(getGlobalProperty().getDateFormat());
-		return dateFormat.format(d);	
-	}
-	
-	/**
-	 * @param date
-	 * @return String format date
-	 */
-	public String dateFormat(String date){
-		Calendar calendar = Utils.convertStringToCalendar(date);
-		SimpleDateFormat dateFormat = getSimpleDateFormat();
-		if(!getGlobalProperty().getDateFormat().equals(""))
-			dateFormat.applyPattern(getGlobalProperty().getDateFormat());
-		return dateFormat.format(calendar.getTime());
-	}
-	
-	/**
-	 * @param dateTime
-	 * @return String format date time
-	 */
-	public String dateTimeFormat(String dateTime){
-		Calendar calendar = Utils.convertStringToCalendar(dateTime);
-		SimpleDateFormat dateTimeFormat = getSimpleDateTimeFormat();
-		if(!getGlobalProperty().getDateFormat().equals("") && 
-				!getGlobalProperty().getTimeFormat().equals(""))
-			dateTimeFormat.applyPattern(getGlobalProperty().getDateFormat() + " " +
-					getGlobalProperty().getTimeFormat());
-		return dateTimeFormat.format(calendar.getTime());
-	}
-	
-	/**
-	 * @param time
-	 * @return String time format
-	 */
-	public String timeFormat(String time){
-		Calendar calendar = Utils.convertStringToCalendar(time);
-		SimpleDateFormat timeFormat = getSimpleTimeFormat();
-		if(!getGlobalProperty().getTimeFormat().equals(""))
-			timeFormat.applyPattern(getGlobalProperty().getTimeFormat());
-		return timeFormat.format(calendar.getTime());
-	}
-	
-	/**
-	 * @param dateTime
-	 * @param pattern
-	 * @return String format date time
-	 */
-	public String dateTimeFormat(String dateTime, String pattern){
-		Calendar calendar = Utils.convertStringToCalendar(dateTime);
-		SimpleDateFormat dateTimeFormat = getSimpleDateTimeFormat();
-		dateTimeFormat.applyPattern(pattern);
-		return dateTimeFormat.format(calendar.getTime());
-	}
-	
-	/**
-	 * @param d
-	 * @param pattern
-	 * @return String format date time
-	 */
-	public String dateTimeFormat(Date d, String pattern){
-		SimpleDateFormat dateTimeFormat = getSimpleDateTimeFormat();
-		dateTimeFormat.applyPattern(pattern);
-		return dateTimeFormat.format(d);
-	}
-	
-	/**
-	 * @param d
-	 * @return String format date time
-	 */
-	public String dateTimeFormat(Date d){
-		SimpleDateFormat dateTimeFormat = getSimpleDateTimeFormat();
-		if(!getGlobalProperty().getDateFormat().equals("") && 
-				!getGlobalProperty().getTimeFormat().equals(""))
-			dateTimeFormat.applyPattern(getGlobalProperty().getDateFormat() + " " +
-					getGlobalProperty().getTimeFormat());
-		return dateTimeFormat.format(d);
-	}
-	
-	/**
-	 * @param d
-	 * @return String format time
-	 */
-	public String timeFormat(Date d){
-		SimpleDateFormat timeFormat = getSimpleTimeFormat();
-		if(!getGlobalProperty().getTimeFormat().equals(""))
-			timeFormat.applyPattern(getGlobalProperty().getTimeFormat());
-		return timeFormat.format(d);
-	}
-	
-	/**
-	 * @param qty
-	 * @param pattern
-	 * @return qty format
-	 */
-	public String qtyFormat(double qty, String pattern){
-		DecimalFormat qtyFormat = getDecimalFormat();
-		qtyFormat.applyPattern(pattern);
-		return qtyFormat.format(qty);
-	}
-	
-	/**
-	 * @param qty
-	 * @return qty format
-	 */
-	public String qtyFormat(double qty){
-		DecimalFormat qtyFormat = getDecimalFormat();
-		if(!getGlobalProperty().getQtyFormat().equals("")){
-			qtyFormat.applyPattern(getGlobalProperty().getQtyFormat());
-			return qtyFormat.format(qty);
-		}else{
-			NumberFormat numFormat = getNumberFormat();
-			return numFormat.format(qty);
-		}
-	}
-	
-	/**
-	 * @param currency
-	 * @param pattern
-	 * @return currency format
-	 */
-	public String currencyFormat(double currency, String pattern){
-		DecimalFormat currencyFormat = getDecimalFormat();
-		currencyFormat.applyPattern(pattern);
-		return currencyFormat.format(currency);
-	}
-	
-	/**
-	 * @param currency
-	 * @return currency format
-	 */
-	public String currencyFormat(double currency){
-		DecimalFormat currencyFormat = getDecimalFormat();
-		if(!getGlobalProperty().getCurrencyFormat().equals("")){
-			currencyFormat.applyPattern(getGlobalProperty().getCurrencyFormat());
-			return currencyFormat.format(currency);
-		}else{
-			NumberFormat numFormat = getNumberFormat();
-			return numFormat.format(currency);
-		}
-	}
+//	public String dateFormat(Date d, String pattern){
+//		SimpleDateFormat dateFormat = getSimpleDateFormat();
+//		dateFormat.applyPattern(pattern);
+//		return dateFormat.format(d);
+//	}
+//
+//	/**
+//	 * @param d
+//	 * @return String format date
+//	 */
+//	public String dateFormat(Date d){
+//		SimpleDateFormat dateFormat = getSimpleDateFormat();
+//		if(!getGlobalProperty().getDateFormat().equals(""))
+//			dateFormat.applyPattern(getGlobalProperty().getDateFormat());
+//		return dateFormat.format(d);
+//	}
+//
+//	/**
+//	 * @param date
+//	 * @return String format date
+//	 */
+//	public String dateFormat(String date){
+//		Calendar calendar = Utils.convertStringToCalendar(date);
+//		SimpleDateFormat dateFormat = getSimpleDateFormat();
+//		if(!getGlobalProperty().getDateFormat().equals(""))
+//			dateFormat.applyPattern(getGlobalProperty().getDateFormat());
+//		return dateFormat.format(calendar.getTime());
+//	}
+//
+//	/**
+//	 * @param dateTime
+//	 * @return String format date time
+//	 */
+//	public String dateTimeFormat(String dateTime){
+//		Calendar calendar = Utils.convertStringToCalendar(dateTime);
+//		SimpleDateFormat dateTimeFormat = getSimpleDateTimeFormat();
+//		if(!getGlobalProperty().getDateFormat().equals("") &&
+//				!getGlobalProperty().getTimeFormat().equals(""))
+//			dateTimeFormat.applyPattern(getGlobalProperty().getDateFormat() + " " +
+//					getGlobalProperty().getTimeFormat());
+//		return dateTimeFormat.format(calendar.getTime());
+//	}
+//
+//	/**
+//	 * @param time
+//	 * @return String time format
+//	 */
+//	public String timeFormat(String time){
+//		Calendar calendar = Utils.convertStringToCalendar(time);
+//		SimpleDateFormat timeFormat = getSimpleTimeFormat();
+//		if(!getGlobalProperty().getTimeFormat().equals(""))
+//			timeFormat.applyPattern(getGlobalProperty().getTimeFormat());
+//		return timeFormat.format(calendar.getTime());
+//	}
+//
+//	/**
+//	 * @param dateTime
+//	 * @param pattern
+//	 * @return String format date time
+//	 */
+//	public String dateTimeFormat(String dateTime, String pattern){
+//		Calendar calendar = Utils.convertStringToCalendar(dateTime);
+//		SimpleDateFormat dateTimeFormat = getSimpleDateTimeFormat();
+//		dateTimeFormat.applyPattern(pattern);
+//		return dateTimeFormat.format(calendar.getTime());
+//	}
+//
+//	/**
+//	 * @param d
+//	 * @param pattern
+//	 * @return String format date time
+//	 */
+//	public String dateTimeFormat(Date d, String pattern){
+//		SimpleDateFormat dateTimeFormat = getSimpleDateTimeFormat();
+//		dateTimeFormat.applyPattern(pattern);
+//		return dateTimeFormat.format(d);
+//	}
+//
+//	/**
+//	 * @param d
+//	 * @return String format date time
+//	 */
+//	public String dateTimeFormat(Date d){
+//		SimpleDateFormat dateTimeFormat = getSimpleDateTimeFormat();
+//		if(!getGlobalProperty().getDateFormat().equals("") &&
+//				!getGlobalProperty().getTimeFormat().equals(""))
+//			dateTimeFormat.applyPattern(getGlobalProperty().getDateFormat() + " " +
+//					getGlobalProperty().getTimeFormat());
+//		return dateTimeFormat.format(d);
+//	}
+//
+//	/**
+//	 * @param d
+//	 * @return String format time
+//	 */
+//	public String timeFormat(Date d){
+//		SimpleDateFormat timeFormat = getSimpleTimeFormat();
+//		if(!getGlobalProperty().getTimeFormat().equals(""))
+//			timeFormat.applyPattern(getGlobalProperty().getTimeFormat());
+//		return timeFormat.format(d);
+//	}
+//
+//	/**
+//	 * @param qty
+//	 * @param pattern
+//	 * @return qty format
+//	 */
+//	public String qtyFormat(double qty, String pattern){
+//		DecimalFormat qtyFormat = getDecimalFormat();
+//		qtyFormat.applyPattern(pattern);
+//		return qtyFormat.format(qty);
+//	}
+//
+//	/**
+//	 * @param qty
+//	 * @return qty format
+//	 */
+//	public String qtyFormat(double qty){
+//		DecimalFormat qtyFormat = getDecimalFormat();
+//		if(!getGlobalProperty().getQtyFormat().equals("")){
+//			qtyFormat.applyPattern(getGlobalProperty().getQtyFormat());
+//			return qtyFormat.format(qty);
+//		}else{
+//			NumberFormat numFormat = getNumberFormat();
+//			return numFormat.format(qty);
+//		}
+//	}
+//
+//	/**
+//	 * @param currency
+//	 * @param pattern
+//	 * @return currency format
+//	 */
+//	public String currencyFormat(double currency, String pattern){
+//		DecimalFormat currencyFormat = getDecimalFormat();
+//		currencyFormat.applyPattern(pattern);
+//		return currencyFormat.format(currency);
+//	}
+//
+//	/**
+//	 * @param currency
+//	 * @return currency format
+//	 */
+//	public String currencyFormat(double currency){
+//		DecimalFormat currencyFormat = getDecimalFormat();
+//		if(!getGlobalProperty().getCurrencyFormat().equals("")){
+//			currencyFormat.applyPattern(getGlobalProperty().getCurrencyFormat());
+//			return currencyFormat.format(currency);
+//		}else{
+//			NumberFormat numFormat = getNumberFormat();
+//			return numFormat.format(currency);
+//		}
+//	}
 	
 	public com.synature.pos.GlobalProperty getGlobalProperty() {
-		com.synature.pos.GlobalProperty gb = new com.synature.pos.GlobalProperty();
+		com.synature.pos.GlobalProperty gb = null;
 		Cursor cursor = getReadableDatabase().query(GlobalPropertyTable.TABLE_GLOBAL_PROPERTY, COLUMNS, 
 				null, null, null, null, null);
 		if (cursor.moveToFirst()) {
+            gb = new com.synature.pos.GlobalProperty();
 			gb.setCurrencyCode(cursor.getString(cursor.getColumnIndex(GlobalPropertyTable.COLUMN_CURRENCY_CODE)));
 			gb.setCurrencySymbol(cursor.getString(cursor.getColumnIndex(GlobalPropertyTable.COLUMN_CURRENCY_SYMBOL)));
 			gb.setCurrencyName(cursor.getString(cursor.getColumnIndex(GlobalPropertyTable.COLUMN_CURRENCY_NAME)));
@@ -247,28 +233,28 @@ public class GlobalPropertyDataSource extends MPOSDatabase{
 		}
 	}
 	
-	private SimpleDateFormat getSimpleDateFormat(){
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Utils.getLocale(mContext));
-		return dateFormat;
-	}
-	
-	private SimpleDateFormat getSimpleDateTimeFormat(){
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Utils.getLocale(mContext));
-		return dateFormat;
-	}
-	
-	private SimpleDateFormat getSimpleTimeFormat(){
-		SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss", Utils.getLocale(mContext));
-		return dateFormat;
-	}
-	
-	private NumberFormat getNumberFormat(){
-		NumberFormat numFormat = NumberFormat.getInstance(Utils.getLocale(mContext));
-		return numFormat;
-	}
-	
-	private DecimalFormat getDecimalFormat(){
-		DecimalFormat decFormat = new DecimalFormat();
-		return decFormat;
-	}
+//	private SimpleDateFormat getSimpleDateFormat(){
+//		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Utils.getLocale(mContext));
+//		return dateFormat;
+//	}
+//
+//	private SimpleDateFormat getSimpleDateTimeFormat(){
+//		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Utils.getLocale(mContext));
+//		return dateFormat;
+//	}
+//
+//	private SimpleDateFormat getSimpleTimeFormat(){
+//		SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss", Utils.getLocale(mContext));
+//		return dateFormat;
+//	}
+//
+//	private NumberFormat getNumberFormat(){
+//		NumberFormat numFormat = NumberFormat.getInstance(Utils.getLocale(mContext));
+//		return numFormat;
+//	}
+//
+//	private DecimalFormat getDecimalFormat(){
+//		DecimalFormat decFormat = new DecimalFormat();
+//		return decFormat;
+//	}
 }

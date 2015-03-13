@@ -10,18 +10,14 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.text.NumberFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import com.j1tth4.slidinglibs.SlidingTabLayout;
 import com.synature.mpos.SwitchLangFragment.OnChangeLanguageListener;
-import com.synature.mpos.datasource.ComputerDataSource;
-import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.PaymentDetailDataSource;
 import com.synature.mpos.datasource.PrintReceiptLogDataSource;
@@ -131,14 +127,9 @@ public class MainActivity extends FragmentActivity implements
 	 * Wintec customer display
 	 */
 	private WintecCustomerDisplay mDsp;
-
-	private ProductsDataSource mProducts;
-	private ShopDataSource mShop;
-	private GlobalPropertyDataSource mGlobal;
 	
 	private SessionDataSource mSession;
 	private OrderTransDataSource mTrans;
-	private ComputerDataSource mComputer;
 	
 	private List<OrderDetail> mOrderDetailLst;
 	private OrderDetailAdapter mOrderDetailAdapter;
@@ -149,10 +140,10 @@ public class MainActivity extends FragmentActivity implements
 	
 	private int mSessionId;
 	private int mTransactionId;
+    private int mShopId;
+    private int mComputerId;
 	private int mStaffId;
 	private int mStaffRoleId;
-	private int mShopId;
-	private int mComputerId;
 	
 	private ExpandableListView mLvOrderDetail;
 	private EditText mTxtBarCode;
@@ -177,16 +168,11 @@ public class MainActivity extends FragmentActivity implements
 		Intent intent = getIntent();
 		mStaffId = intent.getIntExtra("staffId", 0);
 		mStaffRoleId = intent.getIntExtra("staffRoleId", 0);
-		
+		mShopId = MPOSApplication.sShopId;
+        mComputerId = MPOSApplication.sComputerId;
+
 		mSession = new SessionDataSource(this);
 		mTrans = new OrderTransDataSource(this);
-		mProducts = new ProductsDataSource(this);
-		mShop = new ShopDataSource(this);
-		mComputer = new ComputerDataSource(this);
-		mGlobal = new GlobalPropertyDataSource(this);
-		
-		mShopId = mShop.getShopId();
-		mComputerId = mComputer.getComputerId();
 		
 		mImageLoader = new ImageLoader(this, 0,
 					MPOSApplication.IMG_DIR, ImageLoader.IMAGE_SIZE.MEDIUM);
@@ -202,14 +188,15 @@ public class MainActivity extends FragmentActivity implements
     /**
      * Cash-In/Out callback listener
      * @param type
+     * @param cashTypeName
      */
     @Override
-    public void onSelected(int type) {
+    public void onSelected(int type, String cashTypeName) {
         Intent intent = new Intent(this, CashInOutActivity.class);
-        intent.putExtra("computerId", mComputerId);
         intent.putExtra("staffId", mStaffId);
         intent.putExtra("sessionId", mSessionId);
         intent.putExtra("cashType", type);
+        intent.putExtra("cashTypeName", cashTypeName);
         startActivity(intent);
     }
 
@@ -261,7 +248,7 @@ public class MainActivity extends FragmentActivity implements
 	private void setupTitle(){
 		StaffsDataSource staff = new StaffsDataSource(this);
 		com.synature.pos.Staff s = staff.getStaff(mStaffId);
-		setTitle(mShop.getShopName());
+		setTitle(MPOSApplication.sShopName);
 		getActionBar().setSubtitle(s.getStaffName());
 	}
 	
@@ -269,7 +256,8 @@ public class MainActivity extends FragmentActivity implements
 		SharedPreferences settings = getSharedPreferences(PREF_NUM_MENU_COLUMNS, 0);
 		int numCols = settings.getInt(NUM_MENU_COLUMNS, 4);
 
-		mProductDeptLst = mProducts.listProductDept();
+        ProductsDataSource product = new ProductsDataSource(this);
+		mProductDeptLst = product.listProductDept();
 		mPageAdapter = new MenuItemPagerAdapter(getSupportFragmentManager(), numCols);
 		//mPager.setOffscreenPageLimit(8);
 		mPager.setAdapter(mPageAdapter);
@@ -298,7 +286,8 @@ public class MainActivity extends FragmentActivity implements
 				if(keyCode == KeyEvent.KEYCODE_ENTER){
 					String barCode = ((EditText) view).getText().toString();
 					if(!barCode.isEmpty()){
-						Product p = mProducts.getProduct(barCode);
+                        ProductsDataSource product = new ProductsDataSource(MainActivity.this);
+						Product p = product.getProduct(barCode);
 						if(p != null){
 							addOrder(p.getProductId(), p.getProductName(), 
 									p.getProductTypeId(), p.getVatType(), p.getVatRate(), 
@@ -386,8 +375,6 @@ public class MainActivity extends FragmentActivity implements
 			case R.id.itemSendEndday:
 				intent = new Intent(this, SendEnddayActivity.class);
 				intent.putExtra("staffId", mStaffId);
-				intent.putExtra("shopId", mShopId);
-				intent.putExtra("computerId", mComputerId);
 				startActivity(intent);
 				return true;
 			case R.id.itemReprint:
@@ -397,8 +384,6 @@ public class MainActivity extends FragmentActivity implements
 			case R.id.itemSendSale:
 				intent = new Intent(this, SendSaleActivity.class);
 				intent.putExtra("staffId", mStaffId);
-				intent.putExtra("shopId", mShopId);
-				intent.putExtra("computerId", mComputerId);
 				startActivity(intent);
 				return true;
 			case R.id.itemSetting:
@@ -482,70 +467,70 @@ public class MainActivity extends FragmentActivity implements
 
 		mTbSummary.addView(createTableRowSummary(
 				getString(R.string.items) + ": " + NumberFormat.getInstance().format(totalQty), 
-				mGlobal.currencyFormat(sumOrder.getTotalRetailPrice()), 
+				Utils.currencyFormat(sumOrder.getTotalRetailPrice()),
 				0, 0, 0, 0));
 		
 		if(totalDiscount > 0){ 
 			mTbSummary.addView(createTableRowSummary(disText, 
-					"-" + mGlobal.currencyFormat(totalDiscount), 0, 0, 0, 0));
-			mTbSummary.addView(createTableRowSummary(getString(R.string.sub_total), 
-					mGlobal.currencyFormat(totalSalePrice), 0, 0, 0, 0));
+					"-" + Utils.currencyFormat(totalDiscount), 0, 0, 0, 0));
+			mTbSummary.addView(createTableRowSummary(getString(R.string.sub_total),
+                    Utils.currencyFormat(totalSalePrice), 0, 0, 0, 0));
 		}
 		if(vatExclude > 0){
 			mTbSummary.addView(createTableRowSummary(getString(R.string.vat_exclude) +
-					" " + NumberFormat.getInstance().format(mShop.getCompanyVatRate()) + "%",
-					mGlobal.currencyFormat(vatExclude), 0, 0, 0, 0));
+					" " + NumberFormat.getInstance().format(MPOSApplication.sCompanyVatRate) + "%",
+                    Utils.currencyFormat(vatExclude), 0, 0, 0, 0));
 		}
-		double rounding = Utils.roundingPrice(mGlobal.getRoundingType(), totalPriceInclVat);
+		double rounding = Utils.roundingPrice(MPOSApplication.sRoundingType, totalPriceInclVat);
 		if(rounding != totalPriceInclVat){
 			if(totalDiscount == 0){
-				mTbSummary.addView(createTableRowSummary(getString(R.string.sub_total), 
-						mGlobal.currencyFormat(totalPriceInclVat), 0, 0, 0, 0));
+				mTbSummary.addView(createTableRowSummary(getString(R.string.sub_total),
+                        Utils.currencyFormat(totalPriceInclVat), 0, 0, 0, 0));
 			}
 			mTbSummary.addView(createTableRowSummary(getString(R.string.rounding),
-					mGlobal.currencyFormat(rounding - totalPriceInclVat), 0, 0, 0, 0));
+                    Utils.currencyFormat(rounding - totalPriceInclVat), 0, 0, 0, 0));
 		}
 		mTbSummary.addView(createTableRowSummary(getString(R.string.total),
-				mGlobal.currencyFormat(rounding),
+                Utils.currencyFormat(rounding),
 				0, R.style.HeaderText, 0, getResources().getInteger(R.integer.large_text_size)));
 		
 		if(Utils.isEnableSecondDisplay(this)){
 			List<clsSecDisplay_TransSummary> transSummLst = new ArrayList<clsSecDisplay_TransSummary>();
 			clsSecDisplay_TransSummary transSumm = new clsSecDisplay_TransSummary();
 			transSumm.szSumName = getString(R.string.sub_total); 
-			transSumm.szSumAmount = mGlobal.currencyFormat(totalRetailPrice);
+			transSumm.szSumAmount = Utils.currencyFormat(totalRetailPrice);
 			transSummLst.add(transSumm);
 			if(totalDiscount > 0){
 				transSumm = new clsSecDisplay_TransSummary();
 				transSumm.szSumName = disText;
-				transSumm.szSumAmount = "-" + mGlobal.currencyFormat(totalDiscount);
+				transSumm.szSumAmount = "-" + Utils.currencyFormat(totalDiscount);
 				transSummLst.add(transSumm);
 			}
 			if(vatExclude > 0){
 				transSumm = new clsSecDisplay_TransSummary();
 				transSumm.szSumName = getString(R.string.vat_exclude) + 
-						" " + NumberFormat.getInstance().format(mShop.getCompanyVatRate()) + "%";
-				transSumm.szSumAmount = mGlobal.currencyFormat(vatExclude);
+						" " + NumberFormat.getInstance().format(MPOSApplication.sCompanyVatRate) + "%";
+				transSumm.szSumAmount = Utils.currencyFormat(vatExclude);
 				transSummLst.add(transSumm);
 			}
 			transSumm = new clsSecDisplay_TransSummary();
 			transSumm.szSumName = getString(R.string.total_qty); 
-			transSumm.szSumAmount = mGlobal.qtyFormat(totalQty);
+			transSumm.szSumAmount = Utils.qtyFormat(totalQty);
 			transSummLst.add(transSumm);
 			
 			transSumm = new clsSecDisplay_TransSummary();
 			transSumm.szSumName = getString(R.string.total); 
-			transSumm.szSumAmount = mGlobal.currencyFormat(totalPriceInclVat);
+			transSumm.szSumAmount = Utils.currencyFormat(totalPriceInclVat);
 			transSummLst.add(transSumm);
-			secondDisplayItem(transSummLst, mGlobal.currencyFormat(totalPriceInclVat));
+			secondDisplayItem(transSummLst, Utils.currencyFormat(totalPriceInclVat));
 		}
 		if(Utils.isEnableWintecCustomerDisplay(this)){
 			// display only have item
 			if(!TextUtils.isEmpty(mDsp.getItemName())){
 				if(totalQty > 0){
 					try {
-						mDsp.setItemTotalQty(mGlobal.qtyFormat(totalQty));
-						mDsp.setItemTotalAmount(mGlobal.currencyFormat(totalRetailPrice));
+						mDsp.setItemTotalQty(Utils.qtyFormat(totalQty));
+						mDsp.setItemTotalAmount(Utils.currencyFormat(totalRetailPrice));
 						mDsp.displayOrder();
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -619,7 +604,7 @@ public class MainActivity extends FragmentActivity implements
 		// log receipt for print task
 		PrintReceiptLogDataSource printLog = new PrintReceiptLogDataSource(MainActivity.this);
 		int isCopy = 0;
-		for(int i = 0; i < mComputer.getReceiptHasCopy(); i++){
+		for(int i = 0; i < MPOSApplication.sNumReceiptCopy; i++){
 			if(i > 0)
 				isCopy = 1;
 			printLog.insertLog(transactionId, staffId, isCopy);
@@ -652,7 +637,7 @@ public class MainActivity extends FragmentActivity implements
 			TextView tvChange = new TextView(MainActivity.this);
 			tvChange.setTextSize(getResources().getDimension(R.dimen.larger_text_size));
 			tvChange.setGravity(Gravity.CENTER);
-			tvChange.setText(mGlobal.currencyFormat(change));
+			tvChange.setText(Utils.currencyFormat(change));
 			LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, 
 					LayoutParams.WRAP_CONTENT);
 			params.gravity = Gravity.CENTER;
@@ -675,8 +660,8 @@ public class MainActivity extends FragmentActivity implements
 				}
 			}).show();
 			if(Utils.isEnableSecondDisplay(this)){
-				secondDisplayChangePayment(mGlobal.currencyFormat(totalSalePrice), 
-						mGlobal.currencyFormat(totalPaid), mGlobal.currencyFormat(change));
+				secondDisplayChangePayment(Utils.currencyFormat(totalSalePrice),
+                        Utils.currencyFormat(totalPaid), Utils.currencyFormat(change));
 				new Handler().postDelayed(new Runnable(){
 
 					@Override
@@ -688,8 +673,8 @@ public class MainActivity extends FragmentActivity implements
 			}
 		}
 		if(Utils.isEnableWintecCustomerDisplay(this)){
-			mDsp.displayTotalPay(mGlobal.currencyFormat(totalPaid), 
-					mGlobal.currencyFormat(change));
+			mDsp.displayTotalPay(Utils.currencyFormat(totalPaid),
+                    Utils.currencyFormat(change));
 			if(change == 0){
 				new Handler().postDelayed(
 						new Runnable(){
@@ -777,7 +762,7 @@ public class MainActivity extends FragmentActivity implements
 					OrderDetail sumOrder = mTrans.getSummaryOrder(mTransactionId, true);
 					PaymentDetailDataSource payment = new PaymentDetailDataSource(MainActivity.this);
 					double totalSalePrice = sumOrder.getTotalSalePrice() + sumOrder.getVatExclude();
-					double totalPaid = Utils.roundingPrice(mGlobal.getRoundingType(), totalSalePrice);
+					double totalPaid = Utils.roundingPrice(MPOSApplication.sRoundingType, totalSalePrice);
 					
 					payment.deleteAllPaymentDetail(mTransactionId);
 					payment.addPaymentDetail(mTransactionId, mComputerId, PaymentDetailDataSource.PAY_TYPE_CASH,
@@ -806,7 +791,7 @@ public class MainActivity extends FragmentActivity implements
 	private void payment(){
 		if(mOrderDetailLst.size() > 0){
 			// food court type
-			if(mShop.getFastFoodType() == ShopDataSource.SHOP_TYPE_FOOD_COURT){
+			if(MPOSApplication.sFastFoodType == ShopDataSource.SHOP_TYPE_FOOD_COURT){
 				Intent intent = new Intent(MainActivity.this, FoodCourtCardPayActivity.class);
 				intent.putExtra("transactionId", mTransactionId);
 				intent.putExtra("shopId", mShopId);
@@ -922,8 +907,8 @@ public class MainActivity extends FragmentActivity implements
 			holder.tvOrderName.setChecked(orderDetail.isChecked());
 			holder.tvOrderNo.setText(Integer.toString(groupPosition + 1) + ".");
 			holder.tvOrderName.setText(orderDetail.getProductName());
-			holder.tvOrderPrice.setText(mGlobal.currencyFormat(orderDetail.getProductPrice()));
-			holder.txtOrderQty.setText(mGlobal.qtyFormat(orderDetail.getOrderQty()));
+			holder.tvOrderPrice.setText(Utils.currencyFormat(orderDetail.getProductPrice()));
+			holder.txtOrderQty.setText(Utils.qtyFormat(orderDetail.getOrderQty()));
 			holder.tvComment.setText(null);
 			if(orderDetail.getOrderCommentLst() != null){
 				holder.tvComment.setVisibility(View.VISIBLE);
@@ -933,9 +918,9 @@ public class MainActivity extends FragmentActivity implements
 					if(comment.getCommentPrice() > 0){
 						double commentQty = comment.getCommentQty();
 						double commentPrice = comment.getCommentPrice();
-						holder.tvComment.append(" " + mGlobal.qtyFormat(commentQty));
-						holder.tvComment.append("x" + mGlobal.currencyFormat(commentPrice));
-						holder.tvComment.append("=" + mGlobal.currencyFormat(comment.getCommentTotalPrice()));
+						holder.tvComment.append(" " + Utils.qtyFormat(commentQty));
+						holder.tvComment.append("x" + Utils.currencyFormat(commentPrice));
+						holder.tvComment.append("=" + Utils.currencyFormat(comment.getCommentTotalPrice()));
 					}
 					holder.tvComment.append("\n");
 				}
@@ -949,10 +934,11 @@ public class MainActivity extends FragmentActivity implements
 
 				@Override
 				public void onClick(View v) {
+                    ProductsDataSource product = new ProductsDataSource(MainActivity.this);
 					MenuCommentDialogFragment commentDialog = 
 							MenuCommentDialogFragment.newInstance(groupPosition, mTransactionId, 
 									mComputerId, orderDetail.getOrderDetailId(), 
-									orderDetail.getVatType(), mProducts.getVatRate(orderDetail.getProductId()),
+									orderDetail.getVatType(), product.getVatRate(orderDetail.getProductId()),
 									orderDetail.getProductName(), orderDetail.getOrderComment());
 					commentDialog.show(getFragmentManager(), "CommentDialog");
 				}
@@ -979,12 +965,13 @@ public class MainActivity extends FragmentActivity implements
 					double qty = orderDetail.getOrderQty();
 					double pricePerUnit = orderDetail.getProductPrice();
 					if(--qty > 0){
+                        ProductsDataSource product = new ProductsDataSource(MainActivity.this);
 						orderDetail.setOrderQty(qty);
                         orderDetail.setTotalRetailPrice(pricePerUnit * qty);
 						updateOrder(orderDetail.getOrderDetailId(),
 								qty, pricePerUnit,
 								orderDetail.getVatType(),
-								mProducts.getVatRate(orderDetail.getProductId()),
+								product.getVatRate(orderDetail.getProductId()),
 								orderDetail.getProductName(), orderDetail.getProductName1());
 					}else{
 						new AlertDialog.Builder(MainActivity.this)
@@ -1014,6 +1001,7 @@ public class MainActivity extends FragmentActivity implements
 	
 				@Override
 				public void onClick(View v) {
+                    ProductsDataSource product = new ProductsDataSource(MainActivity.this);
 					double qty = orderDetail.getOrderQty();
                     double pricePerUnit = orderDetail.getProductPrice();
 					orderDetail.setOrderQty(++qty);
@@ -1021,7 +1009,7 @@ public class MainActivity extends FragmentActivity implements
 					updateOrder(orderDetail.getOrderDetailId(),
 							qty, pricePerUnit,
 							orderDetail.getVatType(),
-							mProducts.getVatRate(orderDetail.getProductId()),
+							product.getVatRate(orderDetail.getProductId()),
 							orderDetail.getProductName(), orderDetail.getProductName1());
 					
 					mOrderDetailAdapter.notifyDataSetChanged();
@@ -1051,11 +1039,12 @@ public class MainActivity extends FragmentActivity implements
 						try {
 							double qty = Utils.stringToDouble(editText.getText().toString());
 							if(qty > 0){
+                                ProductsDataSource product = new ProductsDataSource(MainActivity.this);
 								orderDetail.setOrderQty(qty);
 								updateOrder(orderDetail.getOrderDetailId(),
 										qty, orderDetail.getProductPrice(), 
 										orderDetail.getVatType(),
-										mProducts.getVatRate(orderDetail.getProductId()),
+										product.getVatRate(orderDetail.getProductId()),
 										orderDetail.getProductName(), orderDetail.getProductName1());
 								
 								mOrderDetailAdapter.notifyDataSetChanged();
@@ -1109,8 +1098,8 @@ public class MainActivity extends FragmentActivity implements
 			OrderSetDetail setDetail = mOrderDetailLst.get(groupPosition).getOrdSetDetailLst().get(childPosition);
 			holder.tvSetNo.setText("-");
 			holder.tvSetName.setText(setDetail.getProductName());
-			holder.tvSetPrice.setText(setDetail.getProductPrice() > 0 ? mGlobal.currencyFormat(setDetail.getProductPrice()) : null);
-			holder.tvSetQty.setText(mGlobal.qtyFormat(setDetail.getOrderSetQty()));
+			holder.tvSetPrice.setText(setDetail.getProductPrice() > 0 ? Utils.currencyFormat(setDetail.getProductPrice()) : null);
+			holder.tvSetQty.setText(Utils.qtyFormat(setDetail.getOrderSetQty()));
 			return convertView;
 		}
 
@@ -1213,7 +1202,7 @@ public class MainActivity extends FragmentActivity implements
 			}
 			c.setTimeInMillis(Long.parseLong(trans.getOpenTime()));
 			holder.tvNo.setText(Integer.toString(position + 1) + ".");
-			holder.tvOpenTime.setText(mGlobal.dateTimeFormat(c.getTime()));
+			holder.tvOpenTime.setText(Utils.dateTimeFormat(c));
 			holder.tvOpenStaff.setText(trans.getStaffName());
 			holder.tvRemark.setText(trans.getTransactionNote());
 			holder.btnBillDetail.setOnClickListener(new OnClickListener() {
@@ -1325,7 +1314,7 @@ public class MainActivity extends FragmentActivity implements
 						int position, long id) {
 					Product p = (Product) parent.getItemAtPosition(position);
 					ImageViewPinchZoom imgZoom = ImageViewPinchZoom.newInstance(p.getImgName(), p.getProductName(), 
-							((MainActivity) getActivity()).mGlobal.currencyFormat(p.getProductPrice()));
+							Utils.currencyFormat(p.getProductPrice()));
 					imgZoom.show(getFragmentManager(), "MenuImage");
 					return true;
 				}
@@ -1336,7 +1325,8 @@ public class MainActivity extends FragmentActivity implements
 		}
 		
 		private void loadMenuItem(){
-			mProductLst = ((MainActivity) getActivity()).mProducts.listProduct(mDeptId);
+            ProductsDataSource product = new ProductsDataSource(getActivity());
+			mProductLst = product.listProduct(mDeptId);
 			mMenuItemAdapter = new MenuItemAdapter();
 			mGvItem.setAdapter(mMenuItemAdapter);
 		}
@@ -1386,8 +1376,7 @@ public class MainActivity extends FragmentActivity implements
 				if(p.getProductPrice() < 0){
 					holder.tvPrice.setVisibility(View.INVISIBLE);
 				}else{
-					holder.tvPrice.setText(((MainActivity) 
-							getActivity()).mGlobal.currencyFormat(p.getProductPrice()));
+					holder.tvPrice.setText(Utils.currencyFormat(p.getProductPrice()));
 				}
 				if(p.getProductTypeId() == ProductsDataSource.SIZE){
 					holder.tvPrice.setText("(size)");
@@ -1457,7 +1446,7 @@ public class MainActivity extends FragmentActivity implements
 			if(p.getProductPrice() < 0)
 				holder.tvPrice.setVisibility(View.INVISIBLE);
 			else
-				holder.tvPrice.setText(mGlobal.currencyFormat(p.getProductPrice()));
+				holder.tvPrice.setText(Utils.currencyFormat(p.getProductPrice()));
 
 			if(Utils.isShowMenuImage(MainActivity.this)){
 				holder.imgMenu.setVisibility(View.VISIBLE);
@@ -1481,7 +1470,7 @@ public class MainActivity extends FragmentActivity implements
 	public void onMenuClick(int productId, String productName, String productName2,
 			int productTypeId, int vatType, double vatRate, double productPrice) {
 		mDsp.setItemName(TextUtils.isEmpty(productName2) ? productName : productName2);
-		mDsp.setItemQty(mGlobal.qtyFormat(1));
+		mDsp.setItemQty(Utils.qtyFormat(1));
 		if(productTypeId == ProductsDataSource.NORMAL_TYPE ||
 				productTypeId == ProductsDataSource.SET){
 			addOrder(productId, productName, productTypeId, 
@@ -1661,6 +1650,7 @@ public class MainActivity extends FragmentActivity implements
 							com.synature.pos.Staff s = login.checkLogin();
 							if(s != null){
 								mStaffId = s.getStaffID();
+                                mStaffRoleId = s.getStaffRoleID();
                                 setupTitle();
 								init();
 								d.dismiss();
@@ -1834,7 +1824,7 @@ public class MainActivity extends FragmentActivity implements
         mTransactionId = mTrans.getCurrentTransactionId(mSessionId);
         if(mTransactionId == 0){
             mTransactionId = mTrans.openTransaction(mSession.getLastSessionDate(),
-                    mShopId, mComputerId, mSessionId, mStaffId, mShop.getCompanyVatRate());
+                    mShopId, mComputerId, mSessionId, mStaffId, MPOSApplication.sCompanyVatRate);
         }
         // update when changed user
         mTrans.updateTransaction(mTransactionId, mStaffId);
@@ -1851,25 +1841,6 @@ public class MainActivity extends FragmentActivity implements
 			initSecondDisplay();
 		}
 	}
-
-    private boolean checkShopClosingTime(){
-        boolean isClose = false;
-        Calendar current = Calendar.getInstance();
-        Calendar closeTime = Calendar.getInstance();
-        SimpleDateFormat iso8601format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        try {
-            Date date = iso8601format.parse(mShop.getShopProperty().getCloseHour());
-            closeTime.set(Calendar.HOUR_OF_DAY, date.getHours());
-            closeTime.set(Calendar.MINUTE, date.getMinutes());
-            closeTime.set(Calendar.SECOND, date.getSeconds());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        if(current.getTime().compareTo(closeTime.getTime()) > 0){
-            isClose = true;
-        }
-        return isClose;
-    }
 
 	private void showHoldBill() {
 		final OrderTransaction holdTrans = new OrderTransaction();
@@ -2166,8 +2137,8 @@ public class MainActivity extends FragmentActivity implements
 			double price, int vatType, double vatRate, 
 			String productName, String productName2){
 		mDsp.setItemName(TextUtils.isEmpty(productName2) ? productName : productName2);
-		mDsp.setItemQty(mGlobal.qtyFormat(qty));
-		mDsp.setItemAmount(mGlobal.currencyFormat(price));
+		mDsp.setItemQty(Utils.qtyFormat(qty));
+		mDsp.setItemAmount(Utils.currencyFormat(price));
 		mTrans.updateOrderDetail(mTransactionId,
 				orderDetailId, vatType, vatRate, qty, price);
 	}
@@ -2185,7 +2156,7 @@ public class MainActivity extends FragmentActivity implements
 	private void addOrder(final int productId, final String productName, 
 			final int productTypeId, final int vatType, final double vatRate, final double qty, double price){
 		if(price > -1){
-			mDsp.setItemAmount(mGlobal.currencyFormat(price));
+			mDsp.setItemAmount(Utils.currencyFormat(price));
 			int ordId = mTrans.addOrderDetail(mTransactionId, mComputerId, 
 					productId, productTypeId, vatType, vatRate, qty, price);
 			updateOrderLst(ordId);
@@ -2223,7 +2194,7 @@ public class MainActivity extends FragmentActivity implements
 					double openPrice = 0.0f;
 					try {
 						openPrice = Utils.stringToDouble(txtProductPrice.getText().toString());
-						mDsp.setItemAmount(mGlobal.currencyFormat(openPrice));
+						mDsp.setItemAmount(Utils.currencyFormat(openPrice));
 						int ordId = mTrans.addOrderDetail(mTransactionId, mComputerId, 
 								productId, productTypeId, vatType, vatRate, qty, openPrice);
 						updateOrderLst(ordId);
@@ -2251,7 +2222,8 @@ public class MainActivity extends FragmentActivity implements
 	 * @param proId
 	 */
 	private void productSizeDialog(int proId, String productName){
-		List<Product> pSizeLst = mProducts.listProductSize(proId);
+        ProductsDataSource product = new ProductsDataSource(this);
+		List<Product> pSizeLst = product.listProductSize(proId);
 		LayoutInflater inflater = getLayoutInflater();
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		View sizeView = inflater.inflate(R.layout.product_size, null, false);
@@ -2365,7 +2337,7 @@ public class MainActivity extends FragmentActivity implements
 	}
 	
 	private void secondDisplayItem(List<clsSecDisplay_TransSummary> transSummLst, String grandTotal){
-		final String itemJson = SecondDisplayJSON.genDisplayItem(mGlobal, mOrderDetailLst, 
+		final String itemJson = SecondDisplayJSON.genDisplayItem(mOrderDetailLst,
 				transSummLst, grandTotal);
 		Logger.appendLog(this, MPOSApplication.LOG_PATH, MPOSApplication.LOG_FILE_NAME, itemJson);
 		new Thread(new Runnable(){
@@ -2393,7 +2365,7 @@ public class MainActivity extends FragmentActivity implements
 	
 	private void initSecondDisplay(){
 		StaffsDataSource s = new StaffsDataSource(this);
-		final String initJson = SecondDisplayJSON.genInitDisplay(mShop.getShopName(), 
+		final String initJson = SecondDisplayJSON.genInitDisplay(MPOSApplication.sShopName,
 				s.getStaff(mStaffId).getStaffName());
 		new Thread(new Runnable(){
 

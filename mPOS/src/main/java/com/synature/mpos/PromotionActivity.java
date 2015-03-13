@@ -34,7 +34,6 @@ public class PromotionActivity extends Activity {
 	
 	private OrderTransDataSource mTrans;
 	private PromotionDiscountDataSource mPromotion;
-	private GlobalPropertyDataSource mFormat;
 	private List<OrderDetail> mOrderLst;
 	private List<com.synature.pos.PromotionPriceGroup> mPromoPriceGroupLst;
 	private OrderDiscountAdapter mOrderAdapter;
@@ -59,7 +58,6 @@ public class PromotionActivity extends Activity {
 		mSummaryContainer = (LinearLayout) findViewById(R.id.summaryContainer);
 		
 		mTrans = new OrderTransDataSource(this);
-		mFormat = new GlobalPropertyDataSource(this);
 		mPromotion = new PromotionDiscountDataSource(this);
 		
 		Intent intent = getIntent();
@@ -172,16 +170,16 @@ public class PromotionActivity extends Activity {
 	
 	private void summary(){
 		OrderDetail sumOrder = mTrans.getSummaryOrder(mTransactionId, true);
-		mTvTotalPrice.setText(mFormat.currencyFormat(sumOrder.getTotalSalePrice()));
+		mTvTotalPrice.setText(Utils.currencyFormat(sumOrder.getTotalSalePrice()));
 		if(mSummaryContainer.getChildCount() > 0)
 			mSummaryContainer.removeAllViews();
 		TextView[] tvs = {
 				SaleReportActivity.createTextViewSummary(this, getString(R.string.summary), Utils.getLinHorParams(1.2f)),
-				SaleReportActivity.createTextViewSummary(this, mFormat.qtyFormat(sumOrder.getOrderQty()), Utils.getLinHorParams(0.5f)),
-				SaleReportActivity.createTextViewSummary(this, mFormat.currencyFormat(sumOrder.getProductPrice()), Utils.getLinHorParams(0.7f)),
-				SaleReportActivity.createTextViewSummary(this, mFormat.currencyFormat(sumOrder.getTotalRetailPrice()), Utils.getLinHorParams(0.7f)),
-				SaleReportActivity.createTextViewSummary(this, mFormat.currencyFormat(sumOrder.getPriceDiscount()), Utils.getLinHorParams(0.7f)),
-				SaleReportActivity.createTextViewSummary(this, mFormat.currencyFormat(sumOrder.getTotalSalePrice()), Utils.getLinHorParams(0.7f))
+				SaleReportActivity.createTextViewSummary(this, Utils.qtyFormat(sumOrder.getOrderQty()), Utils.getLinHorParams(0.5f)),
+				SaleReportActivity.createTextViewSummary(this, Utils.currencyFormat(sumOrder.getProductPrice()), Utils.getLinHorParams(0.7f)),
+				SaleReportActivity.createTextViewSummary(this, Utils.currencyFormat(sumOrder.getTotalRetailPrice()), Utils.getLinHorParams(0.7f)),
+				SaleReportActivity.createTextViewSummary(this, Utils.currencyFormat(sumOrder.getPriceDiscount()), Utils.getLinHorParams(0.7f)),
+				SaleReportActivity.createTextViewSummary(this, Utils.currencyFormat(sumOrder.getTotalSalePrice()), Utils.getLinHorParams(0.7f))
 		};
 		LinearLayout rowSummary = SaleReportActivity.createRowSummary(this, tvs);
 		rowSummary.setDividerDrawable(getResources().getDrawable(android.R.drawable.divider_horizontal_bright));
@@ -350,11 +348,11 @@ public class PromotionActivity extends Activity {
 			OrderDetail detail = mOrderLst.get(position);
 			holder.tvNo.setText(Integer.toString(position + 1) + ".");
 			holder.tvName.setText(detail.getProductName());
-			holder.tvQty.setText(mFormat.qtyFormat(detail.getOrderQty()));
-			holder.tvUnitPrice.setText(mFormat.currencyFormat(detail.getProductPrice()));
-			holder.tvTotalPrice.setText(mFormat.currencyFormat(detail.getTotalRetailPrice()));
-			holder.tvDiscount.setText(mFormat.currencyFormat(detail.getPriceDiscount()));
-			holder.tvSalePrice.setText(mFormat.currencyFormat(detail.getTotalSalePrice()));
+			holder.tvQty.setText(Utils.qtyFormat(detail.getOrderQty()));
+			holder.tvUnitPrice.setText(Utils.currencyFormat(detail.getProductPrice()));
+			holder.tvTotalPrice.setText(Utils.currencyFormat(detail.getTotalRetailPrice()));
+			holder.tvDiscount.setText(Utils.currencyFormat(detail.getPriceDiscount()));
+			holder.tvSalePrice.setText(Utils.currencyFormat(detail.getTotalSalePrice()));
 			return convertView;
 		}
 		

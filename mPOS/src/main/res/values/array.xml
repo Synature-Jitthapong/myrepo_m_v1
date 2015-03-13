@@ -75,6 +75,7 @@
     <string-array name="bill_type">
         <item>@string/receipt</item>
         <item>@string/finish_waste</item>
+        <item>@string/cash_inout</item>
     </string-array>
     <string-array name="cash_type">
         <item>@string/cash_out</item>

@@ -97,7 +97,7 @@ public class PrintReceiptLogDataSource extends MPOSDatabase{
 		ContentValues cv = new ContentValues();
 		cv.put(OrderTransTable.COLUMN_TRANS_ID, transactionId);
 		cv.put(StaffTable.COLUMN_STAFF_ID, staffId);
-		cv.put(PrintReceiptLogTable.COLUMN_PRINT_RECEIPT_LOG_TIME, Utils.getCalendar().getTimeInMillis());
+		cv.put(PrintReceiptLogTable.COLUMN_PRINT_RECEIPT_LOG_TIME, Utils.getISODateTime());
 		cv.put(PrintReceiptLogTable.COLUMN_PRINT_RECEIPT_LOG_STATUS, PRINT_NOT_SUCCESS);
 		cv.put(PrintReceiptLogTable.COLUMN_IS_COPY, isCopy);
 		getWritableDatabase().insertOrThrow(PrintReceiptLogTable.TABLE_PRINT_LOG, null, cv);

@@ -102,15 +102,15 @@ public class CashInOutSelectionDialogFragment extends DialogFragment{
             }else{
                 holder = (ViewHolder) convertView.getTag();
             }
-            String cashType = mCashTypes[position];
+            final String cashType = mCashTypes[position];
             holder.btn.setText(cashType);
             holder.btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(position == 0){
-                        mCallback.onSelected(CASH_OUT_TYPE);
+                        mCallback.onSelected(CASH_OUT_TYPE, cashType);
                     }else{
-                        mCallback.onSelected(CASH_IN_TYPE);
+                        mCallback.onSelected(CASH_IN_TYPE, cashType);
                     }
                     getDialog().dismiss();
                 }
@@ -124,6 +124,6 @@ public class CashInOutSelectionDialogFragment extends DialogFragment{
     }
 
     public static interface CashInOutSelectionListener{
-        void onSelected(int type);
+        void onSelected(int type, String typeName);
     }
 }

@@ -1,9 +1,7 @@
 package com.synature.mpos;
 
-import java.text.DateFormat;
 import java.util.Calendar;
 
-import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.OrderTransDataSource;
 
 import android.app.AlertDialog;
@@ -22,10 +20,9 @@ public class ClearSaleDialogFragment extends DialogFragment implements OnClickLi
 
 	public static final String TAG = ClearSaleDialogFragment.class.getSimpleName();
 	public static final String PASS = "mposclear";
-	
-	private GlobalPropertyDataSource mGlobal;
-	private long mDateFrom;
-	private long mDateTo;
+
+	private String mDateFrom;
+	private String mDateTo;
 	
 	public static ClearSaleDialogFragment newInstance(){
 		ClearSaleDialogFragment f = new ClearSaleDialogFragment();
@@ -35,20 +32,21 @@ public class ClearSaleDialogFragment extends DialogFragment implements OnClickLi
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		mGlobal = new GlobalPropertyDataSource(getActivity());
 	}
 	
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
-		Calendar c = Utils.getDate();
-		mDateFrom = c.getTimeInMillis();
-		mDateTo = c.getTimeInMillis();
+        Calendar calendar = Calendar.getInstance();
+        String date = Utils.dateFormat(calendar);
+        String dateISO = Utils.getISODate();
+		mDateFrom = dateISO;
+		mDateTo = dateISO;
 		final LayoutInflater inflater = getActivity().getLayoutInflater();
 		View content = inflater.inflate(R.layout.fragment_clear_sale, null);
 		Button btnDateFrom = (Button) content.findViewById(R.id.btnDateFrom);
 		Button btnDateTo = (Button) content.findViewById(R.id.btnDateTo);
-		btnDateFrom.setText(mGlobal.dateFormat(c.getTime()));
-		btnDateTo.setText(mGlobal.dateFormat(c.getTime()));
+		btnDateFrom.setText(date);
+		btnDateTo.setText(date);
 		btnDateFrom.setOnClickListener(this);
 		btnDateTo.setOnClickListener(this);
 		
@@ -68,16 +66,14 @@ public class ClearSaleDialogFragment extends DialogFragment implements OnClickLi
 
 			@Override
 			public void onClick(View v) {
-				if(mDateFrom <= mDateTo){
-					Calendar cFrom = Utils.getDate();
-					Calendar cTo = Utils.getDate();
-					cFrom.setTimeInMillis(mDateFrom);
-					cTo.setTimeInMillis(mDateTo);
+                Calendar cFrom = Utils.convertISODateToCalendar(mDateFrom);
+                Calendar cTo = Utils.convertISODateToCalendar(mDateTo);
+				if(cTo.compareTo(cFrom) > 0){
 					String msg = getString(R.string.clear_sale_msg) + "\n"
 							+ getString(R.string.from) + " "
-							+ mGlobal.dateFormat(cFrom.getTime())
+							+ Utils.dateFormat(Utils.convertISODateToCalendar(mDateFrom))
 							+ " " + getString(R.string.to) + " "
-							+ mGlobal.dateFormat(cTo.getTime());
+							+ Utils.dateFormat(Utils.convertISODateToCalendar(mDateTo));
 					View passContent = inflater.inflate(R.layout.edittext_password, null);
 					final EditText txtPass = (EditText) passContent.findViewById(R.id.txtPassword);
 					txtPass.setHint(R.string.enter_password);
@@ -137,16 +133,14 @@ public class ClearSaleDialogFragment extends DialogFragment implements OnClickLi
 	@Override
 	public void onClick(final View v) {
 		DialogFragment df;
-		final Calendar c = Utils.getDate();
 		switch(v.getId()){
 		case R.id.btnDateFrom:
 			df = new DatePickerFragment(new DatePickerFragment.OnSetDateListener() {
 				
 				@Override
-				public void onSetDate(long date) {
-					mDateFrom = date;
-					c.setTimeInMillis(date);
-					((Button) v).setText(DateFormat.getDateInstance().format(c.getTime()));
+				public void onSetDate(String dateISO) {
+					mDateFrom = dateISO;
+					((Button) v).setText(Utils.dateFormat(Utils.convertISODateToCalendar(dateISO)));
 				}
 			});
 			df.show(getFragmentManager(), TAG);
@@ -155,10 +149,9 @@ public class ClearSaleDialogFragment extends DialogFragment implements OnClickLi
 			df = new DatePickerFragment(new DatePickerFragment.OnSetDateListener() {
 				
 				@Override
-				public void onSetDate(long date) {
-					mDateTo = date;
-					c.setTimeInMillis(date);
-					((Button) v).setText(DateFormat.getDateInstance().format(c.getTime()));
+				public void onSetDate(String dateISO) {
+					mDateTo = dateISO;
+					((Button) v).setText(Utils.dateFormat(Utils.convertISODateToCalendar(dateISO)));
 				}
 			});
 			df.show(getFragmentManager(), TAG);
@@ -168,7 +161,7 @@ public class ClearSaleDialogFragment extends DialogFragment implements OnClickLi
 	
 	private void clearSale(){
 		OrderTransDataSource trans = new OrderTransDataSource(getActivity());
-		trans.deleteAllSale(String.valueOf(mDateFrom), String.valueOf(mDateTo));
+		trans.deleteAllSale(mDateFrom, mDateTo);
 		createAlertDialog(getString(R.string.clear_sale_data), "Clear sale data success.");
 	}
 }

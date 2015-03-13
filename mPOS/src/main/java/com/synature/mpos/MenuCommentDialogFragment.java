@@ -49,8 +49,7 @@ public class MenuCommentDialogFragment extends DialogFragment{
 	private double mVatRate;
 	private String mMenuName;
 	private String mOrderComment;
-	
-	private GlobalPropertyDataSource mFormat;
+
 	private OrderTransDataSource mTrans;
 	private MenuCommentDataSource mComment;
 	private List<CommentGroup> mCommentGroupLst;
@@ -94,8 +93,7 @@ public class MenuCommentDialogFragment extends DialogFragment{
 		mVatRate = getArguments().getDouble("vatRate");
 		mMenuName = getArguments().getString("menuName");
 		mOrderComment = getArguments().getString("orderComment");
-		
-		mFormat = new GlobalPropertyDataSource(getActivity());
+
 		mTrans = new OrderTransDataSource(getActivity());
 		mComment = new MenuCommentDataSource(getActivity());
 		mCommentLst = mComment.listMenuComment();
@@ -258,8 +256,8 @@ public class MenuCommentDialogFragment extends DialogFragment{
 			holder.tvCommentName.setChecked(comment.isSelected());
 			holder.tvCommentName.setText(String.valueOf((position + 1)) + ". ");
 			holder.tvCommentName.setText(comment.getCommentName());
-			holder.tvCommentPrice.setText(mFormat.currencyFormat(comment.getCommentPrice()));
-			holder.tvCommentQty.setText(mFormat.qtyFormat(comment.getCommentQty() == 0 ? 1 : comment.getCommentQty()));
+			holder.tvCommentPrice.setText(Utils.currencyFormat(comment.getCommentPrice()));
+			holder.tvCommentQty.setText(Utils.qtyFormat(comment.getCommentQty() == 0 ? 1 : comment.getCommentQty()));
 			if(comment.getCommentPrice() > 0){
 				holder.btnCommentMinus.setVisibility(View.VISIBLE);
 				holder.btnCommentPlus.setVisibility(View.VISIBLE);

@@ -9,6 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.channels.FileChannel;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -78,12 +79,11 @@ public class Utils {
 				sess.closeSession(sessId, staffId, 0, true);
 			}
 			try {
-				GlobalPropertyDataSource format = new GlobalPropertyDataSource(context);
 				Logger.appendLog(context, MPOSApplication.LOG_PATH,
 						MPOSApplication.LOG_FILE_NAME,
 						"Success ending multiple day : " 
-						+ " from : " + format.dateFormat(lastSessCal.getTime())
-						+ " to : " + format.dateFormat(Calendar.getInstance().getTime()));
+						+ " from : " + dateFormat(lastSessCal)
+						+ " to : " + dateFormat(Calendar.getInstance()));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -113,34 +113,6 @@ public class Utils {
 		return diffDay;
 	}
 	
-	public static Calendar getCalendar(){
-		return Calendar.getInstance();
-	}
-	
-	public static Calendar getMinimum(){
-		return new GregorianCalendar(MPOSApplication.MINIMUM_YEAR, 
-				MPOSApplication.MINIMUM_MONTH, MPOSApplication.MINIMUM_DAY);
-	}
-	
-	public static Calendar getDate(int year, int month, int day){
-		return new GregorianCalendar(year, month, day);
-	}
-	
-	public static Calendar getDate(){
-		Calendar c = getCalendar();
-		return new GregorianCalendar(c.get(Calendar.YEAR), 
-				c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
-	}
-	
-	public static Calendar convertStringToCalendar(String dateTime){
-		Calendar calendar = getCalendar();
-		if(dateTime == null || dateTime.isEmpty()){
-			dateTime = String.valueOf(getMinimum().getTimeInMillis());
-		}
-		calendar.setTimeInMillis(Long.parseLong(dateTime));
-		return calendar;
-	}
-	
 	public static double calculateVatAmount(double totalPrice, double vatRate, int vatType){
 		if(vatType == ProductsDataSource.VAT_TYPE_INCLUDED)
 			return totalPrice * vatRate / (100 + vatRate);
@@ -155,8 +127,8 @@ public class Utils {
 	 * @param value
 	 * @return string fixes digit
 	 */
-	public static String fixesDigitLength(GlobalPropertyDataSource format, int scale, double value){
-		return format.currencyFormat(value, "#,##0.0000");
+	public static String fixesDigitLength(int scale, double value){
+		return currencyFormat("#,##0.0000", value);
 	}
 	
 	/**
@@ -722,6 +694,67 @@ public class Utils {
 		}
 		return inFiles;
 	}
+
+    public static String isoDateFormat(Calendar calendar){
+        SimpleDateFormat sp = new SimpleDateFormat(getISODateFormat());
+        return sp.format(calendar.getTime());
+    }
+
+    public static String timeFormat(Calendar calendar){
+        SimpleDateFormat sp = new SimpleDateFormat(MPOSApplication.sTimeFormat);
+        return sp.format(calendar.getTime());
+    }
+
+    public static String dateTimeFormat(Calendar calendar){
+        SimpleDateFormat sp = new SimpleDateFormat(MPOSApplication.sDateFormat + " " +
+                MPOSApplication.sTimeFormat);
+        return sp.format(calendar.getTime());
+    }
+
+    public static String dateFormat(Calendar calendar){
+        SimpleDateFormat sp = new SimpleDateFormat(MPOSApplication.sDateFormat);
+        return sp.format(calendar.getTime());
+    }
+
+    public static String qtyFormat(double qty){
+        DecimalFormat format = new DecimalFormat(MPOSApplication.sQtyFormat);
+        return format.format(qty);
+    }
+
+    public static String currencyFormat(String pattern, double currency){
+        DecimalFormat format = new DecimalFormat(pattern);
+        return format.format(currency);
+    }
+
+    public static String currencyFormat(double currency){
+        DecimalFormat format = new DecimalFormat(MPOSApplication.sCurrencyFormat);
+        return format.format(currency);
+    }
+
+    public static String getISODateTime(){
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat sp = new SimpleDateFormat(getISODateTimeFormat());
+        String isoDateTime = sp.format(calendar.getTime());
+        return isoDateTime;
+    }
+
+    public static String getISODate(){
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat sp = new SimpleDateFormat(getISODateFormat());
+        String isoDate = sp.format(calendar.getTime());
+        return isoDate;
+    }
+
+    public static Calendar convertISODateToCalendar(String isoDate){
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat sp = new SimpleDateFormat(getISODateFormat());
+        try {
+            calendar.setTime(sp.parse(isoDate));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return calendar;
+    }
 
     public static String getISODateTimeFormat(){
         String format = getISODateFormat();

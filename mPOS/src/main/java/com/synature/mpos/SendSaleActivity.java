@@ -49,7 +49,6 @@ public class SendSaleActivity extends Activity{
 	private int mStaffId;
     private int mIgnoreSendStatus;
 	private String mDate;
-	private GlobalPropertyDataSource mGlobal;
 	private List<OrderTransaction> mTransLst;
 	private SyncItemAdapter mSyncAdapter;
 	private MenuItem mItemSendAll;
@@ -75,12 +74,11 @@ public class SendSaleActivity extends Activity{
 		setContentView(R.layout.activity_send_sale);
 		
 		mLvSyncItem = (ListView) findViewById(R.id.lvSync);
-		mGlobal = new GlobalPropertyDataSource(this);
 		
 		Intent intent = getIntent();
 		mStaffId = intent.getIntExtra("staffId", 0);
-		mShopId = intent.getIntExtra("shopId", 0);
-		mComputerId = intent.getIntExtra("computerId", 0);
+		mShopId = MPOSApplication.sShopId;
+		mComputerId = MPOSApplication.sComputerId;
         int ignoreSendStatus = intent.getIntExtra("ignoreSendStatus", 0);
         if(ignoreSendStatus == 1){
             mIgnoreSendStatus = ignoreSendStatus;
@@ -97,7 +95,7 @@ public class SendSaleActivity extends Activity{
 		LayoutInflater inflater = getLayoutInflater();
 		View customView = (View) inflater.inflate(R.layout.button_dropdown_style, null);
 		mBtnPickDate = (Button) customView.findViewById(R.id.button1);
-		mBtnPickDate.setText(mGlobal.dateFormat(String.valueOf(mDate)));
+		mBtnPickDate.setText(Utils.dateFormat(Utils.convertISODateToCalendar(mDate)));
 		mBtnPickDate.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -105,11 +103,9 @@ public class SendSaleActivity extends Activity{
 				DatePickerFragment f = new DatePickerFragment(new DatePickerFragment.OnSetDateListener() {
 					
 					@Override
-					public void onSetDate(long date) {
-						Calendar cal = Utils.getDate();
-						cal.setTimeInMillis(date);
-						mBtnPickDate.setText(mGlobal.dateFormat(cal.getTime()));
-						mDate = String.valueOf(cal.getTimeInMillis());
+					public void onSetDate(String dateISO) {
+						mBtnPickDate.setText(Utils.dateFormat(Utils.convertISODateToCalendar(dateISO)));
+						mDate = dateISO;
 						loadTransNotSend();
 					}
 				});

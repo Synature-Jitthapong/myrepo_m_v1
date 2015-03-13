@@ -14,8 +14,7 @@ import android.widget.EditText;
 public class OrderingKeypadFragment extends Fragment implements OnClickListener{
 
 	public static final String TAG = OrderingKeypadFragment.class.getSimpleName();
-	
-	private GlobalPropertyDataSource mGlobal;
+
 	private StringBuilder mStrVal;
 	private int mTotalQty;
 	
@@ -24,7 +23,6 @@ public class OrderingKeypadFragment extends Fragment implements OnClickListener{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		mGlobal = new GlobalPropertyDataSource(getActivity());
 		mStrVal = new StringBuilder();
 	}
 
@@ -90,7 +88,7 @@ public class OrderingKeypadFragment extends Fragment implements OnClickListener{
 	
 	private void display(){
 		if(mTotalQty > 0)
-			mTxtDsp.setText(mGlobal.qtyFormat(mTotalQty));
+			mTxtDsp.setText(Utils.qtyFormat(mTotalQty));
 		else
 			mTxtDsp.setText(null);
 	}

@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.synature.mpos.Utils;
 import com.synature.mpos.datasource.model.CashInOutOrderDetail;
+import com.synature.mpos.datasource.model.OrderTransaction;
 import com.synature.mpos.datasource.table.BaseColumn;
 import com.synature.mpos.datasource.table.CashInOutOrderDetailTable;
 import com.synature.mpos.datasource.table.CashInOutOrderTransTable;
@@ -94,8 +95,25 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
     }
 
     @Override
+    public int updateDetail(int transactionId, int detailId, double price) {
+        int affectedRows = 0;
+        ContentValues cv = new ContentValues();
+        cv.put(CashInOutOrderDetailTable.COLUMN_CASH_INOUT_PRICE, price);
+        affectedRows = getWritableDatabase().update(
+                CashInOutOrderDetailTable.TABLE_CASH_INOUT_ORDER_DETAIL,
+                cv,
+                OrderTransTable.COLUMN_TRANS_ID + "=?" +
+                        " and " + OrderDetailTable.COLUMN_ORDER_ID + "=?",
+                new String[]{
+                        String.valueOf(transactionId),
+                        String.valueOf(detailId)
+                });
+        return affectedRows;
+    }
+
+    @Override
     public int insertDetail(int transactionId, int productId, double price, int type) throws SQLException{
-        int orderId = getMaxDetailId(transactionId);
+        int orderId = getMaxDetailId();
         ContentValues cv = new ContentValues();
         cv.put(OrderDetailTable.COLUMN_ORDER_ID, orderId);
         cv.put(OrderTransTable.COLUMN_TRANS_ID, transactionId);
@@ -141,7 +159,8 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
     }
 
     @Override
-    public boolean closeTransaction(int transactionId, int computerId, int staffId, double totalPrice) {
+    public boolean closeTransaction(int transactionId, int computerId, int staffId,
+                                    double totalPrice, String note) {
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat sp = new SimpleDateFormat();
         sp.applyPattern(Utils.getISODateTimeFormat());
@@ -160,6 +179,7 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
         cv.put(OrderTransTable.COLUMN_RECEIPT_NO, receiptNo);
         cv.put(CashInOutOrderTransTable.COLUMN_CASH_INOUT_TOTAL_PRICE, totalPrice);
         cv.put(StaffTable.COLUMN_STAFF_ID, staffId);
+        cv.put(CashInOutOrderTransTable.COLUMN_CASH_INOUT_NOTE, note);
         getWritableDatabase().update(CashInOutOrderTransTable.TABLE_CASH_INOUT_ORDER_TRANS,
                     cv,
                     OrderTransTable.COLUMN_TRANS_ID + "=?",
@@ -251,6 +271,19 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
     }
 
     @Override
+    public int countCashInOutProduct() {
+        int totalCashInOutProduct = 0;
+        String sql = "select count(" + CashInOutProductTable.COLUMN_CASH_INOUT_ID + ")" +
+                " from " + CashInOutProductTable.TABLE_CASH_INOUT_PRODUCT;
+        Cursor cursor = getReadableDatabase().rawQuery(sql, null);
+        if(cursor.moveToFirst()){
+            totalCashInOutProduct = cursor.getInt(0);
+        }
+        cursor.close();
+        return totalCashInOutProduct;
+    }
+
+    @Override
     public double getTotalCashAmount(int transactionId, int computerId) {
         double totalCashAmount = 0;
         String sql = "select sum(" + CashInOutOrderDetailTable.COLUMN_CASH_INOUT_PRICE + ")" +
@@ -275,11 +308,13 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
                 " from " + CashInOutOrderDetailTable.TABLE_CASH_INOUT_ORDER_DETAIL + " a " +
                 " left join " + CashInOutProductTable.TABLE_CASH_INOUT_PRODUCT + " b " +
                 " on a." + ProductTable.COLUMN_PRODUCT_ID + "=b." + CashInOutProductTable.COLUMN_CASH_INOUT_ID +
-                " where a." + OrderTransTable.COLUMN_TRANS_ID + "=?" ;
+                " where a." + OrderTransTable.COLUMN_TRANS_ID + "=?" +
+                " and a." + CashInOutOrderTransTable.COLUMN_STATUS_ID + "=?" ;
         Cursor cursor = getReadableDatabase().rawQuery(
                 sql,
                 new String[]{
-                        String.valueOf(transactionId)
+                        String.valueOf(transactionId),
+                        String.valueOf(OrderTransDataSource.TRANS_STATUS_NEW)
                 });
         if(cursor.moveToFirst()){
             cashDetailLst = new ArrayList<CashInOutOrderDetail>();
@@ -292,8 +327,8 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
     }
 
     @Override
-    public SaleTransaction.SaleData_CashInOutTransaction getCashInOutTransaction(int transactionId) {
-        SaleTransaction.SaleData_CashInOutTransaction cashTrans = null;
+    public OrderTransaction getCashInOutTransaction(int transactionId) {
+        OrderTransaction cashTrans = null;
         Cursor cursor = getReadableDatabase().query(CashInOutProductTable.TABLE_CASH_INOUT_PRODUCT,
                 ALL_CASH_INOUT_TRANS_COLUMNS,
                 OrderTransTable.COLUMN_TRANS_ID + "=?",
@@ -308,15 +343,15 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
     }
 
     @Override
-    public List<SaleTransaction.SaleData_CashInOutTransaction> listCashInOutTransaction(String date) {
-        List<SaleTransaction.SaleData_CashInOutTransaction> cashInOutTransactionsLst = null;
+    public List<OrderTransaction> listCashInOutTransaction(String date) {
+        List<OrderTransaction> cashInOutTransactionsLst = null;
         Cursor cursor = getReadableDatabase().query(CashInOutOrderTransTable.TABLE_CASH_INOUT_ORDER_TRANS,
                 ALL_CASH_INOUT_TRANS_COLUMNS, CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE + "=?",
                 new String[]{
                         date
                 }, null, null, null);
         if(cursor.moveToFirst()){
-            cashInOutTransactionsLst = new ArrayList<SaleTransaction.SaleData_CashInOutTransaction>();
+            cashInOutTransactionsLst = new ArrayList<OrderTransaction>();
             do{
                 cashInOutTransactionsLst.add(toCashInOutTransaction(cursor));
             }while (cursor.moveToNext());
@@ -352,28 +387,24 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
         return cashInOutLst;
     }
 
-    private SaleTransaction.SaleData_CashInOutTransaction toCashInOutTransaction(Cursor cursor){
-        SaleTransaction.SaleData_CashInOutTransaction cashTrans =
-                new SaleTransaction.SaleData_CashInOutTransaction();
-        cashTrans.setiTransID(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_TRANS_ID)));
-        cashTrans.setiCompID(cursor.getInt(cursor.getColumnIndex(ComputerTable.COLUMN_COMPUTER_ID)));
-        cashTrans.setSzCashOutDate(cursor.getString(cursor.getColumnIndex(CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE)));
-        cashTrans.setiStaffID(cursor.getInt(cursor.getColumnIndex(StaffTable.COLUMN_STAFF_ID)));
-        cashTrans.setSzCashOutDateTime(cursor.getString(cursor.getColumnIndex(CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE_TIME)));
-        cashTrans.setfTotalPrice(cursor.getDouble(cursor.getColumnIndex(CashInOutOrderTransTable.COLUMN_CASH_INOUT_TOTAL_PRICE)));
-        cashTrans.setiStatusID(cursor.getInt(cursor.getColumnIndex(CashInOutOrderTransTable.COLUMN_STATUS_ID)));
-        cashTrans.setiMovement(cursor.getInt(cursor.getColumnIndex(CashInOutOrderTransTable.COLUMN_MOVEMENT)));
-        cashTrans.setSzCashOutNote(cursor.getString(cursor.getColumnIndex(CashInOutOrderTransTable.COLUMN_CASH_INOUT_NOTE)));
-        cashTrans.setiVoidStaffID(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_VOID_STAFF_ID)));
-        cashTrans.setSzVoidReason(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_VOID_REASON)));
-        cashTrans.setSzVoidDateTime(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_VOID_TIME)));
-        cashTrans.setSzUDDID(cursor.getString(cursor.getColumnIndex(BaseColumn.COLUMN_UUID)));
-        cashTrans.setiDocType(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_DOC_TYPE_ID)));
-        cashTrans.setiReceiptYear(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_RECEIPT_YEAR)));
-        cashTrans.setiReceiptMonth(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_RECEIPT_MONTH)));
-        cashTrans.setiReceiptID(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_RECEIPT_ID)));
-        cashTrans.setSzReceiptNo(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_RECEIPT_NO)));
-        cashTrans.setiSessionID(cursor.getInt(cursor.getColumnIndex(SessionTable.COLUMN_SESS_ID)));
+    private OrderTransaction toCashInOutTransaction(Cursor cursor){
+        OrderTransaction cashTrans =
+                new OrderTransaction();
+        cashTrans.setTransactionId(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_TRANS_ID)));
+        cashTrans.setComputerId(cursor.getInt(cursor.getColumnIndex(ComputerTable.COLUMN_COMPUTER_ID)));
+        cashTrans.setSaleDate(cursor.getString(cursor.getColumnIndex(CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE)));
+        cashTrans.setOpenStaffId(cursor.getInt(cursor.getColumnIndex(StaffTable.COLUMN_STAFF_ID)));
+        cashTrans.setOpenTime(cursor.getString(cursor.getColumnIndex(CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE_TIME)));
+        cashTrans.setTransactionStatusId(cursor.getInt(cursor.getColumnIndex(CashInOutOrderTransTable.COLUMN_STATUS_ID)));
+        cashTrans.setTransactionNote(cursor.getString(cursor.getColumnIndex(CashInOutOrderTransTable.COLUMN_CASH_INOUT_NOTE)));
+        cashTrans.setVoidStaffId(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_VOID_STAFF_ID)));
+        cashTrans.setVoidReason(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_VOID_REASON)));
+        cashTrans.setVoidTime(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_VOID_TIME)));
+        cashTrans.setReceiptYear(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_RECEIPT_YEAR)));
+        cashTrans.setReceiptMonth(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_RECEIPT_MONTH)));
+        cashTrans.setReceiptId(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_RECEIPT_ID)));
+        cashTrans.setReceiptNo(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_RECEIPT_NO)));
+        cashTrans.setSessionId(cursor.getInt(cursor.getColumnIndex(SessionTable.COLUMN_SESS_ID)));
         return cashTrans;
     }
 
@@ -441,12 +472,12 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
         return receiptId + 1;
     }
 
-    private int getMaxDetailId(int transactionId){
+    private int getMaxDetailId(){
         int detailId = 0;
         String sql = "select max(" + OrderDetailTable.COLUMN_ORDER_ID + ") " +
-                " from " + CashInOutOrderDetailTable.TABLE_CASH_INOUT_ORDER_DETAIL +
-                " where " + OrderTransTable.COLUMN_TRANS_ID + "=?";
-        Cursor cursor = getReadableDatabase().rawQuery(sql, new String[]{String.valueOf(transactionId)});
+                " from " + CashInOutOrderDetailTable.TABLE_CASH_INOUT_ORDER_DETAIL;
+        Cursor cursor = getReadableDatabase().rawQuery(
+                sql, null);
         if(cursor.moveToFirst()){
             detailId = cursor.getInt(0);
         }

@@ -24,8 +24,7 @@ public class ManageCashAmountFragment extends DialogFragment implements OnClickL
 	public static final int CLOSE_SHIFT_MODE = 1;
 	public static final int END_DAY_MODE = 2;
 	public static final int EDIT_CASH_MODE = 3;
-	
-	private GlobalPropertyDataSource mFormat;
+
 	private int mMode;
 	private double mTotalCash;
 	private String mTitle;
@@ -52,7 +51,6 @@ public class ManageCashAmountFragment extends DialogFragment implements OnClickL
 		mTitle = getArguments().getString("title");
 		mMode = getArguments().getInt("mode");
 		mTotalCash = getArguments().getDouble("totalCash", 0);
-		mFormat = new GlobalPropertyDataSource(getActivity());
 		mStrCashAmount = new StringBuilder();
 	}
 
@@ -67,7 +65,7 @@ public class ManageCashAmountFragment extends DialogFragment implements OnClickL
 	@Override
 	public void onActivityCreated(Bundle arg0) {
 		super.onActivityCreated(arg0);
-		mTxtCash.setText(mFormat.currencyFormat(mTotalCash));
+		mTxtCash.setText(Utils.currencyFormat(mTotalCash));
 	}
 
 	@Override
@@ -145,7 +143,7 @@ public class ManageCashAmountFragment extends DialogFragment implements OnClickL
 			mTotalCash = 0;
 			Log.d(TAG, e.getMessage());
 		}
-		mTxtCash.setText(mFormat.currencyFormat(mTotalCash));
+		mTxtCash.setText(Utils.currencyFormat(mTotalCash));
 	}
 	
 	@Override

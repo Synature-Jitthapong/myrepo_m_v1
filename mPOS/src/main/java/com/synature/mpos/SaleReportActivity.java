@@ -65,7 +65,6 @@ public class SaleReportActivity extends Activity{
 	
 	private ShopDataSource mShop;
     private SessionDataSource mSession;
-	private GlobalPropertyDataSource mFormat;
 	private Reporting mReporting;
 
 	private int mStaffId;
@@ -83,7 +82,6 @@ public class SaleReportActivity extends Activity{
 		
 		mShop = new ShopDataSource(this);
         mSession = new SessionDataSource(this);
-		mFormat = new GlobalPropertyDataSource(SaleReportActivity.this);
         mSessionDate = mSession.getLastSessionDate();
 		mDateFrom = mSessionDate;
 		mDateTo = mSessionDate;
@@ -153,8 +151,8 @@ public class SaleReportActivity extends Activity{
 		MenuItem itemCondition = (MenuItem) menu.findItem(R.id.itemDateCondition);
 		Button btnDateFrom = (Button) itemCondition.getActionView().findViewById(R.id.btnDateFrom);
 		Button btnDateTo = (Button) itemCondition.getActionView().findViewById(R.id.btnDateTo);
-		btnDateFrom.setText(mFormat.dateFormat(mSessionDate));
-		btnDateTo.setText(mFormat.dateFormat(mSessionDate));
+		btnDateFrom.setText(Utils.dateFormat(Utils.convertISODateToCalendar(mSessionDate)));
+		btnDateTo.setText(Utils.dateFormat(Utils.convertISODateToCalendar(mSessionDate)));
 		btnDateFrom.setOnClickListener(new OnDateClickListener());
 		btnDateTo.setOnClickListener(new OnDateClickListener());
 		return super.onCreateOptionsMenu(menu);
@@ -180,12 +178,9 @@ public class SaleReportActivity extends Activity{
 				dialogFragment = new DatePickerFragment(new DatePickerFragment.OnSetDateListener() {
 					
 					@Override
-					public void onSetDate(long date) {
-						Calendar cal = Utils.getDate();
-						cal.setTimeInMillis(date);
-						mDateFrom = String.valueOf(cal.getTimeInMillis());
-						
-						((Button) v).setText(mFormat.dateFormat(cal.getTime()));
+					public void onSetDate(String dateISO) {
+						mDateFrom = dateISO;
+						((Button) v).setText(Utils.dateFormat(Utils.convertISODateToCalendar(mDateFrom)));
 						mReporting.setDateFrom(mDateFrom);
 						if(mEdf != null){
 							mEdf.setupSpSession();
@@ -198,12 +193,9 @@ public class SaleReportActivity extends Activity{
 				dialogFragment = new DatePickerFragment(new DatePickerFragment.OnSetDateListener() {
 					
 					@Override
-					public void onSetDate(long date) {
-						Calendar cal = Utils.getDate();
-						cal.setTimeInMillis(date);
-						mDateTo = String.valueOf(cal.getTimeInMillis());
-						
-						((Button) v).setText(mFormat.dateFormat(cal.getTime()));
+					public void onSetDate(String dateISO) {
+						mDateTo = dateISO;
+						((Button) v).setText(Utils.dateFormat(Utils.convertISODateToCalendar(mDateTo)));
 						mReporting.setDateTo(mDateTo);
 						if(mEdf != null){
 							mEdf.setupSpSession();
@@ -350,7 +342,7 @@ public class SaleReportActivity extends Activity{
 				MPOSPaymentDetail payment = mPaymentLst.get(position);
 				
 				tvLeft.setText(payment.getPayTypeName());
-				tvRight.setText(mHost.mFormat.currencyFormat(payment.getPayAmount()));
+				tvRight.setText(Utils.currencyFormat(payment.getPayAmount()));
 				
 				return convertView;
 			}
@@ -537,7 +529,8 @@ public class SaleReportActivity extends Activity{
 					((TextView) opStView.findViewById(R.id.tvLeft)).setText(getString(R.string.open_by) + ": ");
 					((TextView) opStView.findViewById(R.id.tvLeft)).append(std.getStaffName());
 					((TextView) opStView.findViewById(R.id.tvMid)).setVisibility(View.GONE);
-					((TextView) opStView.findViewById(R.id.tvRight)).setText(mHost.mFormat.timeFormat(s.getOpenDate()));
+					((TextView) opStView.findViewById(R.id.tvRight)).setText(
+                            Utils.timeFormat(Utils.convertISODateToCalendar(s.getOpenDate())));
 					mEnddaySumContent.addView(opStView);
 				}
 				
@@ -547,30 +540,31 @@ public class SaleReportActivity extends Activity{
 					((TextView) clStView.findViewById(R.id.tvLeft)).setText(getString(R.string.close_by) + ": ");
 					((TextView) clStView.findViewById(R.id.tvLeft)).append(std != null ? std.getStaffName(): "-");
 					((TextView) clStView.findViewById(R.id.tvMid)).setVisibility(View.GONE);
-					((TextView) clStView.findViewById(R.id.tvRight)).setText(std != null ? mHost.mFormat.timeFormat(s.getCloseDate()) : "-");
+					((TextView) clStView.findViewById(R.id.tvRight)).setText(std != null ?
+                            Utils.timeFormat(Utils.convertISODateToCalendar(s.getCloseDate())) : "-");
 					mEnddaySumContent.addView(clStView);
 				}
 			}
 			
 			View lmrView = inflater.inflate(R.layout.left_mid_right_template, null);
 			((TextView) lmrView.findViewById(R.id.tvLeft)).setText(getString(R.string.sub_total));
-			((TextView) lmrView.findViewById(R.id.tvMid)).setText(mHost.mFormat.qtyFormat(sumOrder.getOrderQty()));
+			((TextView) lmrView.findViewById(R.id.tvMid)).setText(Utils.qtyFormat(sumOrder.getOrderQty()));
 			((TextView) lmrView.findViewById(R.id.tvMid)).setTypeface(null, Typeface.BOLD);
-			((TextView) lmrView.findViewById(R.id.tvRight)).setText(mHost.mFormat.currencyFormat(sumOrder.getTotalRetailPrice()));
+			((TextView) lmrView.findViewById(R.id.tvRight)).setText(Utils.currencyFormat(sumOrder.getTotalRetailPrice()));
 			((TextView) lmrView.findViewById(R.id.tvRight)).setTypeface(null, Typeface.BOLD);
 			mEnddaySumContent.addView(lmrView);
 			
 			if(sumOrder.getPriceDiscount() > 0){
 				View discountView = inflater.inflate(R.layout.left_mid_right_template, null);
 				((TextView) discountView.findViewById(R.id.tvLeft)).setText(getString(R.string.discount));
-				((TextView) discountView.findViewById(R.id.tvRight)).setText(mHost.mFormat.currencyFormat(sumOrder.getPriceDiscount()));
+				((TextView) discountView.findViewById(R.id.tvRight)).setText(Utils.currencyFormat(sumOrder.getPriceDiscount()));
 				((TextView) discountView.findViewById(R.id.tvRight)).setTypeface(null, Typeface.BOLD);
 				mEnddaySumContent.addView(discountView);
 			}
 			
 			View totalView = inflater.inflate(R.layout.left_mid_right_template, null);
 			((TextView) totalView.findViewById(R.id.tvLeft)).setText(getString(R.string.total));
-			((TextView) totalView.findViewById(R.id.tvRight)).setText(mHost.mFormat.currencyFormat(sumOrder.getTotalSalePrice()));
+			((TextView) totalView.findViewById(R.id.tvRight)).setText(Utils.currencyFormat(sumOrder.getTotalSalePrice()));
 			((TextView) totalView.findViewById(R.id.tvRight)).setTypeface(null, Typeface.BOLD);
 			mEnddaySumContent.addView(totalView);
 			
@@ -578,7 +572,7 @@ public class SaleReportActivity extends Activity{
 				View vatExcludeView = inflater.inflate(R.layout.left_mid_right_template, null);
 				((TextView) vatExcludeView.findViewById(R.id.tvLeft)).setText(getString(R.string.vat_exclude) 
 						+ " " + NumberFormat.getInstance().format(mHost.mShop.getCompanyVatRate()) + "%");
-				((TextView) vatExcludeView.findViewById(R.id.tvRight)).setText(mHost.mFormat.currencyFormat(trans.getTransactionVatExclude()));
+				((TextView) vatExcludeView.findViewById(R.id.tvRight)).setText(Utils.currencyFormat(trans.getTransactionVatExclude()));
 				((TextView) vatExcludeView.findViewById(R.id.tvRight)).setTypeface(null, Typeface.BOLD);
 				mEnddaySumContent.addView(vatExcludeView);
 			}
@@ -590,7 +584,7 @@ public class SaleReportActivity extends Activity{
 				double totalRounding = totalPaymentReceipt - (sumOrder.getTotalSalePrice() + sumOrder.getVatExclude());
 				View rounding = inflater.inflate(R.layout.left_mid_right_template, null);
 				((TextView) rounding.findViewById(R.id.tvLeft)).setText(getString(R.string.rounding));
-				((TextView) rounding.findViewById(R.id.tvRight)).setText(mHost.mFormat.currencyFormat(totalRounding));
+				((TextView) rounding.findViewById(R.id.tvRight)).setText(Utils.currencyFormat(totalRounding));
 				((TextView) rounding.findViewById(R.id.tvRight)).setTypeface(null, Typeface.BOLD);
 				mEnddaySumContent.addView(rounding);
 				
@@ -598,7 +592,7 @@ public class SaleReportActivity extends Activity{
 				((TextView) grandTotal.findViewById(R.id.tvLeft)).setText(getString(R.string.grand_total));
 				((TextView) grandTotal.findViewById(R.id.tvLeft)).setPaintFlags(
 						((TextView) grandTotal.findViewById(R.id.tvLeft)).getPaintFlags() |Paint.UNDERLINE_TEXT_FLAG);
-				((TextView) grandTotal.findViewById(R.id.tvRight)).setText(mHost.mFormat.currencyFormat(totalPaymentReceipt));
+				((TextView) grandTotal.findViewById(R.id.tvRight)).setText(Utils.currencyFormat(totalPaymentReceipt));
 				((TextView) grandTotal.findViewById(R.id.tvRight)).setTypeface(null, Typeface.BOLD);
 				mEnddaySumContent.addView(grandTotal);
 			}
@@ -606,7 +600,7 @@ public class SaleReportActivity extends Activity{
 			if(shop.getCompanyVatType() == ProductsDataSource.VAT_TYPE_INCLUDED){
 				View vatView = inflater.inflate(R.layout.left_mid_right_template, null);
 				((TextView) vatView.findViewById(R.id.tvLeft)).setText(getString(R.string.before_vat));
-				((TextView) vatView.findViewById(R.id.tvRight)).setText(mHost.mFormat.currencyFormat(
+				((TextView) vatView.findViewById(R.id.tvRight)).setText(Utils.currencyFormat(
 								trans.getTransactionVatable() - trans.getTransactionVat()));
 				((TextView) vatView.findViewById(R.id.tvRight)).setTypeface(null, Typeface.BOLD);
 				mEnddaySumContent.addView(vatView);
@@ -614,7 +608,7 @@ public class SaleReportActivity extends Activity{
 				vatView = inflater.inflate(R.layout.left_mid_right_template, null);
 				((TextView) vatView.findViewById(R.id.tvLeft)).setText(getString(R.string.total_vat)
 						+ " " + NumberFormat.getInstance().format(mHost.mShop.getCompanyVatRate()) + "%");
-				((TextView) vatView.findViewById(R.id.tvRight)).setText(mHost.mFormat.currencyFormat(trans.getTransactionVat()));
+				((TextView) vatView.findViewById(R.id.tvRight)).setText(Utils.currencyFormat(trans.getTransactionVat()));
 				((TextView) vatView.findViewById(R.id.tvRight)).setTypeface(null, Typeface.BOLD);
 				mEnddaySumContent.addView(vatView);
 			}
@@ -630,7 +624,7 @@ public class SaleReportActivity extends Activity{
 				for(MPOSPaymentDetail payment : summaryPaymentLst){
 					paymentView = inflater.inflate(R.layout.left_mid_right_template, null);
 					((TextView) paymentView.findViewById(R.id.tvLeft)).setText(payment.getPayTypeName());
-					((TextView) paymentView.findViewById(R.id.tvRight)).setText(mHost.mFormat.currencyFormat(payment.getPayAmount()));
+					((TextView) paymentView.findViewById(R.id.tvRight)).setText(Utils.currencyFormat(payment.getPayAmount()));
 					((TextView) paymentView.findViewById(R.id.tvRight)).setTypeface(null, Typeface.BOLD);
 					mEnddaySumContent.addView(paymentView);
 				}
@@ -651,9 +645,9 @@ public class SaleReportActivity extends Activity{
 			mEnddaySumContent.addView(totalVoidView);
 			totalVoidView = inflater.inflate(R.layout.left_mid_right_template, null);
 			((TextView) totalVoidView.findViewById(R.id.tvLeft)).setText(getString(R.string.void_bill_after_paid));
-			((TextView) totalVoidView.findViewById(R.id.tvMid)).setText(mHost.mFormat.qtyFormat(sumVoidOrder.getOrderQty()));
+			((TextView) totalVoidView.findViewById(R.id.tvMid)).setText(Utils.qtyFormat(sumVoidOrder.getOrderQty()));
 			((TextView) totalVoidView.findViewById(R.id.tvMid)).setTypeface(null, Typeface.BOLD);
-			((TextView) totalVoidView.findViewById(R.id.tvRight)).setText(mHost.mFormat.currencyFormat(sumVoidOrder.getTotalSalePrice()));
+			((TextView) totalVoidView.findViewById(R.id.tvRight)).setText(Utils.currencyFormat(sumVoidOrder.getTotalSalePrice()));
 			((TextView) totalVoidView.findViewById(R.id.tvRight)).setTypeface(null, Typeface.BOLD);
 			mEnddaySumContent.addView(totalVoidView);
 
@@ -676,17 +670,17 @@ public class SaleReportActivity extends Activity{
 						for(SimpleProductData sp : wasteData.getSimpleProductData()){
 							wasteReportView = inflater.inflate(R.layout.left_mid_right_template, null);
 							((TextView) wasteReportView.findViewById(R.id.tvLeft)).setText(" " + sp.getDeptName());
-							((TextView) wasteReportView.findViewById(R.id.tvMid)).setText(mHost.mFormat.qtyFormat(sp.getDeptTotalQty()));
+							((TextView) wasteReportView.findViewById(R.id.tvMid)).setText(Utils.qtyFormat(sp.getDeptTotalQty()));
 							((TextView) wasteReportView.findViewById(R.id.tvMid)).setTypeface(null, Typeface.BOLD);
-							((TextView) wasteReportView.findViewById(R.id.tvRight)).setText(mHost.mFormat.currencyFormat(sp.getDeptTotalPrice()));
+							((TextView) wasteReportView.findViewById(R.id.tvRight)).setText(Utils.currencyFormat(sp.getDeptTotalPrice()));
 							((TextView) wasteReportView.findViewById(R.id.tvRight)).setTypeface(null, Typeface.BOLD);
 							mEnddaySumContent.addView(wasteReportView);
 							if(sp.getItemLst() != null){
 								for(SimpleProductData.Item item : sp.getItemLst()){
 									wasteReportView = inflater.inflate(R.layout.left_mid_right_template, null);
 									((TextView) wasteReportView.findViewById(R.id.tvLeft)).setText("   " + item.getItemName());
-									((TextView) wasteReportView.findViewById(R.id.tvMid)).setText(mHost.mFormat.qtyFormat(item.getTotalQty()));
-									((TextView) wasteReportView.findViewById(R.id.tvRight)).setText(mHost.mFormat.currencyFormat(item.getTotalPrice()));
+									((TextView) wasteReportView.findViewById(R.id.tvMid)).setText(Utils.qtyFormat(item.getTotalQty()));
+									((TextView) wasteReportView.findViewById(R.id.tvRight)).setText(Utils.currencyFormat(item.getTotalPrice()));
 									mEnddaySumContent.addView(wasteReportView);
 								}
 							}
@@ -695,18 +689,18 @@ public class SaleReportActivity extends Activity{
 					SimpleProductData.Item sumWaste = report.getTotalStockOnly(wasteData.getPayTypeId());
 					wasteReportView = inflater.inflate(R.layout.left_mid_right_template, null);
 					((TextView) wasteReportView.findViewById(R.id.tvLeft)).setText(" " + getString(R.string.summary) + " " + wasteName);
-					((TextView) wasteReportView.findViewById(R.id.tvMid)).setText(mHost.mFormat.qtyFormat(sumWaste.getTotalQty()));
+					((TextView) wasteReportView.findViewById(R.id.tvMid)).setText(Utils.qtyFormat(sumWaste.getTotalQty()));
 					((TextView) wasteReportView.findViewById(R.id.tvMid)).setTypeface(null, Typeface.BOLD);
-					((TextView) wasteReportView.findViewById(R.id.tvRight)).setText(mHost.mFormat.currencyFormat(sumWaste.getTotalPrice()));
+					((TextView) wasteReportView.findViewById(R.id.tvRight)).setText(Utils.currencyFormat(sumWaste.getTotalPrice()));
 					((TextView) wasteReportView.findViewById(R.id.tvRight)).setTypeface(null, Typeface.BOLD);
 					mEnddaySumContent.addView(wasteReportView);
 				}
 				SimpleProductData.Item sumTotalWaste = report.getTotalStockOnly();
 				wasteReportView = inflater.inflate(R.layout.left_mid_right_template, null);
 				((TextView) wasteReportView.findViewById(R.id.tvLeft)).setText(" " + getString(R.string.total) + " " + getString(R.string.finish_waste));
-				((TextView) wasteReportView.findViewById(R.id.tvMid)).setText(mHost.mFormat.qtyFormat(sumTotalWaste.getTotalQty()));
+				((TextView) wasteReportView.findViewById(R.id.tvMid)).setText(Utils.qtyFormat(sumTotalWaste.getTotalQty()));
 				((TextView) wasteReportView.findViewById(R.id.tvMid)).setTypeface(null, Typeface.BOLD);
-				((TextView) wasteReportView.findViewById(R.id.tvRight)).setText(mHost.mFormat.currencyFormat(sumTotalWaste.getTotalPrice()));
+				((TextView) wasteReportView.findViewById(R.id.tvRight)).setText(Utils.currencyFormat(sumTotalWaste.getTotalPrice()));
 				((TextView) wasteReportView.findViewById(R.id.tvRight)).setTypeface(null, Typeface.BOLD);
 				mEnddaySumContent.addView(wasteReportView);
 			}
@@ -765,18 +759,18 @@ public class SaleReportActivity extends Activity{
 				SimpleProductData simple = mSimpleLst.get(position);
 				holder.tvGroupDept.setText(simple.getDeptName());
 				holder.tvGroupTotalQty.setText(
-						mHost.mFormat.qtyFormat(simple.getDeptTotalQty()));
+                        Utils.qtyFormat(simple.getDeptTotalQty()));
 				holder.tvGroupTotalPrice.setText(
-						mHost.mFormat.currencyFormat(simple.getDeptTotalPrice()));
+                        Utils.currencyFormat(simple.getDeptTotalPrice()));
 				if(simple.getItemLst() != null){
 					holder.itemContainer.removeAllViews();
 					for(SimpleProductData.Item item : simple.getItemLst()){
 						View bill = mInflater.inflate(R.layout.left_mid_right_template, null);
 						((TextView) bill.findViewById(R.id.tvLeft)).setText(item.getItemName());
 						((TextView) bill.findViewById(R.id.tvMid)).setText(
-								mHost.mFormat.qtyFormat(item.getTotalQty()));
+                                Utils.qtyFormat(item.getTotalQty()));
 						((TextView) bill.findViewById(R.id.tvRight)).setText(
-								mHost.mFormat.currencyFormat(item.getTotalPrice()));
+                                Utils.currencyFormat(item.getTotalPrice()));
 						holder.itemContainer.addView(bill);
 					}
 				}
@@ -978,9 +972,9 @@ public class SaleReportActivity extends Activity{
 				}
 				TextView tvs[] = new TextView[]{
 						tvBill,
-						createTextViewItem(getActivity(), mHost.mFormat.currencyFormat(totalPrice),
+						createTextViewItem(getActivity(), Utils.currencyFormat(totalPrice),
 								Utils.getLinHorParams(0.7f)),
-						createTextViewItem(getActivity(), mHost.mFormat.currencyFormat(totalDiscount),
+						createTextViewItem(getActivity(), Utils.currencyFormat(totalDiscount),
 								Utils.getLinHorParams(0.7f))
 				};
 				ImageView imgSendStatus = new ImageView(getActivity());
@@ -989,22 +983,22 @@ public class SaleReportActivity extends Activity{
 				for(TextView tv : tvs){
 					container.addView(tv);
 				}
-				container.addView(createTextViewItem(getActivity(), mHost.mFormat.currencyFormat(subTotal),  
+				container.addView(createTextViewItem(getActivity(), Utils.currencyFormat(subTotal),
 								Utils.getLinHorParams(0.7f)));
 //				container.addView(createTextViewItem(getActivity(), mHost.mFormat.currencyFormat(totalPay - totalVatExcl),  
 //								Utils.getLinHorParams(0.7f)));
 				if(!isExcVat){
-					container.addView(createTextViewItem(getActivity(), mHost.mFormat.currencyFormat(vatable - totalVatExcl),  
+					container.addView(createTextViewItem(getActivity(), Utils.currencyFormat(vatable - totalVatExcl),
 							Utils.getLinHorParams(0.7f)));
 				}
-				container.addView(createTextViewItem(getActivity(), mHost.mFormat.currencyFormat(totalVat),  
+				container.addView(createTextViewItem(getActivity(), Utils.currencyFormat(totalVat),
 								Utils.getLinHorParams(0.7f)));
 				if(isExcVat){
-					container.addView(createTextViewItem(getActivity(), mHost.mFormat.currencyFormat(vatable),  
+					container.addView(createTextViewItem(getActivity(), Utils.currencyFormat(vatable),
 							Utils.getLinHorParams(0.7f)));
 				}
 				TextView tvTotalPay = new TextView(getActivity());
-				tvTotalPay = createTextViewItem(getActivity(), mHost.mFormat.currencyFormat(totalPay),  
+				tvTotalPay = createTextViewItem(getActivity(), Utils.currencyFormat(totalPay),
 						Utils.getLinHorParams(0.7f));
 //				tvTotalPay.setFocusable(false);
 //				tvTotalPay.setFocusableInTouchMode(false);
@@ -1026,8 +1020,8 @@ public class SaleReportActivity extends Activity{
 //					
 //				});
 				container.addView(tvTotalPay);
-				container.addView(createTextViewItem(getActivity(), 
-						mHost.mFormat.currencyFormat(totalPay - (subTotal + totalVatExcl)), Utils.getLinHorParams(0.5f)));
+				container.addView(createTextViewItem(getActivity(),
+                        Utils.currencyFormat(totalPay - (subTotal + totalVatExcl)), Utils.getLinHorParams(0.5f)));
 				if(report.getSendStatus() == MPOSDatabase.ALREADY_SEND){
 					imgSendStatus.setImageResource(R.drawable.ic_action_accept);
 				}else{
@@ -1044,32 +1038,32 @@ public class SaleReportActivity extends Activity{
 			TextView[] tvSummary = {
 					createTextViewSummary(getActivity(), getString(R.string.summary),  
 							Utils.getLinHorParams(1.2f)),
-					createTextViewSummary(getActivity(), mHost.mFormat.currencyFormat(summary.getTotalPrice()),  
+					createTextViewSummary(getActivity(), Utils.currencyFormat(summary.getTotalPrice()),
 							Utils.getLinHorParams(0.7f)),
-					createTextViewSummary(getActivity(), mHost.mFormat.currencyFormat(summary.getDiscount()),  
+					createTextViewSummary(getActivity(), Utils.currencyFormat(summary.getDiscount()),
 							Utils.getLinHorParams(0.7f))
 			};
 			for(TextView tv : tvSummary){
 				mBillSumContent.addView(tv);	
 			}
-			mBillSumContent.addView(createTextViewSummary(getActivity(), mHost.mFormat.currencyFormat(summary.getSubTotal()),  
+			mBillSumContent.addView(createTextViewSummary(getActivity(), Utils.currencyFormat(summary.getSubTotal()),
 					Utils.getLinHorParams(0.7f)));
 //			mBillSumContent.addView(createTextViewSummary(getActivity(), mHost.mFormat.currencyFormat(summary.getTotalPayment() - summary.getVatExclude()),  
 //					Utils.getLinHorParams(0.7f)));
 			if(!isExcVat){
-				mBillSumContent.addView(createTextViewSummary(getActivity(), mHost.mFormat.currencyFormat(summary.getVatable() - summary.getVatExclude()),  
+				mBillSumContent.addView(createTextViewSummary(getActivity(), Utils.currencyFormat(summary.getVatable() - summary.getVatExclude()),
 						Utils.getLinHorParams(0.7f)));
 			}
-			mBillSumContent.addView(createTextViewSummary(getActivity(), mHost.mFormat.currencyFormat(summary.getTotalVat()),  
+			mBillSumContent.addView(createTextViewSummary(getActivity(), Utils.currencyFormat(summary.getTotalVat()),
 						Utils.getLinHorParams(0.7f)));
 			if(isExcVat){
-				mBillSumContent.addView(createTextViewSummary(getActivity(), mHost.mFormat.currencyFormat(summary.getVatable()),  
+				mBillSumContent.addView(createTextViewSummary(getActivity(), Utils.currencyFormat(summary.getVatable()),
 						Utils.getLinHorParams(0.7f)));
 			}
-			mBillSumContent.addView(createTextViewSummary(getActivity(), mHost.mFormat.currencyFormat(summary.getTotalPayment()),  
+			mBillSumContent.addView(createTextViewSummary(getActivity(), Utils.currencyFormat(summary.getTotalPayment()),
 						Utils.getLinHorParams(0.7f)));
-			mBillSumContent.addView(createTextViewSummary(getActivity(), 
-					mHost.mFormat.currencyFormat(summary.getTotalPayment() - (summary.getSubTotal() + summary.getVatExclude())), Utils.getLinHorParams(0.5f)));
+			mBillSumContent.addView(createTextViewSummary(getActivity(),
+                    Utils.currencyFormat(summary.getTotalPayment() - (summary.getSubTotal() + summary.getVatExclude())), Utils.getLinHorParams(0.5f)));
 			
 		}
 	}
@@ -1258,21 +1252,21 @@ public class SaleReportActivity extends Activity{
 				holder.tvNo.setText(String.valueOf(position + 1) + ".");
 				holder.tvProductCode.setText(reportDetail.getProductCode());
 				holder.tvProductName.setText(reportDetail.getProductName());
-				holder.tvProductPrice.setText(mHost.mFormat.currencyFormat(
+				holder.tvProductPrice.setText(Utils.currencyFormat(
 						reportDetail.getPricePerUnit()));
-				holder.tvQty.setText(mHost.mFormat.qtyFormat(
+				holder.tvQty.setText(Utils.qtyFormat(
 						reportDetail.getQty()));
-				holder.tvQtyPercent.setText(mHost.mFormat.currencyFormat(
+				holder.tvQtyPercent.setText(Utils.currencyFormat(
 						reportDetail.getQtyPercent()));
-				holder.tvSubTotal.setText(mHost.mFormat.currencyFormat(
+				holder.tvSubTotal.setText(Utils.currencyFormat(
 						reportDetail.getSubTotal()));
-				holder.tvSubTotalPercent.setText(mHost.mFormat.currencyFormat(
+				holder.tvSubTotalPercent.setText(Utils.currencyFormat(
 						reportDetail.getSubTotalPercent()));
-				holder.tvDiscount.setText(mHost.mFormat.currencyFormat(
+				holder.tvDiscount.setText(Utils.currencyFormat(
 						reportDetail.getDiscount()));
-				holder.tvTotalPrice.setText(mHost.mFormat.currencyFormat(
+				holder.tvTotalPrice.setText(Utils.currencyFormat(
 						reportDetail.getTotalPrice()));
-				holder.tvTotalPricePercent.setText(mHost.mFormat.currencyFormat(
+				holder.tvTotalPricePercent.setText(Utils.currencyFormat(
 						reportDetail.getTotalPricePercent()));
 				holder.tvVatType.setText(reportDetail.getVat());
 				
@@ -1381,19 +1375,19 @@ public class SaleReportActivity extends Activity{
 					mHost.mReporting.getProductSummary();
 			TextView[] tvGrandTotal = {
 					createTextViewSummary(getActivity(), getString(R.string.grand_total), Utils.getLinHorParams(2.8f)),
-					createTextViewSummary(getActivity(), mHost.mFormat.qtyFormat(summProduct.getQty()), 
+					createTextViewSummary(getActivity(), Utils.qtyFormat(summProduct.getQty()),
 							Utils.getLinHorParams(0.5f)),
-					createTextViewSummary(getActivity(), mHost.mFormat.qtyFormat(summProduct.getQty() / summProduct.getQty() * 100), 
+					createTextViewSummary(getActivity(), Utils.qtyFormat(summProduct.getQty() / summProduct.getQty() * 100),
 							Utils.getLinHorParams(0.5f)),
-					createTextViewSummary(getActivity(), mHost.mFormat.currencyFormat(summProduct.getSubTotal()), 
+					createTextViewSummary(getActivity(), Utils.currencyFormat(summProduct.getSubTotal()),
 							Utils.getLinHorParams(0.8f)),
-					createTextViewSummary(getActivity(), mHost.mFormat.qtyFormat(summProduct.getSubTotal() / summProduct.getSubTotal() * 100), 
+					createTextViewSummary(getActivity(), Utils.qtyFormat(summProduct.getSubTotal() / summProduct.getSubTotal() * 100),
 							Utils.getLinHorParams(0.5f)),
-					createTextViewSummary(getActivity(), mHost.mFormat.currencyFormat(summProduct.getDiscount()), 
+					createTextViewSummary(getActivity(), Utils.currencyFormat(summProduct.getDiscount()),
 							Utils.getLinHorParams(0.8f)),
-					createTextViewSummary(getActivity(), mHost.mFormat.currencyFormat(summProduct.getTotalPrice()), 
+					createTextViewSummary(getActivity(), Utils.currencyFormat(summProduct.getTotalPrice()),
 							Utils.getLinHorParams(0.8f)),
-					createTextViewSummary(getActivity(), mHost.mFormat.qtyFormat(summProduct.getTotalPrice() / summProduct.getTotalPrice() * 100), 
+					createTextViewSummary(getActivity(), Utils.qtyFormat(summProduct.getTotalPrice() / summProduct.getTotalPrice() * 100),
 							Utils.getLinHorParams(0.5f)),
 					createTextViewSummary(getActivity(), "", Utils.getLinHorParams(0.2f))
 			};
@@ -1409,7 +1403,7 @@ public class SaleReportActivity extends Activity{
 				TextView[] tvTotalVatExclude = {
 						createTextViewSummary(getActivity(), getString(R.string.vat_exclude) + " " +
 								NumberFormat.getInstance().format(shop.getCompanyVatRate()) + "%", Utils.getLinHorParams(5.9f)),
-						createTextViewSummary(getActivity(), mHost.mFormat.currencyFormat(sumTrans.getTransactionVatExclude()), 
+						createTextViewSummary(getActivity(), Utils.currencyFormat(sumTrans.getTransactionVatExclude()),
 								Utils.getLinHorParams(0.8f)),
 						createTextViewSummary(getActivity(), "", Utils.getLinHorParams(0.5f)),
 						createTextViewSummary(getActivity(), "", Utils.getLinHorParams(0.2f))
@@ -1420,7 +1414,7 @@ public class SaleReportActivity extends Activity{
 			// total sale
 			TextView[] tvTotalSale = {
 					createTextViewSummary(getActivity(), getString(R.string.total_sale), Utils.getLinHorParams(5.9f)),
-					createTextViewSummary(getActivity(), mHost.mFormat.currencyFormat(sumTrans.getTransactionVatable()), 
+					createTextViewSummary(getActivity(), Utils.currencyFormat(sumTrans.getTransactionVatable()),
 							Utils.getLinHorParams(0.8f)),
 					createTextViewSummary(getActivity(), "", Utils.getLinHorParams(0.5f)),
 					createTextViewSummary(getActivity(), "", Utils.getLinHorParams(0.2f))

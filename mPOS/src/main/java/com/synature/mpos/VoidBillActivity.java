@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import com.synature.mpos.datasource.CashInOutDao;
+import com.synature.mpos.datasource.CashInOutDataSource;
 import com.synature.mpos.datasource.ComputerDataSource;
 import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.OrderTransDataSource;
@@ -155,7 +157,8 @@ public class VoidBillActivity extends Activity {
 	
 	private void setupSearchSpinner(){
 		PaymentDetailDataSource payment = new PaymentDetailDataSource(this);
-		if(payment.countPayTypeWaste() > 0){
+        CashInOutDao cashInOutDao = new CashInOutDataSource(this);
+		if(payment.countPayTypeWaste() > 0 || cashInOutDao.countCashInOutProduct() > 0){
 			String[] voidTypes = getResources().getStringArray(R.array.bill_type);
 			ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, 
 					android.R.layout.simple_spinner_dropdown_item, voidTypes);
@@ -172,7 +175,9 @@ public class VoidBillActivity extends Activity {
 						mVoidType = 1;
 					}else if (position == 1){
 						mVoidType = 2;
-					}else{
+					}else if(position == 2){
+                        mVoidType = 3;
+                    }else{
 						mVoidType = 1;
 					}
 				}
@@ -253,7 +258,10 @@ public class VoidBillActivity extends Activity {
 			mTransLst = mTrans.listTransaction(mSessionDate);
 		}else if(mVoidType == 2){
 			mTransLst = mTrans.listTransactionWaste(mSessionDate);
-		}
+		}else if(mVoidType ==3){
+            CashInOutDao cashInOutDao = new CashInOutDataSource(this);
+            mTransLst = cashInOutDao.listCashInOutTransaction(mSessionDate);
+        }
 		if(mTransLst.size() == 0){
 			new AlertDialog.Builder(VoidBillActivity.this)
 			.setTitle(R.string.void_bill)
