@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.ProductsDataSource;
 import com.synature.mpos.datasource.model.OrderSet;
@@ -50,7 +49,6 @@ public class ProductSetActivity extends Activity{
 	public static final String ADD_MODE = "add";
 	
 	private ProductsDataSource mProduct;
-	private GlobalPropertyDataSource mFormat;
 	
 	private OrderTransDataSource mTrans;
 	
@@ -79,7 +77,6 @@ public class ProductSetActivity extends Activity{
 		mScroll = (HorizontalScrollView) findViewById(R.id.horizontalScrollView1);
 		
 		mProduct = new ProductsDataSource(ProductSetActivity.this);
-		mFormat = new GlobalPropertyDataSource(ProductSetActivity.this);
 		mTrans = new OrderTransDataSource(ProductSetActivity.this);
 		mTrans.getWritableDatabase().beginTransaction();
 		
@@ -185,10 +182,10 @@ public class ProductSetActivity extends Activity{
 			View groupBtn = scrollContent.findViewById(groupId);
 			TextView tvBadge = (TextView) groupBtn.findViewById(R.id.tvReqAmount);
 			double reductQty = requireAmount - totalQty;
-			tvBadge.setText(mFormat.qtyFormat(reductQty));
+			tvBadge.setText(Utils.qtyFormat(reductQty));
 			if(requireMinAmount > 0){
-				tvBadge.setText(mFormat.qtyFormat(requireMinAmount) + "-" + 
-						mFormat.qtyFormat(reductQty));
+				tvBadge.setText(Utils.qtyFormat(requireMinAmount) + "-" +
+						Utils.qtyFormat(reductQty));
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -365,7 +362,7 @@ public class ProductSetActivity extends Activity{
 			Product p = mProduct.getProduct(mProductId);
 			Intent intent = new Intent();
 			intent.putExtra("setName", p.getProductName());
-			intent.putExtra("setPrice", mFormat.currencyFormat(p.getProductPrice()));
+			intent.putExtra("setPrice", Utils.currencyFormat(p.getProductPrice()));
 			setResult(RESULT_OK, intent);
 			finish();
 		}else{
@@ -507,9 +504,9 @@ public class ProductSetActivity extends Activity{
 			final OrderSetDetail detail = mOrderSetLst.get(groupPosition).getOrderSetDetail().get(childPosition);
 			holder.tvSetNo.setText(String.valueOf(childPosition + 1) + ".");
 			holder.tvSetName.setText(detail.getProductName());
-			holder.tvSetQty.setText(mFormat.qtyFormat(detail.getOrderSetQty()));
+			holder.tvSetQty.setText(Utils.qtyFormat(detail.getOrderSetQty()));
 			holder.tvSetPrice.setText(detail.getProductPrice() > 0 ? 
-					mFormat.currencyFormat(detail.getProductPrice()) : null);
+					Utils.currencyFormat(detail.getProductPrice()) : null);
 			if(setGroup.getSetGroupNo() == 0){
 				holder.btnSetMinus.setVisibility(View.INVISIBLE);
 				holder.btnSetPlus.setVisibility(View.INVISIBLE);
@@ -574,7 +571,7 @@ public class ProductSetActivity extends Activity{
 									.setTitle(setGroup.getSetGroupName())
 									.setMessage(getString(R.string.cannot_update) + " " 
 											+ detail.getProductName() + " " + getString(R.string.because_deduct_at) + " " 
-											+ mFormat.qtyFormat(detail.getDeductAmount()))
+											+ Utils.qtyFormat(detail.getDeductAmount()))
 									.setNeutralButton(R.string.close, new DialogInterface.OnClickListener() {
 										
 										@Override
@@ -682,14 +679,14 @@ public class ProductSetActivity extends Activity{
 			
 			final ProductComponent pComp = mProductCompLst.get(position);
 			holder.tvMenu.setText(pComp.getProductName());
-			holder.tvPrice.setText(mFormat.currencyFormat(pComp.getFlexibleProductPrice()));
+			holder.tvPrice.setText(Utils.currencyFormat(pComp.getFlexibleProductPrice()));
 			if(pComp.getFlexibleProductPrice() > 0){
 				holder.tvPrice.setVisibility(View.VISIBLE);
 			}else{
 				holder.tvPrice.setVisibility(View.INVISIBLE);
 			}
 			if(pComp.getChildProductAmount() > 0 && pComp.getChildProductAmount() != 1){
-				holder.tvDeductAmount.setText(mFormat.qtyFormat(pComp.getChildProductAmount()));
+				holder.tvDeductAmount.setText(Utils.qtyFormat(pComp.getChildProductAmount()));
 				holder.tvDeductAmount.setVisibility(View.VISIBLE);
 			}else{
 				holder.tvDeductAmount.setVisibility(View.INVISIBLE);
@@ -754,7 +751,7 @@ public class ProductSetActivity extends Activity{
 					.setTitle(groupName)
 					.setMessage(getString(R.string.cannot_add) + " " 
 							+ productName + " " + getString(R.string.because_deduct_at) + " " 
-							+ mFormat.qtyFormat(deductQty))
+							+ Utils.qtyFormat(deductQty))
 					.setNeutralButton(R.string.close, new DialogInterface.OnClickListener() {
 						
 						@Override

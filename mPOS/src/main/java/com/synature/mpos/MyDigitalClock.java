@@ -7,7 +7,6 @@ import java.util.Calendar;
 import android.content.Context;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
@@ -34,7 +33,7 @@ public class MyDigitalClock extends TextView {
     }
 
     private void initClock(Context context) {
-        mCalendar = Utils.getCalendar();
+        mCalendar = Calendar.getInstance();
         GlobalPropertyDataSource global = new GlobalPropertyDataSource(context);
         GlobalProperty globalProperty = global.getGlobalProperty();
         if(!TextUtils.isEmpty(globalProperty.getDateFormat())

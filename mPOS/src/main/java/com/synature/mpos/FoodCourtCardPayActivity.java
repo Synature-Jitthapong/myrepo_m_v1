@@ -1,6 +1,5 @@
 package com.synature.mpos;
 
-import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.ShopDataSource;
 import com.synature.mpos.datasource.model.OrderDetail;
@@ -55,7 +54,6 @@ public class FoodCourtCardPayActivity extends Activity implements Runnable{
 	private WintecMagneticReader mMsrReader;
 	
 	private OrderTransDataSource mTrans;
-	private GlobalPropertyDataSource mFormat;
 	
 	private int mTransactionId;
 	private int mShopId;
@@ -87,7 +85,6 @@ public class FoodCourtCardPayActivity extends Activity implements Runnable{
 		mComputerId = intent.getIntExtra("computerId", 0);
 		mStaffId = intent.getIntExtra("staffId", 0);
 		mTrans = new OrderTransDataSource(this);
-		mFormat = new GlobalPropertyDataSource(this);
 		
 		if(savedInstanceState == null){
 			getFragmentManager().beginTransaction().add(R.id.container, new PlaceholderFragment(), "Placeholder").commit();
@@ -220,7 +217,7 @@ public class FoodCourtCardPayActivity extends Activity implements Runnable{
 			mTvResult = (TextView) view.findViewById(R.id.textView2);
 			mTxtCardBalance = (EditText) view.findViewById(R.id.txtCardBalance);
 			mTvResult.setText("Payment Successfully.");
-			mTxtCardBalance.setText(((FoodCourtCardPayActivity) getActivity()).mFormat.currencyFormat(mBalance));
+			mTxtCardBalance.setText(Utils.currencyFormat(mBalance));
 		}
 	}
 	
@@ -267,7 +264,7 @@ public class FoodCourtCardPayActivity extends Activity implements Runnable{
 			mTxtCardNo = (EditText) view.findViewById(R.id.txtCardNo);
 			mTxtBalance = (EditText) view.findViewById(R.id.txtBalance);
 			mBtnCheckCard = (ImageButton) view.findViewById(R.id.btnCheckCard);
-			mTxtBalance.setText(((FoodCourtCardPayActivity) getActivity()).mFormat.currencyFormat(((FoodCourtCardPayActivity) getActivity()).mCardBalance));
+			mTxtBalance.setText(Utils.currencyFormat(((FoodCourtCardPayActivity) getActivity()).mCardBalance));
 			mTxtCardNo.setOnKeyListener(new OnKeyListener(){
 
 				@Override
@@ -316,7 +313,7 @@ public class FoodCourtCardPayActivity extends Activity implements Runnable{
 					new FoodCourtCardPay(getActivity(), ((FoodCourtCardPayActivity) getActivity()).mShopId, 
 							((FoodCourtCardPayActivity) getActivity()).mComputerId,
 							((FoodCourtCardPayActivity) getActivity()).mStaffId, mTxtCardNo.getText().toString(),
-							((FoodCourtCardPayActivity) getActivity()).mFormat.currencyFormat(((FoodCourtCardPayActivity) getActivity()).mTotalSalePrice), 
+							Utils.currencyFormat(((FoodCourtCardPayActivity) getActivity()).mTotalSalePrice),
 							((FoodCourtCardPayActivity) getActivity()).mCardPayListener);
 				}else{
 					new AlertDialog.Builder(getActivity())
@@ -338,7 +335,7 @@ public class FoodCourtCardPayActivity extends Activity implements Runnable{
 			OrderDetail summOrder = 
 					((FoodCourtCardPayActivity) getActivity()).mTrans.getSummaryOrder(((FoodCourtCardPayActivity) getActivity()).mTransactionId, true);
 			((FoodCourtCardPayActivity) getActivity()).mTotalSalePrice = summOrder.getTotalSalePrice();
-			mTxtTotalPrice.setText(((FoodCourtCardPayActivity) getActivity()).mFormat.currencyFormat(((FoodCourtCardPayActivity) getActivity()).mTotalSalePrice));		
+			mTxtTotalPrice.setText(Utils.currencyFormat(((FoodCourtCardPayActivity) getActivity()).mTotalSalePrice));
 		}
 	}
 	
@@ -369,7 +366,7 @@ public class FoodCourtCardPayActivity extends Activity implements Runnable{
 			placeholder.mItemConfirm.setEnabled(true);
 			if(cardInfo != null){
 				mCardBalance = cardInfo.getfCurrentAmount();
-				placeholder.mTxtBalance.setText(mFormat.currencyFormat(mCardBalance));
+				placeholder.mTxtBalance.setText(Utils.currencyFormat(mCardBalance));
 			
 				PayResultFragment fragment = PayResultFragment.newInstance(mCardBalance);
 				getFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
@@ -420,7 +417,7 @@ public class FoodCourtCardPayActivity extends Activity implements Runnable{
 				if(cardInfo != null){
 					mCardBalance = cardInfo.getfCurrentAmount();
 					mCardBalanceBefore = mCardBalance;
-					fragment.mTxtBalance.setText(mFormat.currencyFormat(mCardBalance));
+					fragment.mTxtBalance.setText(Utils.currencyFormat(mCardBalance));
 					if(mCardBalance < mTotalSalePrice){
 						fragment.mTxtBalance.setTextColor(Color.RED);
 					}else{

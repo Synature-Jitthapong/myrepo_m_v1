@@ -3,6 +3,7 @@ package com.synature.mpos.datasource;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.synature.mpos.MPOSApplication;
 import com.synature.mpos.Utils;
 import com.synature.mpos.datasource.table.BankTable;
 import com.synature.mpos.datasource.table.BaseColumn;
@@ -40,14 +41,8 @@ import android.text.TextUtils;
  */
 public class SaleTransaction extends MPOSDatabase{
 
-	private GlobalPropertyDataSource mFormat;
-	
-	private ShopDataSource mShop;
-
 	public SaleTransaction(Context context) {
 		super(context);
-		mShop = new ShopDataSource(context);
-		mFormat = new GlobalPropertyDataSource(context);
 	}
 	
 	/**
@@ -131,25 +126,25 @@ public class SaleTransaction extends MPOSDatabase{
 					orderTrans.setiComputerID(cursor.getInt(cursor.getColumnIndex(ComputerTable.COLUMN_COMPUTER_ID)));
 					orderTrans.setiShopID(cursor.getInt(cursor.getColumnIndex(ShopTable.COLUMN_SHOP_ID)));
 					orderTrans.setiOpenStaffID(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_OPEN_STAFF)));
-					orderTrans.setDtOpenTime(mFormat.dateTimeFormat(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_OPEN_TIME)), "yyyy-MM-dd HH:mm:ss"));
-					orderTrans.setDtCloseTime(mFormat.dateTimeFormat(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_CLOSE_TIME)), "yyyy-MM-dd HH:mm:ss"));
+					orderTrans.setDtOpenTime(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_OPEN_TIME)));
+					orderTrans.setDtCloseTime(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_CLOSE_TIME)));
 					orderTrans.setiDocType(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_DOC_TYPE_ID)));
 					orderTrans.setiTransactionStatusID(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_STATUS_ID)));
 					orderTrans.setiReceiptYear(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_RECEIPT_YEAR)));
 					orderTrans.setiReceiptMonth(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_RECEIPT_MONTH)));
 					orderTrans.setiReceiptID(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_RECEIPT_ID)));
 					orderTrans.setSzReceiptNo(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_RECEIPT_NO)));
-					orderTrans.setDtSaleDate(mFormat.dateTimeFormat(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_SALE_DATE)),"yyyy-MM-dd"));
-					orderTrans.setfTransVAT(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderTransTable.COLUMN_TRANS_VAT))));
-					orderTrans.setfTransactionVatable(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderTransTable.COLUMN_TRANS_VATABLE))));
+					orderTrans.setDtSaleDate(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_SALE_DATE)));
+					orderTrans.setfTransVAT(Utils.fixesDigitLength(4, cursor.getDouble(cursor.getColumnIndex(OrderTransTable.COLUMN_TRANS_VAT))));
+					orderTrans.setfTransactionVatable(Utils.fixesDigitLength(4, cursor.getDouble(cursor.getColumnIndex(OrderTransTable.COLUMN_TRANS_VATABLE))));
 					orderTrans.setiSessionID(cursor.getInt(cursor.getColumnIndex(SessionTable.COLUMN_SESS_ID)));
 					orderTrans.setiVoidStaffID(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_VOID_STAFF_ID)));
 					orderTrans.setSzVoidReason(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_VOID_REASON)));
-					orderTrans.setDtVoidTime(mFormat.dateTimeFormat(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_VOID_TIME)), "yyyy-MM-dd HH:mm:ss"));
+					orderTrans.setDtVoidTime(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_VOID_TIME)));
 					orderTrans.setSzTransactionNote(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_TRANS_NOTE)));
 					orderTrans.setiSaleMode(cursor.getInt(cursor.getColumnIndex(ProductTable.COLUMN_SALE_MODE)));
-					orderTrans.setfVatPercent(Utils.fixesDigitLength(mFormat, 4,  cursor.getDouble(cursor.getColumnIndex(ProductTable.COLUMN_VAT_RATE))));
-					orderTrans.setfTransactionExcludeVAT(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderTransTable.COLUMN_TRANS_EXCLUDE_VAT))));
+					orderTrans.setfVatPercent(Utils.fixesDigitLength(4,  cursor.getDouble(cursor.getColumnIndex(ProductTable.COLUMN_VAT_RATE))));
+					orderTrans.setfTransactionExcludeVAT(Utils.fixesDigitLength(4, cursor.getDouble(cursor.getColumnIndex(OrderTransTable.COLUMN_TRANS_EXCLUDE_VAT))));
 					orderTrans.setiNoCust(1);
 					orderTrans.setSzEJ_SaleTransaction(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_EJ)));
 					orderTrans.setSzEJ_VoidTransaction(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_EJ_VOID)));
@@ -183,9 +178,9 @@ public class SaleTransaction extends MPOSDatabase{
 					payment.setiPaymentDetailID(cursor.getInt(cursor.getColumnIndex(PaymentDetailTable.COLUMN_PAY_ID)));
 					payment.setiTransactionID(transactionId);
 					payment.setiComputerID(cursor.getInt(cursor.getColumnIndex(ComputerTable.COLUMN_COMPUTER_ID)));
-					payment.setiShopID(mShop.getShopId());
+					payment.setiShopID(MPOSApplication.sShopId);
 					payment.setiPayTypeID(cursor.getInt(cursor.getColumnIndex(PayTypeTable.COLUMN_PAY_TYPE_ID)));
-					payment.setfPayAmount(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(PaymentDetailTable.COLUMN_PAY_AMOUNT))));
+					payment.setfPayAmount(Utils.fixesDigitLength(4, cursor.getDouble(cursor.getColumnIndex(PaymentDetailTable.COLUMN_PAY_AMOUNT))));
 					payment.setSzCreditCardNo(cursor.getString(cursor.getColumnIndex(CreditCardTable.COLUMN_CREDITCARD_NO)));
 					payment.setiExpireMonth(cursor.getInt(cursor.getColumnIndex(CreditCardTable.COLUMN_EXP_MONTH)));
 					payment.setiExpireYear(cursor.getInt(cursor.getColumnIndex(CreditCardTable.COLUMN_EXP_YEAR)));
@@ -209,10 +204,10 @@ public class SaleTransaction extends MPOSDatabase{
 					SaleTable_OrderPromotion promotion = new SaleTable_OrderPromotion();
 					promotion.setiTransactionID(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_TRANS_ID)));
 					promotion.setiComputerID(cursor.getInt(cursor.getColumnIndex(ComputerTable.COLUMN_COMPUTER_ID)));
-					promotion.setiShopID(mShop.getShopId());
+					promotion.setiShopID(MPOSApplication.sShopId);
 					promotion.setiOrderDetailID(cursor.getInt(cursor.getColumnIndex(OrderDetailTable.COLUMN_ORDER_ID)));
-					promotion.setfDiscountPrice(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_PRICE_DISCOUNT))));
-					promotion.setfPriceAfterDiscount(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_TOTAL_SALE_PRICE))));
+					promotion.setfDiscountPrice(Utils.fixesDigitLength(4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_PRICE_DISCOUNT))));
+					promotion.setfPriceAfterDiscount(Utils.fixesDigitLength(4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_TOTAL_SALE_PRICE))));
 					promotion.setiDiscountTypeID(cursor.getInt(cursor.getColumnIndex(PromotionPriceGroupTable.COLUMN_PROMOTION_TYPE_ID))); // 6 = other discount
 					promotion.setiPromotionID(cursor.getInt(cursor.getColumnIndex(PromotionPriceGroupTable.COLUMN_PRICE_GROUP_ID)));
 					promotion.setSzCouponHeader(cursor.getString(cursor.getColumnIndex(PromotionPriceGroupTable.COLUMN_COUPON_HEADER)));
@@ -239,16 +234,16 @@ public class SaleTransaction extends MPOSDatabase{
 					order.setiOrderDetailID(ordId);
 					order.setiTransactionID(transId);
 					order.setiComputerID(cursor.getInt(cursor.getColumnIndex(ComputerTable.COLUMN_COMPUTER_ID)));
-					order.setiShopID(mShop.getShopId());
+					order.setiShopID(MPOSApplication.sShopId);
 					order.setiVatType(cursor.getInt(cursor.getColumnIndex(ProductTable.COLUMN_VAT_TYPE)));
 					order.setiProductID(cursor.getInt(cursor.getColumnIndex(ProductTable.COLUMN_PRODUCT_ID)));
 					order.setiProductTypeID(cursor.getColumnIndex(ProductTable.COLUMN_PRODUCT_TYPE_ID));
-					order.setfQty(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_ORDER_QTY))));
-					order.setfPricePerUnit(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(ProductTable.COLUMN_PRODUCT_PRICE))));
-					order.setfRetailPrice(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_TOTAL_RETAIL_PRICE))));
-					order.setfSalePrice(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_TOTAL_SALE_PRICE))));
-					order.setfTotalVatAmount(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_TOTAL_VAT))));
-					order.setfPriceDiscountAmount(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_PRICE_DISCOUNT))));
+					order.setfQty(Utils.fixesDigitLength(4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_ORDER_QTY))));
+					order.setfPricePerUnit(Utils.fixesDigitLength(4, cursor.getDouble(cursor.getColumnIndex(ProductTable.COLUMN_PRODUCT_PRICE))));
+					order.setfRetailPrice(Utils.fixesDigitLength(4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_TOTAL_RETAIL_PRICE))));
+					order.setfSalePrice(Utils.fixesDigitLength(4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_TOTAL_SALE_PRICE))));
+					order.setfTotalVatAmount(Utils.fixesDigitLength(4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_TOTAL_VAT))));
+					order.setfPriceDiscountAmount(Utils.fixesDigitLength(4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_PRICE_DISCOUNT))));
 					order.setiSaleMode(cursor.getInt(cursor.getColumnIndex(ProductTable.COLUMN_SALE_MODE)));
                     order.setiStatusID(cursor.getInt(cursor.getColumnIndex(OrderDetailTable.COLUMN_ORDER_STATUS)));
 					order.setxListChildOrderSetLinkType7(buildChildOfSet(queryOrderSet(transId, ordId)));
@@ -275,9 +270,9 @@ public class SaleTransaction extends MPOSDatabase{
 					orderSet.setiPGroupID(cursor.getInt(cursor.getColumnIndex(ProductComponentTable.COLUMN_PGROUP_ID)));
 					orderSet.setiSetGroupNo(cursor.getInt(cursor.getColumnIndex(ProductComponentGroupTable.COLUMN_SET_GROUP_NO)));
 					orderSet.setiProductID(cursor.getInt(cursor.getColumnIndex(ProductTable.COLUMN_PRODUCT_ID)));
-					orderSet.setfProductQty(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_ORDER_QTY))));
-					orderSet.setfProductPrice(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(ProductTable.COLUMN_PRODUCT_PRICE))));
-					orderSet.setfDiscountPrice(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_PRICE_DISCOUNT))));
+					orderSet.setfProductQty(Utils.fixesDigitLength(4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_ORDER_QTY))));
+					orderSet.setfProductPrice(Utils.fixesDigitLength(4, cursor.getDouble(cursor.getColumnIndex(ProductTable.COLUMN_PRODUCT_PRICE))));
+					orderSet.setfDiscountPrice(Utils.fixesDigitLength(4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_PRICE_DISCOUNT))));
 					childSetLst.add(orderSet);
 				}while(cursor.moveToNext());
 			}
@@ -298,9 +293,9 @@ public class SaleTransaction extends MPOSDatabase{
 					SaleTable_CommentInfo comment = new SaleTable_CommentInfo();
 					comment.setiOrderID(cursor.getInt(cursor.getColumnIndex(OrderDetailTable.COLUMN_ORDER_ID)));
 					comment.setiCommentID(cursor.getInt(cursor.getColumnIndex(ProductTable.COLUMN_PRODUCT_ID)));
-					comment.setfCommentQty(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_ORDER_QTY))));
-					comment.setfCommentPrice(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(ProductTable.COLUMN_PRODUCT_PRICE))));
-					comment.setfDiscountPrice(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_PRICE_DISCOUNT))));
+					comment.setfCommentQty(Utils.fixesDigitLength(4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_ORDER_QTY))));
+					comment.setfCommentPrice(Utils.fixesDigitLength(4, cursor.getDouble(cursor.getColumnIndex(ProductTable.COLUMN_PRODUCT_PRICE))));
+					comment.setfDiscountPrice(Utils.fixesDigitLength(4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_PRICE_DISCOUNT))));
 					commLst.add(comment);
 				}while(cursor.moveToNext());
 			}
@@ -319,15 +314,15 @@ public class SaleTransaction extends MPOSDatabase{
 		if (cursor != null) {
 			if (cursor.moveToFirst()) {
 				do {
-					saleSessEnd.setDtSessionDate(mFormat.dateTimeFormat(cursor.getString(cursor.getColumnIndex(SessionTable.COLUMN_SESS_DATE)),"yyyy-MM-dd"));
-					saleSessEnd.setDtEndDayDateTime(mFormat.dateTimeFormat(cursor.getString(cursor.getColumnIndex(SessionDetailTable.COLUMN_ENDDAY_DATE)),"yyyy-MM-dd HH:mm:ss"));
-					saleSessEnd.setfTotalAmountReceipt(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(SessionDetailTable.COLUMN_TOTAL_AMOUNT_RECEIPT))));
+					saleSessEnd.setDtSessionDate(cursor.getString(cursor.getColumnIndex(SessionTable.COLUMN_SESS_DATE)));
+					saleSessEnd.setDtEndDayDateTime(cursor.getString(cursor.getColumnIndex(SessionDetailTable.COLUMN_ENDDAY_DATE)));
+					saleSessEnd.setfTotalAmountReceipt(Utils.fixesDigitLength(4, cursor.getDouble(cursor.getColumnIndex(SessionDetailTable.COLUMN_TOTAL_AMOUNT_RECEIPT))));
 					saleSessEnd.setiTotalQtyReceipt(cursor.getInt(cursor.getColumnIndex(SessionDetailTable.COLUMN_TOTAL_QTY_RECEIPT)));
 				} while (cursor.moveToNext());
 			} else {
-				saleSessEnd.setDtSessionDate(mFormat.dateTimeFormat(sessionDate, "yyyy-MM-dd"));
-				saleSessEnd.setDtEndDayDateTime(mFormat.dateTimeFormat(sessionDate, "yyyy-MM-dd HH:mm:ss"));
-				saleSessEnd.setfTotalAmountReceipt(Utils.fixesDigitLength(mFormat, 4, 0.0d));
+				saleSessEnd.setDtSessionDate(sessionDate);
+				saleSessEnd.setDtEndDayDateTime(sessionDate);
+				saleSessEnd.setfTotalAmountReceipt(Utils.fixesDigitLength(4, 0.0d));
 				saleSessEnd.setiTotalQtyReceipt(0);
 			}
 			cursor.close();
@@ -351,12 +346,12 @@ public class SaleTransaction extends MPOSDatabase{
 					saleSess.setSzSessionUUID(cursor.getString(cursor.getColumnIndex(BaseColumn.COLUMN_UUID)));
 					saleSess.setiComputerID(cursor.getInt(cursor.getColumnIndex(ComputerTable.COLUMN_COMPUTER_ID)));
 					saleSess.setiShopID(cursor.getInt(cursor.getColumnIndex(ShopTable.COLUMN_SHOP_ID)));
-					saleSess.setDtCloseSessionDateTime(mFormat.dateTimeFormat(cursor.getString(cursor.getColumnIndex(SessionTable.COLUMN_SESS_DATE)),"yyyy-MM-dd HH:mm:ss"));
-					saleSess.setDtOpenSessionDateTime(mFormat.dateTimeFormat(cursor.getString(cursor.getColumnIndex(SessionTable.COLUMN_OPEN_DATE)),"yyyy-MM-dd HH:mm:ss"));
-					saleSess.setDtCloseSessionDateTime(mFormat.dateTimeFormat(cursor.getString(cursor.getColumnIndex(SessionTable.COLUMN_CLOSE_DATE)),"yyyy-MM-dd HH:mm:ss"));
-					saleSess.setDtSessionDate(mFormat.dateTimeFormat(cursor.getString(cursor.getColumnIndex(SessionTable.COLUMN_SESS_DATE)),"yyyy-MM-dd"));
-					saleSess.setfOpenSessionAmount(Utils.fixesDigitLength(mFormat, 4,cursor.getDouble(cursor.getColumnIndex(SessionTable.COLUMN_OPEN_AMOUNT))));
-					saleSess.setfCloseSessionAmount(Utils.fixesDigitLength(mFormat, 4,cursor.getDouble(cursor.getColumnIndex(SessionTable.COLUMN_CLOSE_AMOUNT))));
+					saleSess.setDtCloseSessionDateTime(cursor.getString(cursor.getColumnIndex(SessionTable.COLUMN_SESS_DATE)));
+					saleSess.setDtOpenSessionDateTime(cursor.getString(cursor.getColumnIndex(SessionTable.COLUMN_OPEN_DATE)));
+					saleSess.setDtCloseSessionDateTime(cursor.getString(cursor.getColumnIndex(SessionTable.COLUMN_CLOSE_DATE)));
+					saleSess.setDtSessionDate(cursor.getString(cursor.getColumnIndex(SessionTable.COLUMN_SESS_DATE)));
+					saleSess.setfOpenSessionAmount(Utils.fixesDigitLength(4,cursor.getDouble(cursor.getColumnIndex(SessionTable.COLUMN_OPEN_AMOUNT))));
+					saleSess.setfCloseSessionAmount(Utils.fixesDigitLength(4,cursor.getDouble(cursor.getColumnIndex(SessionTable.COLUMN_CLOSE_AMOUNT))));
 					saleSess.setiIsEndDaySession(cursor.getInt(cursor.getColumnIndex(SessionTable.COLUMN_IS_ENDDAY)));
 					saleSess.setiOpenStaffID(cursor.getInt(cursor.getColumnIndex(SessionTable.COLUMN_OPEN_STAFF)));
                     saleSess.setiCloseStaffID(cursor.getInt(cursor.getColumnIndex(SessionTable.COLUMN_CLOSE_STAFF)));
@@ -382,12 +377,12 @@ public class SaleTransaction extends MPOSDatabase{
 				saleSess.setSzSessionUUID(cursor.getString(cursor.getColumnIndex(BaseColumn.COLUMN_UUID)));
 				saleSess.setiComputerID(cursor.getInt(cursor.getColumnIndex(ComputerTable.COLUMN_COMPUTER_ID)));
 				saleSess.setiShopID(cursor.getInt(cursor.getColumnIndex(ShopTable.COLUMN_SHOP_ID)));
-				saleSess.setDtCloseSessionDateTime(mFormat.dateTimeFormat(cursor.getString(cursor.getColumnIndex(SessionTable.COLUMN_SESS_DATE)),"yyyy-MM-dd HH:mm:ss"));
-				saleSess.setDtOpenSessionDateTime(mFormat.dateTimeFormat(cursor.getString(cursor.getColumnIndex(SessionTable.COLUMN_OPEN_DATE)),"yyyy-MM-dd HH:mm:ss"));
-				saleSess.setDtCloseSessionDateTime(mFormat.dateTimeFormat(cursor.getString(cursor.getColumnIndex(SessionTable.COLUMN_CLOSE_DATE)),"yyyy-MM-dd HH:mm:ss"));
-				saleSess.setDtSessionDate(mFormat.dateTimeFormat(cursor.getString(cursor.getColumnIndex(SessionTable.COLUMN_SESS_DATE)),"yyyy-MM-dd"));
-				saleSess.setfOpenSessionAmount(Utils.fixesDigitLength(mFormat, 4,cursor.getDouble(cursor.getColumnIndex(SessionTable.COLUMN_OPEN_AMOUNT))));
-				saleSess.setfCloseSessionAmount(Utils.fixesDigitLength(mFormat, 4,cursor.getDouble(cursor.getColumnIndex(SessionTable.COLUMN_CLOSE_AMOUNT))));
+				saleSess.setDtCloseSessionDateTime(cursor.getString(cursor.getColumnIndex(SessionTable.COLUMN_SESS_DATE)));
+				saleSess.setDtOpenSessionDateTime(cursor.getString(cursor.getColumnIndex(SessionTable.COLUMN_OPEN_DATE)));
+				saleSess.setDtCloseSessionDateTime(cursor.getString(cursor.getColumnIndex(SessionTable.COLUMN_CLOSE_DATE)));
+				saleSess.setDtSessionDate(cursor.getString(cursor.getColumnIndex(SessionTable.COLUMN_SESS_DATE)));
+				saleSess.setfOpenSessionAmount(Utils.fixesDigitLength(4,cursor.getDouble(cursor.getColumnIndex(SessionTable.COLUMN_OPEN_AMOUNT))));
+				saleSess.setfCloseSessionAmount(Utils.fixesDigitLength(4,cursor.getDouble(cursor.getColumnIndex(SessionTable.COLUMN_CLOSE_AMOUNT))));
 				saleSess.setiIsEndDaySession(cursor.getInt(cursor.getColumnIndex(SessionTable.COLUMN_IS_ENDDAY)));
                 saleSess.setiOpenStaffID(cursor.getInt(cursor.getColumnIndex(SessionTable.COLUMN_OPEN_STAFF)));
                 saleSess.setiCloseStaffID(cursor.getInt(cursor.getColumnIndex(SessionTable.COLUMN_CLOSE_STAFF)));

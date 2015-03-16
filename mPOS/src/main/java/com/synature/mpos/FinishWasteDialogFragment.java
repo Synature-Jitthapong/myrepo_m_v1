@@ -17,9 +17,7 @@ import android.widget.TextView;
 public class FinishWasteDialogFragment extends DialogFragment implements OnClickListener{
 
 	public static final String TAG = "FinishWasteDialogFragment";
-	
-	private GlobalPropertyDataSource mGlobal;
-	
+
 	private OnFinishWasteListener mListener;
 	
 	private int mPayTypeId;
@@ -50,9 +48,7 @@ public class FinishWasteDialogFragment extends DialogFragment implements OnClick
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		mGlobal = new GlobalPropertyDataSource(getActivity());
-		
+
 		mPayTypeId = getArguments().getInt("payTypeId");
 		mDocTypeId = getArguments().getInt("docTypeId");
 		mDocTypeHeader = getArguments().getString("docTypeHeader");
@@ -87,7 +83,7 @@ public class FinishWasteDialogFragment extends DialogFragment implements OnClick
 		mBtnCancel.setOnClickListener(this);
 		
 		mTvTitle.setText(mPayTypeName);
-		mTvTotalPrice.setText(mGlobal.currencyFormat(mTotalPrice));
+		mTvTotalPrice.setText(Utils.currencyFormat(mTotalPrice));
 	}
 
 	@Override

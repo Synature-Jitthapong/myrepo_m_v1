@@ -7,7 +7,6 @@ import java.util.Locale;
 
 import com.synature.mpos.datasource.BankDataSource;
 import com.synature.mpos.datasource.CreditCardDataSource;
-import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.PaymentDetailDataSource;
 import com.synature.pos.BankName;
 import com.synature.pos.CreditCardType;
@@ -52,7 +51,6 @@ public class CreditPayActivity extends Activity implements TextWatcher{
 	private Thread mMsrThread = null;
 	
 	private PaymentDetailDataSource mPayment;
-	private GlobalPropertyDataSource mGlobal;
 	
 	private List<BankName> mBankLst;
 	private List<CreditCardType> mCreditCardLst;
@@ -145,7 +143,6 @@ public class CreditPayActivity extends Activity implements TextWatcher{
 		});
 		
 		mPayment = new PaymentDetailDataSource(CreditPayActivity.this);
-		mGlobal = new GlobalPropertyDataSource(CreditPayActivity.this);
 		
 		Intent intent = getIntent();
 		mTransactionId = intent.getIntExtra("transactionId", 0);
@@ -242,7 +239,7 @@ public class CreditPayActivity extends Activity implements TextWatcher{
 	}
 	
 	private void displayTotalPrice(){
-		mTvTotalPrice.setText(mGlobal.currencyFormat(mPaymentLeft));
+		mTvTotalPrice.setText(Utils.currencyFormat(mPaymentLeft));
 		mTxtTotalPay.setText(mTvTotalPrice.getText());
 	}
 	
@@ -338,7 +335,7 @@ public class CreditPayActivity extends Activity implements TextWatcher{
 								if(Utils.isEnableWintecCustomerDisplay(CreditPayActivity.this)){
 									WintecCustomerDisplay dsp = new WintecCustomerDisplay(CreditPayActivity.this);
 									dsp.displayPayment(mPayment.getPaymentTypeName(PaymentDetailDataSource.PAY_TYPE_CREDIT),
-											mGlobal.currencyFormat(mTotalCreditPay));
+											Utils.currencyFormat(mTotalCreditPay));
 								}
 								
 								//d.dismiss();

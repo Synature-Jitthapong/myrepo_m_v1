@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.ProductsDataSource;
 import com.synature.mpos.datasource.model.OrderDetail;
@@ -51,7 +50,6 @@ public class DiscountActivity extends Activity implements OnItemClickListener,
 	public static final int PERCENT_DISCOUNT_TYPE = 2;
 	public static final int OTHER_DISCOUNT_TYPE = 6;
 
-	private GlobalPropertyDataSource mFormat;
 	private OrderTransDataSource mTrans;
 	private ProductsDataSource mProduct;
 	private OrderDetail mOrder;
@@ -84,7 +82,6 @@ public class DiscountActivity extends Activity implements OnItemClickListener,
 		mTransactionId = intent.getIntExtra("transactionId", 0);	
 		mTrans = new OrderTransDataSource(this);
 		mProduct = new ProductsDataSource(this);
-		mFormat = new GlobalPropertyDataSource(this);
 		mOrder = new OrderDetail();
 		// begin transaction
 		mTrans.getWritableDatabase().beginTransaction();
@@ -166,9 +163,9 @@ public class DiscountActivity extends Activity implements OnItemClickListener,
 			else if(mPriceOrPercent == PRICE_DISCOUNT_TYPE)
 				((RadioButton)rdoDiscountType.findViewById(R.id.rdoPrice)).setChecked(true);
 			if(mPriceOrPercent == PERCENT_DISCOUNT_TYPE)
-				txtDiscount.setText(((DiscountActivity) getActivity()).mFormat.currencyFormat(mDiscount * 100 / mTotalRetailPrice));
+				txtDiscount.setText(Utils.currencyFormat(mDiscount * 100 / mTotalRetailPrice));
 			else
-				txtDiscount.setText(((DiscountActivity) getActivity()).mFormat.currencyFormat(mDiscount));
+				txtDiscount.setText(Utils.currencyFormat(mDiscount));
 			txtDiscount.setSelectAllOnFocus(true);
 			txtDiscount.requestFocus();
 			txtDiscount.setOnEditorActionListener(new OnEditorActionListener(){
@@ -403,11 +400,11 @@ public class DiscountActivity extends Activity implements OnItemClickListener,
 		OrderDetail sumOrder = mTrans.getSummaryOrder(mTransactionId, true);
 		TextView[] tvs = {
 				SaleReportActivity.createTextViewSummary(this, getString(R.string.summary), Utils.getLinHorParams(1.2f)),
-				SaleReportActivity.createTextViewSummary(this, mFormat.qtyFormat(sumOrder.getOrderQty()), Utils.getLinHorParams(0.5f)),
-				SaleReportActivity.createTextViewSummary(this, mFormat.currencyFormat(sumOrder.getProductPrice()), Utils.getLinHorParams(0.7f)),
-				SaleReportActivity.createTextViewSummary(this, mFormat.currencyFormat(sumOrder.getTotalRetailPrice()), Utils.getLinHorParams(0.7f)),
-				SaleReportActivity.createTextViewSummary(this, mFormat.currencyFormat(sumOrder.getPriceDiscount()), Utils.getLinHorParams(0.7f)),
-				SaleReportActivity.createTextViewSummary(this, mFormat.currencyFormat(sumOrder.getTotalSalePrice()), Utils.getLinHorParams(0.7f))
+				SaleReportActivity.createTextViewSummary(this, Utils.qtyFormat(sumOrder.getOrderQty()), Utils.getLinHorParams(0.5f)),
+				SaleReportActivity.createTextViewSummary(this, Utils.currencyFormat(sumOrder.getProductPrice()), Utils.getLinHorParams(0.7f)),
+				SaleReportActivity.createTextViewSummary(this, Utils.currencyFormat(sumOrder.getTotalRetailPrice()), Utils.getLinHorParams(0.7f)),
+				SaleReportActivity.createTextViewSummary(this, Utils.currencyFormat(sumOrder.getPriceDiscount()), Utils.getLinHorParams(0.7f)),
+				SaleReportActivity.createTextViewSummary(this, Utils.currencyFormat(sumOrder.getTotalSalePrice()), Utils.getLinHorParams(0.7f))
 		};
 		if(mSummaryContainer.getChildCount() > 0)
 			mSummaryContainer.removeAllViews();
@@ -467,11 +464,11 @@ public class DiscountActivity extends Activity implements OnItemClickListener,
 			final OrderDetail order = mOrderLst.get(position);
 			tvNo.setText(Integer.toString(position + 1) + ".");
 			tvName.setText(order.getProductName());
-			tvQty.setText(mFormat.qtyFormat(order.getOrderQty()));
-			tvUnitPrice.setText(mFormat.currencyFormat(order.getProductPrice()));
-			tvTotalPrice.setText(mFormat.currencyFormat(order.getTotalRetailPrice()));
-			tvDiscount.setText(mFormat.currencyFormat(order.getPriceDiscount()));
-			tvSalePrice.setText(mFormat.currencyFormat(order.getTotalSalePrice()));
+			tvQty.setText(Utils.qtyFormat(order.getOrderQty()));
+			tvUnitPrice.setText(Utils.currencyFormat(order.getProductPrice()));
+			tvTotalPrice.setText(Utils.currencyFormat(order.getTotalRetailPrice()));
+			tvDiscount.setText(Utils.currencyFormat(order.getPriceDiscount()));
+			tvSalePrice.setText(Utils.currencyFormat(order.getTotalSalePrice()));
 			
 			return rowView;
 		}

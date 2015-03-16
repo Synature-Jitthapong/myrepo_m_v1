@@ -7,7 +7,6 @@ import java.util.List;
 import com.synature.mpos.datasource.CashInOutDao;
 import com.synature.mpos.datasource.CashInOutDataSource;
 import com.synature.mpos.datasource.ComputerDataSource;
-import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.PaymentDetailDataSource;
 import com.synature.mpos.datasource.PrintReceiptLogDataSource;
@@ -49,7 +48,6 @@ public class VoidBillActivity extends Activity {
 	
 	private OrderTransDataSource mTrans;
     private SessionDataSource mSession;
-	private GlobalPropertyDataSource mFormat;
 
 	private List<OrderTransaction> mTransLst;
 	private BillAdapter mBillAdapter;
@@ -81,13 +79,12 @@ public class VoidBillActivity extends Activity {
 
 		mTrans = new OrderTransDataSource(this);
         mSession = new SessionDataSource(this);
-		mFormat = new GlobalPropertyDataSource(this);
 		mTransLst = new ArrayList<OrderTransaction>();
 		mBillAdapter = new BillAdapter();
 		mLvBill.setAdapter(mBillAdapter);
 
         mSessionDate = mSession.getLastSessionDate();
-		tvSaleDate.setText(mFormat.dateFormat(mSessionDate));
+		tvSaleDate.setText(Utils.dateFormat(Utils.convertISODateToCalendar(mSessionDate)));
 	    
 	    btnSearch.setOnClickListener(new OnClickListener(){
 
@@ -103,7 +100,7 @@ public class VoidBillActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View v, int position,
 					long id) {
-				Calendar c = Utils.getCalendar();
+				Calendar c = Calendar.getInstance();
 				OrderTransaction trans = (OrderTransaction) parent.getItemAtPosition(position);
 				c.setTimeInMillis(Long.parseLong(trans.getPaidTime()));
 				
@@ -235,7 +232,7 @@ public class VoidBillActivity extends Activity {
 				e.printStackTrace();
 			}
 			holder.tvReceiptNo.setText(trans.getReceiptNo());
-			holder.tvPaidTime.setText(mFormat.dateTimeFormat(c.getTime()));
+			holder.tvPaidTime.setText(Utils.dateTimeFormat(c));
 			if((trans.getTransactionStatusId() == OrderTransDataSource.TRANS_STATUS_VOID)
 					|| (trans.getTransactionStatusId() == OrderTransDataSource.WASTE_TRANS_STATUS_VOID)){
 				holder.tvReceiptNo.setTextColor(Color.RED);

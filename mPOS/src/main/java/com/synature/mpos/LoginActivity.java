@@ -6,14 +6,11 @@ import java.util.concurrent.Executors;
 
 import com.synature.mpos.SoftwareExpirationChecker.SoftwareExpirationCheckerListener;
 import com.synature.mpos.datasource.ComputerDataSource;
-import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.MPOSDatabase;
-import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.SessionDataSource;
 import com.synature.mpos.datasource.ShopDataSource;
 import com.synature.mpos.datasource.StaffsDataSource;
 import com.synature.mpos.datasource.UserVerification;
-import com.synature.mpos.datasource.model.OrderTransaction;
 import com.synature.mpos.datasource.table.OrderTransTable;
 import com.synature.pos.Staff;
 import com.synature.util.FileManager;
@@ -65,11 +62,10 @@ public class LoginActivity extends Activity implements OnClickListener,
 	
 	private int mStaffId;
 	private int mStaffRoleId;
-	
+
 	private ShopDataSource mShop;
 	private SessionDataSource mSession;
 	private ComputerDataSource mComputer;
-	private GlobalPropertyDataSource mFormat;
 	
 	private Button mBtnLogin;
 	private EditText mTxtUser;
@@ -103,7 +99,6 @@ public class LoginActivity extends Activity implements OnClickListener,
 		mSession = new SessionDataSource(this);
 		mShop = new ShopDataSource(this);
 		mComputer = new ComputerDataSource(this);
-		mFormat = new GlobalPropertyDataSource(this);
 		try {
 			if(!TextUtils.isEmpty(mShop.getShopName())){
 				setTitle(mShop.getShopName());
@@ -113,7 +108,7 @@ public class LoginActivity extends Activity implements OnClickListener,
             if(!TextUtils.isEmpty(updateDateMillisec)) {
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTimeInMillis(Long.parseLong(updateDateMillisec));
-                String updateDate = mFormat.dateTimeFormat(calendar.getTime());
+                String updateDate = Utils.dateTimeFormat(calendar);
                 mTvLastSyncTime.setText(getString(R.string.last_update) + " " + updateDate);
             }
 		} catch (Exception e) {
@@ -149,7 +144,7 @@ public class LoginActivity extends Activity implements OnClickListener,
 			 *  mPOS will force to go to date & time Settings
 			 *  for setting correct date.
 			 */
-			if(lastSessDate.getTime().compareTo(Utils.getDate().getTime()) > 0){
+			if(lastSessDate.compareTo(Utils.convertISODateToCalendar(Utils.getISODate())) > 0){
 				new AlertDialog.Builder(this)
 				.setCancelable(false)
 				.setTitle(R.string.system_date)
@@ -170,15 +165,15 @@ public class LoginActivity extends Activity implements OnClickListener,
 					}
 				}).show();
 				return false;
-			}else if(Utils.getDate().getTime().compareTo(lastSessDate.getTime()) > 0){
+			}else if(Utils.convertISODateToCalendar(Utils.getISODate()).compareTo(lastSessDate) > 0){
 				Calendar lastSessCal = Calendar.getInstance();
 				lastSessCal.setTimeInMillis(Long.parseLong(mSession.getLastSessionDate()));
 				Utils.endingMultipleDay(LoginActivity.this, mShop.getShopId(), 
 						mComputer.getComputerId(), mStaffId, lastSessCal);
 			}else{
-				if(mSession.checkEndday(String.valueOf(Utils.getDate().getTimeInMillis()))){
+				if(mSession.checkEndday(Utils.getISODate())){
 					String enddayMsg = getString(R.string.sale_date) 
-							+ " " + mFormat.dateFormat(Utils.getDate().getTime()) 
+							+ " " + Utils.dateFormat(Calendar.getInstance())
 							+ " " + getString(R.string.alredy_endday);
 					new AlertDialog.Builder(this)
 					.setCancelable(false)
@@ -560,7 +555,7 @@ public class LoginActivity extends Activity implements OnClickListener,
 			@Override
 			public void onExpire(final Calendar lockDate, final boolean isLocked) {
 				String msg = getString(R.string.software_expired_msg);
-				msg += " " + mFormat.dateFormat(lockDate.getTime());
+				msg += " " + Utils.dateFormat(lockDate);
 				if(isLocked){
 					msg = getString(R.string.software_locked);
 				}
