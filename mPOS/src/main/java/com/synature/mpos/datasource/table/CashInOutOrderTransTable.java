@@ -34,6 +34,9 @@ public class CashInOutOrderTransTable {
             OrderTransTable.COLUMN_RECEIPT_ID + " integer, " +
             OrderTransTable.COLUMN_RECEIPT_NO + " text, " +
             SessionTable.COLUMN_SESS_ID + " integer, " +
+            OrderTransTable.COLUMN_EJ + " text, " +
+            OrderTransTable.COLUMN_EJ_VOID + " text, " +
+            BaseColumn.COLUMN_SEND_STATUS + " integer default 0, " +
             " primary key (" +OrderTransTable.COLUMN_TRANS_ID + "))";
 
     public static void onCreate(SQLiteDatabase db) {

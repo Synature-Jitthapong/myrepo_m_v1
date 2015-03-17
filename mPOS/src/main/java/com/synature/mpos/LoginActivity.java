@@ -29,6 +29,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -409,6 +410,7 @@ public class LoginActivity extends Activity implements OnClickListener,
 				if(progress.isShowing())
 					progress.dismiss();
 
+                MPOSApplication.init(LoginActivity.this);
 				checkUpdate();
 
 				FileManager fm = new FileManager(LoginActivity.this, MPOSApplication.IMG_DIR);

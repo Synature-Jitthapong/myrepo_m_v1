@@ -463,12 +463,15 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
         int receiptId = 0;
         String sql = "select max(" + OrderTransTable.COLUMN_RECEIPT_ID + ")" +
                 " from " + CashInOutOrderTransTable.TABLE_CASH_INOUT_ORDER_TRANS +
-                " where " + CashInOutOrderTransTable.COLUMN_STATUS_ID + "=?" +
-                " order by date(" + CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE + ") desc limit 1";
+                " where " + CashInOutOrderTransTable.COLUMN_STATUS_ID + "=?";
         Cursor cursor = getReadableDatabase().rawQuery(sql,
                 new String[]{
                     String.valueOf(OrderTransDataSource.TRANS_STATUS_SUCCESS)
                 });
+        if(cursor.moveToFirst()){
+            receiptId = cursor.getInt(0);
+        }
+        cursor.close();
         return receiptId + 1;
     }
 

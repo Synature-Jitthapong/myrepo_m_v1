@@ -68,7 +68,7 @@ public class ClearSaleDialogFragment extends DialogFragment implements OnClickLi
 			public void onClick(View v) {
                 Calendar cFrom = Utils.convertISODateToCalendar(mDateFrom);
                 Calendar cTo = Utils.convertISODateToCalendar(mDateTo);
-				if(cTo.compareTo(cFrom) > 0){
+				if(cTo.compareTo(cFrom) >= 0){
 					String msg = getString(R.string.clear_sale_msg) + "\n"
 							+ getString(R.string.from) + " "
 							+ Utils.dateFormat(Utils.convertISODateToCalendar(mDateFrom))

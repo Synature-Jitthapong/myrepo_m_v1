@@ -5,8 +5,12 @@ import java.util.List;
 
 import com.synature.mpos.MPOSApplication;
 import com.synature.mpos.Utils;
+import com.synature.mpos.datasource.model.Session;
 import com.synature.mpos.datasource.table.BankTable;
 import com.synature.mpos.datasource.table.BaseColumn;
+import com.synature.mpos.datasource.table.CashInOutOrderDetailTable;
+import com.synature.mpos.datasource.table.CashInOutOrderTransTable;
+import com.synature.mpos.datasource.table.CashInOutProductTable;
 import com.synature.mpos.datasource.table.ComputerTable;
 import com.synature.mpos.datasource.table.CreditCardTable;
 import com.synature.mpos.datasource.table.OrderDetailTable;
@@ -21,6 +25,7 @@ import com.synature.mpos.datasource.table.PromotionPriceGroupTable;
 import com.synature.mpos.datasource.table.SessionDetailTable;
 import com.synature.mpos.datasource.table.SessionTable;
 import com.synature.mpos.datasource.table.ShopTable;
+import com.synature.mpos.datasource.table.StaffTable;
 import com.synature.pos.Question.QuestionAnswerData;
 
 import android.content.Context;
@@ -53,6 +58,7 @@ public class SaleTransaction extends MPOSDatabase{
 	public POSData_EndDaySaleTransaction getEndDayTransaction(String sessionDate){
 		POSData_EndDaySaleTransaction posEnddayTrans = new POSData_EndDaySaleTransaction();
 		posEnddayTrans.setxArySaleTransaction(buildSaleTransLst(getTransactionBySaleDate(sessionDate)));
+        posEnddayTrans.setxAryCashInOutTransaction(buildCashInOutTransLst(getCashInOutTransactionBySaleDate(sessionDate)));
 		posEnddayTrans.setxAryTableSession(buildSessionLst(sessionDate));
 		posEnddayTrans.setxTableSessionEndDay(buildSessEnddayObj(sessionDate));
 		return posEnddayTrans;
@@ -66,6 +72,7 @@ public class SaleTransaction extends MPOSDatabase{
 	public POSData_EndDaySaleTransaction getEndDayUnSendTransaction(String sessionDate){
 		POSData_EndDaySaleTransaction posEnddayTrans = new POSData_EndDaySaleTransaction();
 		posEnddayTrans.setxArySaleTransaction(buildSaleTransLst(getUnSendTransaction(sessionDate)));
+        posEnddayTrans.setxAryCashInOutTransaction(buildCashInOutTransLst(getUnSendCashInOutTransaction(sessionDate)));
 		posEnddayTrans.setxAryTableSession(buildSessionLst(sessionDate));
 		posEnddayTrans.setxTableSessionEndDay(buildSessEnddayObj(sessionDate));
 		return posEnddayTrans;
@@ -79,6 +86,7 @@ public class SaleTransaction extends MPOSDatabase{
 	public POSData_SaleTransaction getTransaction(String sessionDate) {
 		POSData_SaleTransaction posSaleTrans = new POSData_SaleTransaction();
 		posSaleTrans.setxArySaleTransaction(buildSaleTransLst(getUnSendTransaction(sessionDate)));
+        posSaleTrans.setxAryCashInOutTransaction(buildCashInOutTransLst(getUnSendCashInOutTransaction(sessionDate)));
 		posSaleTrans.setxTableSession(buildSessionObj(sessionDate));
 		return posSaleTrans;
 	}
@@ -90,6 +98,7 @@ public class SaleTransaction extends MPOSDatabase{
 	public POSData_SaleTransaction getSaleTransaction(String sessionDate) {
 		POSData_SaleTransaction posSaleTrans = new POSData_SaleTransaction();
 		posSaleTrans.setxArySaleTransaction(buildSaleTransLst(getLastTransaction(sessionDate)));
+        posSaleTrans.setxAryCashInOutTransaction(buildCashInOutTransLst(getLastCashInOutTransaction(sessionDate)));
 		posSaleTrans.setxTableSession(buildSessionObj(sessionDate));
 		return posSaleTrans;
 	}
@@ -106,7 +115,53 @@ public class SaleTransaction extends MPOSDatabase{
 		posSaleTrans.setxTableSession(buildSessionObj(sessionDate));
 		return posSaleTrans;
 	}
-	
+
+    /**
+     * @param cursor
+     * @return
+     */
+    private List<SaleData_CashInOutTransaction> buildCashInOutTransLst(Cursor cursor){
+        List<SaleData_CashInOutTransaction> cashInOutTransLst = null;
+        if(cursor != null){
+            if(cursor.moveToFirst()){
+                cashInOutTransLst = new ArrayList<SaleData_CashInOutTransaction>();
+                do{
+                    SaleData_CashInOutTransaction cashInOutTrans = new SaleData_CashInOutTransaction();
+                    cashInOutTrans.setiTransID(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_TRANS_ID)));
+                    cashInOutTrans.setiCompID(cursor.getInt(cursor.getColumnIndex(ComputerTable.COLUMN_COMPUTER_ID)));
+                    cashInOutTrans.setiStaffID(cursor.getInt(cursor.getColumnIndex(StaffTable.COLUMN_STAFF_ID)));
+                    cashInOutTrans.setiStatusID(cursor.getInt(cursor.getColumnIndex(CashInOutOrderTransTable.COLUMN_STATUS_ID)));
+                    cashInOutTrans.setfTotalPrice(cursor.getDouble(cursor.getColumnIndex(CashInOutOrderTransTable.COLUMN_CASH_INOUT_TOTAL_PRICE)));
+                    cashInOutTrans.setiDocType(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_DOC_TYPE_ID)));
+                    cashInOutTrans.setiMovement(cursor.getInt(cursor.getColumnIndex(CashInOutOrderTransTable.COLUMN_MOVEMENT)));
+                    cashInOutTrans.setiReceiptYear(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_RECEIPT_YEAR)));
+                    cashInOutTrans.setiReceiptMonth(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_RECEIPT_MONTH)));
+                    cashInOutTrans.setiReceiptID(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_RECEIPT_ID)));
+                    cashInOutTrans.setSzReceiptNo(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_RECEIPT_NO)));
+                    cashInOutTrans.setSzCashOutDate(cursor.getString(cursor.getColumnIndex(CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE)));
+                    cashInOutTrans.setSzCashOutDateTime(cursor.getString(cursor.getColumnIndex(CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE_TIME)));
+                    cashInOutTrans.setSzCashOutNote(cursor.getString(cursor.getColumnIndex(CashInOutOrderTransTable.COLUMN_CASH_INOUT_NOTE)));
+                    cashInOutTrans.setSzUDDID(cursor.getString(cursor.getColumnIndex(BaseColumn.COLUMN_UUID)));
+                    cashInOutTrans.setiVoidStaffID(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_VOID_STAFF_ID)));
+                    cashInOutTrans.setSzVoidDateTime(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_VOID_TIME)));
+                    cashInOutTrans.setSzVoidReason(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_VOID_REASON)));
+                    cashInOutTrans.setiSessionID(cursor.getInt(cursor.getColumnIndex(SessionTable.COLUMN_SESS_ID)));
+
+                    Cursor cashInOutDetailCursor = queryCashInOutDetail(
+                            OrderTransTable.COLUMN_TRANS_ID + "=?",
+                            new String[]{
+                                    String.valueOf(cashInOutTrans.getiTransID())
+                            }
+                    );
+                    cashInOutTrans.setxListCashInOutDetail(buildCashInOutDetailLst(cashInOutDetailCursor));
+                    cashInOutTransLst.add(cashInOutTrans);
+                }while(cursor.moveToNext());
+            }
+            cursor.close();
+        }
+        return cashInOutTransLst;
+    }
+
 	/**
 	 * Build callection of transaction
 	 * @param cursor
@@ -217,7 +272,31 @@ public class SaleTransaction extends MPOSDatabase{
 		}
 		return orderPromotionLst;
 	}
-	
+
+    /**
+     * @param cursor
+     * @return
+     */
+    private List<SaleData_CashInOutDetail> buildCashInOutDetailLst(Cursor cursor){
+        List<SaleData_CashInOutDetail> cashInOutLst = null;
+        if(cursor != null){
+            if(cursor.moveToFirst()){
+                cashInOutLst = new ArrayList<SaleData_CashInOutDetail>();
+                do{
+                    SaleData_CashInOutDetail cashInOut = new SaleData_CashInOutDetail();
+                    cashInOut.setiOrderID(cursor.getInt(cursor.getColumnIndex(OrderDetailTable.COLUMN_ORDER_ID)));
+                    cashInOut.setiProductID(cursor.getInt(cursor.getColumnIndex(ProductTable.COLUMN_PRODUCT_ID)));
+                    cashInOut.setfCashOutPrice(cursor.getDouble(cursor.getColumnIndex(CashInOutOrderDetailTable.COLUMN_CASH_INOUT_PRICE)));
+                    cashInOut.setiCashOutType(cursor.getInt(cursor.getColumnIndex(CashInOutProductTable.COLUMN_CASH_INOUT_TYPE)));
+                    cashInOut.setiStatusID(cursor.getInt(cursor.getColumnIndex(CashInOutOrderTransTable.COLUMN_STATUS_ID)));
+                    cashInOutLst.add(cashInOut);
+                }while (cursor.moveToNext());
+            }
+            cursor.close();
+        }
+        return cashInOutLst;
+    }
+
 	/**
 	 * Build collection of order detail
 	 * @param cursor
@@ -391,7 +470,21 @@ public class SaleTransaction extends MPOSDatabase{
 		}
 		return saleSess;
 	}
-	
+
+    private Cursor getUnSendCashInOutTransaction(String sessionDate){
+        return queryCashInOutTransaction(
+            CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE + "=?" +
+                    " and " + CashInOutOrderTransTable.COLUMN_STATUS_ID + " in(?, ?) " +
+                    " and " + BaseColumn.COLUMN_SEND_STATUS + "=?",
+                new String[]{
+                        sessionDate,
+                        String.valueOf(OrderTransDataSource.TRANS_STATUS_SUCCESS),
+                        String.valueOf(CashInOutDataSource.TRANS_VOID_STATUS),
+                        String.valueOf(MPOSDatabase.NOT_SEND)
+                }, null, null
+        );
+    }
+
 	/**
 	 * Get unsend transaction
 	 * @param sessionDate
@@ -412,7 +505,23 @@ public class SaleTransaction extends MPOSDatabase{
 						String.valueOf(NOT_SEND)
 				}, OrderTransTable.COLUMN_TRANS_ID, null);
 	}
-	
+
+    /**
+     * @param sessionDate
+     * @return
+     */
+    private Cursor getLastCashInOutTransaction(String sessionDate){
+        return queryCashInOutTransaction(
+            CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE + "=?" +
+                    " and " + CashInOutOrderTransTable.COLUMN_STATUS_ID + " in(?, ?) ",
+                new String[]{
+                        sessionDate,
+                        String.valueOf(OrderTransDataSource.TRANS_STATUS_SUCCESS),
+                        String.valueOf(CashInOutDataSource.TRANS_VOID_STATUS)
+                }, CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE + " desc", "1"
+        );
+    }
+
 	/**
 	 * @param sessionDate
 	 * @return Cursor null if not found
@@ -446,7 +555,18 @@ public class SaleTransaction extends MPOSDatabase{
 						String.valueOf(OrderTransDataSource.WASTE_TRANS_STATUS_VOID)
 				}, null, null);
 	}
-	
+
+    private Cursor getCashInOutTransactionBySaleDate(String sessionDate){
+        return queryCashInOutTransaction(
+                CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE + "=?" +
+                " and " + CashInOutOrderTransTable.COLUMN_STATUS_ID + " in(?,?) ",
+                new String[]{
+                        sessionDate,
+                        String.valueOf(OrderTransDataSource.TRANS_STATUS_SUCCESS),
+                        String.valueOf(CashInOutDataSource.TRANS_VOID_STATUS)
+                }, null, null);
+    }
+
 	/**
 	 * Get transaction by session date
 	 * @param sessionDate
@@ -499,7 +619,19 @@ public class SaleTransaction extends MPOSDatabase{
 				}, 
 				null, null, null);
 	}
-	
+
+    private Cursor queryCashInOutDetail(String selection, String[] selectionArgs){
+        String sqlQuery = " select " +
+                OrderDetailTable.COLUMN_ORDER_ID + ", " +
+                ProductTable.COLUMN_PRODUCT_ID + ", " +
+                CashInOutOrderDetailTable.COLUMN_CASH_INOUT_PRICE + ", " +
+                CashInOutProductTable.COLUMN_CASH_INOUT_TYPE + ", " +
+                CashInOutOrderTransTable.COLUMN_STATUS_ID +
+                " from " + CashInOutOrderDetailTable.TABLE_CASH_INOUT_ORDER_DETAIL +
+                " where " + selection;
+        return getReadableDatabase().rawQuery(sqlQuery, selectionArgs);
+    }
+
 	private Cursor queryOrderDetail(String selection, String[] selectionArgs){
 		String sqlQuery = " SELECT "
 				+ OrderDetailTable.COLUMN_ORDER_ID + ", "
@@ -657,7 +789,38 @@ public class SaleTransaction extends MPOSDatabase{
 					String.valueOf(ProductsDataSource.SET_CAN_SELECT)
 				});
 	}
-	
+
+    private Cursor queryCashInOutTransaction(String selection, String[] selectionArgs,
+                                             String orderBy, String limit){
+        String ordering = !TextUtils.isEmpty(orderBy) ? " order by " + orderBy : "";
+        String limitation = !TextUtils.isEmpty(limit) ? " limit " + limit : "";
+        String sqlQuery = " select " +
+                OrderTransTable.COLUMN_TRANS_ID + ", " +
+                ComputerTable.COLUMN_COMPUTER_ID + ", " +
+                CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE + ", " +
+                StaffTable.COLUMN_STAFF_ID + ", " +
+                CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE_TIME + ", " +
+                CashInOutOrderTransTable.COLUMN_CASH_INOUT_TOTAL_PRICE + ", " +
+                CashInOutOrderTransTable.COLUMN_STATUS_ID + ", " +
+                CashInOutOrderTransTable.COLUMN_MOVEMENT + ", " +
+                CashInOutOrderTransTable.COLUMN_CASH_INOUT_NOTE + ", " +
+                OrderTransTable.COLUMN_VOID_STAFF_ID + ", " +
+                OrderTransTable.COLUMN_VOID_REASON + ", " +
+                OrderTransTable.COLUMN_VOID_TIME + ", " +
+                BaseColumn.COLUMN_UUID + ", " +
+                OrderTransTable.COLUMN_DOC_TYPE_ID + ", " +
+                OrderTransTable.COLUMN_RECEIPT_YEAR + ", " +
+                OrderTransTable.COLUMN_RECEIPT_MONTH + ", " +
+                OrderTransTable.COLUMN_RECEIPT_ID + ", " +
+                OrderTransTable.COLUMN_RECEIPT_NO + ", " +
+                SessionTable.COLUMN_SESS_ID +
+                " from " + CashInOutOrderTransTable.TABLE_CASH_INOUT_ORDER_TRANS +
+                " where " + selection +
+                ordering +
+                limitation;
+        return getReadableDatabase().rawQuery(sqlQuery, selectionArgs);
+    }
+
 	private Cursor queryOrderTransaction(String selection, String[] selectionArgs, String orderBy, String limit){
 		String ordering = !TextUtils.isEmpty(orderBy) ? " ORDER BY " + orderBy : "";
 		String limitation = !TextUtils.isEmpty(limit) ? " LIMIT " + limit : "";

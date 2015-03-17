@@ -14,6 +14,7 @@ import com.synature.pos.ShopProperty;
 import com.synature.util.Logger;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 
@@ -127,7 +128,11 @@ public class MPOSApplication extends Application {
 	@Override
 	public void onCreate() {
 		Thread.setDefaultUncaughtExceptionHandler(new MyUncaughtExceptionHandler());
-        GlobalPropertyDataSource global = new GlobalPropertyDataSource(getApplicationContext());
+        init(getApplicationContext());
+	}
+
+    public static void init(Context context){
+        GlobalPropertyDataSource global = new GlobalPropertyDataSource(context);
         GlobalProperty property = global.getGlobalProperty();
         if(property != null){
             sCurrencyFormat = property.getCurrencyFormat();
@@ -136,7 +141,7 @@ public class MPOSApplication extends Application {
             sTimeFormat = property.getTimeFormat();
             sRoundingType = property.getTotalDiscountRoundType();
         }
-        ShopDataSource shopDataSource = new ShopDataSource(getApplicationContext());
+        ShopDataSource shopDataSource = new ShopDataSource(context);
         ShopProperty shop = shopDataSource.getShopProperty();
         if(shop != null){
             sShopId = shop.getShopID();
@@ -145,14 +150,14 @@ public class MPOSApplication extends Application {
             sCompanyVatRate = shop.getCompanyVat();
             sFastFoodType = shop.getFastFoodType();
         }
-        ComputerDataSource compDataSource = new ComputerDataSource(getApplicationContext());
+        ComputerDataSource compDataSource = new ComputerDataSource(context);
         ComputerProperty comp = compDataSource.getComputerProperty();
         if(comp != null){
             sComputerId = comp.getComputerID();
             sNumReceiptCopy = comp.getPrintReceiptHasCopy();
         }
-	}
-	
+    }
+
 	private class MyUncaughtExceptionHandler implements UncaughtExceptionHandler{
 
 		private UncaughtExceptionHandler mDefaultUEH;
