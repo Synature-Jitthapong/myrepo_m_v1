@@ -15,6 +15,7 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
 import android.os.ResultReceiver;
+import android.text.TextUtils;
 
 public class SaleSenderService extends SaleSenderServiceBase{
 
@@ -118,13 +119,16 @@ public class SaleSenderService extends SaleSenderServiceBase{
 			switch(resultCode){
 			case RESULT_SUCCESS:
 				flagSendStatus(sessionDate, MPOSDatabase.ALREADY_SEND);
-//				if(!TextUtils.isEmpty(jsonSale)){
-//					try {
-//						JSONSaleLogFile.appendSale(getApplicationContext(), jsonSale);
-//					} catch (Exception e) {}
-//					Logger.appendLog(getApplicationContext(), MPOSApplication.LOG_PATH, MPOSApplication.LOG_FILE_NAME, 
-//							"Send partial successfully");
-//				}
+                if(MPOSApplication.sIsEnableLog) {
+                    if (!TextUtils.isEmpty(jsonSale)) {
+                        try {
+                            JSONSaleLogFile.appendSale(getApplicationContext(), jsonSale);
+                        } catch (Exception e) {
+                        }
+                        Logger.appendLog(getApplicationContext(), MPOSApplication.LOG_PATH, MPOSApplication.LOG_FILE_NAME,
+                                "Send partial successfully");
+                    }
+                }
 				if(receiver != null){
 					receiver.send(RESULT_SUCCESS, null);
 				}

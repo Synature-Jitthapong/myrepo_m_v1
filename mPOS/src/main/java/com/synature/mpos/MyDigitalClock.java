@@ -18,8 +18,6 @@ public class MyDigitalClock extends TextView {
     private Calendar mCalendar;
     private Runnable mTicker;
     private Handler mHandler;
-    private String mFormat;
-    private SimpleDateFormat mSimFormat;
     private boolean mTickerStopped = false;
 
     public MyDigitalClock(Context context) {
@@ -34,14 +32,6 @@ public class MyDigitalClock extends TextView {
 
     private void initClock(Context context) {
         mCalendar = Calendar.getInstance();
-        GlobalPropertyDataSource global = new GlobalPropertyDataSource(context);
-        GlobalProperty globalProperty = global.getGlobalProperty();
-        if(!TextUtils.isEmpty(globalProperty.getDateFormat())
-                && !TextUtils.isEmpty(globalProperty.getTimeFormat())) {
-            mFormat = globalProperty.getDateFormat()
-                    + " " + globalProperty.getTimeFormat();
-            mSimFormat = new SimpleDateFormat(mFormat);
-        }
     }
     
     @Override
@@ -57,11 +47,7 @@ public class MyDigitalClock extends TextView {
             public void run() {
                 if (mTickerStopped) return;
                 mCalendar.setTimeInMillis(System.currentTimeMillis());
-                if(mSimFormat != null) {
-                    setText(mSimFormat.format(mCalendar.getTime()));
-                }else{
-                    setText(DateFormat.getDateTimeInstance().format(mCalendar.getTime()));
-                }
+                setText(Utils.dateTimeFormat(mCalendar));
                 invalidate();
                 long now = SystemClock.uptimeMillis();
                 long next = now + (1000 - now % 1000);

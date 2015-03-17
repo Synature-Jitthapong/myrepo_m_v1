@@ -202,7 +202,7 @@ public abstract class PrinterBase {
 			for(OrderTransaction trans : report.getTransLst()){
 				String receiptNo = trans.getTransactionStatusId() == OrderTransDataSource.TRANS_STATUS_VOID ? trans.getReceiptNo() + "(void)" : trans.getReceiptNo();
 				String totalSale = Utils.currencyFormat(trans.getTransactionVatable());
-				String closeTime = Utils.timeFormat(Utils.convertISODateToCalendar(trans.getCloseTime())) +
+				String closeTime = Utils.timeFormat(Utils.convertISODateTimeToCalendar(trans.getCloseTime())) +
 						createQtySpace(calculateLength(totalSale));
 				mTextToPrint.append(receiptNo);
 				mTextToPrint.append(createHorizontalSpace(calculateLength(receiptNo) + 
@@ -353,10 +353,10 @@ public abstract class PrinterBase {
 			StaffsDataSource st = new StaffsDataSource(mContext);
 			Staff std = st.getStaff(sess.getOpenStaff());
 			mTextToPrint.append(mContext.getString(R.string.open_by) + " " + std.getStaffName() + " " +
-                    Utils.timeFormat(Utils.convertISODateToCalendar(sess.getOpenDate())) + "\n");
+                    Utils.timeFormat(Utils.convertISODateTimeToCalendar(sess.getOpenDate())) + "\n");
 			std = st.getStaff(sess.getCloseStaff());
 			String closeBy = std != null ? std.getStaffName() : "-";
-			String closeTime = std != null ? Utils.timeFormat(Utils.convertISODateToCalendar(sess.getCloseDate())) : "";
+			String closeTime = std != null ? Utils.timeFormat(Utils.convertISODateTimeToCalendar(sess.getCloseDate())) : "";
 			mTextToPrint.append(mContext.getString(R.string.close_by) + " " + closeBy + " " + closeTime + "\n");
 		}
 		mTextToPrint.append(mContext.getString(R.string.print_by) + " " + mStaff.getStaff(staffId).getStaffName() + "\n");
@@ -819,7 +819,7 @@ public abstract class PrinterBase {
 			mTextToPrint.append(createLine("*") + "\n");
 			mTextToPrint.append(adjustAlignCenter(mContext.getString(R.string.void_finish_waste)) + "\n");
 			mTextToPrint.append(createLine("*") + "\n\n");
-			mTextToPrint.append(mContext.getString(R.string.void_time) + " " + Utils.dateTimeFormat(Utils.convertISODateToCalendar(trans.getVoidTime())) + "\n");
+			mTextToPrint.append(mContext.getString(R.string.void_time) + " " + Utils.dateTimeFormat(Utils.convertISODateTimeToCalendar(trans.getVoidTime())) + "\n");
 			mTextToPrint.append(mContext.getString(R.string.void_by) + " " + mStaff.getStaff(trans.getVoidStaffId()).getStaffName() + "\n");
 			mTextToPrint.append(mContext.getString(R.string.reason) + " " + trans.getVoidReason() + "\n\n");
 		}
@@ -941,7 +941,7 @@ public abstract class PrinterBase {
 			mTextToPrint.append(createLine("*") + "\n");
 			mTextToPrint.append(adjustAlignCenter(mContext.getString(R.string.void_bill)) + "\n");
 			mTextToPrint.append(createLine("*") + "\n\n");
-			mTextToPrint.append(mContext.getString(R.string.void_time) + " " + Utils.dateTimeFormat(Utils.convertISODateToCalendar(trans.getVoidTime())) + "\n");
+			mTextToPrint.append(mContext.getString(R.string.void_time) + " " + Utils.dateTimeFormat(Utils.convertISODateTimeToCalendar(trans.getVoidTime())) + "\n");
 			mTextToPrint.append(mContext.getString(R.string.void_by) + " " + mStaff.getStaff(trans.getVoidStaffId()).getStaffName() + "\n");
 			mTextToPrint.append(mContext.getString(R.string.reason) + " " + trans.getVoidReason() + "\n\n");
 		}

@@ -137,8 +137,8 @@ public class LoginActivity extends Activity implements OnClickListener,
 		// check if have session
 		if(mSession.getLastSessionId() > 0){
 			// get last session date
-			final Calendar lastSessDate = Calendar.getInstance();
-			lastSessDate.setTimeInMillis(Long.parseLong(mSession.getLastSessionDate()));
+			Calendar lastSessDate = Calendar.getInstance();
+			lastSessDate = (Calendar) Utils.convertISODateToCalendar(mSession.getLastSessionDate()).clone();
 			/*
 			 *  sessionDate > currentDate
 			 *  mPOS will force to go to date & time Settings

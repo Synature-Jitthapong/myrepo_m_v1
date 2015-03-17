@@ -745,6 +745,17 @@ public class Utils {
         return isoDate;
     }
 
+    public static Calendar convertISODateTimeToCalendar(String isoDate){
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat sp = new SimpleDateFormat(getISODateTimeFormat());
+        try {
+            calendar.setTime(sp.parse(isoDate));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return calendar;
+    }
+
     public static Calendar convertISODateToCalendar(String isoDate){
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat sp = new SimpleDateFormat(getISODateFormat());

@@ -142,7 +142,7 @@ public class ReprintActivity extends Activity {
 			holder.tvReceiptNo.setText(trans.getReceiptNo());
 			if(!TextUtils.isEmpty(trans.getPaidTime())){
 				try {
-					holder.tvAd.setText(Utils.timeFormat(Utils.convertISODateToCalendar(trans.getPaidTime())));
+					holder.tvAd.setText(Utils.timeFormat(Utils.convertISODateTimeToCalendar(trans.getPaidTime())));
 				} catch (NumberFormatException e) {}
 			}
 			holder.btnPrint.setOnClickListener(new OnClickListener(){

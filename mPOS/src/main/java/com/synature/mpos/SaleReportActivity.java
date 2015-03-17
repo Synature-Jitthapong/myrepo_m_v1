@@ -511,7 +511,6 @@ public class SaleReportActivity extends Activity{
 			}else{
 				trans = mTrans.getSummaryTransaction(mHost.mDateTo);
 			}
-			
 			mEnddaySumContent.removeAllViews();
 			TextView tvSumTxt = new TextView(getActivity());
 			tvSumTxt.setText(R.string.summary);
@@ -530,7 +529,7 @@ public class SaleReportActivity extends Activity{
 					((TextView) opStView.findViewById(R.id.tvLeft)).append(std.getStaffName());
 					((TextView) opStView.findViewById(R.id.tvMid)).setVisibility(View.GONE);
 					((TextView) opStView.findViewById(R.id.tvRight)).setText(
-                            Utils.timeFormat(Utils.convertISODateToCalendar(s.getOpenDate())));
+                            Utils.timeFormat(Utils.convertISODateTimeToCalendar(s.getOpenDate())));
 					mEnddaySumContent.addView(opStView);
 				}
 				
@@ -541,7 +540,7 @@ public class SaleReportActivity extends Activity{
 					((TextView) clStView.findViewById(R.id.tvLeft)).append(std != null ? std.getStaffName(): "-");
 					((TextView) clStView.findViewById(R.id.tvMid)).setVisibility(View.GONE);
 					((TextView) clStView.findViewById(R.id.tvRight)).setText(std != null ?
-                            Utils.timeFormat(Utils.convertISODateToCalendar(s.getCloseDate())) : "-");
+                            Utils.timeFormat(Utils.convertISODateTimeToCalendar(s.getCloseDate())) : "-");
 					mEnddaySumContent.addView(clStView);
 				}
 			}
