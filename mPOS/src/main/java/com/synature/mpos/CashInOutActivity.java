@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.SQLException;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -25,8 +26,10 @@ import android.widget.TextView;
 
 import com.synature.mpos.datasource.CashInOutDataSource;
 import com.synature.mpos.datasource.GlobalPropertyDataSource;
+import com.synature.mpos.datasource.PrintReceiptLogDataSource;
 import com.synature.mpos.datasource.model.CashInOutOrderDetail;
 import com.synature.pos.CashInOutProduct;
+import com.synature.util.Logger;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -55,6 +58,7 @@ public class CashInOutActivity extends Activity {
     private ListView mLvCashInout;
     private GridView mGvCashInout;
     private TextView mTvCashInOutTotalPrice;
+    private MenuItem mItemConfirm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,11 +89,24 @@ public class CashInOutActivity extends Activity {
         setTitle(mCashTypeName);
     }
 
+    private void enableItemConfirm(){
+        if(mItemConfirm != null){
+            mItemConfirm.setEnabled(true);
+        }
+    }
+
+    private void disableItemConfirm(){
+        if(mItemConfirm != null){
+            mItemConfirm.setEnabled(false);
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_cash_in_out, menu);
+        mItemConfirm = (MenuItem) menu.findItem(R.id.itemConfirm);
+        disableItemConfirm();
         return true;
     }
 
@@ -145,6 +162,11 @@ public class CashInOutActivity extends Activity {
     private void loadCashDetail(){
         mCashDetailLst = mCashDataSource.listAllCashInOutDetail(mCashInOutTransId);
         totalCashAmount();
+        if(mCashDetailLst != null && mCashDetailLst.size() > 0){
+            enableItemConfirm();
+        }else{
+            disableItemConfirm();
+        }
     }
 
     private void loadCashProduct(){
@@ -160,9 +182,7 @@ public class CashInOutActivity extends Activity {
             builder.setView(inputView);
             builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
-
-                }
+                public void onClick(DialogInterface dialog, int which) {}
             });
             builder.setPositiveButton(android.R.string.ok, null);
             final AlertDialog dialog = builder.create();
@@ -173,6 +193,7 @@ public class CashInOutActivity extends Activity {
                     String remark = txt.getText().toString();
                     mCashDataSource.closeTransaction(mCashInOutTransId, mCashInOutCompId,
                             mSessionId, mTotalPrice, remark);
+                    new PrintCashInOutTask(mCashInOutTransId).execute();
                     openCashInOutTransaction();
                     setupCashDetailAdapter();
                     dialog.dismiss();
@@ -250,7 +271,7 @@ public class CashInOutActivity extends Activity {
                 holder = new ViewHolder();
                 convertView = getLayoutInflater().inflate(R.layout.list_item_cash_inout, parent, false);
                 holder.tvItemName = (TextView) convertView.findViewById(R.id.tvItemName);
-                holder.txtCashInOutAmount = (EditText) convertView.findViewById(R.id.txtCashInOutAmount);
+                holder.tvCashInOutAmount = (TextView) convertView.findViewById(R.id.tvCashAmount);
                 holder.btnDel = (ImageButton) convertView.findViewById(R.id.btnDel);
                 convertView.setTag(holder);
             }else{
@@ -258,7 +279,7 @@ public class CashInOutActivity extends Activity {
             }
             final CashInOutOrderDetail cashDetail = mCashDetailLst.get(position);
             holder.tvItemName.setText(cashDetail.getProductName());
-            holder.txtCashInOutAmount.setText(mDecFormat.format(cashDetail.getfCashOutPrice()));
+            holder.tvCashInOutAmount.setText(mDecFormat.format(cashDetail.getfCashOutPrice()));
             holder.btnDel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -280,39 +301,12 @@ public class CashInOutActivity extends Activity {
                             }).show();
                 }
             });
-            holder.txtCashInOutAmount.setOnKeyListener(new View.OnKeyListener() {
-                @Override
-                public boolean onKey(View v, int keyCode, KeyEvent event) {
-                    if(event.getAction() != KeyEvent.ACTION_DOWN)
-                        return true;
-
-                    if(keyCode == KeyEvent.KEYCODE_ENTER){
-                        EditText txt = (EditText) v;
-                        if(!TextUtils.isEmpty(txt.getText().toString())) {
-                            try {
-                                double price = Double.parseDouble(txt.getText().toString());
-                                int affectedRow = mCashDataSource.updateDetail(
-                                        mCashInOutTransId, cashDetail.getiOrderID(), price);
-                                InputMethodManager imm = (InputMethodManager) getSystemService(
-                                        Context.INPUT_METHOD_SERVICE);
-                                imm.hideSoftInputFromWindow(txt.getWindowToken(), 0);
-                            } catch (NumberFormatException e) {
-                                e.printStackTrace();
-                                txt.setError(getString(R.string.enter_valid_numeric));
-                            }
-                        }else{
-                            txt.setError(getString(R.string.enter_price));
-                        }
-                    }
-                    return false;
-                }
-            });
             return convertView;
         }
 
         class ViewHolder{
             TextView tvItemName;
-            EditText txtCashInOutAmount;
+            TextView tvCashInOutAmount;
             ImageButton btnDel;
         }
     }
@@ -359,6 +353,31 @@ public class CashInOutActivity extends Activity {
 
         class ViewHolder{
             Button btn;
+        }
+    }
+
+    private class PrintCashInOutTask extends AsyncTask<Void, Void, Void>{
+
+        private int transactionId;
+
+        public PrintCashInOutTask(int transactionId){
+            this.transactionId = transactionId;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+                if(Utils.isInternalPrinterSetting(CashInOutActivity.this)){
+                    WintecPrinter wtPrinter = new WintecPrinter(CashInOutActivity.this);
+                    wtPrinter.createTextForPrintCashInOutReceipt(transactionId, mCashType, false);
+                    wtPrinter.print();
+                }else{
+                    EPSONPrinter epPrinter = new EPSONPrinter(CashInOutActivity.this);
+                    epPrinter.createTextForPrintCashInOutReceipt(transactionId, mCashType, false);
+                    epPrinter.print();
+                }
+            } catch (Exception e) {}
+            return null;
         }
     }
 }

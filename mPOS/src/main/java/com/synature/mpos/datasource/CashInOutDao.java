@@ -17,6 +17,7 @@ public interface CashInOutDao {
     public boolean closeTransaction(int transactionId, int computerId,
                                     int staffId, double totalPrice, String note);
     public boolean cancelTransaction(int transactionId, int computerId);
+    public boolean updateTransactionEj(int transactionId, int computerId, String ej);
     public boolean updateTransaction(int transactionId, int computerId, int staffId, String note);
     public int openTransaction(int computerId, int staffId, int sessionId, int movement);
     public SaleTransaction.SaleData_CashInOutDetail getCashInOutDetail(int transactionId,

@@ -23,6 +23,8 @@ public class CashInOutSelectionDialogFragment extends DialogFragment{
 
     public static final int CASH_OUT_TYPE = -1;
     public static final int CASH_IN_TYPE = 1;
+    public static final int REPRINT_CASH_INOUT = 2;
+    public static final int VOID_CASH_INOUT = 3;
 
     private CashInOutSelectionListener mCallback;
 
@@ -64,7 +66,7 @@ public class CashInOutSelectionDialogFragment extends DialogFragment{
     }
 
     private void setupCashInOutSelectionAdapter(){
-        mCashTypes = getResources().getStringArray(R.array.cash_type);
+        mCashTypes = getResources().getStringArray(R.array.cash_type_menu);
         if(mCashInOutSelectionAdapter == null){
             mCashInOutSelectionAdapter = new CashInOutSelectionAdapter();
             mGvCashInOutSelection.setAdapter(mCashInOutSelectionAdapter);
@@ -109,8 +111,12 @@ public class CashInOutSelectionDialogFragment extends DialogFragment{
                 public void onClick(View v) {
                     if(position == 0){
                         mCallback.onSelected(CASH_OUT_TYPE, cashType);
-                    }else{
+                    }else if(position == 1){
                         mCallback.onSelected(CASH_IN_TYPE, cashType);
+                    }else if(position == 2){
+                        mCallback.onSelected(REPRINT_CASH_INOUT, cashType);
+                    }else if(position == 3){
+                        mCallback.onSelected(VOID_CASH_INOUT, cashType);
                     }
                     getDialog().dismiss();
                 }

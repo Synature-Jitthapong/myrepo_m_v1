@@ -40,7 +40,6 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
             OrderTransTable.COLUMN_TRANS_ID,
             ComputerTable.COLUMN_COMPUTER_ID,
             CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE,
-            CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE,
             StaffTable.COLUMN_STAFF_ID,
             CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE_TIME,
             CashInOutOrderTransTable.COLUMN_CASH_INOUT_TOTAL_PRICE,
@@ -57,6 +56,8 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
             OrderTransTable.COLUMN_RECEIPT_ID,
             OrderTransTable.COLUMN_RECEIPT_NO,
             SessionTable.COLUMN_SESS_ID,
+            OrderTransTable.COLUMN_EJ,
+            OrderTransTable.COLUMN_EJ_VOID
     };
 
     public static final String[] ALL_CASH_INOUT_DETAIL_COLUMNS = {
@@ -212,6 +213,20 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
     }
 
     @Override
+    public boolean updateTransactionEj(int transactionId, int computerId, String ej) {
+        ContentValues cv = new ContentValues();
+        cv.put(OrderTransTable.COLUMN_EJ, ej);
+        getWritableDatabase().update(
+                CashInOutOrderTransTable.TABLE_CASH_INOUT_ORDER_TRANS,
+                cv,
+                OrderTransTable.COLUMN_TRANS_ID + "=?",
+                new String[]{
+                        String.valueOf(transactionId)
+                });
+        return true;
+    }
+
+    @Override
     public boolean updateTransaction(int transactionId, int computerId, int staffId, String note) {
         return false;
     }
@@ -329,7 +344,8 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
     @Override
     public OrderTransaction getCashInOutTransaction(int transactionId) {
         OrderTransaction cashTrans = null;
-        Cursor cursor = getReadableDatabase().query(CashInOutProductTable.TABLE_CASH_INOUT_PRODUCT,
+        Cursor cursor = getReadableDatabase().query(
+                CashInOutOrderTransTable.TABLE_CASH_INOUT_ORDER_TRANS,
                 ALL_CASH_INOUT_TRANS_COLUMNS,
                 OrderTransTable.COLUMN_TRANS_ID + "=?",
                 new String[]{
@@ -345,10 +361,14 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
     @Override
     public List<OrderTransaction> listCashInOutTransaction(String date) {
         List<OrderTransaction> cashInOutTransactionsLst = null;
-        Cursor cursor = getReadableDatabase().query(CashInOutOrderTransTable.TABLE_CASH_INOUT_ORDER_TRANS,
-                ALL_CASH_INOUT_TRANS_COLUMNS, CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE + "=?",
+        Cursor cursor = getReadableDatabase().query(
+                CashInOutOrderTransTable.TABLE_CASH_INOUT_ORDER_TRANS,
+                ALL_CASH_INOUT_TRANS_COLUMNS,
+                CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE + "=?" +
+                        " and " + CashInOutOrderTransTable.COLUMN_STATUS_ID + "=?",
                 new String[]{
-                        date
+                        date,
+                        String.valueOf(OrderTransDataSource.TRANS_STATUS_SUCCESS)
                 }, null, null, null);
         if(cursor.moveToFirst()){
             cashInOutTransactionsLst = new ArrayList<OrderTransaction>();
@@ -405,6 +425,8 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
         cashTrans.setReceiptId(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_RECEIPT_ID)));
         cashTrans.setReceiptNo(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_RECEIPT_NO)));
         cashTrans.setSessionId(cursor.getInt(cursor.getColumnIndex(SessionTable.COLUMN_SESS_ID)));
+        cashTrans.setEj(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_EJ)));
+        cashTrans.setEjVoid(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_EJ_VOID)));
         return cashTrans;
     }
 

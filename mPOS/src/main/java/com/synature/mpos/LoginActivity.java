@@ -138,8 +138,7 @@ public class LoginActivity extends Activity implements OnClickListener,
 		// check if have session
 		if(mSession.getLastSessionId() > 0){
 			// get last session date
-			Calendar lastSessDate = Calendar.getInstance();
-			lastSessDate = (Calendar) Utils.convertISODateToCalendar(mSession.getLastSessionDate()).clone();
+			Calendar lastSessDate = Utils.convertISODateToCalendar(mSession.getLastSessionDate());
 			/*
 			 *  sessionDate > currentDate
 			 *  mPOS will force to go to date & time Settings
@@ -167,10 +166,8 @@ public class LoginActivity extends Activity implements OnClickListener,
 				}).show();
 				return false;
 			}else if(Utils.convertISODateToCalendar(Utils.getISODate()).compareTo(lastSessDate) > 0){
-				Calendar lastSessCal = Calendar.getInstance();
-				lastSessCal.setTimeInMillis(Long.parseLong(mSession.getLastSessionDate()));
 				Utils.endingMultipleDay(LoginActivity.this, mShop.getShopId(), 
-						mComputer.getComputerId(), mStaffId, lastSessCal);
+						mComputer.getComputerId(), mStaffId, mSession.getLastSessionDate());
 			}else{
 				if(mSession.checkEndday(Utils.getISODate())){
 					String enddayMsg = getString(R.string.sale_date) 

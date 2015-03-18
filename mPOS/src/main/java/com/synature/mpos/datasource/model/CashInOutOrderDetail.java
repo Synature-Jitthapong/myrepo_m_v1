@@ -1,5 +1,7 @@
 package com.synature.mpos.datasource.model;
 
+import android.widget.EditText;
+
 import com.synature.mpos.datasource.SaleTransaction;
 
 /**
@@ -7,6 +9,7 @@ import com.synature.mpos.datasource.SaleTransaction;
  */
 public class CashInOutOrderDetail extends SaleTransaction.SaleData_CashInOutDetail{
     private String productName;
+    public EditText txtFocus;
 
     public String getProductName() {
         return productName;

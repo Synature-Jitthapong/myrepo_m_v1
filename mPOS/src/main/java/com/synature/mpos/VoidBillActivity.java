@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import com.synature.mpos.datasource.CashInOutDao;
-import com.synature.mpos.datasource.CashInOutDataSource;
 import com.synature.mpos.datasource.ComputerDataSource;
 import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.PaymentDetailDataSource;
@@ -100,10 +98,7 @@ public class VoidBillActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View v, int position,
 					long id) {
-				Calendar c = Calendar.getInstance();
 				OrderTransaction trans = (OrderTransaction) parent.getItemAtPosition(position);
-				c.setTimeInMillis(Long.parseLong(trans.getPaidTime()));
-				
 				mTransactionId = trans.getTransactionId();
 				mComputerId = trans.getComputerId();
 				
@@ -154,8 +149,7 @@ public class VoidBillActivity extends Activity {
 	
 	private void setupSearchSpinner(){
 		PaymentDetailDataSource payment = new PaymentDetailDataSource(this);
-        CashInOutDao cashInOutDao = new CashInOutDataSource(this);
-		if(payment.countPayTypeWaste() > 0 || cashInOutDao.countCashInOutProduct() > 0){
+		if(payment.countPayTypeWaste() > 0){
 			String[] voidTypes = getResources().getStringArray(R.array.bill_type);
 			ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, 
 					android.R.layout.simple_spinner_dropdown_item, voidTypes);
@@ -172,9 +166,7 @@ public class VoidBillActivity extends Activity {
 						mVoidType = 1;
 					}else if (position == 1){
 						mVoidType = 2;
-					}else if(position == 2){
-                        mVoidType = 3;
-                    }else{
+					}else{
 						mVoidType = 1;
 					}
 				}
@@ -224,15 +216,8 @@ public class VoidBillActivity extends Activity {
 			}
 			
 			final OrderTransaction trans = mTransLst.get(position);
-			Calendar c = Calendar.getInstance();
-			try {
-				c.setTimeInMillis(Long.parseLong(trans.getPaidTime()));
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			holder.tvReceiptNo.setText(trans.getReceiptNo());
-			holder.tvPaidTime.setText(Utils.dateTimeFormat(c));
+			holder.tvPaidTime.setText(Utils.dateTimeFormat(Utils.convertISODateTimeToCalendar(trans.getPaidTime())));
 			if((trans.getTransactionStatusId() == OrderTransDataSource.TRANS_STATUS_VOID)
 					|| (trans.getTransactionStatusId() == OrderTransDataSource.WASTE_TRANS_STATUS_VOID)){
 				holder.tvReceiptNo.setTextColor(Color.RED);
@@ -255,10 +240,7 @@ public class VoidBillActivity extends Activity {
 			mTransLst = mTrans.listTransaction(mSessionDate);
 		}else if(mVoidType == 2){
 			mTransLst = mTrans.listTransactionWaste(mSessionDate);
-		}else if(mVoidType ==3){
-            CashInOutDao cashInOutDao = new CashInOutDataSource(this);
-            mTransLst = cashInOutDao.listCashInOutTransaction(mSessionDate);
-        }
+		}
 		if(mTransLst.size() == 0){
 			new AlertDialog.Builder(VoidBillActivity.this)
 			.setTitle(R.string.void_bill)
@@ -343,7 +325,9 @@ public class VoidBillActivity extends Activity {
 					d.dismiss();
 					mItemConfirm.setEnabled(false);
 					searchBill();
-				}
+				}else{
+                    txtVoidReason.setError(getString(R.string.enter_reason));
+                }
 			}
 			
 		});

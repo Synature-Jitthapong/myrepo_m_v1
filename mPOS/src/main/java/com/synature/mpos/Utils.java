@@ -53,29 +53,29 @@ public class Utils {
 	 * @param shopId
 	 * @param computerId
 	 * @param staffId
-	 * @param lastSessCal
+	 * @param lastSessDate
 	 * @return true if success endday
 	 */
 	public static boolean endingMultipleDay(Context context, int shopId, 
-			int computerId, int staffId, Calendar lastSessCal){
+			int computerId, int staffId, String lastSessDate){
+        Calendar lastSessCal = convertISODateToCalendar(lastSessDate);
 		int diffDay = getDiffDay(lastSessCal);
 		try {
 			SessionDataSource sess = new SessionDataSource(context);
-			// if have some previous session does not end
-			String prevSessDate = String.valueOf(lastSessCal.getTimeInMillis());
-			if(!sess.checkEndday(prevSessDate)){
+			if(!sess.checkEndday(lastSessDate)){
 				OrderTransDataSource trans = new OrderTransDataSource(context);
 				int prevSessId = sess.getLastSessionId();
-				sess.addSessionEnddayDetail(prevSessDate, 
-						trans.getTotalReceipt(0, prevSessDate), 
-						trans.getTotalReceiptAmount(prevSessDate));
+				sess.addSessionEnddayDetail(lastSessDate,
+						trans.getTotalReceipt(0, lastSessDate),
+						trans.getTotalReceiptAmount(lastSessDate));
 				sess.closeSession(prevSessId, staffId, 0, true);
 			}
 			Calendar sessCal = (Calendar) lastSessCal.clone();
 			for(int i = 1; i < diffDay; i++){
 				sessCal.add(Calendar.DAY_OF_MONTH, 1);
-				int sessId = sess.openSession(String.valueOf(sessCal.getTimeInMillis()), shopId, computerId, staffId, 0);
-				sess.addSessionEnddayDetail(String.valueOf(sessCal.getTimeInMillis()), 0, 0);
+                String sessionDate = convertToISODate(sessCal);
+				int sessId = sess.openSession(sessionDate, shopId, computerId, staffId, 0);
+				sess.addSessionEnddayDetail(sessionDate, 0, 0);
 				sess.closeSession(sessId, staffId, 0, true);
 			}
 			try {
@@ -731,11 +731,23 @@ public class Utils {
         return format.format(currency);
     }
 
+    public static String convertToISODateTime(Calendar calendar){
+        SimpleDateFormat sp = new SimpleDateFormat(getISODateTimeFormat());
+        String isoDateTime = sp.format(calendar.getTime());
+        return isoDateTime;
+    }
+
     public static String getISODateTime(){
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat sp = new SimpleDateFormat(getISODateTimeFormat());
         String isoDateTime = sp.format(calendar.getTime());
         return isoDateTime;
+    }
+
+    public static String convertToISODate(Calendar calendar){
+        SimpleDateFormat sp = new SimpleDateFormat(getISODateFormat());
+        String isoDate = sp.format(calendar.getTime());
+        return isoDate;
     }
 
     public static String getISODate(){

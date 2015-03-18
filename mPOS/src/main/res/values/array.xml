@@ -75,10 +75,11 @@
     <string-array name="bill_type">
         <item>@string/receipt</item>
         <item>@string/finish_waste</item>
-        <item>@string/cash_inout</item>
     </string-array>
-    <string-array name="cash_type">
+    <string-array name="cash_type_menu">
         <item>@string/cash_out</item>
         <item>@string/cash_in</item>
+        <item>@string/reprint_cash_inout</item>
+        <item>@string/void_cash_inout</item>
     </string-array>
 </resources>

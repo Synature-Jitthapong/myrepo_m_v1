@@ -161,7 +161,12 @@
             android:theme="@style/ActivityDialogTheme"
             android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
-
+        <activity
+            android:name=".CashInOutVoidActivity"
+            android:label="@string/void_cash_inout"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
         <receiver
             android:name=".BootUpReceiver"
             android:enabled="true"

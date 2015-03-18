@@ -232,4 +232,8 @@
     <string name="cash_inout">เงิน-เข้า/ออก</string>
     <string name="cash_in">เงินเข้า</string>
     <string name="cash_out">เงินออก</string>
+    <string name="cash_no">หมายเลข เงิน-เข้า/ออก</string>
+    <string name="void_cash_inout">ยกเลิก เงิน-เข้า/ออก</string>
+    <string name="reprint_cash_inout">พิมพ์ เงิน-เข้า/ออก ซ้ำ</string>
+    <string name="enter_reason">กรุณาใส่เหตุผล</string>
 </resources>

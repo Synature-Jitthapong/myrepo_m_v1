@@ -192,12 +192,21 @@ public class MainActivity extends FragmentActivity implements
      */
     @Override
     public void onSelected(int type, String cashTypeName) {
-        Intent intent = new Intent(this, CashInOutActivity.class);
-        intent.putExtra("staffId", mStaffId);
-        intent.putExtra("sessionId", mSessionId);
-        intent.putExtra("cashType", type);
-        intent.putExtra("cashTypeName", cashTypeName);
-        startActivity(intent);
+        if(type == CashInOutSelectionDialogFragment.CASH_IN_TYPE
+                || type == CashInOutSelectionDialogFragment.CASH_OUT_TYPE){
+            Intent intent = new Intent(this, CashInOutActivity.class);
+            intent.putExtra("staffId", mStaffId);
+            intent.putExtra("sessionId", mSessionId);
+            intent.putExtra("cashType", type);
+            intent.putExtra("cashTypeName", cashTypeName);
+            startActivity(intent);
+        }else if(type == CashInOutSelectionDialogFragment.REPRINT_CASH_INOUT){
+
+        }else if(type == CashInOutSelectionDialogFragment.VOID_CASH_INOUT){
+            Intent intent = new Intent(this, CashInOutVoidActivity.class);
+            intent.putExtra("staffId", mStaffId);
+            startActivity(intent);
+        }
     }
 
     private class MasterDataReceiver extends ResultReceiver{

@@ -22,6 +22,7 @@ import com.synature.mpos.datasource.SessionDataSource;
 import com.synature.mpos.datasource.ShopDataSource;
 import com.synature.mpos.datasource.StaffsDataSource;
 import com.synature.mpos.datasource.Reporting.SimpleProductData;
+import com.synature.mpos.datasource.model.CashInOutOrderDetail;
 import com.synature.mpos.datasource.model.Comment;
 import com.synature.mpos.datasource.model.MPOSPaymentDetail;
 import com.synature.mpos.datasource.model.OrderDetail;
@@ -796,119 +797,55 @@ public abstract class PrinterBase {
 		}
 	}
 
-//    protected void createTextForPrintCashInOutReceipt(int transId, boolean isCopy){
-//        CashInOutDao cashInOutDao = new CashInOutDataSource(mContext);
-//        OrderTransaction trans = cashInOutDao.getCashInOutTransaction(transId);
-//        OrderDetail sumOrder = mTrans.getSummaryOrderWaste(transId);
-//        double totalPaid = mPayment.getTotalPaidWaste(transId);
-//        if(totalPaid == 0){
-//            totalPaid = Utils.roundingPrice(MPOSApplication.sRoundingType, sumOrder.getTotalSalePrice());
-//        }
-//        boolean isVoid = trans.getTransactionStatusId() == OrderTransDataSource.WASTE_TRANS_STATUS_VOID;
-//
-//        // have copy
-//        if(isCopy){
-//            mTextToPrint.append(createLine("*") + "\n");
-//            String copyText = mContext.getString(R.string.copy);
-//            mTextToPrint.append(adjustAlignCenter(copyText) + "\n");
-//            mTextToPrint.append(createLine("*") + "\n\n");
-//        }
-//        // add void header
-//        if(isVoid){
-//            mTextToPrint.append(createLine("*") + "\n");
-//            mTextToPrint.append(adjustAlignCenter(mContext.getString(R.string.void_finish_waste)) + "\n");
-//            mTextToPrint.append(createLine("*") + "\n\n");
-//            mTextToPrint.append(mContext.getString(R.string.void_time) + " " + Utils.dateTimeFormat(Utils.convertISODateTimeToCalendar(trans.getVoidTime())) + "\n");
-//            mTextToPrint.append(mContext.getString(R.string.void_by) + " " + mStaff.getStaff(trans.getVoidStaffId()).getStaffName() + "\n");
-//            mTextToPrint.append(mContext.getString(R.string.reason) + " " + trans.getVoidReason() + "\n\n");
-//        }
-//        mTextToPrint.append(adjustAlignCenter(mContext.getString(R.string.finish_waste)) + "\n");
-//
-//        String saleDate = mContext.getString(R.string.date) + " " +
-//                Utils.dateTimeFormat(Calendar.getInstance());
-//        String receiptNo = mContext.getString(R.string.receipt_no) + " " +
-//                (TextUtils.isEmpty(trans.getReceiptNo()) ? "-" : trans.getReceiptNo());
-//        String cashCheer = mContext.getString(R.string.cashier) + " " +
-//                mStaff.getStaff(trans.getOpenStaffId()).getStaffName();
-//        mTextToPrint.append(saleDate + createHorizontalSpace(calculateLength(saleDate)) + "\n");
-//        mTextToPrint.append(receiptNo + createHorizontalSpace(calculateLength(receiptNo)) + "\n");
-//        mTextToPrint.append(cashCheer + createHorizontalSpace(calculateLength(cashCheer)) + "\n");
-//        mTextToPrint.append(createLine("=") + "\n");
-//
-//        List<OrderDetail> orderLst = mTrans.listGroupedAllOrderDetailWaste(transId, isLoadTemp);
-//        for(int i = 0; i < orderLst.size(); i++){
-//            OrderDetail order = orderLst.get(i);
-//            String productName = limitTextLength(Utils.qtyFormat(order.getOrderQty()) + "x " +
-//                    order.getProductName());
-//            String productPrice = Utils.currencyFormat(order.getTotalRetailPrice());
-//            mTextToPrint.append(productName);
-//            mTextToPrint.append(createHorizontalSpace(
-//                    calculateLength(productName) +
-//                            calculateLength(productPrice)));
-//            mTextToPrint.append(productPrice);
-//            mTextToPrint.append("\n");
-//            if(order.getOrderCommentLst() != null && order.getOrderCommentLst().size() > 0){
-//                for(Comment comm : order.getOrderCommentLst()){
-//                    if(comm.getCommentPrice() > 0){
-//                        String commName = limitTextLength("   " + Utils.qtyFormat(comm.getCommentQty()) + "x "
-//                                + comm.getCommentName());
-//                        String commPrice = Utils.currencyFormat(comm.getCommentTotalPrice());
-//                        mTextToPrint.append(commName);
-//                        mTextToPrint.append(createHorizontalSpace(
-//                                calculateLength(commName) +
-//                                        calculateLength(commPrice)));
-//                        mTextToPrint.append(commPrice);
-//                        mTextToPrint.append("\n");
-//                    }
-//                }
-//            }
-//            if(order.getOrdSetDetailLst() != null && order.getOrdSetDetailLst().size() > 0){
-//                for(OrderSetDetail setDetail : order.getOrdSetDetailLst()){
-//                    String setName = limitTextLength("   " + Utils.qtyFormat(setDetail.getOrderSetQty()) + "x "
-//                            + setDetail.getProductName());
-//                    String setPrice = Utils.currencyFormat(setDetail.getProductPrice());
-//                    mTextToPrint.append(setName);
-//                    mTextToPrint.append(createHorizontalSpace(
-//                            calculateLength(setName) +
-//                                    calculateLength(setPrice)));
-//                    mTextToPrint.append(setPrice);
-//                    mTextToPrint.append("\n");
-//                }
-//            }
-//        }
-//        mTextToPrint.append(createLine("-") + "\n");
-//
-//        String itemText = mContext.getString(R.string.items) + ": ";
-//        String totalText = mContext.getString(R.string.total) + "...............";
-//
-//        String strTotalRetailPrice = Utils.currencyFormat(sumOrder.getTotalRetailPrice());
-//        String strTotalSale = Utils.currencyFormat(totalPaid);
-//
-//        // total item
-//        String strTotalQty = NumberFormat.getInstance().format(sumOrder.getOrderQty());
-//        mTextToPrint.append(itemText);
-//        mTextToPrint.append(strTotalQty);
-//        mTextToPrint.append(createHorizontalSpace(
-//                calculateLength(itemText) +
-//                        calculateLength(strTotalQty) +
-//                        calculateLength(strTotalRetailPrice)));
-//        mTextToPrint.append(strTotalRetailPrice + "\n");
-//
-//        // total price
-//        mTextToPrint.append(totalText);
-//        mTextToPrint.append(createHorizontalSpace(
-//                calculateLength(totalText) +
-//                        calculateLength(strTotalSale)));
-//        mTextToPrint.append(strTotalSale + "\n");
-//
-//        // set e-journal to transaction
-//        if(!isCopy && !isVoid){
-//            mTrans.updateTransactionEjournalWaste(transId, mTextToPrint.toString());
-//        }
-//        if(isVoid){
-//            mTrans.updateTransactionVoidEjournalWaste(transId, mTextToPrint.toString());
-//        }
-//    }
+    protected void createTextForPrintCashInOutReceipt(int transId, int cashType, boolean isCopy){
+        CashInOutDao cashInOutDao = new CashInOutDataSource(mContext);
+        OrderTransaction trans = cashInOutDao.getCashInOutTransaction(transId);
+        if(isCopy){
+            mTextToPrint.append(createLine("*") + "\n");
+            String copyText = mContext.getString(R.string.copy);
+            mTextToPrint.append(adjustAlignCenter(copyText) + "\n");
+            mTextToPrint.append(createLine("*") + "\n\n");
+        }
+        mTextToPrint.append(adjustAlignCenter(MPOSApplication.sShopName) + "\n");
+        String cashTypeText = mContext.getString(R.string.cash_out);
+        if(cashType == 1){
+            cashTypeText = mContext.getString(R.string.cash_in);
+        }
+        mTextToPrint.append(adjustAlignCenter(cashTypeText) + "\n");
+
+        String saleDate = mContext.getString(R.string.date) + " " +
+                Utils.dateTimeFormat(Calendar.getInstance());
+        String cashNo = mContext.getString(R.string.cash_no) + " " +
+                (TextUtils.isEmpty(trans.getReceiptNo()) ? "-" : trans.getReceiptNo());
+        mTextToPrint.append(saleDate + createHorizontalSpace(calculateLength(saleDate)) + "\n");
+        mTextToPrint.append(cashNo + createHorizontalSpace(calculateLength(cashNo)) + "\n");
+        mTextToPrint.append(createLine("-") + "\n");
+
+        List<CashInOutOrderDetail> cashDetailLst = cashInOutDao.listAllCashInOutDetail(transId);
+        for(int i = 0; i < cashDetailLst.size(); i++){
+            CashInOutOrderDetail cashDetail = cashDetailLst.get(i);
+            String productName = limitTextLength(cashDetail.getProductName());
+            String productPrice = Utils.currencyFormat(cashDetail.getfCashOutPrice());
+            mTextToPrint.append(productName);
+            mTextToPrint.append(createHorizontalSpace(
+                    calculateLength(productName) +
+                            calculateLength(productPrice)));
+            mTextToPrint.append(productPrice);
+            mTextToPrint.append("\n");
+        }
+        mTextToPrint.append(createLine("-") + "\n");
+        String totalText = mContext.getString(R.string.total) + "...............";
+        String totalCashAmount = Utils.currencyFormat(cashInOutDao.getTotalCashAmount(transId,
+                MPOSApplication.sComputerId));
+        mTextToPrint.append(totalText);
+        mTextToPrint.append(createHorizontalSpace(
+                calculateLength(totalText) +
+                        calculateLength(totalCashAmount)));
+        mTextToPrint.append(totalCashAmount + "\n");
+        if(!isCopy){
+            cashInOutDao.updateTransactionEj(transId, MPOSApplication.sComputerId, mTextToPrint.toString());
+        }
+    }
 
 	/**
 	 * @param transId
