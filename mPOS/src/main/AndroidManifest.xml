@@ -167,6 +167,16 @@
             android:screenOrientation="landscape"
             android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
+        <activity
+            android:name=".CashInOutActivity"
+            android:label="@string/title_activity_cash_in_out" >
+        </activity>
+        <activity
+            android:name=".ReprintCashInOutActivity"
+            android:label="@string/reprint_cash_inout"
+            android:theme="@style/ActivityDialogTheme"  >
+        </activity>
+
         <receiver
             android:name=".BootUpReceiver"
             android:enabled="true"
@@ -193,11 +203,6 @@
         </service>
         <service android:name=".EnddaySenderService" >
         </service>
-
-        <activity
-            android:name=".CashInOutActivity"
-            android:label="@string/title_activity_cash_in_out" >
-        </activity>
     </application>
 
 </manifest>

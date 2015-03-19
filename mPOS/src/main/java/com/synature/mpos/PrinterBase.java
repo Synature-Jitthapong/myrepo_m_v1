@@ -32,6 +32,8 @@ import com.synature.pos.Report;
 import com.synature.pos.Staff;
 import com.synature.util.Logger;
 
+import org.kobjects.util.Util;
+
 public abstract class PrinterBase {
 	
 	public static final int HORIZONTAL_MAX_SPACE = 45;
@@ -442,6 +444,7 @@ public abstract class PrinterBase {
 					+ calculateLength(vatExclude)));
 			mTextToPrint.append(vatExclude + "\n");
 		}
+
 		double totalPaymentReceipt = mPayment.getTotalPaymentReceipt(sessionDate);
 		if(sessionId != 0)
 			totalPaymentReceipt = mPayment.getTotalPaymentReceipt(sessionId);
@@ -489,21 +492,48 @@ public abstract class PrinterBase {
 				else
 					sessionId = session.getLastSessionId();
 			}
+            CashInOutDao cashInoutDao = new CashInOutDataSource(mContext);
+            List<CashInOutOrderDetail> cashInOutDetailLst = cashInoutDao.listSummaryCashInOutDetail(sessionDate);
+            if(cashInOutDetailLst != null){
+                String cashInoutText = mContext.getString(R.string.cash_inout) + "\n";
+                mTextToPrint.append(cashInoutText);
+                for(int i = 0; i < cashInOutDetailLst.size(); i++){
+                    CashInOutOrderDetail cashDetail = cashInOutDetailLst.get(i);
+                    String cashName = cashDetail.getProductName();
+                    String cashAmount = Utils.currencyFormat(cashDetail.getfCashOutPrice());
+                    mTextToPrint.append(cashName);
+                    mTextToPrint.append(createHorizontalSpace(
+                            calculateLength(cashName) +
+                                    calculateLength(cashAmount)));
+                    mTextToPrint.append(cashAmount + "\n");
+                }
+                String totalCashInOutAmountText = mContext.getString(R.string.total_cash_inout);
+                String totalCashInOutAmount = Utils.currencyFormat(cashInoutDao.getSummaryCashInOutAmount(sessionDate));
+                mTextToPrint.append(totalCashInOutAmountText);
+                mTextToPrint.append(
+                        createHorizontalSpace(
+                                calculateLength(totalCashInOutAmountText) +
+                                        calculateLength(totalCashInOutAmount)));
+                mTextToPrint.append(totalCashInOutAmount + "\n\n");
+            }
 			// open/close shift
 			String floatInText = mContext.getString(R.string.float_in);
 			String totalCashText = mContext.getString(R.string.total_cash);
 			String cashInDrawerText = mContext.getString(R.string.cash_in_drawer);
 			String cashCountText = mContext.getString(R.string.cash_count);
 			String overShotText = mContext.getString(R.string.over_or_short);
+            String cashInOutText = mContext.getString(R.string.cash_inout);
 			double floatInAmount = session.getOpenAmount(sessionId);
 			double totalCashAmount = mPayment.getTotalCash(sessionId, sessionDate);
-			double cashInDrawerAmount = floatInAmount + totalCashAmount;
+            double totalCashInOutAmount = cashInoutDao.getSummaryCashInOutAmount(sessionDate);
+			double cashInDrawerAmount = (floatInAmount + totalCashAmount) + totalCashInOutAmount;
 			double cashCountAmount = session.getCloseAmount(sessionId);
 			String floatIn = Utils.currencyFormat(floatInAmount);
 			String cashInDrawer = Utils.currencyFormat(cashInDrawerAmount);
 			String totalCash = Utils.currencyFormat(totalCashAmount);
 			String cashCount = Utils.currencyFormat(cashCountAmount);
 			String overShot = Utils.currencyFormat(cashCountAmount - cashInDrawerAmount);
+            String cashInOutAmount = Utils.currencyFormat(totalCashInOutAmount);
 			mTextToPrint.append(floatInText);
 			mTextToPrint.append(createHorizontalSpace(calculateLength(floatInText) + 
 					calculateLength(floatIn)));
@@ -512,6 +542,14 @@ public abstract class PrinterBase {
 			mTextToPrint.append(createHorizontalSpace(calculateLength(totalCashText) + 
 					calculateLength(totalCash)));
 			mTextToPrint.append(totalCash + "\n");
+            if(totalCashInOutAmount != 0){
+                mTextToPrint.append(cashInOutText);
+                mTextToPrint.append(createHorizontalSpace(
+                        calculateLength(cashInOutText) +
+                                calculateLength(cashInOutAmount)
+                ));
+                mTextToPrint.append(cashInOutAmount + "\n");
+            }
 			mTextToPrint.append(cashInDrawerText);
 			mTextToPrint.append(createHorizontalSpace(calculateLength(cashInDrawerText) + 
 					calculateLength(cashInDrawer)));
@@ -635,6 +673,8 @@ public abstract class PrinterBase {
 				mTextToPrint.append(finishWastePrice + "\n");
 			}
 		}
+//        Logger.appendLog(mContext, MPOSApplication.LOG_PATH,
+//                MPOSApplication.LOG_FILE_NAME, mTextToPrint.toString());
 	}
 	
 	/**
@@ -842,6 +882,21 @@ public abstract class PrinterBase {
                 calculateLength(totalText) +
                         calculateLength(totalCashAmount)));
         mTextToPrint.append(totalCashAmount + "\n");
+        String remarkText = mContext.getString(R.string.remark);
+        String remark = trans.getTransactionNote();
+        mTextToPrint.append(remarkText + " " + remark + "\n\n\n");
+
+        StaffsDataSource staffDs = new StaffsDataSource(mContext);
+        Staff s = staffDs.getStaff(trans.getOpenStaffId());
+        if(s != null){
+            int len = s.getStaffName().length();
+            String signatureLine = "";
+            for(int i = 0; i < len; i++){
+                signatureLine += "-";
+            }
+            mTextToPrint.append(adjustAlignCenter(signatureLine) + "\n");
+            mTextToPrint.append(adjustAlignCenter(s.getStaffName()));
+        }
         if(!isCopy){
             cashInOutDao.updateTransactionEj(transId, MPOSApplication.sComputerId, mTextToPrint.toString());
         }

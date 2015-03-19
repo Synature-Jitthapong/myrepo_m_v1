@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.synature.mpos.Utils;
 import com.synature.mpos.datasource.model.CashInOutOrderDetail;
+import com.synature.mpos.datasource.model.CashInOutOrderTransaction;
 import com.synature.mpos.datasource.model.OrderTransaction;
 import com.synature.mpos.datasource.table.BaseColumn;
 import com.synature.mpos.datasource.table.CashInOutOrderDetailTable;
@@ -299,6 +300,28 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
     }
 
     @Override
+    public double getSummaryCashInOutAmount(String sessionDate) {
+        double totalCashInOutAmount = 0;
+        String sqlQuery = "select " +
+                " sum(" + CashInOutOrderTransTable.COLUMN_CASH_INOUT_TOTAL_PRICE + " * " +
+                CashInOutOrderTransTable.COLUMN_MOVEMENT + ")" +
+                " from " + CashInOutOrderTransTable.TABLE_CASH_INOUT_ORDER_TRANS +
+                " where " + CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE + "=?" +
+                " and " + CashInOutOrderTransTable.COLUMN_STATUS_ID + "=?";
+        Cursor cursor = getReadableDatabase().rawQuery(
+                sqlQuery,
+                new String[]{
+                        sessionDate,
+                        String.valueOf(OrderTransDataSource.TRANS_STATUS_SUCCESS)
+                });
+        if(cursor.moveToFirst()){
+            totalCashInOutAmount = cursor.getDouble(0);
+        }
+        cursor.close();
+        return totalCashInOutAmount;
+    }
+
+    @Override
     public double getTotalCashAmount(int transactionId, int computerId) {
         double totalCashAmount = 0;
         String sql = "select sum(" + CashInOutOrderDetailTable.COLUMN_CASH_INOUT_PRICE + ")" +
@@ -314,6 +337,41 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
         }
         cursor.close();
         return totalCashAmount;
+    }
+
+    @Override
+    public List<CashInOutOrderDetail> listSummaryCashInOutDetail(String sessionDate) {
+        List<CashInOutOrderDetail> summaryLst = null;
+        String sqlQuery = "select c." + CashInOutProductTable.COLUMN_CASH_INOUT_NAME + ", " +
+                " sum(b." + CashInOutOrderDetailTable.COLUMN_CASH_INOUT_PRICE + "*" +
+                " b." + CashInOutProductTable.COLUMN_CASH_INOUT_TYPE + ")" +
+                " as " + CashInOutOrderDetailTable.COLUMN_CASH_INOUT_PRICE +
+                " from " + CashInOutOrderTransTable.TABLE_CASH_INOUT_ORDER_TRANS + " a " +
+                " left join " + CashInOutOrderDetailTable.TABLE_CASH_INOUT_ORDER_DETAIL + " b " +
+                " on a." + OrderTransTable.COLUMN_TRANS_ID + "=b." + OrderTransTable.COLUMN_TRANS_ID +
+                " left join " + CashInOutProductTable.TABLE_CASH_INOUT_PRODUCT + " c " +
+                " on b." + ProductTable.COLUMN_PRODUCT_ID + "=c." + CashInOutProductTable.COLUMN_CASH_INOUT_ID +
+                " where a." + CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE + "=?" +
+                " and a." + CashInOutOrderTransTable.COLUMN_STATUS_ID + "=?" +
+                " group by c." + CashInOutProductTable.COLUMN_CASH_INOUT_ID;
+        Cursor cursor = getReadableDatabase().rawQuery(
+                sqlQuery,
+                new String[]{
+                        sessionDate,
+                        String.valueOf(OrderTransDataSource.TRANS_STATUS_SUCCESS)
+                }
+        );
+        if(cursor.moveToFirst()){
+            summaryLst = new ArrayList<CashInOutOrderDetail>();
+            do{
+                CashInOutOrderDetail cashDetail = new CashInOutOrderDetail();
+                cashDetail.setProductName(cursor.getString(cursor.getColumnIndex(CashInOutProductTable.COLUMN_CASH_INOUT_NAME)));
+                cashDetail.setfCashOutPrice(cursor.getDouble(cursor.getColumnIndex(CashInOutOrderDetailTable.COLUMN_CASH_INOUT_PRICE)));
+                summaryLst.add(cashDetail);
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        return summaryLst;
     }
 
     @Override
@@ -342,8 +400,8 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
     }
 
     @Override
-    public OrderTransaction getCashInOutTransaction(int transactionId) {
-        OrderTransaction cashTrans = null;
+    public CashInOutOrderTransaction getCashInOutTransaction(int transactionId) {
+        CashInOutOrderTransaction cashTrans = null;
         Cursor cursor = getReadableDatabase().query(
                 CashInOutOrderTransTable.TABLE_CASH_INOUT_ORDER_TRANS,
                 ALL_CASH_INOUT_TRANS_COLUMNS,
@@ -359,8 +417,8 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
     }
 
     @Override
-    public List<OrderTransaction> listCashInOutTransaction(String date) {
-        List<OrderTransaction> cashInOutTransactionsLst = null;
+    public List<CashInOutOrderTransaction> listCashInOutTransaction(String date) {
+        List<CashInOutOrderTransaction> cashInOutTransactionsLst = null;
         Cursor cursor = getReadableDatabase().query(
                 CashInOutOrderTransTable.TABLE_CASH_INOUT_ORDER_TRANS,
                 ALL_CASH_INOUT_TRANS_COLUMNS,
@@ -371,7 +429,7 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
                         String.valueOf(OrderTransDataSource.TRANS_STATUS_SUCCESS)
                 }, null, null, null);
         if(cursor.moveToFirst()){
-            cashInOutTransactionsLst = new ArrayList<OrderTransaction>();
+            cashInOutTransactionsLst = new ArrayList<CashInOutOrderTransaction>();
             do{
                 cashInOutTransactionsLst.add(toCashInOutTransaction(cursor));
             }while (cursor.moveToNext());
@@ -407,9 +465,9 @@ public class CashInOutDataSource extends MPOSDatabase implements CashInOutDao{
         return cashInOutLst;
     }
 
-    private OrderTransaction toCashInOutTransaction(Cursor cursor){
-        OrderTransaction cashTrans =
-                new OrderTransaction();
+    private CashInOutOrderTransaction toCashInOutTransaction(Cursor cursor){
+        CashInOutOrderTransaction cashTrans =
+                new CashInOutOrderTransaction();
         cashTrans.setTransactionId(cursor.getInt(cursor.getColumnIndex(OrderTransTable.COLUMN_TRANS_ID)));
         cashTrans.setComputerId(cursor.getInt(cursor.getColumnIndex(ComputerTable.COLUMN_COMPUTER_ID)));
         cashTrans.setSaleDate(cursor.getString(cursor.getColumnIndex(CashInOutOrderTransTable.COLUMN_CASH_INOUT_DATE)));

@@ -65,7 +65,6 @@ public class CashInOutActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cash_in_out);
 
-        //getActionBar().setHomeButtonEnabled(true);
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         mLvCashInout = (ListView) findViewById(R.id.lvCashInOut);
@@ -105,7 +104,7 @@ public class CashInOutActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_cash_in_out, menu);
-        mItemConfirm = (MenuItem) menu.findItem(R.id.itemConfirm);
+        mItemConfirm = menu.findItem(R.id.action_confirm);
         disableItemConfirm();
         return true;
     }

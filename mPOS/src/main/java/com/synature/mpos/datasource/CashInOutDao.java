@@ -1,6 +1,7 @@
 package com.synature.mpos.datasource;
 
 import com.synature.mpos.datasource.model.CashInOutOrderDetail;
+import com.synature.mpos.datasource.model.CashInOutOrderTransaction;
 import com.synature.mpos.datasource.model.OrderTransaction;
 import com.synature.pos.CashInOutProduct;
 
@@ -23,10 +24,12 @@ public interface CashInOutDao {
     public SaleTransaction.SaleData_CashInOutDetail getCashInOutDetail(int transactionId,
                                                                        int detailId);
     public int countCashInOutProduct();
+    public double getSummaryCashInOutAmount(String sessionDate);
     public double getTotalCashAmount(int transactionId, int computerId);
+    public List<CashInOutOrderDetail> listSummaryCashInOutDetail(String sessionDate);
     public List<CashInOutOrderDetail> listAllCashInOutDetail(int transactionId);
-    public OrderTransaction getCashInOutTransaction(int transactionId);
-    public List<OrderTransaction> listCashInOutTransaction(String date);
+    public CashInOutOrderTransaction getCashInOutTransaction(int transactionId);
+    public List<CashInOutOrderTransaction> listCashInOutTransaction(String date);
     public CashInOutProduct getCashInOutProduct(int cashInOutId);
     public List<CashInOutProduct> listAllCashInOutProduct(int type);
     public int insertCashInOut(List<CashInOutProduct> cashInOutProductList);

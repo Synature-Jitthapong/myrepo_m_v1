@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.synature.mpos.datasource.CashInOutDao;
 import com.synature.mpos.datasource.CashInOutDataSource;
+import com.synature.mpos.datasource.model.CashInOutOrderTransaction;
 import com.synature.mpos.datasource.model.OrderTransaction;
 
 import java.util.List;
@@ -31,7 +32,7 @@ import java.util.List;
 public class CashInOutVoidActivity extends Activity {
 
     private CashInOutDao mCashInOutDao;
-    private List<OrderTransaction> mTransLst;
+    private List<CashInOutOrderTransaction> mTransLst;
     private CashInOutBillAdapter mCashInOutAdapter;
 
     private int mTransId = 0;
@@ -39,6 +40,7 @@ public class CashInOutVoidActivity extends Activity {
 
     private ListView mLvCashInOutBill;
     private CustomFontTextView mTvCashInOutBill;
+    private MenuItem mItemConfirm;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,7 @@ public class CashInOutVoidActivity extends Activity {
                 OrderTransaction trans = (OrderTransaction) parent.getItemAtPosition(position);
                 mTransId = trans.getTransactionId();
                 showBillDetail(trans);
+                enableItemConfirm(true);
             }
         });
         Intent intent = getIntent();
@@ -78,7 +81,15 @@ public class CashInOutVoidActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_cash_inout_void, menu);
+        mItemConfirm = menu.findItem(R.id.action_confirm);
+        enableItemConfirm(false);
         return true;
+    }
+
+    private void enableItemConfirm(boolean isEnable){
+        if(mItemConfirm != null){
+            mItemConfirm.setEnabled(isEnable);
+        }
     }
 
     private void confirm(){
@@ -105,6 +116,7 @@ public class CashInOutVoidActivity extends Activity {
                             mStaffId, remark);
                     setupCashInOutBillAdapter();
                     showBillDetail(null);
+                    enableItemConfirm(false);
                     cfDialog.dismiss();
                 }else{
                     txt.setError(getString(R.string.enter_reason));
