@@ -24,3 +24,8 @@ proguard/
 
 # Log Files
 *.log
+*.lock
+.gradle/2.2.1/taskArtifacts/cache.properties.lock
+*.bin
+.idea/misc.xml
+*.xml
