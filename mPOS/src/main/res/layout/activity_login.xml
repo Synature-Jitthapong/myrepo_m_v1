@@ -10,14 +10,12 @@
 
     <Button
         android:id="@+id/btnLogin"
-        style="@style/BlueButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txtPass"
         android:layout_alignRight="@+id/txtPass"
         android:layout_below="@+id/txtPass"
-        android:text="@string/login"
-        android:textAppearance="?android:attr/textAppearanceMediumInverse" />
+        android:text="@string/login" />
 
     <TextView
         android:id="@+id/tvVersion"

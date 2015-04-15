@@ -66,16 +66,6 @@ public class FoodCourtCardPayActivity extends Activity implements Runnable{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		requestWindowFeature(Window.FEATURE_ACTION_BAR);
-	    getWindow().setFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND,
-	            WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-	    LayoutParams params = getWindow().getAttributes();
-	    params.width = WindowManager.LayoutParams.MATCH_PARENT;
-	    params.height= WindowManager.LayoutParams.MATCH_PARENT;
-	    params.alpha = 1.0f;
-	    params.dimAmount = 0.5f;
-	    getWindow().setAttributes((android.view.WindowManager.LayoutParams) params); 
 	    getActionBar().setDisplayHomeAsUpEnabled(true);
 		setContentView(R.layout.activity_food_court_card_pay);
 		

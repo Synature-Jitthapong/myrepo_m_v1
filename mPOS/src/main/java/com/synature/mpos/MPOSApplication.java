@@ -27,7 +27,7 @@ public class MPOSApplication extends Application {
 	/**
 	 * Database version
 	 */
-	public static int DB_VERSION = 10;
+	public static int DB_VERSION = 11;
 	
 	/**
 	 * Webservice url for check registered device.

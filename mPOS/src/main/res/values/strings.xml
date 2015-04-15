@@ -296,4 +296,8 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <string name="reprint_cash_inout">Reprint Cash-In/Out</string>
     <string name="enter_reason">Please enter reason.</string>
     <string name="total_cash_inout">Total Cash-In/Out</string>
+    <string name="title_activity_food_court_pay">FoodCourtPayActivity</string>
+    <string name="please_swift_card">Please swift a card</string>
+    <string name="total_due">Total Due</string>
+    <string name="total_paid">Total Paid</string>
 </resources>

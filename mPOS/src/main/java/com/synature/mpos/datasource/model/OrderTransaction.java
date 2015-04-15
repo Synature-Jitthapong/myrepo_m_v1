@@ -34,8 +34,26 @@ public class OrderTransaction {
 	private int sendStatus;
 	private String ej;
 	private String ejVoid;
+    private double pointBefore;
+    private double pointBalance;
 
-	public int getSendStatus() {
+    public double getPointBefore() {
+        return pointBefore;
+    }
+
+    public void setPointBefore(double pointBefore) {
+        this.pointBefore = pointBefore;
+    }
+
+    public double getPointBalance() {
+        return pointBalance;
+    }
+
+    public void setPointBalance(double pointBalance) {
+        this.pointBalance = pointBalance;
+    }
+
+    public int getSendStatus() {
 		return sendStatus;
 	}
 

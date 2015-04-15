@@ -97,6 +97,7 @@
             android:name="com.synature.mpos.SettingsActivity"
             android:label="@string/setting"
             android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.Light"
             android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
         <activity
@@ -161,6 +162,21 @@
             android:theme="@style/ActivityDialogTheme"
             android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
+        <activity
+            android:name="com.synature.mpos.CashInOutVoidActivity"
+            android:label="@string/void_cash_inout"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name="com.synature.mpos.CashInOutActivity"
+            android:label="@string/title_activity_cash_in_out" >
+        </activity>
+        <activity
+            android:name="com.synature.mpos.ReprintCashInOutActivity"
+            android:label="@string/reprint_cash_inout"
+            android:theme="@style/ActivityDialogTheme" >
+        </activity>
 
         <receiver
             android:name="com.synature.mpos.BootUpReceiver"
@@ -190,9 +206,12 @@
         </service>
 
         <activity
-            android:name="com.synature.mpos.CashInOutActivity"
-            android:label="@string/title_activity_cash_in_out" >
+            android:name="com.synature.mpos.FoodCourtPayActivity"
+            android:label="@string/title_activity_food_court_pay" >
         </activity>
+        <activity
+            android:name="android.support.v7.widget.TestActivity"
+            android:label="RecyclerViewTestActivity" />
     </application>
 
 </manifest>

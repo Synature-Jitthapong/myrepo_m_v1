@@ -97,6 +97,7 @@
             android:name=".SettingsActivity"
             android:label="@string/setting"
             android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.Light"
             android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
         <activity
@@ -174,7 +175,7 @@
         <activity
             android:name=".ReprintCashInOutActivity"
             android:label="@string/reprint_cash_inout"
-            android:theme="@style/ActivityDialogTheme"  >
+            android:theme="@style/ActivityDialogTheme" >
         </activity>
 
         <receiver
@@ -203,6 +204,11 @@
         </service>
         <service android:name=".EnddaySenderService" >
         </service>
+
+        <activity
+            android:name=".FoodCourtPayActivity"
+            android:label="@string/title_activity_food_court_pay" >
+        </activity>
     </application>
 
 </manifest>

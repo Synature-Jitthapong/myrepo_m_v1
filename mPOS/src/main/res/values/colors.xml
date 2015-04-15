@@ -15,4 +15,11 @@
     <color name="light_blue_gray">#78909C</color>
     <color name="blue_grey">#607D8B</color>
     <color name="orange">#FF5722</color>
+
+    <color name="indigo">#3F51B5</color>
+    <color name="blue_grey_900">#263238</color>
+    <color name="blue_grey_800">#37474F</color>
+    <color name="grey_50">#FAFAFA</color>
+    <color name="grey_100">#F5F5F5</color>
+    <color name="grey_300">#E0E0E0</color>
 </resources>

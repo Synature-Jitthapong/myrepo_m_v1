@@ -31,6 +31,8 @@ public class OrderTransTable extends BaseColumn {
 	public static final String COLUMN_OTHER_DISCOUNT_DESC = "other_discount_desc";
 	public static final String COLUMN_EJ = "ej";
 	public static final String COLUMN_EJ_VOID = "ej_void";
+    public static final String COLUMN_POINT_BEFORE = "point_before";
+    public static final String COLUMN_POINT_BALANCE = "point_balance";
 
 	private static final String SQL_CREATE = 
 			" create table " + TABLE_ORDER_TRANS + " ( " 
@@ -68,6 +70,8 @@ public class OrderTransTable extends BaseColumn {
 			+ COLUMN_OTHER_DISCOUNT_DESC + " text, "
 			+ COLUMN_EJ + " text, "
 			+ COLUMN_EJ_VOID + " text, "
+            + COLUMN_POINT_BEFORE + " real, "
+            + COLUMN_POINT_BALANCE + " real, "
 			+ " primary key (" + COLUMN_TRANS_ID + " desc) ); ";
 
 	public static void onCreate(SQLiteDatabase db) {

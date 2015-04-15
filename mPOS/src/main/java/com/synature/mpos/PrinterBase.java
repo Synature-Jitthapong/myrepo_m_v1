@@ -7,6 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 
 import com.synature.mpos.datasource.CashInOutDao;
@@ -1259,30 +1260,45 @@ public abstract class PrinterBase {
     		mTextToPrint.append("\n");
     	}
 	    mTextToPrint.append(createLine("=") + "\n");
-	    
-	    // show vat ?
-    	if(isShowVat){
-    		if(trans.getTransactionVatable() > 0){
-	    		double beforVat = trans.getTransactionVatable() - trans.getTransactionVat();
-	        	String strTransactionVat = Utils.currencyFormat(trans.getTransactionVat());
-	        	String beforeVatText = mContext.getString(R.string.before_vat);
-	        	String strBeforeVat = Utils.currencyFormat(beforVat);
-	        	String vatRateText = mContext.getString(R.string.vat) + " " +
-	        			NumberFormat.getInstance().format(mShop.getCompanyVatRate()) + "%";
-			    // before vat
-			    mTextToPrint.append(beforeVatText);
-			    mTextToPrint.append(createHorizontalSpace(
-			    		calculateLength(beforeVatText) + 
-			    		calculateLength(strBeforeVat)));
-			    mTextToPrint.append(strBeforeVat + "\n");
-			    // transaction vat
-		    	mTextToPrint.append(vatRateText);
-		    	mTextToPrint.append(createHorizontalSpace(
-		    			calculateLength(vatRateText) + 
-		    			calculateLength(strTransactionVat)));
-		    	mTextToPrint.append(strTransactionVat + "\n");
-    		}
-    	}
+
+        if(trans.getPointBefore() > 0) {
+            // balance
+            String balanceBeforeText = "Point before";
+            String balanceBefore = Utils.currencyFormat(trans.getPointBefore());
+            mTextToPrint.append(balanceBeforeText);
+            mTextToPrint.append(createHorizontalSpace(balanceBeforeText.length() + balanceBefore.length()));
+            mTextToPrint.append(balanceBefore + "\n");
+
+            String balanceText = "Current point";
+            String balance = Utils.currencyFormat(trans.getPointBalance());
+            mTextToPrint.append(balanceText);
+            mTextToPrint.append(createHorizontalSpace(balanceText.length() + balance.length()));
+            mTextToPrint.append(balance + "\n");
+
+            // show vat ?
+            if (isShowVat) {
+                if (trans.getTransactionVatable() > 0) {
+                    double beforVat = trans.getTransactionVatable() - trans.getTransactionVat();
+                    String strTransactionVat = Utils.currencyFormat(trans.getTransactionVat());
+                    String beforeVatText = mContext.getString(R.string.before_vat);
+                    String strBeforeVat = Utils.currencyFormat(beforVat);
+                    String vatRateText = mContext.getString(R.string.vat) + " " +
+                            NumberFormat.getInstance().format(mShop.getCompanyVatRate()) + "%";
+                    // before vat
+                    mTextToPrint.append(beforeVatText);
+                    mTextToPrint.append(createHorizontalSpace(
+                            calculateLength(beforeVatText) +
+                                    calculateLength(strBeforeVat)));
+                    mTextToPrint.append(strBeforeVat + "\n");
+                    // transaction vat
+                    mTextToPrint.append(vatRateText);
+                    mTextToPrint.append(createHorizontalSpace(
+                            calculateLength(vatRateText) +
+                                    calculateLength(strTransactionVat)));
+                    mTextToPrint.append(strTransactionVat + "\n");
+                }
+            }
+        }
 	    
     	// add footer
     	for(com.synature.pos.HeaderFooterReceipt hf : 

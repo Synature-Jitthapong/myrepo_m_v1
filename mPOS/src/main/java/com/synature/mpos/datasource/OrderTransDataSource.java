@@ -120,7 +120,9 @@ public class OrderTransDataSource extends MPOSDatabase {
 		OrderTransTable.COLUMN_TRANS_EXCLUDE_VAT,
 		PromotionPriceGroupTable.COLUMN_PRICE_GROUP_ID,
 		OrderTransTable.COLUMN_EJ,
-		OrderTransTable.COLUMN_EJ_VOID
+		OrderTransTable.COLUMN_EJ_VOID,
+        OrderTransTable.COLUMN_POINT_BEFORE,
+        OrderTransTable.COLUMN_POINT_BALANCE
 	};
 
 	/**
@@ -335,6 +337,8 @@ public class OrderTransDataSource extends MPOSDatabase {
 		trans.setTransactionNote(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_TRANS_NOTE)));
 		trans.setEj(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_EJ)));
 		trans.setEjVoid(cursor.getString(cursor.getColumnIndex(OrderTransTable.COLUMN_EJ_VOID)));
+        trans.setPointBefore(cursor.getDouble(cursor.getColumnIndex(OrderTransTable.COLUMN_POINT_BEFORE)));
+        trans.setPointBalance(cursor.getDouble(cursor.getColumnIndex(OrderTransTable.COLUMN_POINT_BALANCE)));
 		return trans;
 	}
 	
@@ -1812,6 +1816,23 @@ public class OrderTransDataSource extends MPOSDatabase {
 						String.valueOf(transactionId) 
 				});
 	}
+
+    /**
+     * @param transId
+     * @param pointBefore
+     * @param pointBalance
+     */
+    public void updateTransactionPoint(int transId, double pointBefore, double pointBalance){
+        ContentValues cv = new ContentValues();
+        cv.put(OrderTransTable.COLUMN_POINT_BEFORE, pointBefore);
+        cv.put(OrderTransTable.COLUMN_POINT_BALANCE, pointBalance);
+        getWritableDatabase().update(OrderTransTable.TABLE_ORDER_TRANS, cv,
+                OrderTransTable.COLUMN_TRANS_ID + "=?",
+                new String[]{
+                        String.valueOf(transId)
+                }
+        );
+    }
 
 	/**
 	 * @param transId

@@ -9,6 +9,8 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -58,7 +60,7 @@ public class SettingsActivity extends PreferenceActivity {
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 	
 	@Override
@@ -78,9 +80,19 @@ public class SettingsActivity extends PreferenceActivity {
 		loadHeadersFromResource(R.xml.pref_headers, target);
 	}
 
-	private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = 
+    @Override
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    protected boolean isValidFragment(String fragmentName) {
+        return PrinterPreferenceFragment.class.getName().equals(fragmentName) ||
+                WintecSettingFragment.class.getName().equals(fragmentName) ||
+                ConnectionPreferenceFragment.class.getName().equals(fragmentName) ||
+                GeneralPreferenceFragment.class.getName().equals(fragmentName) ||
+                SecondDisplayPreferenceFragment.class.getName().equals(fragmentName);
+    }
+
+    private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener =
 			new Preference.OnPreferenceChangeListener() {
-		
+
 		@Override
 		public boolean onPreferenceChange(Preference preference, Object value) {
 			String stringValue = value.toString();
@@ -109,7 +121,7 @@ public class SettingsActivity extends PreferenceActivity {
 						preference.getContext()).getString(preference.getKey(),
 						""));
 	}
-	
+
 	public static class PrinterPreferenceFragment extends PreferenceFragment {
 		@Override
 		public void onCreate(Bundle savedInstanceState) {
@@ -121,7 +133,7 @@ public class SettingsActivity extends PreferenceActivity {
 			bindPreferenceSummaryToValue(findPreference(KEY_PREF_PRINTER_BAUD_RATE));
 		}
 	}
-	
+
 	public static class WintecSettingFragment extends PreferenceFragment {
 		@Override
 		public void onCreate(Bundle savedInstanceState) {
@@ -137,7 +149,7 @@ public class SettingsActivity extends PreferenceActivity {
 			bindPreferenceSummaryToValue(findPreference(KEY_PREF_DSP_TEXT_LINE2));
 		}
 	}
-	
+
 	public static class ConnectionPreferenceFragment extends PreferenceFragment {
 		@Override
 		public void onCreate(Bundle savedInstanceState) {
@@ -147,7 +159,7 @@ public class SettingsActivity extends PreferenceActivity {
 			bindPreferenceSummaryToValue(findPreference(KEY_PREF_CONN_TIME_OUT_LIST));
 		}
 	}
-	
+
 	public static class GeneralPreferenceFragment extends PreferenceFragment{
 
 		@Override
@@ -156,9 +168,9 @@ public class SettingsActivity extends PreferenceActivity {
 			addPreferencesFromResource(R.xml.pref_general);
 			bindPreferenceSummaryToValue(findPreference(KEY_PREF_MONTHS_TO_KEEP_SALE));
 		}
-		
+
 	}
-	
+
 	public static class SecondDisplayPreferenceFragment extends PreferenceFragment{
 
 		@Override
@@ -168,19 +180,19 @@ public class SettingsActivity extends PreferenceActivity {
 			bindPreferenceSummaryToValue(findPreference(KEY_PREF_SECOND_DISPLAY_IP));
 			bindPreferenceSummaryToValue(findPreference(KEY_PREF_SECOND_DISPLAY_PORT));
 		}
-		
+
 	}
-	
+
 	public void dspTestClick(final View v){
 		WintecCustomerDisplay dsp = new WintecCustomerDisplay(getApplicationContext());
 		dsp.displayWelcome();
 	}
-	
+
 	public void drwTestClick(final View v){
 		WintecCashDrawer drw = new WintecCashDrawer(getApplicationContext());
 		drw.openCashDrawer();
 	}
-	
+
 	public void printTestClick(final View v){
 		if(Utils.isInternalPrinterSetting(getApplicationContext())){
 			WinTecTestPrint wt = new WinTecTestPrint(getApplicationContext());
@@ -190,15 +202,15 @@ public class SettingsActivity extends PreferenceActivity {
 			ep.print();
 		}
 	}
-	
+
 	public static class WinTecTestPrint extends WintecPrinter{
-		
+
 		public WinTecTestPrint(Context context){
 			super(context);
 			mTextToPrint.append(mContext.getString(R.string.print_test_text).replaceAll("\\*", " "));
 		}
 	}
-	
+
 	public static class EPSONTestPrint extends EPSONPrinter{
 
 		public EPSONTestPrint(Context context) {

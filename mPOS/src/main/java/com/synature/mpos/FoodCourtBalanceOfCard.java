@@ -13,7 +13,6 @@ public class FoodCourtBalanceOfCard extends FoodCourtMainService{
 	
 	/**
 	 * @param context
-	 * @param method
 	 * @param shopId
 	 * @param computerId
 	 * @param staffId

@@ -28,6 +28,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -43,7 +44,7 @@ import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
-public class LoginActivity extends Activity implements OnClickListener, 
+public class LoginActivity extends ActionBarActivity implements OnClickListener,
 	OnEditorActionListener, UserVerifyDialogFragment.OnCheckPermissionListener,
 	SwitchLangFragment.OnChangeLanguageListener{
 	
