@@ -1,19 +1,19 @@
 package com.synature.mpos;
 
 import android.app.AlertDialog;
-import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,12 +24,12 @@ import android.widget.TextView;
 
 import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.PaymentDetailDataSource;
-import com.synature.mpos.datasource.ShopDataSource;
 import com.synature.mpos.datasource.model.MPOSPaymentDetail;
 import com.synature.mpos.datasource.model.OrderDetail;
 import com.synature.pos.PrepaidCardInfo;
 import com.synature.util.CreditCardParser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -67,7 +67,7 @@ public class FoodCourtPayActivity extends ActionBarActivity{
         mStaffId = intent.getIntExtra("staffId", 0);
 
         if(savedInstanceState == null){
-            getFragmentManager().beginTransaction().replace(
+            getSupportFragmentManager().beginTransaction().replace(
                     R.id.content, new FoodCourtCardPayFragment()).commit();
         }
     }
@@ -108,6 +108,7 @@ public class FoodCourtPayActivity extends ActionBarActivity{
 
         private PaydetailAdapter mPaydetailAdapter;
         private RecyclerView mRcPayDetail;
+        private RecyclerView.LayoutManager mRcLayoutManager;
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -131,6 +132,10 @@ public class FoodCourtPayActivity extends ActionBarActivity{
             mBtnConfirm = (Button) view.findViewById(R.id.btnFcPayConfirm);
             mRcPayDetail = (RecyclerView) view.findViewById(R.id.rcPayDetail);
             mCardProgress = (ProgressBar) view.findViewById(R.id.cardProgress);
+
+            mRcPayDetail.setHasFixedSize(true);
+            mRcLayoutManager = new LinearLayoutManager(getActivity());
+            mRcPayDetail.setLayoutManager(mRcLayoutManager);
 
             mBtnConfirm.setEnabled(false);
             mBtnConfirm.setOnClickListener(new View.OnClickListener() {
@@ -335,7 +340,7 @@ public class FoodCourtPayActivity extends ActionBarActivity{
                         }else if(status == STATUS_INUSE){
                             setProgressStatus(View.GONE, "Card is in used");
                         }else if(status == STATUS_MISSING) {
-                            setProgressStatus(View.GONE, "Card is in missing");
+                            setProgressStatus(View.GONE, "Card is missing");
                         }
                     }
                 }
@@ -358,18 +363,18 @@ public class FoodCourtPayActivity extends ActionBarActivity{
         private FoodCourtMainService.FoodCourtWebServiceListener mCardPayListener
                 = new FoodCourtMainService.FoodCourtWebServiceListener(){
 
-            ProgressDialog progressDialog = new ProgressDialog(getActivity());
+//            ProgressDialog progressDialog = new ProgressDialog(getActivity());
 
             @Override
             public void onPre() {
-                progressDialog.setMessage(getString(R.string.please_wait));
-                progressDialog.show();
+//                progressDialog.setMessage(getString(R.string.please_wait));
+//                progressDialog.show();
             }
 
             @Override
             public void onPost(PrepaidCardInfo cardInfo) {
-                if(progressDialog.isShowing())
-                    progressDialog.dismiss();
+//                if(progressDialog.isShowing())
+//                    progressDialog.dismiss();
                 if(cardInfo != null){
                     sCardBalance = sCardBalanceBefore - sTotalPoint;
                     OrderTransDataSource trans = new OrderTransDataSource(getActivity());
@@ -384,8 +389,8 @@ public class FoodCourtPayActivity extends ActionBarActivity{
 
             @Override
             public void onError(String msg) {
-                if(progressDialog.isShowing())
-                    progressDialog.dismiss();
+//                if(progressDialog.isShowing())
+//                    progressDialog.dismiss();
                 mBtnConfirm.setEnabled(true);
                 new AlertDialog.Builder(getActivity())
                         .setMessage(msg)
@@ -418,7 +423,12 @@ public class FoodCourtPayActivity extends ActionBarActivity{
             }
 
             public PaydetailAdapter(List<MPOSPaymentDetail> payDetailLst){
-                mPayDetailLst = payDetailLst;
+                //mPayDetailLst = payDetailLst;
+                mPayDetailLst = new ArrayList<>();
+                MPOSPaymentDetail detail = new MPOSPaymentDetail();
+                detail.setCreditCardNo("xxxx-xxxx-xxxx-xxxx");
+                detail.setPayAmount(2500);
+                mPayDetailLst.add(detail);
             }
 
             @Override

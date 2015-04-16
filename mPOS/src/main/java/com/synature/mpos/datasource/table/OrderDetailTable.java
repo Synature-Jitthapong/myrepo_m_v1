@@ -129,7 +129,8 @@ public class OrderDetailTable extends BaseColumn{
                 + PromotionPriceGroupTable.COLUMN_PROMOTION_TYPE_ID + ","
                 + PromotionPriceGroupTable.COLUMN_COUPON_HEADER + ","
                 + COLUMN_PARENT_ORDER_ID + ", "
-                + COLUMN_REMARK
+                + COLUMN_REMARK + ", "
+                + COLUMN_ORDER_STATUS
                 + " ) select * from " + sourceTable);
         db.execSQL("drop table " + sourceTable);
         Log.i(TAG, DateFormat.getTimeInstance().format(Calendar.getInstance().getTime())

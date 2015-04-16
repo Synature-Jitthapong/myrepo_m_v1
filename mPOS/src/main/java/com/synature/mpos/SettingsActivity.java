@@ -9,8 +9,6 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -60,7 +58,7 @@ public class SettingsActivity extends PreferenceActivity {
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
 
-        //getActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 	
 	@Override

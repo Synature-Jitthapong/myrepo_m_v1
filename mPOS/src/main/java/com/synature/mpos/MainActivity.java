@@ -260,7 +260,7 @@ public class MainActivity extends ActionBarActivity implements
 		StaffsDataSource staff = new StaffsDataSource(this);
 		com.synature.pos.Staff s = staff.getStaff(mStaffId);
 		setTitle(MPOSApplication.sShopName);
-		getActionBar().setSubtitle(s.getStaffName());
+		getSupportActionBar().setSubtitle(s.getStaffName());
 	}
 	
 	private void setupMenuDeptPager(){
@@ -802,22 +802,22 @@ public class MainActivity extends ActionBarActivity implements
 	private void payment(){
 		if(mOrderDetailLst.size() > 0){
 			// food court type
-			if(MPOSApplication.sFastFoodType == ShopDataSource.SHOP_TYPE_FOOD_COURT){
-				Intent intent = new Intent(MainActivity.this, FoodCourtCardPayActivity.class);
+//			if(MPOSApplication.sFastFoodType == ShopDataSource.SHOP_TYPE_FOOD_COURT){
+				Intent intent = new Intent(MainActivity.this, FoodCourtPayActivity.class);
 				intent.putExtra("transactionId", mTransactionId);
 				intent.putExtra("shopId", mShopId);
 				intent.putExtra("computerId", mComputerId);
 				intent.putExtra("staffId", mStaffId);
 				startActivityForResult(intent, FOOD_COURT_PAYMENT_REQUEST);
-			}else{
-				if(PaymentActivity.sIsRunning == false){
-					Intent intent = new Intent(MainActivity.this, PaymentActivity.class);
-					intent.putExtra("transactionId", mTransactionId);
-					intent.putExtra("computerId", mComputerId);
-					intent.putExtra("staffId", mStaffId);
-					startActivityForResult(intent, PAYMENT_REQUEST);
-				}
-			}
+//			}else{
+//				if(PaymentActivity.sIsRunning == false){
+//					Intent intent = new Intent(MainActivity.this, PaymentActivity.class);
+//					intent.putExtra("transactionId", mTransactionId);
+//					intent.putExtra("computerId", mComputerId);
+//					intent.putExtra("staffId", mStaffId);
+//					startActivityForResult(intent, PAYMENT_REQUEST);
+//				}
+//			}
 		}
 	}
 
