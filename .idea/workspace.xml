@@ -76,77 +76,87 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PaymentActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PaymentActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="8115">
-              <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CheckUpdateActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/CheckUpdateActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1481" max-vertical-offset="4050">
-              <caret line="101" column="17" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SendSaleActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SendSaleActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="4395">
-              <caret line="71" column="48" selection-start-line="70" selection-start-column="39" selection-end-line="71" selection-end-column="52" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SendEnddayActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SendEnddayActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="3285">
-              <caret line="67" column="39" selection-start-line="67" selection-start-column="39" selection-end-line="67" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FoodCourtCardPay.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/FoodCourtCardPay.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="840">
-              <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="FoodCourtPayActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/FoodCourtPayActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6573" max-vertical-offset="7050">
-              <caret line="502" column="37" selection-start-line="502" selection-start-column="37" selection-end-line="502" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2281" max-vertical-offset="7020">
+              <caret line="213" column="18" selection-start-line="213" selection-start-column="18" selection-end-line="213" selection-end-column="18" />
               <folding>
-                <element signature="e#13497#13528#0" expanded="true" />
-                <element signature="e#16131#16145#0" expanded="true" />
-                <element signature="e#16970#17001#0" expanded="true" />
-                <element signature="e#18743#18757#0" expanded="true" />
-                <element signature="e#20988#22187#0" expanded="true" />
-                <element signature="e#21204#21232#0" expanded="true" />
-                <element signature="e#21285#21296#0" expanded="true" />
-                <element signature="e#21564#21576#0" expanded="true" />
-                <element signature="e#21578#22138#0" expanded="true" />
-                <element signature="e#22168#22169#0" expanded="true" />
+                <element signature="e#13181#13218#0" expanded="true" />
+                <element signature="e#13762#13793#0" expanded="true" />
+                <element signature="e#16263#16277#0" expanded="true" />
+                <element signature="e#17102#17133#0" expanded="true" />
+                <element signature="e#18879#18893#0" expanded="true" />
+                <element signature="e#20927#22120#0" expanded="true" />
+                <element signature="e#21143#21171#0" expanded="true" />
+                <element signature="e#21224#21235#0" expanded="true" />
+                <element signature="e#21503#21515#0" expanded="true" />
+                <element signature="e#21517#22071#0" expanded="true" />
+                <element signature="e#22036#22037#0" expanded="true" />
+                <element signature="e#22101#22102#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.36" vertical-offset="4271" max-vertical-offset="4605">
+              <caret line="297" column="62" selection-start-line="297" selection-start-column="62" selection-end-line="297" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1432" max-vertical-offset="3195">
+              <caret line="109" column="42" selection-start-line="109" selection-start-column="42" selection-end-line="109" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PaymentDetailDataSource.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/PaymentDetailDataSource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="9481" max-vertical-offset="12150">
+              <caret line="667" column="117" selection-start-line="667" selection-start-column="117" selection-end-line="667" selection-end-column="117" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SaleReportActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SaleReportActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6036036" vertical-offset="2124" max-vertical-offset="20775">
+              <caret line="155" column="64" selection-start-line="155" selection-start-column="64" selection-end-line="155" selection-end-column="64" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_sale_report.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/menu/activity_sale_report.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+              <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_sale_report.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/menu/fragment_sale_report.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="435">
+              <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -154,8 +164,8 @@
       <file leaf-file-name="foodcourt_cardpay_item.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/layout/foodcourt_cardpay_item.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.11111" vertical-offset="165" max-vertical-offset="705">
-              <caret line="40" column="43" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
+            <state vertical-scroll-proportion="-5.740741" vertical-offset="250" max-vertical-offset="720">
+              <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -164,34 +174,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/MainActivity.java">
+      <file leaf-file-name="styles.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/values/styles.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="34380">
-              <caret line="637" column="17" selection-start-line="637" selection-start-column="17" selection-end-line="637" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="2235">
+              <caret line="22" column="73" selection-start-line="22" selection-start-column="73" selection-end-line="22" selection-end-column="73" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_main.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/layout/activity_main.xml">
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3915">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="FoodCourtBalanceOfCard.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/FoodCourtBalanceOfCard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="393" max-vertical-offset="855">
-              <caret line="45" column="42" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="855">
+              <caret line="53" column="37" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -1808,7 +1805,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/mPOS/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/mPOS/src/main/res/layout/activity_food_court_pay.xml" />
         <option value="$PROJECT_DIR$/mPOS/src/main/res/menu/activity_login.xml" />
         <option value="$PROJECT_DIR$/mPOS/src/main/res/layout/activity_login.xml" />
@@ -1818,7 +1814,6 @@
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/model/OrderTransaction.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PrinterBase.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/OrderTransDataSource.java" />
-        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/PaymentDetailDataSource.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/res/menu/menu_food_court_pay.xml" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/MPOSApplication.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/table/OrderDetailTable.java" />
@@ -1826,18 +1821,15 @@
         <option value="$PROJECT_DIR$/mPOS/src/main/res/menu/activity_main.xml" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/MainActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/res/layout/foodcourt_cardpay_fragment.xml" />
-        <option value="$PROJECT_DIR$/mPOS/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/DiscountActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ProductSetActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PromotionActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ReprintActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ReprintCashInOutActivity.java" />
-        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SaleReportActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/VoidBillActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/pos/PrepaidCardInfo.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/FoodCourtMainService.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/FoodCourtCardPay.java" />
-        <option value="$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/mPOS/src/main/res/menu/action_send_sale.xml" />
         <option value="$PROJECT_DIR$/mPOS/src/main/res/menu/activity_cash_inout_void.xml" />
         <option value="$PROJECT_DIR$/mPOS/src/main/res/menu/activity_credit_pay.xml" />
@@ -1855,10 +1847,15 @@
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/CheckUpdateActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SendSaleActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SendEnddayActivity.java" />
-        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/FoodCourtBalanceOfCard.java" />
-        <option value="$PROJECT_DIR$/mPOS/src/main/res/layout/foodcourt_cardpay_item.xml" />
-        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/FoodCourtPayActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/PaymentDetailDataSource.java" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/res/layout/foodcourt_cardpay_item.xml" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/FoodCourtBalanceOfCard.java" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/FoodCourtPayActivity.java" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SaleReportActivity.java" />
       </list>
     </option>
   </component>
@@ -2405,7 +2402,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2419,15 +2416,15 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3270869" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32546374" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32546374" sideWeight="0.44637462" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32546374" sideWeight="0.44637462" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24878837" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32546374" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32546374" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3270869" sideWeight="0.5536254" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -2463,7 +2460,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/FoodCourtPayActivity.java</url>
-          <line>201</line>
+          <line>202</line>
           <properties />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
@@ -2472,28 +2469,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/PaymentDetailDataSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36775362" vertical-offset="3577" max-vertical-offset="12120">
-          <caret line="273" column="74" selection-start-line="273" selection-start-column="74" selection-end-line="273" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/SaleTransaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="22061" max-vertical-offset="25500">
-          <caret line="1866" column="38" selection-start-line="1866" selection-start-column="38" selection-end-line="1866" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/MPOSApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34513274" vertical-offset="0" max-vertical-offset="2970">
-          <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/table/OrderDetailTable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="800" max-vertical-offset="2055">
@@ -2562,14 +2537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="2235">
-          <caret line="31" column="61" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/BillViewerFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16129032" vertical-offset="0" max-vertical-offset="1845">
@@ -2614,14 +2581,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="2820">
           <caret line="41" column="60" selection-start-line="41" selection-start-column="56" selection-end-line="41" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SaleReportActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="19905">
-          <caret line="79" column="22" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -2686,34 +2645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1147" max-vertical-offset="3195">
-          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
-          <folding>
-            <element signature="e#2112#2130#0" expanded="true" />
-            <element signature="e#2259#2277#0" expanded="true" />
-            <element signature="e#2917#2935#0" expanded="true" />
-            <element signature="e#3311#3332#0" expanded="true" />
-            <element signature="e#3706#3725#0" expanded="true" />
-            <element signature="e#4109#4126#0" expanded="true" />
-            <element signature="e#4405#4420#0" expanded="true" />
-            <element signature="e#4586#4625#0" expanded="true" />
-            <element signature="e#4785#4802#0" expanded="true" />
-            <element signature="e#5133#5153#0" expanded="true" />
-            <element signature="e#5428#5452#0" expanded="true" />
-            <element signature="e#5668#5693#0" expanded="true" />
-            <element signature="e#5862#5880#0" expanded="true" />
-            <element signature="e#6044#6070#0" expanded="true" />
-            <element signature="e#6288#6313#0" expanded="true" />
-            <element signature="e#6538#6560#0" expanded="true" />
-            <element signature="e#6842#6867#0" expanded="true" />
-            <element signature="e#7090#7126#0" expanded="true" />
-            <element signature="e#7246#7274#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/menu/action_send_sale.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
@@ -2764,14 +2695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/menu/activity_sale_report.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/menu/activity_void_bill.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
@@ -2784,14 +2707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
           <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/menu/fragment_sale_report.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="435">
-          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -2825,7 +2740,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1185" max-vertical-offset="9210">
           <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2866,49 +2781,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/FoodCourtBalanceOfCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="393" max-vertical-offset="855">
-          <caret line="45" column="42" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/layout/foodcourt_cardpay_item.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.11111" vertical-offset="165" max-vertical-offset="705">
-          <caret line="40" column="43" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PaymentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="8115">
           <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/FoodCourtPayActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6573" max-vertical-offset="7050">
-          <caret line="502" column="37" selection-start-line="502" selection-start-column="37" selection-end-line="502" selection-end-column="37" />
-          <folding>
-            <element signature="e#13497#13528#0" expanded="true" />
-            <element signature="e#16131#16145#0" expanded="true" />
-            <element signature="e#16970#17001#0" expanded="true" />
-            <element signature="e#18743#18757#0" expanded="true" />
-            <element signature="e#20988#22187#0" expanded="true" />
-            <element signature="e#21204#21232#0" expanded="true" />
-            <element signature="e#21285#21296#0" expanded="true" />
-            <element signature="e#21564#21576#0" expanded="true" />
-            <element signature="e#21578#22138#0" expanded="true" />
-            <element signature="e#22168#22169#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2929,6 +2806,112 @@
       </provider>
       <provider selected="true" editor-type-id="android-designer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="2235">
+          <caret line="22" column="73" selection-start-line="22" selection-start-column="73" selection-end-line="22" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/layout/foodcourt_cardpay_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.740741" vertical-offset="250" max-vertical-offset="720">
+          <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/PaymentDetailDataSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="9466" max-vertical-offset="12150">
+          <caret line="667" column="117" selection-start-line="667" selection-start-column="117" selection-end-line="667" selection-end-column="117" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/FoodCourtBalanceOfCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="855">
+          <caret line="53" column="37" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/FoodCourtPayActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2281" max-vertical-offset="7020">
+          <caret line="213" column="18" selection-start-line="213" selection-start-column="18" selection-end-line="213" selection-end-column="18" />
+          <folding>
+            <element signature="e#13181#13218#0" expanded="true" />
+            <element signature="e#13762#13793#0" expanded="true" />
+            <element signature="e#16263#16277#0" expanded="true" />
+            <element signature="e#17102#17133#0" expanded="true" />
+            <element signature="e#18879#18893#0" expanded="true" />
+            <element signature="e#20927#22120#0" expanded="true" />
+            <element signature="e#21143#21171#0" expanded="true" />
+            <element signature="e#21224#21235#0" expanded="true" />
+            <element signature="e#21503#21515#0" expanded="true" />
+            <element signature="e#21517#22071#0" expanded="true" />
+            <element signature="e#22036#22037#0" expanded="true" />
+            <element signature="e#22101#22102#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.36" vertical-offset="4271" max-vertical-offset="4605">
+          <caret line="297" column="62" selection-start-line="297" selection-start-column="62" selection-end-line="297" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1432" max-vertical-offset="3195">
+          <caret line="109" column="42" selection-start-line="109" selection-start-column="42" selection-end-line="109" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/android-sdks/sources/android-21/com/android/internal/os/ZygoteInit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="9596" max-vertical-offset="13050">
+          <caret line="697" column="0" selection-start-line="697" selection-start-column="0" selection-end-line="697" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/menu/fragment_sale_report.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="435">
+          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/menu/activity_sale_report.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SaleReportActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6036036" vertical-offset="2124" max-vertical-offset="20775">
+          <caret line="155" column="64" selection-start-line="155" selection-start-column="64" selection-end-line="155" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

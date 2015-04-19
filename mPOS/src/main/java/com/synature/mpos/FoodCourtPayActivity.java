@@ -105,6 +105,7 @@ public class FoodCourtPayActivity extends ActionBarActivity{
 
         private WintecMagneticReader mMsrReader;
 
+        private List<MPOSPaymentDetail> mPayDetailLst;
 
         private double mTotalPoint;
         private double mTotalPaid;
@@ -199,18 +200,23 @@ public class FoodCourtPayActivity extends ActionBarActivity{
 
         private void loadPayDetail(){
             PaymentDetailDataSource payment = new PaymentDetailDataSource(getActivity());
-            List<MPOSPaymentDetail> payLst = payment.listPayment(mTransactionId);
+            mPayDetailLst = payment.listPayment(mTransactionId);
             if(mPaydetailAdapter == null){
-                mPaydetailAdapter = new PaydetailAdapter(payLst);
+                mPaydetailAdapter = new PaydetailAdapter();
                 mRcPayDetail.setAdapter(mPaydetailAdapter);
-            }else {
-                mPaydetailAdapter.notifyDataSetChanged();
             }
+            mPaydetailAdapter.notifyDataSetChanged();
             mTotalPaid = payment.getTotalPayAmount(mTransactionId, true);
             mTotalDue = mTotalPoint - mTotalPaid;
             mTvTotalPaid.setText(Utils.currencyFormat(mTotalPaid));
-            if(mTotalDue < 0)
+            if(mTotalPaid >= mTotalPoint){
+                mBtnConfirm.setEnabled(true);
+            }else{
+                mBtnConfirm.setEnabled(false);
+            }
+            if(mTotalDue < 0) {
                 mTotalDue = 0.0d;
+            }
             mTvTotalDue.setText(Utils.currencyFormat(mTotalDue));
         }
 
@@ -328,7 +334,7 @@ public class FoodCourtPayActivity extends ActionBarActivity{
 
         private void setProgressStatus(int visible, String statusText){
             mCardProgress.setVisibility(visible);
-            mTvCardStatus.setText(statusText);
+            mTvCardStatus.setText(TextUtils.isEmpty(statusText) ? getString(R.string.please_swift_card) : statusText);
         }
 
         private class CardBalanceReceiver extends ResultReceiver{
@@ -361,10 +367,8 @@ public class FoodCourtPayActivity extends ActionBarActivity{
                                 if (cardBalance < mTotalPoint) {
                                     paidAmount = cardBalance;
                                     mTxtCardAmount.setTextColor(Color.RED);
-                                    mBtnConfirm.setEnabled(false);
                                 } else {
                                     mTxtCardAmount.setTextColor(Color.BLACK);
-                                    mBtnConfirm.setEnabled(true);
                                 }
                                 addPayment(PaymentDetailDataSource.PAY_TYPE_CASH, paidAmount,
                                         cardInfo.getSzCardNo(), "Food court payment");
@@ -417,7 +421,7 @@ public class FoodCourtPayActivity extends ActionBarActivity{
                 switch (resultCode){
                     case FoodCourtMainService.RESULT_SUCCESS:
                         if(mProgressDialog.isShowing())
-                        mProgressDialog.dismiss();
+                            mProgressDialog.dismiss();
                         PrepaidCardInfo cardInfo = resultData.getParcelable("cardInfo");
                         if(cardInfo != null){
                             double cardBalanceBefore = cardInfo.getfCurrentAmount();
@@ -450,8 +454,6 @@ public class FoodCourtPayActivity extends ActionBarActivity{
 
         public class PaydetailAdapter extends RecyclerView.Adapter<PaydetailAdapter.ViewHolder>{
 
-            private List<MPOSPaymentDetail> mPayDetailLst;
-
             public class ViewHolder extends RecyclerView.ViewHolder{
 
                 public TextView mTvFcPayNo;
@@ -469,10 +471,6 @@ public class FoodCourtPayActivity extends ActionBarActivity{
                 }
             }
 
-            public PaydetailAdapter(List<MPOSPaymentDetail> payDetailLst){
-                mPayDetailLst = payDetailLst;
-            }
-
             @Override
             public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
                 View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.foodcourt_cardpay_item, parent, false);
@@ -484,7 +482,7 @@ public class FoodCourtPayActivity extends ActionBarActivity{
             public void onBindViewHolder(ViewHolder holder, final int position) {
                 holder.mTvFcPayNo.setText(String.valueOf(position + 1));
                 holder.mTvFcCardNo.setText(mPayDetailLst.get(position).getCreditCardNo());
-                holder.mTvFcCardPayAmount.setText(Utils.currencyFormat(mPayDetailLst.get(position).getPayAmount()));
+                holder.mTvFcCardPayAmount.setText(Utils.currencyFormat(mPayDetailLst.get(position).getTotalPay()));
                 holder.mBtnFcCardPayDelete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -498,7 +496,7 @@ public class FoodCourtPayActivity extends ActionBarActivity{
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         PaymentDetailDataSource payment = new PaymentDetailDataSource(getActivity());
-                                        payment.deletePaymentDetail(mTransactionId, mPayDetailLst.get(position).getPaymentDetailId());
+                                        payment.deletePaymentDetail(mTransactionId, mPayDetailLst.get(position).getPayTypeId());
                                         loadPayDetail();
                                     }
                                 }).show();

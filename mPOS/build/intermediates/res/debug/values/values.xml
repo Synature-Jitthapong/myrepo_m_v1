@@ -570,7 +570,6 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <string name="time">Time</string>
     <string name="title_activity_cash_in_out">Cash-In/Out</string>
     <string name="title_activity_database_upgrading" translatable="false">DatabaseUpgradingActivity</string>
-    <string name="title_activity_food_court_pay">FoodCourtPayActivity</string>
     <string name="title_activity_send_log" translatable="false">Send Log</string>
     <string name="tm_t81" translatable="false">TM-T81II</string>
     <string name="tm_t88v" translatable="false">TM-T88V</string>
@@ -622,9 +621,9 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
         <item name="android:windowSoftInputMode">stateAlwaysHidden</item>
         <item name="android:windowActionModeOverlay">true</item>
         <item name="android:windowIsTranslucent">true</item>
-        <!--<item name="android:buttonStyle">@style/GrayButton</item>-->
-        <!--<item name="android:imageButtonStyle">@style/GrayButton</item>-->
-        <!-- <item name="android:editTextStyle">@style/EditTextStyle</item> -->
+        <item name="android:buttonStyle">@style/GrayButton</item>-->
+        <item name="android:imageButtonStyle">@style/GrayButton</item>-->
+        <!--<item name="android:editTextStyle">@style/EditTextStyle</item> -->
     </style>
     <!-- From: file:/Users/j1tth4/git/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>
@@ -635,8 +634,8 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
         <!-- <item name="android:windowBackground">@color/blue_gray_light</item>-->
         <!-- <item name="android:colorBackground">@color/blue_gray_light</item>-->
         <!-- <item name="android:actionBarStyle">@style/MyActionBar</item> -->
-        <!--<item name="android:buttonStyle">@style/GrayButton</item>-->
-        <!--<item name="android:imageButtonStyle">@style/GrayButton</item>-->
+        <item name="android:buttonStyle">@style/GrayButton</item>
+        <item name="android:imageButtonStyle">@style/GrayButton</item>
         <!-- <item name="android:editTextStyle">@style/EditTextStyle</item> -->
         <item name="android:actionBarStyle">@style/MyActionBar</item>
 

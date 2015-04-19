@@ -107,7 +107,7 @@
         </activity>
         <activity
             android:name="com.synature.mpos.FoodCourtPayActivity"
-            android:label="@string/title_activity_food_court_pay"
+            android:label="@string/payment"
             android:screenOrientation="landscape" >
         </activity>
         <activity

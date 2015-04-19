@@ -648,7 +648,8 @@ public class PaymentDetailDataSource extends MPOSDatabase {
 						+ " a." + PaymentDetailTable.COLUMN_TOTAL_PAY_AMOUNT + ", " 
 						+ " a." + PaymentDetailTable.COLUMN_REMARK + ", " 
 						+ " b." + PayTypeTable.COLUMN_PAY_TYPE_CODE + ", " 
-						+ " b." + PayTypeTable.COLUMN_PAY_TYPE_NAME 
+						+ " b." + PayTypeTable.COLUMN_PAY_TYPE_NAME + ", "
+                        + " a." + CreditCardTable.COLUMN_CREDITCARD_NO
 						+ " FROM " + PaymentDetailTable.TEMP_PAYMENT_DETAIL + " a " 
 						+ " LEFT JOIN " + PayTypeTable.TABLE_PAY_TYPE + " b "
 						+ " ON a." + PayTypeTable.COLUMN_PAY_TYPE_ID 
@@ -667,6 +668,7 @@ public class PaymentDetailDataSource extends MPOSDatabase {
 				payDetail.setPayTypeName(cursor.getString(cursor.getColumnIndex(PayTypeTable.COLUMN_PAY_TYPE_NAME)));
 				payDetail.setTotalPay(cursor.getDouble(cursor.getColumnIndex(PaymentDetailTable.COLUMN_TOTAL_PAY_AMOUNT)));
 				payDetail.setRemark(cursor.getString(cursor.getColumnIndex(PaymentDetailTable.COLUMN_REMARK)));
+                payDetail.setCreditCardNo(cursor.getString(cursor.getColumnIndex(CreditCardTable.COLUMN_CREDITCARD_NO)));
 				paymentLst.add(payDetail);
 			}while(cursor.moveToNext());
 		}

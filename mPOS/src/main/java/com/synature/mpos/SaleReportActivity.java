@@ -1,10 +1,8 @@
 package com.synature.mpos;
 
 import java.text.NumberFormat;
-import java.util.Calendar;
 import java.util.List;
 
-import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.MPOSDatabase;
 import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.PaymentDetailDataSource;
@@ -21,8 +19,6 @@ import com.synature.pos.Report;
 import com.synature.pos.Staff;
 
 import android.os.Bundle;
-import android.app.ActionBar;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -33,6 +29,7 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -99,7 +96,7 @@ public class SaleReportActivity extends ActionBarActivity {
 	}
 	
 	private void setupSpRpType(){
-		ActionBar actionBar = getActionBar();
+		android.support.v7.app.ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayShowCustomEnabled(true);
 		LayoutInflater inflater = getLayoutInflater();
 		View rpTypeView = inflater.inflate(R.layout.spinner_view, null);
@@ -150,8 +147,9 @@ public class SaleReportActivity extends ActionBarActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_sale_report, menu);
 		MenuItem itemCondition = (MenuItem) menu.findItem(R.id.itemDateCondition);
-		Button btnDateFrom = (Button) itemCondition.getActionView().findViewById(R.id.btnDateFrom);
-		Button btnDateTo = (Button) itemCondition.getActionView().findViewById(R.id.btnDateTo);
+        View itemView = MenuItemCompat.getActionView(itemCondition);
+		Button btnDateFrom = (Button) itemView.findViewById(R.id.btnDateFrom);
+		Button btnDateTo = (Button) itemView.findViewById(R.id.btnDateTo);
 		btnDateFrom.setText(Utils.dateFormat(Utils.convertISODateToCalendar(mSessionDate)));
 		btnDateTo.setText(Utils.dateFormat(Utils.convertISODateToCalendar(mSessionDate)));
 		btnDateFrom.setOnClickListener(new OnDateClickListener());
@@ -401,10 +399,12 @@ public class SaleReportActivity extends ActionBarActivity {
 			MenuItem itemCondition = (MenuItem) menu.findItem(R.id.itemDateCondition);
 			MenuItem itemSession = (MenuItem) menu.findItem(R.id.itemSession);
 			itemSession.setVisible(true);
-			((Button) itemCondition.getActionView().findViewById(R.id.btnDateFrom)).setVisibility(View.GONE);
-			((TextView) itemCondition.getActionView().findViewById(R.id.tvFrom)).setVisibility(View.GONE);
-			((TextView) itemCondition.getActionView().findViewById(R.id.tvTo)).setText(R.string.sale_date);
-			mSpSession = (Spinner) itemSession.getActionView().findViewById(R.id.spinner1);
+            View itemConditionView = MenuItemCompat.getActionView(itemCondition);
+            View itemSessionView = MenuItemCompat.getActionView(itemSession);
+			((Button) itemConditionView.findViewById(R.id.btnDateFrom)).setVisibility(View.GONE);
+			((TextView) itemConditionView.findViewById(R.id.tvFrom)).setVisibility(View.GONE);
+			((TextView) itemConditionView.findViewById(R.id.tvTo)).setText(R.string.sale_date);
+			mSpSession = (Spinner) itemSessionView.findViewById(R.id.spinner1);
 			setupSpSession();
 			mSpSession.setOnItemSelectedListener(new OnSessionSelectedListener());
 			super.onCreateOptionsMenu(menu, inflater);
@@ -829,9 +829,10 @@ public class SaleReportActivity extends ActionBarActivity {
 		public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 			inflater.inflate(R.menu.fragment_sale_report, menu);
 			MenuItem itemCondition = (MenuItem) menu.findItem(R.id.itemDateCondition);
-			((Button) itemCondition.getActionView().findViewById(R.id.btnDateFrom)).setVisibility(View.VISIBLE);
-			((TextView) itemCondition.getActionView().findViewById(R.id.tvFrom)).setVisibility(View.VISIBLE);
-			((TextView) itemCondition.getActionView().findViewById(R.id.tvTo)).setVisibility(View.VISIBLE);
+            View itemConditionView = MenuItemCompat.getActionView(itemCondition);
+			((Button) itemConditionView.findViewById(R.id.btnDateFrom)).setVisibility(View.VISIBLE);
+			((TextView) itemConditionView.findViewById(R.id.tvFrom)).setVisibility(View.VISIBLE);
+			((TextView) itemConditionView.findViewById(R.id.tvTo)).setVisibility(View.VISIBLE);
 			super.onCreateOptionsMenu(menu, inflater);
 		}
 
@@ -1092,9 +1093,10 @@ public class SaleReportActivity extends ActionBarActivity {
 		public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 			inflater.inflate(R.menu.fragment_sale_report, menu);
 			MenuItem itemCondition = (MenuItem) menu.findItem(R.id.itemDateCondition);
-			((Button) itemCondition.getActionView().findViewById(R.id.btnDateFrom)).setVisibility(View.VISIBLE);
-			((TextView) itemCondition.getActionView().findViewById(R.id.tvFrom)).setVisibility(View.VISIBLE);
-			((TextView) itemCondition.getActionView().findViewById(R.id.tvTo)).setVisibility(View.VISIBLE);
+            View itemConditionView = MenuItemCompat.getActionView(itemCondition);
+			((Button) itemConditionView.findViewById(R.id.btnDateFrom)).setVisibility(View.VISIBLE);
+			((TextView) itemConditionView.findViewById(R.id.tvFrom)).setVisibility(View.VISIBLE);
+			((TextView) itemConditionView.findViewById(R.id.tvTo)).setVisibility(View.VISIBLE);
 			super.onCreateOptionsMenu(menu, inflater);
 		}
 

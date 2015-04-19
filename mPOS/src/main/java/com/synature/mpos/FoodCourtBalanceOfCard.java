@@ -51,7 +51,7 @@ public class FoodCourtBalanceOfCard extends FoodCourtMainService{
         cardInfo.setiCardID(1);
         cardInfo.setiCardStatus(FoodCourtPayActivity.STATUS_READY_TO_USE);
         cardInfo.setSzCardNo("1111-2222-3333-4444");
-        cardInfo.setfCurrentAmount(5000);
+        cardInfo.setfCurrentAmount(30);
         return cardInfo;
     }
 }

@@ -4,8 +4,8 @@
         <!-- <item name="android:windowBackground">@color/blue_gray_light</item>-->
         <!-- <item name="android:colorBackground">@color/blue_gray_light</item>-->
         <!-- <item name="android:actionBarStyle">@style/MyActionBar</item> -->
-        <!--<item name="android:buttonStyle">@style/GrayButton</item>-->
-        <!--<item name="android:imageButtonStyle">@style/GrayButton</item>-->
+        <item name="android:buttonStyle">@style/GrayButton</item>
+        <item name="android:imageButtonStyle">@style/GrayButton</item>
         <!-- <item name="android:editTextStyle">@style/EditTextStyle</item> -->
         <item name="android:actionBarStyle">@style/MyActionBar</item>
 
@@ -19,9 +19,9 @@
         <item name="android:windowSoftInputMode">stateAlwaysHidden</item>
         <item name="android:windowActionModeOverlay">true</item>
         <item name="android:windowIsTranslucent">true</item>
-        <!--<item name="android:buttonStyle">@style/GrayButton</item>-->
-        <!--<item name="android:imageButtonStyle">@style/GrayButton</item>-->
-        <!-- <item name="android:editTextStyle">@style/EditTextStyle</item> -->
+        <item name="android:buttonStyle">@style/GrayButton</item>-->
+        <item name="android:imageButtonStyle">@style/GrayButton</item>-->
+        <!--<item name="android:editTextStyle">@style/EditTextStyle</item> -->
     </style>
     <!-- ActionBar styles -->
     <style name="MyActionBar"
