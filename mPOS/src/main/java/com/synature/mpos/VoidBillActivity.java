@@ -21,6 +21,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -42,7 +44,7 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class VoidBillActivity extends Activity {
+public class VoidBillActivity extends ActionBarActivity {
 	
 	private OrderTransDataSource mTrans;
     private SessionDataSource mSession;
@@ -68,7 +70,7 @@ public class VoidBillActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_void_bill);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         
 		mLvBill = (ListView) findViewById(R.id.lvBill);
 	    tvSaleDate = (TextView) findViewById(R.id.tvSaleDate);

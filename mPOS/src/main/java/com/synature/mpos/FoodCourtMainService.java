@@ -10,6 +10,7 @@ import com.google.gson.reflect.TypeToken;
 import com.synature.pos.PrepaidCardInfo;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.os.ResultReceiver;
 
 public abstract class FoodCourtMainService extends MPOSServiceBase{
@@ -49,16 +50,26 @@ public abstract class FoodCourtMainService extends MPOSServiceBase{
 		mSoapRequest.addProperty(mProperty);
 	}
 
+    protected void setErrorReceiver(String msg){
+        if(mReceiver != null) {
+            Bundle b = new Bundle();
+            b.putString("msg", msg);
+            mReceiver.send(RESULT_ERROR, b);
+        }
+    }
+
+    protected void setSuccessReceiver(PrepaidCardInfo cardInfo){
+        if(mReceiver != null){
+            Bundle b = new Bundle();
+            b.putParcelable("cardInfo", cardInfo);
+            mReceiver.send(RESULT_SUCCESS, b);
+        }
+    }
+
 	protected PrepaidCardInfo toPrepaidCardInfoObject(String json) throws JsonSyntaxException{
 		Gson gson = new Gson();
 		Type type = new TypeToken<PrepaidCardInfo>(){}.getType();
 		PrepaidCardInfo card = gson.fromJson(json, type);
 		return card;
-	}
-	
-	public static interface FoodCourtWebServiceListener{
-		void onPre();
-		void onPost(PrepaidCardInfo cardInfo);
-		void onError(String msg);
 	}
 }

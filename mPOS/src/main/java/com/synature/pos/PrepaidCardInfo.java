@@ -1,6 +1,10 @@
 package com.synature.pos;
 
-public class PrepaidCardInfo {
+import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class PrepaidCardInfo implements Parcelable{
 	private int iCardID;
 	private String szCardNo;
 	private String szCardUDID;
@@ -58,4 +62,14 @@ public class PrepaidCardInfo {
 	public void setdExpireDate(String dExpireDate) {
 		this.dExpireDate = dExpireDate;
 	}
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+    }
 }

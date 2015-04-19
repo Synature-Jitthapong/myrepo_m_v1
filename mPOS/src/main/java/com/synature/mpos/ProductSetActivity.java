@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.text.InputType;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -42,7 +43,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
-public class ProductSetActivity extends Activity{
+public class ProductSetActivity extends ActionBarActivity {
 
 	public static final String EDIT_MODE = "edit";
 	
@@ -69,7 +70,7 @@ public class ProductSetActivity extends Activity{
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		setContentView(R.layout.activity_product_set);
 
 		mLvOrderSet = (ExpandableListView) findViewById(R.id.lvOrderSet);

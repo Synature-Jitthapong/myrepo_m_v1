@@ -19,6 +19,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,7 +38,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class PaymentActivity extends Activity implements OnClickListener, 
+public class PaymentActivity extends ActionBarActivity implements OnClickListener,
 	FinishWasteDialogFragment.OnFinishWasteListener{
 	
 	public static final int REQUEST_CREDIT_PAY = 1;
@@ -80,6 +82,8 @@ public class PaymentActivity extends Activity implements OnClickListener,
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_payment);
+
 		requestWindowFeature(Window.FEATURE_ACTION_BAR);
 	    getWindow().setFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND,
 	            WindowManager.LayoutParams.FLAG_DIM_BEHIND);
@@ -88,9 +92,8 @@ public class PaymentActivity extends Activity implements OnClickListener,
 	    params.height= getResources().getInteger(R.integer.activity_dialog_height);
 	    params.alpha = 1.0f;
 	    params.dimAmount = 0.5f;
-	    getWindow().setAttributes((android.view.WindowManager.LayoutParams) params); 
-		setContentView(R.layout.activity_payment);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+	    getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 	    setFinishOnTouchOutside(false);
 		mLvPayment = (ListView) findViewById(R.id.lvPayDetail);
 		mTxtEnterPrice = (EditText) findViewById(R.id.txtDisplay);

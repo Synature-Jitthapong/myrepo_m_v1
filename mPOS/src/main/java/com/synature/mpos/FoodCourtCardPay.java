@@ -7,12 +7,11 @@ import com.synature.pos.PrepaidCardInfo;
 import com.synature.pos.WebServiceResult;
 
 import android.content.Context;
+import android.os.ResultReceiver;
 import android.text.TextUtils;
 
 public class FoodCourtCardPay extends FoodCourtMainService{
-	
-	private FoodCourtWebServiceListener mListener;
-	
+
 	/**
 	 * @param context
 	 * @param shopId
@@ -20,14 +19,14 @@ public class FoodCourtCardPay extends FoodCourtMainService{
 	 * @param staffId
 	 * @param cardNo
 	 * @param payAmount
-	 * @param listener
+	 * @param receiver
 	 */
 	public FoodCourtCardPay(Context context, int shopId,
 			int computerId, int staffId, String cardNo, String payAmount, 
-			FoodCourtWebServiceListener listener) {
+			ResultReceiver receiver) {
 		super(context, PAY_METHOD, shopId, computerId, staffId, cardNo, null);
 
-		mListener = listener;
+		mReceiver = receiver;
 		
 		mProperty = new PropertyInfo();
 		mProperty.setName(PAY_AMOUNT_PARAM);
@@ -44,15 +43,15 @@ public class FoodCourtCardPay extends FoodCourtMainService{
 			if(ws.getiResultID() == RESPONSE_SUCCESS){
 				try {
 					PrepaidCardInfo cardInfo = toPrepaidCardInfoObject(ws.getSzResultData());
-					mListener.onPost(cardInfo);
+					setSuccessReceiver(cardInfo);
 				} catch (Exception e) {
-					mListener.onError(e.getMessage());
+					setErrorReceiver(e.getMessage());
 				}
 			}else{
-				mListener.onError(TextUtils.isEmpty(ws.getSzResultData()) ? result : ws.getSzResultData());
+				setErrorReceiver(TextUtils.isEmpty(ws.getSzResultData()) ? result : ws.getSzResultData());
 			}
 		} catch (JsonSyntaxException e) {
-			mListener.onError(result);
+			setErrorReceiver(result);
 		}
 	}
 

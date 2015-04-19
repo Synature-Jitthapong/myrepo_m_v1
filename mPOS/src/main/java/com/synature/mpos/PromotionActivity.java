@@ -14,6 +14,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,7 +29,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class PromotionActivity extends Activity {
+public class PromotionActivity extends ActionBarActivity {
 
 	public static final String TAG = PromotionActivity.class.getSimpleName();
 	
@@ -50,7 +51,7 @@ public class PromotionActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_promotion);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		mPromoButtonContainer = (LinearLayout) findViewById(R.id.promoButtonContainer);
 		mLvOrderDiscount = (ListView) findViewById(R.id.lvOrderDiscount);

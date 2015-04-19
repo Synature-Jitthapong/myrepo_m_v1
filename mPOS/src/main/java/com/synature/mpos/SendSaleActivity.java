@@ -1,10 +1,8 @@
 package com.synature.mpos;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
-import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.MPOSDatabase;
 import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.SessionDataSource;
@@ -16,7 +14,6 @@ import com.synature.pos.OrderTransaction;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -25,6 +22,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
+import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -41,7 +39,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class SendSaleActivity extends Activity{
+public class SendSaleActivity extends ActionBarActivity {
 	public static final String TAG = SendSaleActivity.class.getSimpleName();
 	
 	private int mShopId;
@@ -67,7 +65,7 @@ public class SendSaleActivity extends Activity{
 	    params.alpha = 1.0f;
 	    params.dimAmount = 0.5f;
 	    getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
-		ActionBar actionBar = getActionBar();
+		android.support.v7.app.ActionBar actionBar = getSupportActionBar();
 	    actionBar.setDisplayHomeAsUpEnabled(true);
 	    actionBar.setDisplayShowCustomEnabled(true);
 	    setFinishOnTouchOutside(false);

@@ -631,7 +631,7 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <style name="Animation.AppCompat.DropDownUp" parent="Base.Animation.AppCompat.DropDownUp"/>
     <!-- From: file:/Users/j1tth4/git/myrepo_m_v1/mPOS/src/main/res/values/styles.xml -->
     <eat-comment/>
-    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar"><!--parent="android:Theme.Holo.Light">-->
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light"><!--parent="android:Theme.Holo.Light">-->
         <!-- <item name="android:windowBackground">@color/blue_gray_light</item>-->
         <!-- <item name="android:colorBackground">@color/blue_gray_light</item>-->
         <!-- <item name="android:actionBarStyle">@style/MyActionBar</item> -->
@@ -1583,11 +1583,11 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
         <item name="android:width">200dp</item>
         <item name="android:layout_marginRight">4dp</item>
     </style>
-    <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/indigo</item>
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
+        <!-- <item name="android:background">@color/indigo</item> -->
 
         <!-- Support library compatibility -->
-        <item name="background">@color/indigo</item>
+        <!-- <item name="background">@color/indigo</item> -->
     </style>
     <!-- From: file:/Users/j1tth4/git/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>

@@ -1,6 +1,6 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- AppTheme -->
-    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar"><!--parent="android:Theme.Holo.Light">-->
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light"><!--parent="android:Theme.Holo.Light">-->
         <!-- <item name="android:windowBackground">@color/blue_gray_light</item>-->
         <!-- <item name="android:colorBackground">@color/blue_gray_light</item>-->
         <!-- <item name="android:actionBarStyle">@style/MyActionBar</item> -->
@@ -25,11 +25,11 @@
     </style>
     <!-- ActionBar styles -->
     <style name="MyActionBar"
-        parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/indigo</item>
+        parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
+        <!-- <item name="android:background">@color/indigo</item> -->
 
         <!-- Support library compatibility -->
-        <item name="background">@color/indigo</item>
+        <!-- <item name="background">@color/indigo</item> -->
     </style>
     <style name="EditTextQty" parent="@android:attr/editTextStyle">
         <item name="android:textAppearance">@android:style/TextAppearance.Holo.Large</item>

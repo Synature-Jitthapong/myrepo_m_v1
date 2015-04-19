@@ -5,6 +5,8 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Handler;
+import android.os.ResultReceiver;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -29,8 +31,12 @@ import com.synature.mpos.datasource.model.OrderDetail;
 import com.synature.pos.PrepaidCardInfo;
 import com.synature.util.CreditCardParser;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 
 public class FoodCourtPayActivity extends ActionBarActivity{
@@ -110,9 +116,14 @@ public class FoodCourtPayActivity extends ActionBarActivity{
         private RecyclerView mRcPayDetail;
         private RecyclerView.LayoutManager mRcLayoutManager;
 
+
+        private ProgressDialog mProgressDialog;
+
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+
+            mProgressDialog = new ProgressDialog(getActivity());
         }
 
         @Override
@@ -188,9 +199,9 @@ public class FoodCourtPayActivity extends ActionBarActivity{
             }else {
                 mPaydetailAdapter.notifyDataSetChanged();
             }
-            sTotalPaid = payment.getTotalPayAmount(mTransactionId, true);
-            sTotalDue = sTotalPoint - sTotalPaid;
-            mTvTotalPaid.setText(Utils.currencyFormat(sTotalPaid));
+            double totalPaid = payment.getTotalPayAmount(mTransactionId, true);
+            sTotalDue = sTotalPoint - totalPaid;
+            mTvTotalPaid.setText(Utils.currencyFormat(totalPaid));
             if(sTotalDue < 0)
                 sTotalDue = 0.0d;
             mTvTotalDue.setText(Utils.currencyFormat(sTotalDue));
@@ -224,6 +235,11 @@ public class FoodCourtPayActivity extends ActionBarActivity{
         }
 
         private void confirm(){
+            ExecutorService executor = Executors.newSingleThreadExecutor();
+            executor.execute(new FoodCourtCardPay(getActivity(), mShopId, mComputerId, mStaffId,
+                    mTxtCardNo.getText().toString(), NumberFormat.getInstance().format(sTotalPaid),
+                    new CardPayReceiver(new Handler())));
+            executor.shutdown();
         }
 
         @Override
@@ -293,9 +309,11 @@ public class FoodCourtPayActivity extends ActionBarActivity{
 
         private void loadCardInfo(){
             if(!TextUtils.isEmpty(mTxtCardNo.getText())){
-                new FoodCourtBalanceOfCard(getActivity(), mShopId, mComputerId,
+                ExecutorService executor = Executors.newSingleThreadExecutor();
+                executor.execute(new FoodCourtBalanceOfCard(getActivity(), mShopId, mComputerId,
                         mStaffId, mTxtCardNo.getText().toString(),
-                        mCardBalanceListener);
+                        new CardBalanceReceiver(new Handler())));
+                executor.shutdown();
             }else{
                 mTxtCardNo.requestFocus();
             }
@@ -306,103 +324,122 @@ public class FoodCourtPayActivity extends ActionBarActivity{
             mTvCardStatus.setText(statusText);
         }
 
-        private FoodCourtMainService.FoodCourtWebServiceListener mCardBalanceListener
-                = new FoodCourtMainService.FoodCourtWebServiceListener(){
+        private class CardBalanceReceiver extends ResultReceiver{
 
-            @Override
-            public void onPre() {
+            /**
+             * Create a new ResultReceive to receive results.  Your
+             * {@link #onReceiveResult} method will be called from the thread running
+             * <var>handler</var> if given, or from an arbitrary thread if null.
+             *
+             * @param handler
+             */
+            public CardBalanceReceiver(Handler handler) {
+                super(handler);
                 setProgressStatus(View.VISIBLE, getString(R.string.please_wait));
             }
 
             @Override
-            public void onPost(PrepaidCardInfo cardInfo) {
+            protected void onReceiveResult(int resultCode, Bundle resultData) {
+                super.onReceiveResult(resultCode, resultData);
                 setProgressStatus(View.GONE, null);
-                if(cardInfo != null){
-                    sCardBalance = cardInfo.getfCurrentAmount();
-                    sCardBalanceBefore = sCardBalance;
-                    mTxtCardAmount.setText(Utils.currencyFormat(sCardBalance));
-                    if(cardInfo.getiCardStatus() == STATUS_READY_TO_USE) {
-                        if (sCardBalance < sTotalPoint) {
-                            mTxtCardAmount.setTextColor(Color.RED);
-                            mBtnConfirm.setEnabled(false);
-                        } else {
-                            mTxtCardAmount.setTextColor(Color.BLACK);
-                            mBtnConfirm.setEnabled(true);
+                switch(resultCode){
+                    case FoodCourtMainService.RESULT_SUCCESS:
+                        PrepaidCardInfo cardInfo = resultData.getParcelable("cardInfo");
+                        if(cardInfo != null){
+                            sCardBalance = cardInfo.getfCurrentAmount();
+                            sCardBalanceBefore = sCardBalance;
+                            sTotalPaid = sTotalPoint;
+                            mTxtCardNo.setText(cardInfo.getSzCardNo());
+                            mTxtCardAmount.setText(Utils.currencyFormat(sCardBalance));
+                            if(cardInfo.getiCardStatus() == STATUS_READY_TO_USE) {
+                                if (sCardBalance < sTotalPoint) {
+                                    sTotalPaid = sCardBalance;
+                                    mTxtCardAmount.setTextColor(Color.RED);
+                                    mBtnConfirm.setEnabled(false);
+                                } else {
+                                    mTxtCardAmount.setTextColor(Color.BLACK);
+                                    mBtnConfirm.setEnabled(true);
+                                }
+                                addPayment(PaymentDetailDataSource.PAY_TYPE_CASH,
+                                        cardInfo.getSzCardNo(), "Food court payment");
+                            }else{
+                                int status = cardInfo.getiCardStatus();
+                                if(status == STATUS_BLACK_LIST) {
+                                    setProgressStatus(View.GONE, "Card in blacklist");
+                                }else if(status == STATUS_CANCEL){
+                                    setProgressStatus(View.GONE, "Card has been canceled");
+                                }else if(status == STATUS_INUSE){
+                                    setProgressStatus(View.GONE, "Card is in used");
+                                }else if(status == STATUS_MISSING) {
+                                    setProgressStatus(View.GONE, "Card is missing");
+                                }
+                            }
                         }
-                        addPayment(PaymentDetailDataSource.PAY_TYPE_CASH,
-                                cardInfo.getSzCardNo(), "Food court payment");
-                    }else{
-                        int status = cardInfo.getiCardStatus();
-                        if(status == STATUS_BLACK_LIST) {
-                            setProgressStatus(View.GONE, "Card in blacklist");
-                        }else if(status == STATUS_CANCEL){
-                            setProgressStatus(View.GONE, "Card has been canceled");
-                        }else if(status == STATUS_INUSE){
-                            setProgressStatus(View.GONE, "Card is in used");
-                        }else if(status == STATUS_MISSING) {
-                            setProgressStatus(View.GONE, "Card is missing");
-                        }
-                    }
+                        break;
+                    case FoodCourtMainService.RESULT_ERROR:
+                        new AlertDialog.Builder(getActivity())
+                            .setMessage(resultData.getString("msg"))
+                            .setNeutralButton(R.string.close, new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            }).show();
+                        break;
                 }
             }
+        }
 
-            @Override
-            public void onError(String msg) {
-                new AlertDialog.Builder(getActivity())
-                        .setMessage(msg)
-                        .setNeutralButton(R.string.close, new DialogInterface.OnClickListener() {
+        private class CardPayReceiver extends ResultReceiver{
 
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                            }
-                        }).show();
-            }
-
-        };
-
-        private FoodCourtMainService.FoodCourtWebServiceListener mCardPayListener
-                = new FoodCourtMainService.FoodCourtWebServiceListener(){
-
-//            ProgressDialog progressDialog = new ProgressDialog(getActivity());
-
-            @Override
-            public void onPre() {
-//                progressDialog.setMessage(getString(R.string.please_wait));
-//                progressDialog.show();
+            /**
+             * Create a new ResultReceive to receive results.  Your
+             * {@link #onReceiveResult} method will be called from the thread running
+             * <var>handler</var> if given, or from an arbitrary thread if null.
+             *
+             * @param handler
+             */
+            public CardPayReceiver(Handler handler) {
+                super(handler);
+                mProgressDialog.setMessage(getString(R.string.please_wait));
+                mProgressDialog.show();
             }
 
             @Override
-            public void onPost(PrepaidCardInfo cardInfo) {
-//                if(progressDialog.isShowing())
-//                    progressDialog.dismiss();
-                if(cardInfo != null){
-                    sCardBalance = sCardBalanceBefore - sTotalPoint;
-                    OrderTransDataSource trans = new OrderTransDataSource(getActivity());
-                    trans.closeTransaction(mTransactionId, mStaffId, sTotalPoint, "");
-                    trans.updateTransactionPoint(mTransactionId, sCardBalanceBefore, sCardBalance);
+            protected void onReceiveResult(int resultCode, Bundle resultData) {
+                super.onReceiveResult(resultCode, resultData);
+                switch (resultCode){
+                    case FoodCourtMainService.RESULT_SUCCESS:
+                        if(mProgressDialog.isShowing())
+                        mProgressDialog.dismiss();
+                        PrepaidCardInfo cardInfo = resultData.getParcelable("cardInfo");
+                        if(cardInfo != null){
+                            sCardBalance = sCardBalanceBefore - sTotalPoint;
+                            OrderTransDataSource trans = new OrderTransDataSource(getActivity());
+                            trans.closeTransaction(mTransactionId, mStaffId, sTotalPoint, "");
+                            trans.updateTransactionPoint(mTransactionId, sCardBalanceBefore, sCardBalance);
 
-                    PaymentDetailDataSource payment = new PaymentDetailDataSource(getActivity());
-                    payment.confirmPayment(mTransactionId);
-                    setResultAndFinish(PrintReceipt.NORMAL);
+                            PaymentDetailDataSource payment = new PaymentDetailDataSource(getActivity());
+                            payment.confirmPayment(mTransactionId);
+                            setResultAndFinish(PrintReceipt.NORMAL);
+                        }
+                        break;
+                    case FoodCourtMainService.RESULT_ERROR:
+                        if(mProgressDialog.isShowing())
+                            mProgressDialog.dismiss();
+                        mBtnConfirm.setEnabled(true);
+                        new AlertDialog.Builder(getActivity())
+                                .setMessage(resultData.getString("msg"))
+                                .setNeutralButton(R.string.close, new DialogInterface.OnClickListener() {
+
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                    }
+                                }).show();
+                        break;
                 }
             }
-
-            @Override
-            public void onError(String msg) {
-//                if(progressDialog.isShowing())
-//                    progressDialog.dismiss();
-                mBtnConfirm.setEnabled(true);
-                new AlertDialog.Builder(getActivity())
-                        .setMessage(msg)
-                        .setNeutralButton(R.string.close, new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                            }
-                        }).show();
-            }
-
-        };
+        }
 
         public class PaydetailAdapter extends RecyclerView.Adapter<PaydetailAdapter.ViewHolder>{
 
@@ -423,12 +460,7 @@ public class FoodCourtPayActivity extends ActionBarActivity{
             }
 
             public PaydetailAdapter(List<MPOSPaymentDetail> payDetailLst){
-                //mPayDetailLst = payDetailLst;
-                mPayDetailLst = new ArrayList<>();
-                MPOSPaymentDetail detail = new MPOSPaymentDetail();
-                detail.setCreditCardNo("xxxx-xxxx-xxxx-xxxx");
-                detail.setPayAmount(2500);
-                mPayDetailLst.add(detail);
+                mPayDetailLst = payDetailLst;
             }
 
             @Override

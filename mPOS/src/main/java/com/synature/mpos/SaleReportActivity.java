@@ -33,6 +33,7 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -57,7 +58,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class SaleReportActivity extends Activity{
+public class SaleReportActivity extends ActionBarActivity {
 
 	public static final int REPORT_BY_BILL = 0;
 	public static final int REPORT_BY_PRODUCT = 1;
@@ -77,7 +78,7 @@ public class SaleReportActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sale_report);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		setTitle(null);
 		
 		mShop = new ShopDataSource(this);

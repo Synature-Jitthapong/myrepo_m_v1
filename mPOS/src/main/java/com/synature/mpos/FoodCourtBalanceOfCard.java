@@ -5,45 +5,53 @@ import com.synature.pos.PrepaidCardInfo;
 import com.synature.pos.WebServiceResult;
 
 import android.content.Context;
+import android.os.ResultReceiver;
 import android.text.TextUtils;
 
 public class FoodCourtBalanceOfCard extends FoodCourtMainService{
 
-	public FoodCourtWebServiceListener mListener;
-	
 	/**
 	 * @param context
 	 * @param shopId
 	 * @param computerId
 	 * @param staffId
 	 * @param cardNo
-	 * @param listener
+	 * @param receiver
 	 */
 	public FoodCourtBalanceOfCard(Context context, int shopId,
 			int computerId, int staffId, String cardNo, 
-			FoodCourtWebServiceListener listener) {
+			ResultReceiver receiver) {
 		super(context, GET_BALANCE_METHOD, shopId, computerId, staffId, cardNo, null);
-		mListener = listener;
+		mReceiver = receiver;
 	}
 
 	@Override
 	protected void onPostExecute(String result) {
-		WebServiceResult ws;
-		try {
-			ws = toServiceObject(result);
-			if(ws.getiResultID() == RESPONSE_SUCCESS){
-				try {
-					PrepaidCardInfo cardInfo = toPrepaidCardInfoObject(ws.getSzResultData());
-					mListener.onPost(cardInfo);
-				} catch (Exception e) {
-					mListener.onError(e.getMessage());
-				}
-			}else{
-				mListener.onError(TextUtils.isEmpty(ws.getSzResultData()) ? result : ws.getSzResultData());
-			}
-		} catch (JsonSyntaxException e) {
-			mListener.onError(result);
-		}
+//		WebServiceResult ws;
+//		try {
+//			ws = toServiceObject(result);
+//			if(ws.getiResultID() == RESPONSE_SUCCESS){
+//				try {
+//					PrepaidCardInfo cardInfo = toPrepaidCardInfoObject(ws.getSzResultData());
+//					setSuccessReceiver(cardInfo);
+//				} catch (Exception e) {
+//					setErrorReceiver(e.getMessage());
+//				}
+//			}else{
+//				setErrorReceiver(TextUtils.isEmpty(ws.getSzResultData()) ? result : ws.getSzResultData());
+//			}
+//		} catch (JsonSyntaxException e) {
+//			setErrorReceiver(result);
+//		}
+        setSuccessReceiver(toCardInfoObj());
 	}
-	
+
+    PrepaidCardInfo toCardInfoObj(){
+        PrepaidCardInfo cardInfo = new PrepaidCardInfo();
+        cardInfo.setiCardID(1);
+        cardInfo.setiCardStatus(FoodCourtPayActivity.STATUS_READY_TO_USE);
+        cardInfo.setSzCardNo("1111-2222-3333-4444");
+        cardInfo.setfCurrentAmount(5000);
+        return cardInfo;
+    }
 }

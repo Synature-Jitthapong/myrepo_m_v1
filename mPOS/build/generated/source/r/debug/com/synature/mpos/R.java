@@ -2423,6 +2423,10 @@ containing a value of this type.
         public static final int HeaderText=0x7f0d007c;
         public static final int KeyPadButton=0x7f0d007d;
         public static final int LabelText=0x7f0d007e;
+        /**  <item name="android:background">@color/indigo</item> 
+ Support library compatibility 
+ <item name="background">@color/indigo</item> 
+         */
         public static final int MyActionBar=0x7f0d007f;
         public static final int Platform_AppCompat=0x7f0d0080;
         public static final int Platform_AppCompat_Dialog=0x7f0d0081;

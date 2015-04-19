@@ -14,12 +14,12 @@ import com.synature.util.CreditCardParser;
 import com.synature.util.Logger;
 import com.synature.util.VerifyCardType;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.SQLException;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -36,7 +36,7 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
-public class CreditPayActivity extends Activity implements TextWatcher{
+public class CreditPayActivity extends ActionBarActivity implements TextWatcher{
 	
 	public static final String TAG = "CreditPayActivity";
 	
@@ -79,6 +79,8 @@ public class CreditPayActivity extends Activity implements TextWatcher{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_credit_pay);
+
 		requestWindowFeature(Window.FEATURE_ACTION_BAR);
 	    getWindow().setFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND,
 	            WindowManager.LayoutParams.FLAG_DIM_BEHIND);
@@ -87,9 +89,8 @@ public class CreditPayActivity extends Activity implements TextWatcher{
 	    params.height= getResources().getInteger(R.integer.activity_dialog_height);
 	    params.alpha = 1.0f;
 	    params.dimAmount = 0.5f;
-	    getWindow().setAttributes((android.view.WindowManager.LayoutParams) params); 
-		setContentView(R.layout.activity_credit_pay);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+	    getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		mTvTotalPrice = (TextView) findViewById(R.id.tvTotalPrice);
 		mTxtTotalPay = (EditText) findViewById(R.id.txtCardPayAmount);

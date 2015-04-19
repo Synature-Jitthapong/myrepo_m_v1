@@ -12,6 +12,7 @@ import com.synature.mpos.datasource.model.OrderTransaction;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,7 +29,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class ReprintActivity extends Activity {
+public class ReprintActivity extends ActionBarActivity {
 	
 	public static final int RECEIPT = 1;
 	public static final int WASTE = 2;
@@ -53,8 +54,8 @@ public class ReprintActivity extends Activity {
 	    params.dimAmount = 0.5f;
 	    getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
 		setContentView(R.layout.activity_reprint);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-		getActionBar().setDisplayShowCustomEnabled(true);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setDisplayShowCustomEnabled(true);
 		
 		mLvTrans = (ListView) findViewById(R.id.listView1);
 
@@ -100,8 +101,8 @@ public class ReprintActivity extends Activity {
 				@Override
 				public void onNothingSelected(AdapterView<?> parent) {}
 			});
-			getActionBar().setCustomView(customView);
-			getActionBar().setDisplayShowTitleEnabled(false);
+			getSupportActionBar().setCustomView(customView);
+			getSupportActionBar().setDisplayShowTitleEnabled(false);
 		}
 	}
 	
