@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Handler;
 import android.os.ResultReceiver;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -32,11 +34,9 @@ import com.synature.pos.PrepaidCardInfo;
 import com.synature.util.CreditCardParser;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 
 
 public class FoodCourtPayActivity extends ActionBarActivity{
@@ -54,17 +54,13 @@ public class FoodCourtPayActivity extends ActionBarActivity{
     private static int mTransactionId;
     private static int mStaffId;
 
-    private static double sTotalPoint;
-    private static double sTotalPaid;
-    private static double sTotalDue;
-
-    private static double sCardBalance;
-    private static double sCardBalanceBefore;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_court_pay);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
         mShopId = intent.getIntExtra("shopId", 0);
@@ -82,11 +78,17 @@ public class FoodCourtPayActivity extends ActionBarActivity{
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case android.R.id.home:
-                finish();
+                cancel();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void cancel(){
+        PaymentDetailDataSource payment = new PaymentDetailDataSource(this);
+        payment.deleteAllPaymentDetail(mTransactionId);
+        finish();
     }
 
     public static class FoodCourtCardPayFragment extends Fragment implements Runnable{
@@ -102,6 +104,11 @@ public class FoodCourtPayActivity extends ActionBarActivity{
         private Thread mMsrThread;
 
         private WintecMagneticReader mMsrReader;
+
+
+        private double mTotalPoint;
+        private double mTotalPaid;
+        private double mTotalDue;
 
         private EditText mTxtCardNo;
         private EditText mTxtCardAmount;
@@ -186,8 +193,8 @@ public class FoodCourtPayActivity extends ActionBarActivity{
         private void summary(){
             OrderTransDataSource trans = new OrderTransDataSource(getActivity());
             OrderDetail sumOrder = trans.getSummaryOrder(mTransactionId, true);
-            sTotalPoint = sumOrder.getTotalSalePrice() + sumOrder.getVatExclude();
-            mTvTotalPoint.setText(Utils.currencyFormat(sTotalPoint));
+            mTotalPoint = sumOrder.getTotalSalePrice() + sumOrder.getVatExclude();
+            mTvTotalPoint.setText(Utils.currencyFormat(mTotalPoint));
         }
 
         private void loadPayDetail(){
@@ -199,25 +206,25 @@ public class FoodCourtPayActivity extends ActionBarActivity{
             }else {
                 mPaydetailAdapter.notifyDataSetChanged();
             }
-            double totalPaid = payment.getTotalPayAmount(mTransactionId, true);
-            sTotalDue = sTotalPoint - totalPaid;
-            mTvTotalPaid.setText(Utils.currencyFormat(totalPaid));
-            if(sTotalDue < 0)
-                sTotalDue = 0.0d;
-            mTvTotalDue.setText(Utils.currencyFormat(sTotalDue));
+            mTotalPaid = payment.getTotalPayAmount(mTransactionId, true);
+            mTotalDue = mTotalPoint - mTotalPaid;
+            mTvTotalPaid.setText(Utils.currencyFormat(mTotalPaid));
+            if(mTotalDue < 0)
+                mTotalDue = 0.0d;
+            mTvTotalDue.setText(Utils.currencyFormat(mTotalDue));
         }
 
-        private void addPayment(int payTypeId, String cardNo, String remark){
-            if(sTotalPaid > 0 && sTotalDue > 0){
+        private void addPayment(int payTypeId, double paidAmount, String cardNo, String remark){
+            if(paidAmount > 0 && mTotalDue > 0){
                 PaymentDetailDataSource payment = new PaymentDetailDataSource(getActivity());
-                payment.addPaymentDetail(mTransactionId, mComputerId, payTypeId, sTotalPaid,
-                        sTotalPaid >= sTotalDue ? sTotalDue : sTotalPaid, cardNo,
+                payment.addPaymentDetail(mTransactionId, mComputerId, payTypeId, paidAmount,
+                        paidAmount >= mTotalDue ? mTotalDue : paidAmount, cardNo,
                         0, 0, 0, 0, remark);
                 loadPayDetail();
                 // display pay type to customer display
                 if(Utils.isEnableWintecCustomerDisplay(getActivity())){
                     WintecCustomerDisplay dsp = new WintecCustomerDisplay(getActivity());
-                    dsp.displayPayment(payment.getPaymentTypeName(payTypeId), Utils.currencyFormat(sTotalPaid));
+                    dsp.displayPayment(payment.getPaymentTypeName(payTypeId), Utils.currencyFormat(paidAmount));
                 }
             }
         }
@@ -225,8 +232,8 @@ public class FoodCourtPayActivity extends ActionBarActivity{
         private void setResultAndFinish(int printType){
             Intent intent = new Intent(getActivity(), MainActivity.class);
             intent.putExtra("printType", printType);
-            intent.putExtra("totalSalePrice", sTotalPoint);
-            intent.putExtra("totalPaid", sTotalPaid);
+            intent.putExtra("totalSalePrice", mTotalPoint);
+            intent.putExtra("totalPaid", mTotalPaid);
             intent.putExtra("change", 0);
             intent.putExtra("transactionId", mTransactionId);
             intent.putExtra("staffId", mStaffId);
@@ -237,7 +244,7 @@ public class FoodCourtPayActivity extends ActionBarActivity{
         private void confirm(){
             ExecutorService executor = Executors.newSingleThreadExecutor();
             executor.execute(new FoodCourtCardPay(getActivity(), mShopId, mComputerId, mStaffId,
-                    mTxtCardNo.getText().toString(), NumberFormat.getInstance().format(sTotalPaid),
+                    mTxtCardNo.getText().toString(), NumberFormat.getInstance().format(mTotalPaid),
                     new CardPayReceiver(new Handler())));
             executor.shutdown();
         }
@@ -346,21 +353,20 @@ public class FoodCourtPayActivity extends ActionBarActivity{
                     case FoodCourtMainService.RESULT_SUCCESS:
                         PrepaidCardInfo cardInfo = resultData.getParcelable("cardInfo");
                         if(cardInfo != null){
-                            sCardBalance = cardInfo.getfCurrentAmount();
-                            sCardBalanceBefore = sCardBalance;
-                            sTotalPaid = sTotalPoint;
+                            double cardBalance = cardInfo.getfCurrentAmount();
+                            double paidAmount = mTotalPoint;
                             mTxtCardNo.setText(cardInfo.getSzCardNo());
-                            mTxtCardAmount.setText(Utils.currencyFormat(sCardBalance));
+                            mTxtCardAmount.setText(Utils.currencyFormat(cardBalance));
                             if(cardInfo.getiCardStatus() == STATUS_READY_TO_USE) {
-                                if (sCardBalance < sTotalPoint) {
-                                    sTotalPaid = sCardBalance;
+                                if (cardBalance < mTotalPoint) {
+                                    paidAmount = cardBalance;
                                     mTxtCardAmount.setTextColor(Color.RED);
                                     mBtnConfirm.setEnabled(false);
                                 } else {
                                     mTxtCardAmount.setTextColor(Color.BLACK);
                                     mBtnConfirm.setEnabled(true);
                                 }
-                                addPayment(PaymentDetailDataSource.PAY_TYPE_CASH,
+                                addPayment(PaymentDetailDataSource.PAY_TYPE_CASH, paidAmount,
                                         cardInfo.getSzCardNo(), "Food court payment");
                             }else{
                                 int status = cardInfo.getiCardStatus();
@@ -414,10 +420,11 @@ public class FoodCourtPayActivity extends ActionBarActivity{
                         mProgressDialog.dismiss();
                         PrepaidCardInfo cardInfo = resultData.getParcelable("cardInfo");
                         if(cardInfo != null){
-                            sCardBalance = sCardBalanceBefore - sTotalPoint;
+                            double cardBalanceBefore = cardInfo.getfCurrentAmount();
+                            double cardBalance = cardBalanceBefore - mTotalPoint;
                             OrderTransDataSource trans = new OrderTransDataSource(getActivity());
-                            trans.closeTransaction(mTransactionId, mStaffId, sTotalPoint, "");
-                            trans.updateTransactionPoint(mTransactionId, sCardBalanceBefore, sCardBalance);
+                            trans.closeTransaction(mTransactionId, mStaffId, mTotalPoint, "");
+                            trans.updateTransactionPoint(mTransactionId, cardBalanceBefore, cardBalance);
 
                             PaymentDetailDataSource payment = new PaymentDetailDataSource(getActivity());
                             payment.confirmPayment(mTransactionId);
@@ -450,12 +457,15 @@ public class FoodCourtPayActivity extends ActionBarActivity{
                 public TextView mTvFcPayNo;
                 public TextView mTvFcCardNo;
                 public TextView mTvFcCardPayAmount;
+                public ImageButton mBtnFcCardPayDelete;
 
                 public ViewHolder(View itemView) {
                     super(itemView);
                     mTvFcPayNo = (TextView) itemView.findViewById(R.id.tvFcPayNo);
                     mTvFcCardNo = (TextView) itemView.findViewById(R.id.tvFcPayCardNo);
                     mTvFcCardPayAmount = (TextView) itemView.findViewById(R.id.tvFcPayAmount);
+                    mBtnFcCardPayDelete = (ImageButton) itemView.findViewById(R.id.btnFcPayDelete);
+                    mBtnFcCardPayDelete.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -471,10 +481,29 @@ public class FoodCourtPayActivity extends ActionBarActivity{
             }
 
             @Override
-            public void onBindViewHolder(ViewHolder holder, int position) {
+            public void onBindViewHolder(ViewHolder holder, final int position) {
                 holder.mTvFcPayNo.setText(String.valueOf(position + 1));
                 holder.mTvFcCardNo.setText(mPayDetailLst.get(position).getCreditCardNo());
                 holder.mTvFcCardPayAmount.setText(Utils.currencyFormat(mPayDetailLst.get(position).getPayAmount()));
+                holder.mBtnFcCardPayDelete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        new AlertDialog.Builder(getActivity())
+                                .setMessage(R.string.confirm_delete_item)
+                                .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {}
+                                })
+                                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        PaymentDetailDataSource payment = new PaymentDetailDataSource(getActivity());
+                                        payment.deletePaymentDetail(mTransactionId, mPayDetailLst.get(position).getPaymentDetailId());
+                                        loadPayDetail();
+                                    }
+                                }).show();
+                    }
+                });
             }
 
             @Override
