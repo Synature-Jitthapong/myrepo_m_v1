@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/itemConfirm"
         android:icon="@drawable/ic_action_accept"
-        app:showAsAction="always|withText"
+        android:showAsAction="always|withText"
         android:title="@string/confirm"
         android:visible="false">
     </item>
 
-</menu><!-- From: file:/Users/j1tth4/git/myrepo_m_v1/mPOS/src/main/res/menu/activity_payment.xml -->
+</menu><!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/menu/activity_payment.xml -->

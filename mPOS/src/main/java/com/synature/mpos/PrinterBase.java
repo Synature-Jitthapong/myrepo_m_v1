@@ -1205,60 +1205,60 @@ public abstract class PrinterBase {
     	mTextToPrint.append(strTotalSale + "\n");
 
     	// total payment
-    	List<MPOSPaymentDetail> paymentLst = 
-    			mPayment.listPaymentGroupByType(transId);
-    	for(int i = 0; i < paymentLst.size(); i++){
-    		MPOSPaymentDetail payment = paymentLst.get(i);
-	    	String strTotalPaid = Utils.currencyFormat(payment.getTotalPay());
-	    	if(payment.getPayTypeId() == PaymentDetailDataSource.PAY_TYPE_CREDIT){
-	    		String paymentText = payment.getPayTypeName();
-	    		String cardNoText = "xxxx xxxx xxxx ";
-	    		try {
-	    			paymentText = payment.getPayTypeName() + ":" + 
-    					mCreditCard.getCreditCardType(payment.getCreditCardTypeId());
-	    			cardNoText += payment.getCreditCardNo().substring(12, 16);
-	    		} catch (Exception e) {
-	    			Logger.appendLog(mContext, MPOSApplication.LOG_PATH, 
-	    					MPOSApplication.LOG_FILE_NAME, "Error gen creditcard no : " + e.getMessage());
-	    		}
-	    		mTextToPrint.append(paymentText);
-	    		mTextToPrint.append(createHorizontalSpace(calculateLength(paymentText)));
-	    		mTextToPrint.append("\n");
-    			mTextToPrint.append(cardNoText);
-    			mTextToPrint.append(createHorizontalSpace(
-    					calculateLength(cardNoText) + 
-    					calculateLength(strTotalPaid)));
-    			mTextToPrint.append(strTotalPaid);
-	    	}else{
-	    		String paymentText = payment.getPayTypeName() + " ";
-		    	if(i < paymentLst.size() - 1){
-			    	mTextToPrint.append(paymentText);
-		    		mTextToPrint.append(createHorizontalSpace(
-		    				calculateLength(paymentText) + 
-		    				calculateLength(strTotalPaid)));
-			    	mTextToPrint.append(strTotalPaid);
-		    	}else if(i == paymentLst.size() - 1){
-			    	if(change > 0){
-				    	mTextToPrint.append(paymentText);
-				    	mTextToPrint.append(strTotalPaid);
-			    		mTextToPrint.append(createHorizontalSpace(
-			    				calculateLength(changeText) + 
-			    				calculateLength(strTotalChange) + 
-			    				calculateLength(paymentText) + 
-			    				calculateLength(strTotalPaid)));
-				    	mTextToPrint.append(changeText);
-				    	mTextToPrint.append(strTotalChange);
-				    }else{
-				    	mTextToPrint.append(paymentText);
-			    		mTextToPrint.append(createHorizontalSpace(
-			    				calculateLength(paymentText) + 
-			    				calculateLength(strTotalPaid)));
-				    	mTextToPrint.append(strTotalPaid);
-				    }
-		    	}
-	    	}
-    		mTextToPrint.append("\n");
-    	}
+//    	List<MPOSPaymentDetail> paymentLst =
+//    			mPayment.listPaymentGroupByType(transId);
+//    	for(int i = 0; i < paymentLst.size(); i++){
+//    		MPOSPaymentDetail payment = paymentLst.get(i);
+//	    	String strTotalPaid = Utils.currencyFormat(payment.getTotalPay());
+//	    	if(payment.getPayTypeId() == PaymentDetailDataSource.PAY_TYPE_CREDIT){
+//	    		String paymentText = payment.getPayTypeName();
+//	    		String cardNoText = "xxxx xxxx xxxx ";
+//	    		try {
+//	    			paymentText = payment.getPayTypeName() + ":" +
+//    					mCreditCard.getCreditCardType(payment.getCreditCardTypeId());
+//	    			cardNoText += payment.getCreditCardNo().substring(12, 16);
+//	    		} catch (Exception e) {
+//	    			Logger.appendLog(mContext, MPOSApplication.LOG_PATH,
+//	    					MPOSApplication.LOG_FILE_NAME, "Error gen creditcard no : " + e.getMessage());
+//	    		}
+//	    		mTextToPrint.append(paymentText);
+//	    		mTextToPrint.append(createHorizontalSpace(calculateLength(paymentText)));
+//	    		mTextToPrint.append("\n");
+//    			mTextToPrint.append(cardNoText);
+//    			mTextToPrint.append(createHorizontalSpace(
+//    					calculateLength(cardNoText) +
+//    					calculateLength(strTotalPaid)));
+//    			mTextToPrint.append(strTotalPaid);
+//	    	}else{
+//	    		String paymentText = payment.getPayTypeName() + " ";
+//		    	if(i < paymentLst.size() - 1){
+//			    	mTextToPrint.append(paymentText);
+//		    		mTextToPrint.append(createHorizontalSpace(
+//		    				calculateLength(paymentText) +
+//		    				calculateLength(strTotalPaid)));
+//			    	mTextToPrint.append(strTotalPaid);
+//		    	}else if(i == paymentLst.size() - 1){
+//			    	if(change > 0){
+//				    	mTextToPrint.append(paymentText);
+//				    	mTextToPrint.append(strTotalPaid);
+//			    		mTextToPrint.append(createHorizontalSpace(
+//			    				calculateLength(changeText) +
+//			    				calculateLength(strTotalChange) +
+//			    				calculateLength(paymentText) +
+//			    				calculateLength(strTotalPaid)));
+//				    	mTextToPrint.append(changeText);
+//				    	mTextToPrint.append(strTotalChange);
+//				    }else{
+//				    	mTextToPrint.append(paymentText);
+//			    		mTextToPrint.append(createHorizontalSpace(
+//			    				calculateLength(paymentText) +
+//			    				calculateLength(strTotalPaid)));
+//				    	mTextToPrint.append(strTotalPaid);
+//				    }
+//		    	}
+//	    	}
+//    		mTextToPrint.append("\n");
+//    	}
 	    mTextToPrint.append(createLine("=") + "\n");
 
         if(trans.getPointBefore() > 0) {
@@ -1276,28 +1276,28 @@ public abstract class PrinterBase {
             mTextToPrint.append(balance + "\n");
 
             // show vat ?
-            if (isShowVat) {
-                if (trans.getTransactionVatable() > 0) {
-                    double beforVat = trans.getTransactionVatable() - trans.getTransactionVat();
-                    String strTransactionVat = Utils.currencyFormat(trans.getTransactionVat());
-                    String beforeVatText = mContext.getString(R.string.before_vat);
-                    String strBeforeVat = Utils.currencyFormat(beforVat);
-                    String vatRateText = mContext.getString(R.string.vat) + " " +
-                            NumberFormat.getInstance().format(mShop.getCompanyVatRate()) + "%";
-                    // before vat
-                    mTextToPrint.append(beforeVatText);
-                    mTextToPrint.append(createHorizontalSpace(
-                            calculateLength(beforeVatText) +
-                                    calculateLength(strBeforeVat)));
-                    mTextToPrint.append(strBeforeVat + "\n");
-                    // transaction vat
-                    mTextToPrint.append(vatRateText);
-                    mTextToPrint.append(createHorizontalSpace(
-                            calculateLength(vatRateText) +
-                                    calculateLength(strTransactionVat)));
-                    mTextToPrint.append(strTransactionVat + "\n");
-                }
-            }
+//            if (isShowVat) {
+//                if (trans.getTransactionVatable() > 0) {
+//                    double beforVat = trans.getTransactionVatable() - trans.getTransactionVat();
+//                    String strTransactionVat = Utils.currencyFormat(trans.getTransactionVat());
+//                    String beforeVatText = mContext.getString(R.string.before_vat);
+//                    String strBeforeVat = Utils.currencyFormat(beforVat);
+//                    String vatRateText = mContext.getString(R.string.vat) + " " +
+//                            NumberFormat.getInstance().format(mShop.getCompanyVatRate()) + "%";
+//                    // before vat
+//                    mTextToPrint.append(beforeVatText);
+//                    mTextToPrint.append(createHorizontalSpace(
+//                            calculateLength(beforeVatText) +
+//                                    calculateLength(strBeforeVat)));
+//                    mTextToPrint.append(strBeforeVat + "\n");
+//                    // transaction vat
+//                    mTextToPrint.append(vatRateText);
+//                    mTextToPrint.append(createHorizontalSpace(
+//                            calculateLength(vatRateText) +
+//                                    calculateLength(strTransactionVat)));
+//                    mTextToPrint.append(strTransactionVat + "\n");
+//                }
+//            }
         }
 	    
     	// add footer

@@ -108,7 +108,8 @@
         <activity
             android:name=".FoodCourtPayActivity"
             android:label="@string/payment"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateAlwaysHidden">
         </activity>
         <activity
             android:name=".PaymentActivity"

@@ -1,12 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.synature.mpos.FoodCourtCardPayActivity">
 
     <item
         android:id="@+id/itemConfirm"
-        app:showAsAction="always|withText"
+        android:showAsAction="always|withText"
         android:title="@string/confirm" android:icon="@drawable/ic_action_accept"/>
 
 </menu>
-<!-- From: file:/Users/j1tth4/git/myrepo_m_v1/mPOS/src/main/res/menu/food_court_card_pay.xml -->
+<!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/menu/food_court_card_pay.xml -->

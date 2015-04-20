@@ -108,7 +108,8 @@
         <activity
             android:name="com.synature.mpos.FoodCourtPayActivity"
             android:label="@string/payment"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
         <activity
             android:name="com.synature.mpos.PaymentActivity"

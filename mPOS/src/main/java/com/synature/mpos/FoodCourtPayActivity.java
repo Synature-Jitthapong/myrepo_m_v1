@@ -1,15 +1,15 @@
 package com.synature.mpos;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.ResultReceiver;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -39,7 +39,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 
-public class FoodCourtPayActivity extends ActionBarActivity{
+public class FoodCourtPayActivity extends Activity {
 
     public static final String TAG = FoodCourtCardPay.class.getSimpleName();
 
@@ -59,7 +59,7 @@ public class FoodCourtPayActivity extends ActionBarActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_court_pay);
 
-        ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
@@ -69,7 +69,7 @@ public class FoodCourtPayActivity extends ActionBarActivity{
         mStaffId = intent.getIntExtra("staffId", 0);
 
         if(savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(
+            getFragmentManager().beginTransaction().replace(
                     R.id.content, new FoodCourtCardPayFragment()).commit();
         }
     }
@@ -274,7 +274,6 @@ public class FoodCourtPayActivity extends ActionBarActivity{
         public void onStop() {
             closeMsrThread();
             mIsRead = false;
-            mMsrReader.close();
             super.onStop();
         }
 
@@ -318,6 +317,7 @@ public class FoodCourtPayActivity extends ActionBarActivity{
                     Log.e(TAG, " Error when read data from magnetic card : " + e.getMessage());
                 }
             }
+            mMsrReader.close();
         }
 
         private void loadCardInfo(){
@@ -427,8 +427,8 @@ public class FoodCourtPayActivity extends ActionBarActivity{
                             double cardBalanceBefore = cardInfo.getfCurrentAmount();
                             double cardBalance = cardBalanceBefore - mTotalPoint;
                             OrderTransDataSource trans = new OrderTransDataSource(getActivity());
-                            trans.closeTransaction(mTransactionId, mStaffId, mTotalPoint, "");
                             trans.updateTransactionPoint(mTransactionId, cardBalanceBefore, cardBalance);
+                            trans.closeTransaction(mTransactionId, mStaffId, mTotalPoint, Utils.getISODate());
 
                             PaymentDetailDataSource payment = new PaymentDetailDataSource(getActivity());
                             payment.confirmPayment(mTransactionId);

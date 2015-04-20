@@ -1,9 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.synature.mpos.CashInOutActivity">
     <item android:id="@+id/action_confirm"
         android:title="@string/confirm"
         android:icon="@drawable/ic_action_accept"
-        app:showAsAction="always|withText" />
+        android:showAsAction="always|withText" />
 </menu>

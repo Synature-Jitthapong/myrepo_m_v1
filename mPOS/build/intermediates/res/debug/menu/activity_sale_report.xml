@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/itemDateCondition"
         android:actionLayout="@layout/date_condition"
-        app:showAsAction="ifRoom">
+        android:showAsAction="ifRoom">
     </item>
 
-</menu><!-- From: file:/Users/j1tth4/git/myrepo_m_v1/mPOS/src/main/res/menu/activity_sale_report.xml -->
+</menu><!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/menu/activity_sale_report.xml -->

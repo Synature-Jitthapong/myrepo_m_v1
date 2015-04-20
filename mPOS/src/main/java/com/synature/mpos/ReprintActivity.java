@@ -1,9 +1,7 @@
 package com.synature.mpos;
 
-import java.util.Calendar;
 import java.util.List;
 
-import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.PaymentDetailDataSource;
 import com.synature.mpos.datasource.SessionDataSource;
@@ -12,7 +10,6 @@ import com.synature.mpos.datasource.model.OrderTransaction;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
-import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,7 +26,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class ReprintActivity extends ActionBarActivity {
+public class ReprintActivity extends Activity {
 	
 	public static final int RECEIPT = 1;
 	public static final int WASTE = 2;
@@ -54,8 +51,8 @@ public class ReprintActivity extends ActionBarActivity {
 	    params.dimAmount = 0.5f;
 	    getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
 		setContentView(R.layout.activity_reprint);
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		getSupportActionBar().setDisplayShowCustomEnabled(true);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setDisplayShowCustomEnabled(true);
 		
 		mLvTrans = (ListView) findViewById(R.id.listView1);
 
@@ -101,8 +98,8 @@ public class ReprintActivity extends ActionBarActivity {
 				@Override
 				public void onNothingSelected(AdapterView<?> parent) {}
 			});
-			getSupportActionBar().setCustomView(customView);
-			getSupportActionBar().setDisplayShowTitleEnabled(false);
+			getActionBar().setCustomView(customView);
+			getActionBar().setDisplayShowTitleEnabled(false);
 		}
 	}
 	

@@ -1,5 +1,6 @@
 package com.synature.mpos;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
@@ -92,7 +93,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class MainActivity extends ActionBarActivity implements
+public class MainActivity extends FragmentActivity implements
 	MenuCommentDialogFragment.OnCommentDismissListener, ManageCashAmountFragment.OnManageCashAmountDismissListener, 
 	UserVerifyDialogFragment.OnCheckPermissionListener, OnChangeLanguageListener,
         CashInOutSelectionDialogFragment.CashInOutSelectionListener{
@@ -260,7 +261,7 @@ public class MainActivity extends ActionBarActivity implements
 		StaffsDataSource staff = new StaffsDataSource(this);
 		com.synature.pos.Staff s = staff.getStaff(mStaffId);
 		setTitle(MPOSApplication.sShopName);
-		getSupportActionBar().setSubtitle(s.getStaffName());
+		getActionBar().setSubtitle(s.getStaffName());
 	}
 	
 	private void setupMenuDeptPager(){
@@ -808,7 +809,7 @@ public class MainActivity extends ActionBarActivity implements
 				intent.putExtra("shopId", mShopId);
 				intent.putExtra("computerId", mComputerId);
 				intent.putExtra("staffId", mStaffId);
-				startActivityForResult(intent, FOOD_COURT_PAYMENT_REQUEST);
+				startActivityForResult(intent, PAYMENT_REQUEST);
 //			}else{
 //				if(PaymentActivity.sIsRunning == false){
 //					Intent intent = new Intent(MainActivity.this, PaymentActivity.class);

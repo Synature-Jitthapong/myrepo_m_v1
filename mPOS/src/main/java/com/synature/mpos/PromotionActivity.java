@@ -2,7 +2,6 @@ package com.synature.mpos;
 
 import java.util.List;
 
-import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.ProductsDataSource;
 import com.synature.mpos.datasource.PromotionDiscountDataSource;
@@ -14,7 +13,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,7 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class PromotionActivity extends ActionBarActivity {
+public class PromotionActivity extends Activity {
 
 	public static final String TAG = PromotionActivity.class.getSimpleName();
 	
@@ -51,7 +49,7 @@ public class PromotionActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_promotion);
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		mPromoButtonContainer = (LinearLayout) findViewById(R.id.promoButtonContainer);
 		mLvOrderDiscount = (ListView) findViewById(R.id.lvOrderDiscount);

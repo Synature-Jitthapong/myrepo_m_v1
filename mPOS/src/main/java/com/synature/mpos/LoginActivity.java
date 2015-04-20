@@ -44,7 +44,7 @@ import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
-public class LoginActivity extends ActionBarActivity implements OnClickListener,
+public class LoginActivity extends Activity implements OnClickListener,
 	OnEditorActionListener, UserVerifyDialogFragment.OnCheckPermissionListener,
 	SwitchLangFragment.OnChangeLanguageListener{
 	

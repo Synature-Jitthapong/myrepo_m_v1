@@ -2,9 +2,7 @@ package com.synature.mpos;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +16,11 @@ import android.widget.TextView;
 import com.synature.mpos.datasource.CashInOutDao;
 import com.synature.mpos.datasource.CashInOutDataSource;
 import com.synature.mpos.datasource.model.CashInOutOrderTransaction;
-import com.synature.mpos.datasource.model.OrderTransaction;
 
 import java.util.List;
 
 
-public class ReprintCashInOutActivity extends ActionBarActivity {
+public class ReprintCashInOutActivity extends Activity {
 
     public static final String TAG = ReprintCashInOutActivity.class.getSimpleName();
 
@@ -45,7 +42,7 @@ public class ReprintCashInOutActivity extends ActionBarActivity {
         params.alpha = 1.0f;
         params.dimAmount = 0.5f;
         getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_reprint_cash_in_out);
         mLvCashInOutTrans = (ListView) findViewById(R.id.lvCashInOutBill);
 

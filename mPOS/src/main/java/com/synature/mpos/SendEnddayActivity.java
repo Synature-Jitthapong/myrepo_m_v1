@@ -1,12 +1,9 @@
 package com.synature.mpos;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
-import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.MPOSDatabase;
-import com.synature.mpos.datasource.SessionDataSource;
 import com.synature.mpos.datasource.model.Session;
 import com.synature.mpos.datasource.table.BaseColumn;
 import com.synature.mpos.datasource.table.SessionDetailTable;
@@ -22,8 +19,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -38,7 +33,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class SendEnddayActivity extends ActionBarActivity {
+public class SendEnddayActivity extends Activity {
 
     public static final int IGNORE_SEND_STATUS = 1;
 	
@@ -64,7 +59,7 @@ public class SendEnddayActivity extends ActionBarActivity {
 	    params.alpha = 1.0f;
 	    params.dimAmount = 0.5f;
 	    getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 	    setFinishOnTouchOutside(false);
 		setContentView(R.layout.activity_send_endday);
 		

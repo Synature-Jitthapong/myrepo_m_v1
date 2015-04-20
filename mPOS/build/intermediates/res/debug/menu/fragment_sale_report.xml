@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/itemSession"
         android:actionLayout="@layout/session_spinner"
-        app:showAsAction="always" android:visible="false">
+        android:showAsAction="always" android:visible="false">
     </item>
     
     <item
         android:id="@+id/itemCreateReport"
         android:icon="@drawable/ic_action_paste"
-        app:showAsAction="always|withText"
+        android:showAsAction="always|withText"
         android:title="@string/display">
     </item>
     <item
         android:id="@+id/itemPrint"
         android:icon="@drawable/ic_action_print"
-        app:showAsAction="always|withText"
+        android:showAsAction="always|withText"
         android:title="@string/print">
     </item>
 
-</menu><!-- From: file:/Users/j1tth4/git/myrepo_m_v1/mPOS/src/main/res/menu/fragment_sale_report.xml -->
+</menu><!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/menu/fragment_sale_report.xml -->

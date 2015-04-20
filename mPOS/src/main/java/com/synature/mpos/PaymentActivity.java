@@ -4,7 +4,6 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.PaymentAmountButtonDataSource;
 import com.synature.mpos.datasource.PaymentDetailDataSource;
@@ -19,8 +18,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,7 +35,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class PaymentActivity extends ActionBarActivity implements OnClickListener,
+public class PaymentActivity extends Activity implements OnClickListener,
 	FinishWasteDialogFragment.OnFinishWasteListener{
 	
 	public static final int REQUEST_CREDIT_PAY = 1;
@@ -93,7 +90,7 @@ public class PaymentActivity extends ActionBarActivity implements OnClickListene
 	    params.alpha = 1.0f;
 	    params.dimAmount = 0.5f;
 	    getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 	    setFinishOnTouchOutside(false);
 		mLvPayment = (ListView) findViewById(R.id.lvPayDetail);
 		mTxtEnterPrice = (EditText) findViewById(R.id.txtDisplay);

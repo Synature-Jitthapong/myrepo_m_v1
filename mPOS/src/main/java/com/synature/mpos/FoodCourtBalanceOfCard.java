@@ -46,7 +46,7 @@ public class FoodCourtBalanceOfCard extends FoodCourtMainService{
         setSuccessReceiver(toCardInfoObj());
 	}
 
-    PrepaidCardInfo toCardInfoObj(){
+    public static PrepaidCardInfo toCardInfoObj(){
         PrepaidCardInfo cardInfo = new PrepaidCardInfo();
         cardInfo.setiCardID(1);
         cardInfo.setiCardStatus(FoodCourtPayActivity.STATUS_READY_TO_USE);

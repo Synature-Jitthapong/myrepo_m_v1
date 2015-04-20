@@ -1,7 +1,6 @@
 package com.synature.mpos;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import com.synature.mpos.datasource.ComputerDataSource;
@@ -21,8 +20,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -44,7 +41,7 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class VoidBillActivity extends ActionBarActivity {
+public class VoidBillActivity extends Activity {
 	
 	private OrderTransDataSource mTrans;
     private SessionDataSource mSession;
@@ -70,7 +67,7 @@ public class VoidBillActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_void_bill);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
         
 		mLvBill = (ListView) findViewById(R.id.lvBill);
 	    tvSaleDate = (TextView) findViewById(R.id.tvSaleDate);

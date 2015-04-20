@@ -7,6 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -19,7 +20,6 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.ResultReceiver;
 import android.preference.PreferenceManager;
-import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,7 +30,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class CheckUpdateActivity extends ActionBarActivity {
+public class CheckUpdateActivity extends Activity {
 
 	private static final int AUTO_DOWNLOAD = 1;
 	
@@ -109,7 +109,7 @@ public class CheckUpdateActivity extends ActionBarActivity {
 	    getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
 	    setFinishOnTouchOutside(false);
 		setContentView(R.layout.activity_check_update);
-		android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		
 		sProgressBar = (ProgressBar) findViewById(R.id.progressBar1);

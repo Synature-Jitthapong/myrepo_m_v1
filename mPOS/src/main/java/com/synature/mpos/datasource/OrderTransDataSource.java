@@ -1826,7 +1826,7 @@ public class OrderTransDataSource extends MPOSDatabase {
         ContentValues cv = new ContentValues();
         cv.put(OrderTransTable.COLUMN_POINT_BEFORE, pointBefore);
         cv.put(OrderTransTable.COLUMN_POINT_BALANCE, pointBalance);
-        getWritableDatabase().update(OrderTransTable.TABLE_ORDER_TRANS, cv,
+        getWritableDatabase().update(OrderTransTable.TEMP_ORDER_TRANS, cv,
                 OrderTransTable.COLUMN_TRANS_ID + "=?",
                 new String[]{
                         String.valueOf(transId)

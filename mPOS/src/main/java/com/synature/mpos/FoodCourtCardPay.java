@@ -37,22 +37,23 @@ public class FoodCourtCardPay extends FoodCourtMainService{
 
 	@Override
 	protected void onPostExecute(String result) {
-		WebServiceResult ws;
-		try {
-			ws = toServiceObject(result);
-			if(ws.getiResultID() == RESPONSE_SUCCESS){
-				try {
-					PrepaidCardInfo cardInfo = toPrepaidCardInfoObject(ws.getSzResultData());
-					setSuccessReceiver(cardInfo);
-				} catch (Exception e) {
-					setErrorReceiver(e.getMessage());
-				}
-			}else{
-				setErrorReceiver(TextUtils.isEmpty(ws.getSzResultData()) ? result : ws.getSzResultData());
-			}
-		} catch (JsonSyntaxException e) {
-			setErrorReceiver(result);
-		}
+//		WebServiceResult ws;
+//		try {
+//			ws = toServiceObject(result);
+//			if(ws.getiResultID() == RESPONSE_SUCCESS){
+//				try {
+//					PrepaidCardInfo cardInfo = toPrepaidCardInfoObject(ws.getSzResultData());
+//					setSuccessReceiver(cardInfo);
+//				} catch (Exception e) {
+//					setErrorReceiver(e.getMessage());
+//				}
+//			}else{
+//				setErrorReceiver(TextUtils.isEmpty(ws.getSzResultData()) ? result : ws.getSzResultData());
+//			}
+//		} catch (JsonSyntaxException e) {
+//			setErrorReceiver(result);
+//		}
+        setSuccessReceiver(FoodCourtBalanceOfCard.toCardInfoObj());
 	}
 
 }

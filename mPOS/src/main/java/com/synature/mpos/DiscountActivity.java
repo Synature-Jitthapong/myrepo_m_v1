@@ -11,7 +11,6 @@ import com.synature.mpos.datasource.ProductsDataSource;
 import com.synature.mpos.datasource.model.OrderDetail;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -44,7 +43,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 
-public class DiscountActivity extends ActionBarActivity implements OnItemClickListener,
+public class DiscountActivity extends Activity implements OnItemClickListener,
 	OnCheckedChangeListener, OnClickListener, OnEditorActionListener{
 	
 	public static final int PRICE_DISCOUNT_TYPE = 1;
@@ -73,7 +72,7 @@ public class DiscountActivity extends ActionBarActivity implements OnItemClickLi
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		setContentView(R.layout.activity_discount);
 		mLvDiscount = (ListView) findViewById(R.id.lvOrder);
