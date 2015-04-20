@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
-   <item 
+    <item
+        android:state_enabled="false"
+        android:drawable="@drawable/holo_gray_light_shape"></item>
+    <item
      android:state_pressed="true"
      android:drawable="@drawable/holo_blue_light_shape"></item>
     <item 
         android:state_selected="true"
         android:drawable="@drawable/holo_blue_light_shape"></item>
     <item
+        android:state_enabled="true"
         android:drawable="@drawable/holo_blue_dark_shape"></item>
 </selector>
 <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/drawable/btn_holo_blue.xml -->

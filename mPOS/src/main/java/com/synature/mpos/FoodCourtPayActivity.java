@@ -5,9 +5,14 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.TypedArray;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.ResultReceiver;
 import android.os.Bundle;
@@ -20,6 +25,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -30,7 +36,6 @@ import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.PaymentDetailDataSource;
 import com.synature.mpos.datasource.model.MPOSPaymentDetail;
 import com.synature.mpos.datasource.model.OrderDetail;
-import com.synature.pos.PrepaidCardInfo;
 import com.synature.util.CreditCardParser;
 
 import java.text.NumberFormat;
@@ -91,6 +96,85 @@ public class FoodCourtPayActivity extends Activity {
         finish();
     }
 
+    public static class DividerItemDecoration extends RecyclerView.ItemDecoration {
+
+        private final int[] ATTRS = new int[]{
+                android.R.attr.listDivider
+        };
+
+        public static final int HORIZONTAL_LIST = LinearLayoutManager.HORIZONTAL;
+
+        public static final int VERTICAL_LIST = LinearLayoutManager.VERTICAL;
+
+        private Drawable mDivider;
+
+        private int mOrientation;
+
+        public DividerItemDecoration(Context context, int orientation) {
+            final TypedArray a = context.obtainStyledAttributes(ATTRS);
+            mDivider = a.getDrawable(0);
+            a.recycle();
+            setOrientation(orientation);
+        }
+
+        public void setOrientation(int orientation) {
+            if (orientation != HORIZONTAL_LIST && orientation != VERTICAL_LIST) {
+                throw new IllegalArgumentException("invalid orientation");
+            }
+            mOrientation = orientation;
+        }
+
+        @Override
+        public void onDraw(Canvas c, RecyclerView parent) {
+            if (mOrientation == VERTICAL_LIST) {
+                drawVertical(c, parent);
+            } else {
+                drawHorizontal(c, parent);
+            }
+        }
+
+        public void drawVertical(Canvas c, RecyclerView parent) {
+            final int left = parent.getPaddingLeft();
+            final int right = parent.getWidth() - parent.getPaddingRight();
+
+            final int childCount = parent.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                final View child = parent.getChildAt(i);
+                final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
+                        .getLayoutParams();
+                final int top = child.getBottom() + params.bottomMargin;
+                final int bottom = top + mDivider.getIntrinsicHeight();
+                mDivider.setBounds(left, top, right, bottom);
+                mDivider.draw(c);
+            }
+        }
+
+        public void drawHorizontal(Canvas c, RecyclerView parent) {
+            final int top = parent.getPaddingTop();
+            final int bottom = parent.getHeight() - parent.getPaddingBottom();
+
+            final int childCount = parent.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                final View child = parent.getChildAt(i);
+                final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
+                        .getLayoutParams();
+                final int left = child.getRight() + params.rightMargin;
+                final int right = left + mDivider.getIntrinsicHeight();
+                mDivider.setBounds(left, top, right, bottom);
+                mDivider.draw(c);
+            }
+        }
+
+        @Override
+        public void getItemOffsets(Rect outRect, int itemPosition, RecyclerView parent) {
+            if (mOrientation == VERTICAL_LIST) {
+                outRect.set(0, 0, 0, mDivider.getIntrinsicHeight());
+            } else {
+                outRect.set(0, 0, mDivider.getIntrinsicWidth(), 0);
+            }
+        }
+    }
+
     public static class FoodCourtCardPayFragment extends Fragment implements Runnable{
 
         /*
@@ -114,6 +198,8 @@ public class FoodCourtPayActivity extends Activity {
         private EditText mTxtCardNo;
         private EditText mTxtCardAmount;
         private Button mBtnConfirm;
+        private Button mBtnCancel;
+        private ImageButton mBtnSearchCard;
         private TextView mTvTotalPoint;
         private TextView mTvTotalPaid;
         private TextView mTvTotalDue;
@@ -149,9 +235,12 @@ public class FoodCourtPayActivity extends Activity {
             mTxtCardNo = (EditText) view.findViewById(R.id.txtCardNo);
             mTxtCardAmount = (EditText) view.findViewById(R.id.txtCardAmount);
             mBtnConfirm = (Button) view.findViewById(R.id.btnFcPayConfirm);
+            mBtnCancel = (Button) view.findViewById(R.id.btnFcCancel);
             mRcPayDetail = (RecyclerView) view.findViewById(R.id.rcPayDetail);
             mCardProgress = (ProgressBar) view.findViewById(R.id.cardProgress);
+            mBtnSearchCard = (ImageButton) view.findViewById(R.id.btnSearchCard);
 
+            mRcPayDetail.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
             mRcPayDetail.setHasFixedSize(true);
             mRcLayoutManager = new LinearLayoutManager(getActivity());
             mRcPayDetail.setLayoutManager(mRcLayoutManager);
@@ -163,6 +252,21 @@ public class FoodCourtPayActivity extends Activity {
                     confirm();
                 }
             });
+            mBtnCancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ((FoodCourtPayActivity) getActivity()).cancel();
+                }
+            });
+            mBtnSearchCard.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String cardNo = mTxtCardNo.getText().toString();
+                    if(!TextUtils.isEmpty(cardNo)){
+                        loadCardInfo();
+                    }
+                }
+            });
             mTxtCardNo.setOnKeyListener(new View.OnKeyListener() {
                 @Override
                 public boolean onKey(View view, int keyCode, KeyEvent event) {
@@ -171,13 +275,9 @@ public class FoodCourtPayActivity extends Activity {
 
                     if(keyCode == KeyEvent.KEYCODE_ENTER){
                         String cardNo = ((EditText) view).getText().toString();
-                        if(!cardNo.isEmpty()){
-                //          InputMethodManager imm = (InputMethodManager)
-                //                getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                //          imm.hideSoftInputFromWindow(mTxtCardNo.getWindowToken(), 0);
+                        if(!TextUtils.isEmpty(cardNo)){
                             loadCardInfo();
                         }
-                        ((EditText) view).setText(null);
                     }
                     return false;
                 }
@@ -200,7 +300,7 @@ public class FoodCourtPayActivity extends Activity {
 
         private void loadPayDetail(){
             PaymentDetailDataSource payment = new PaymentDetailDataSource(getActivity());
-            mPayDetailLst = payment.listPayment(mTransactionId);
+            mPayDetailLst = payment.listFcPayment(mTransactionId, true);
             if(mPaydetailAdapter == null){
                 mPaydetailAdapter = new PaydetailAdapter();
                 mRcPayDetail.setAdapter(mPaydetailAdapter);
@@ -223,14 +323,25 @@ public class FoodCourtPayActivity extends Activity {
         private void addPayment(int payTypeId, double paidAmount, String cardNo, String remark){
             if(paidAmount > 0 && mTotalDue > 0){
                 PaymentDetailDataSource payment = new PaymentDetailDataSource(getActivity());
-                payment.addPaymentDetail(mTransactionId, mComputerId, payTypeId, paidAmount,
-                        paidAmount >= mTotalDue ? mTotalDue : paidAmount, cardNo,
-                        0, 0, 0, 0, remark);
-                loadPayDetail();
-                // display pay type to customer display
-                if(Utils.isEnableWintecCustomerDisplay(getActivity())){
-                    WintecCustomerDisplay dsp = new WintecCustomerDisplay(getActivity());
-                    dsp.displayPayment(payment.getPaymentTypeName(payTypeId), Utils.currencyFormat(paidAmount));
+                boolean isAdded = payment.checkAddedFcPayment(mTransactionId, cardNo);
+                if(!isAdded) {
+                    paidAmount = paidAmount >= mTotalDue ? mTotalDue : paidAmount;
+                    payment.addFcPaymentDetail(mTransactionId, mComputerId, payTypeId, paidAmount,
+                            paidAmount, cardNo, 0, 0, 0, 0, remark);
+                    loadPayDetail();
+                    // display pay type to customer display
+                    if (Utils.isEnableWintecCustomerDisplay(getActivity())) {
+                        WintecCustomerDisplay dsp = new WintecCustomerDisplay(getActivity());
+                        dsp.displayPayment(payment.getPaymentTypeName(payTypeId), Utils.currencyFormat(paidAmount));
+                    }
+                }else{
+                    new AlertDialog.Builder(getActivity())
+                            .setMessage("This card is already used. Please use another card.")
+                            .setNeutralButton(R.string.close, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {}
+                            })
+                            .show();
                 }
             }
         }
@@ -248,11 +359,26 @@ public class FoodCourtPayActivity extends Activity {
         }
 
         private void confirm(){
-            ExecutorService executor = Executors.newSingleThreadExecutor();
-            executor.execute(new FoodCourtCardPay(getActivity(), mShopId, mComputerId, mStaffId,
-                    mTxtCardNo.getText().toString(), NumberFormat.getInstance().format(mTotalPaid),
-                    new CardPayReceiver(new Handler())));
-            executor.shutdown();
+            List<MPOSPaymentDetail> paymentLst = mPayDetailLst;
+            if(paymentLst != null && paymentLst.size() > 0){
+                String cardsNo = "";
+                String cardsPayAmount = "";
+                for(int i = 0; i < paymentLst.size(); i++){
+                    MPOSPaymentDetail payment = paymentLst.get(i);
+                    cardsNo += payment.getCreditCardNo();
+                    cardsPayAmount += NumberFormat.getInstance().format(payment.getPayAmount());
+                    if( i < paymentLst.size() -1){
+                        cardsNo += ",";
+                        cardsPayAmount += ",";
+                    }
+                }
+                Log.e("CardList", cardsNo);
+                Log.e("CardPayList", cardsPayAmount);
+                ExecutorService executor = Executors.newSingleThreadExecutor();
+                executor.execute(new FoodCourtCardPay(getActivity(), mShopId, mComputerId, mStaffId,
+                        cardsNo, cardsPayAmount, new CardPayReceiver(new Handler())));
+                executor.shutdown();
+            }
         }
 
         @Override
@@ -322,6 +448,9 @@ public class FoodCourtPayActivity extends Activity {
 
         private void loadCardInfo(){
             if(!TextUtils.isEmpty(mTxtCardNo.getText())){
+                InputMethodManager imm = (InputMethodManager)
+                    getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(mTxtCardNo.getWindowToken(), 0);
                 ExecutorService executor = Executors.newSingleThreadExecutor();
                 executor.execute(new FoodCourtBalanceOfCard(getActivity(), mShopId, mComputerId,
                         mStaffId, mTxtCardNo.getText().toString(),
@@ -334,7 +463,7 @@ public class FoodCourtPayActivity extends Activity {
 
         private void setProgressStatus(int visible, String statusText){
             mCardProgress.setVisibility(visible);
-            mTvCardStatus.setText(TextUtils.isEmpty(statusText) ? getString(R.string.please_swift_card) : statusText);
+            mTvCardStatus.setText(statusText);
         }
 
         private class CardBalanceReceiver extends ResultReceiver{
@@ -357,36 +486,22 @@ public class FoodCourtPayActivity extends Activity {
                 setProgressStatus(View.GONE, null);
                 switch(resultCode){
                     case FoodCourtMainService.RESULT_SUCCESS:
-                        PrepaidCardInfo cardInfo = resultData.getParcelable("cardInfo");
-                        if(cardInfo != null){
-                            double cardBalance = cardInfo.getfCurrentAmount();
-                            double paidAmount = mTotalPoint;
-                            mTxtCardNo.setText(cardInfo.getSzCardNo());
-                            mTxtCardAmount.setText(Utils.currencyFormat(cardBalance));
-                            if(cardInfo.getiCardStatus() == STATUS_READY_TO_USE) {
-                                if (cardBalance < mTotalPoint) {
-                                    paidAmount = cardBalance;
-                                    mTxtCardAmount.setTextColor(Color.RED);
-                                } else {
-                                    mTxtCardAmount.setTextColor(Color.BLACK);
-                                }
-                                addPayment(PaymentDetailDataSource.PAY_TYPE_CASH, paidAmount,
-                                        cardInfo.getSzCardNo(), "Food court payment");
-                            }else{
-                                int status = cardInfo.getiCardStatus();
-                                if(status == STATUS_BLACK_LIST) {
-                                    setProgressStatus(View.GONE, "Card in blacklist");
-                                }else if(status == STATUS_CANCEL){
-                                    setProgressStatus(View.GONE, "Card has been canceled");
-                                }else if(status == STATUS_INUSE){
-                                    setProgressStatus(View.GONE, "Card is in used");
-                                }else if(status == STATUS_MISSING) {
-                                    setProgressStatus(View.GONE, "Card is missing");
-                                }
-                            }
+                        String cardNo = resultData.getString("cardNo");
+                        double cardBalance = resultData.getDouble("cardBalance");
+                        double paidAmount = mTotalPoint;
+                        mTxtCardAmount.setText(Utils.currencyFormat(cardBalance));
+                        if (cardBalance < mTotalPoint) {
+                            paidAmount = cardBalance;
+                            mTxtCardAmount.setTextColor(Color.RED);
+                        } else {
+                            mTxtCardAmount.setTextColor(Color.BLACK);
                         }
+                        addPayment(PaymentDetailDataSource.PAY_TYPE_CASH, paidAmount,
+                                cardNo, cardNo);
                         break;
                     case FoodCourtMainService.RESULT_ERROR:
+                        mTxtCardNo.setText(null);
+                        mTxtCardAmount.setText(null);
                         new AlertDialog.Builder(getActivity())
                             .setMessage(resultData.getString("msg"))
                             .setNeutralButton(R.string.close, new DialogInterface.OnClickListener() {
@@ -422,18 +537,14 @@ public class FoodCourtPayActivity extends Activity {
                     case FoodCourtMainService.RESULT_SUCCESS:
                         if(mProgressDialog.isShowing())
                             mProgressDialog.dismiss();
-                        PrepaidCardInfo cardInfo = resultData.getParcelable("cardInfo");
-                        if(cardInfo != null){
-                            double cardBalanceBefore = cardInfo.getfCurrentAmount();
-                            double cardBalance = cardBalanceBefore - mTotalPoint;
-                            OrderTransDataSource trans = new OrderTransDataSource(getActivity());
-                            trans.updateTransactionPoint(mTransactionId, cardBalanceBefore, cardBalance);
-                            trans.closeTransaction(mTransactionId, mStaffId, mTotalPoint, Utils.getISODate());
+                        double cardBalance = resultData.getDouble("cardBalance");
+                        OrderTransDataSource trans = new OrderTransDataSource(getActivity());
+                        trans.updateTransactionPoint(mTransactionId, 0, cardBalance, mTxtCardNo.getText().toString());
+                        trans.closeTransaction(mTransactionId, mStaffId, mTotalPoint, Utils.getISODate());
 
-                            PaymentDetailDataSource payment = new PaymentDetailDataSource(getActivity());
-                            payment.confirmPayment(mTransactionId);
-                            setResultAndFinish(PrintReceipt.NORMAL);
-                        }
+                        PaymentDetailDataSource payment = new PaymentDetailDataSource(getActivity());
+                        payment.confirmPayment(mTransactionId);
+                        setResultAndFinish(PrintReceipt.NORMAL);
                         break;
                     case FoodCourtMainService.RESULT_ERROR:
                         if(mProgressDialog.isShowing())
@@ -482,7 +593,7 @@ public class FoodCourtPayActivity extends Activity {
             public void onBindViewHolder(ViewHolder holder, final int position) {
                 holder.mTvFcPayNo.setText(String.valueOf(position + 1));
                 holder.mTvFcCardNo.setText(mPayDetailLst.get(position).getCreditCardNo());
-                holder.mTvFcCardPayAmount.setText(Utils.currencyFormat(mPayDetailLst.get(position).getTotalPay()));
+                holder.mTvFcCardPayAmount.setText(Utils.currencyFormat(mPayDetailLst.get(position).getPayAmount()));
                 holder.mBtnFcCardPayDelete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -496,7 +607,7 @@ public class FoodCourtPayActivity extends Activity {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         PaymentDetailDataSource payment = new PaymentDetailDataSource(getActivity());
-                                        payment.deletePaymentDetail(mTransactionId, mPayDetailLst.get(position).getPayTypeId());
+                                        payment.deleteFcPaymentDetail(mTransactionId, mPayDetailLst.get(position).getPaymentDetailId());
                                         loadPayDetail();
                                     }
                                 }).show();

@@ -24,12 +24,18 @@ public class FoodCourtCardPay extends FoodCourtMainService{
 	public FoodCourtCardPay(Context context, int shopId,
 			int computerId, int staffId, String cardNo, String payAmount, 
 			ResultReceiver receiver) {
-		super(context, PAY_METHOD, shopId, computerId, staffId, cardNo, null);
+		super(context, PAY_MULTI_CARD_METHOD, shopId, computerId, staffId, cardNo, null);
 
 		mReceiver = receiver;
-		
+
+        mProperty = new PropertyInfo();
+        mProperty.setName(LIST_CARD_NO_PARAM);
+        mProperty.setValue(cardNo);
+        mProperty.setType(String.class);
+        mSoapRequest.addProperty(mProperty);
+
 		mProperty = new PropertyInfo();
-		mProperty.setName(PAY_AMOUNT_PARAM);
+		mProperty.setName(LIST_PAY_AMOUNT_PARAM);
 		mProperty.setValue(payAmount);
 		mProperty.setType(String.class);
 		mSoapRequest.addProperty(mProperty);
@@ -37,23 +43,21 @@ public class FoodCourtCardPay extends FoodCourtMainService{
 
 	@Override
 	protected void onPostExecute(String result) {
-//		WebServiceResult ws;
-//		try {
-//			ws = toServiceObject(result);
-//			if(ws.getiResultID() == RESPONSE_SUCCESS){
-//				try {
-//					PrepaidCardInfo cardInfo = toPrepaidCardInfoObject(ws.getSzResultData());
-//					setSuccessReceiver(cardInfo);
-//				} catch (Exception e) {
-//					setErrorReceiver(e.getMessage());
-//				}
-//			}else{
-//				setErrorReceiver(TextUtils.isEmpty(ws.getSzResultData()) ? result : ws.getSzResultData());
-//			}
-//		} catch (JsonSyntaxException e) {
-//			setErrorReceiver(result);
-//		}
-        setSuccessReceiver(FoodCourtBalanceOfCard.toCardInfoObj());
+		WebServiceResult ws;
+		try {
+			ws = toServiceObject(result);
+			if(ws.getiResultID() == RESPONSE_SUCCESS){
+				try {
+					setSuccessReceiver(mCardNo, Double.parseDouble(ws.getSzResultData()));
+				} catch (Exception e) {
+					setErrorReceiver(e.getMessage());
+				}
+			}else{
+				setErrorReceiver(TextUtils.isEmpty(ws.getSzResultData()) ? result : ws.getSzResultData());
+			}
+		} catch (JsonSyntaxException e) {
+			setErrorReceiver(result);
+		}
 	}
 
 }

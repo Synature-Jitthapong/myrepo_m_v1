@@ -8,6 +8,8 @@ import android.content.Context;
 import android.os.ResultReceiver;
 import android.text.TextUtils;
 
+import org.ksoap2.serialization.PropertyInfo;
+
 public class FoodCourtBalanceOfCard extends FoodCourtMainService{
 
 	/**
@@ -23,35 +25,30 @@ public class FoodCourtBalanceOfCard extends FoodCourtMainService{
 			ResultReceiver receiver) {
 		super(context, GET_BALANCE_METHOD, shopId, computerId, staffId, cardNo, null);
 		mReceiver = receiver;
+
+        mProperty = new PropertyInfo();
+        mProperty.setName(CARD_NO_PARAM);
+        mProperty.setValue(cardNo);
+        mProperty.setType(String.class);
+        mSoapRequest.addProperty(mProperty);
 	}
 
 	@Override
 	protected void onPostExecute(String result) {
-//		WebServiceResult ws;
-//		try {
-//			ws = toServiceObject(result);
-//			if(ws.getiResultID() == RESPONSE_SUCCESS){
-//				try {
-//					PrepaidCardInfo cardInfo = toPrepaidCardInfoObject(ws.getSzResultData());
-//					setSuccessReceiver(cardInfo);
-//				} catch (Exception e) {
-//					setErrorReceiver(e.getMessage());
-//				}
-//			}else{
-//				setErrorReceiver(TextUtils.isEmpty(ws.getSzResultData()) ? result : ws.getSzResultData());
-//			}
-//		} catch (JsonSyntaxException e) {
-//			setErrorReceiver(result);
-//		}
-        setSuccessReceiver(toCardInfoObj());
+		WebServiceResult ws;
+		try {
+			ws = toServiceObject(result);
+			if(ws.getiResultID() == RESPONSE_SUCCESS){
+				try {
+					setSuccessReceiver(mCardNo, Double.parseDouble(ws.getSzResultData()));
+				} catch (Exception e) {
+					setErrorReceiver(e.getMessage());
+				}
+			}else{
+				setErrorReceiver(TextUtils.isEmpty(ws.getSzResultData()) ? result : ws.getSzResultData());
+			}
+		} catch (JsonSyntaxException e) {
+			setErrorReceiver(result);
+		}
 	}
-
-    public static PrepaidCardInfo toCardInfoObj(){
-        PrepaidCardInfo cardInfo = new PrepaidCardInfo();
-        cardInfo.setiCardID(1);
-        cardInfo.setiCardStatus(FoodCourtPayActivity.STATUS_READY_TO_USE);
-        cardInfo.setSzCardNo("1111-2222-3333-4444");
-        cardInfo.setfCurrentAmount(30);
-        return cardInfo;
-    }
 }

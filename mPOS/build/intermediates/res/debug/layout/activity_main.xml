@@ -114,7 +114,8 @@
                 android:onClick="onClick"
                 android:text="@string/free_short"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <ImageButton
                 android:id="@+id/btnClearSelOrder"

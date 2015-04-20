@@ -253,7 +253,66 @@ public class PaymentDetailDataSource extends MPOSDatabase {
 			getWritableDatabase().endTransaction();
 		}
 	}
-	
+
+    /**
+     *
+     * @param transactionId
+     * @param cardNo
+     * @return
+     */
+    public boolean checkAddedFcPayment(int transactionId, String cardNo){
+        boolean isAdded = false;
+        Cursor cursor = getReadableDatabase().rawQuery(
+                "select " + PaymentDetailTable.COLUMN_PAY_ID
+                + " from " + PaymentDetailTable.TEMP_PAYMENT_DETAIL
+                + " where " + OrderTransTable.COLUMN_TRANS_ID + "=?"
+                + " and " + CreditCardTable.COLUMN_CREDITCARD_NO + "=?",
+                new String[]{
+                        String.valueOf(transactionId),
+                        cardNo
+                });
+        if(cursor.moveToFirst()){
+            isAdded = true;
+        }
+        cursor.close();
+        return isAdded;
+    }
+
+    /**
+     * Food court paydetail
+     * @param transactionId
+     * @param computerId
+     * @param payTypeId
+     * @param totalPay
+     * @param pay
+     * @param creditCardNo
+     * @param expireMonth
+     * @param expireYear
+     * @param bankId
+     * @param creditCardTypeId
+     * @param remark
+     * @throws SQLException
+     */
+    public void addFcPaymentDetail(int transactionId, int computerId,
+                                 int payTypeId, double totalPay, double pay , String creditCardNo, int expireMonth,
+                                 int expireYear, int bankId,int creditCardTypeId, String remark) throws SQLException {
+            int paymentId = getMaxPaymentDetailId();
+            ContentValues cv = new ContentValues();
+            cv.put(PaymentDetailTable.COLUMN_PAY_ID, paymentId);
+            cv.put(OrderTransTable.COLUMN_TRANS_ID, transactionId);
+            cv.put(ComputerTable.COLUMN_COMPUTER_ID, computerId);
+            cv.put(PayTypeTable.COLUMN_PAY_TYPE_ID, payTypeId);
+            cv.put(PaymentDetailTable.COLUMN_TOTAL_PAY_AMOUNT, totalPay);
+            cv.put(PaymentDetailTable.COLUMN_PAY_AMOUNT, pay);
+            cv.put(CreditCardTable.COLUMN_CREDITCARD_NO, creditCardNo);
+            cv.put(CreditCardTable.COLUMN_EXP_MONTH, expireMonth);
+            cv.put(CreditCardTable.COLUMN_EXP_YEAR, expireYear);
+            cv.put(CreditCardTable.COLUMN_CREDITCARD_TYPE_ID, creditCardTypeId);
+            cv.put(BankTable.COLUMN_BANK_ID, bankId);
+            cv.put(PaymentDetailTable.COLUMN_REMARK, remark);
+            getWritableDatabase().insertOrThrow(PaymentDetailTable.TEMP_PAYMENT_DETAIL, null, cv);
+    }
+
 	/**
 	 * @param transactionId
 	 * @param computerId
@@ -338,7 +397,22 @@ public class PaymentDetailDataSource extends MPOSDatabase {
 				}
 		);
 	}
-	
+
+    /**
+     *
+     * @param transactionId
+     * @param payDetailId
+     * @return
+     */
+    public int deleteFcPaymentDetail(int transactionId, int payDetailId){
+        return getWritableDatabase().delete(PaymentDetailTable.TEMP_PAYMENT_DETAIL,
+                OrderTransTable.COLUMN_TRANS_ID + "=? AND "
+                        + PaymentDetailTable.COLUMN_PAY_ID + "=?",
+                new String[]{
+                        String.valueOf(transactionId),
+                        String.valueOf(payDetailId)});
+    }
+
 	/**
 	 * @param transactionId
 	 * @param payTypeId
@@ -635,7 +709,48 @@ public class PaymentDetailDataSource extends MPOSDatabase {
 			strQuery.append(orderBy);
 		return getReadableDatabase().rawQuery(strQuery.toString(), selectArgs);
 	}
-	
+
+
+    /**
+     * @param transactionId
+     * @param isLoadTemp
+     * @return
+     */
+    public List<MPOSPaymentDetail> listFcPayment(int transactionId, boolean isLoadTemp){
+        List<MPOSPaymentDetail> paymentLst = new ArrayList<MPOSPaymentDetail>();
+        Cursor cursor = getReadableDatabase().rawQuery(
+                " SELECT a." + PaymentDetailTable.COLUMN_PAY_ID + ", "
+                        + " a." + PayTypeTable.COLUMN_PAY_TYPE_ID + ", "
+                        + " a." + PaymentDetailTable.COLUMN_PAY_AMOUNT + ", "
+                        + " a." + PaymentDetailTable.COLUMN_REMARK + ", "
+                        + " b." + PayTypeTable.COLUMN_PAY_TYPE_CODE + ", "
+                        + " b." + PayTypeTable.COLUMN_PAY_TYPE_NAME + ", "
+                        + " a." + CreditCardTable.COLUMN_CREDITCARD_NO
+                        + " FROM " + (isLoadTemp ? PaymentDetailTable.TEMP_PAYMENT_DETAIL : PaymentDetailTable.TABLE_PAYMENT_DETAIL) + " a "
+                        + " LEFT JOIN " + PayTypeTable.TABLE_PAY_TYPE + " b "
+                        + " ON a." + PayTypeTable.COLUMN_PAY_TYPE_ID
+                        + "=b." + PayTypeTable.COLUMN_PAY_TYPE_ID
+                        + " WHERE a." + OrderTransTable.COLUMN_TRANS_ID + "=?",
+                new String[]{
+                        String.valueOf(transactionId)});
+        if(cursor.moveToFirst()){
+            do{
+                MPOSPaymentDetail payDetail = new MPOSPaymentDetail();
+                payDetail.setTransactionId(transactionId);
+                payDetail.setPaymentDetailId(cursor.getInt(cursor.getColumnIndex(PaymentDetailTable.COLUMN_PAY_ID)));
+                payDetail.setPayTypeId(cursor.getInt(cursor.getColumnIndex(PayTypeTable.COLUMN_PAY_TYPE_ID)));
+                payDetail.setPayTypeCode(cursor.getString(cursor.getColumnIndex(PayTypeTable.COLUMN_PAY_TYPE_CODE)));
+                payDetail.setPayTypeName(cursor.getString(cursor.getColumnIndex(PayTypeTable.COLUMN_PAY_TYPE_NAME)));
+                payDetail.setPayAmount(cursor.getDouble(cursor.getColumnIndex(PaymentDetailTable.COLUMN_PAY_AMOUNT)));
+                payDetail.setRemark(cursor.getString(cursor.getColumnIndex(PaymentDetailTable.COLUMN_REMARK)));
+                payDetail.setCreditCardNo(cursor.getString(cursor.getColumnIndex(CreditCardTable.COLUMN_CREDITCARD_NO)));
+                paymentLst.add(payDetail);
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        return paymentLst;
+    }
+
 	/**
 	 * @param transactionId
 	 * @return List<MPOSPaymentDetail>

@@ -1821,11 +1821,13 @@ public class OrderTransDataSource extends MPOSDatabase {
      * @param transId
      * @param pointBefore
      * @param pointBalance
+     * @param cardNo
      */
-    public void updateTransactionPoint(int transId, double pointBefore, double pointBalance){
+    public void updateTransactionPoint(int transId, double pointBefore, double pointBalance, String cardNo){
         ContentValues cv = new ContentValues();
         cv.put(OrderTransTable.COLUMN_POINT_BEFORE, pointBefore);
         cv.put(OrderTransTable.COLUMN_POINT_BALANCE, pointBalance);
+        cv.put(OrderTransTable.COLUMN_TRANS_NOTE, cardNo);
         getWritableDatabase().update(OrderTransTable.TEMP_ORDER_TRANS, cv,
                 OrderTransTable.COLUMN_TRANS_ID + "=?",
                 new String[]{

@@ -7,7 +7,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.text.TextUtils;
 
 import com.synature.mpos.datasource.CashInOutDao;
@@ -32,8 +31,6 @@ import com.synature.mpos.datasource.model.OrderTransaction;
 import com.synature.pos.Report;
 import com.synature.pos.Staff;
 import com.synature.util.Logger;
-
-import org.kobjects.util.Util;
 
 public abstract class PrinterBase {
 	
@@ -1202,34 +1199,33 @@ public abstract class PrinterBase {
     	mTextToPrint.append(createHorizontalSpace(
     			calculateLength(totalText) + 
     			calculateLength(strTotalSale)));
-    	mTextToPrint.append(strTotalSale + "\n");
+    	mTextToPrint.append(strTotalSale + "\n\n");
 
     	// total payment
-//    	List<MPOSPaymentDetail> paymentLst =
-//    			mPayment.listPaymentGroupByType(transId);
-//    	for(int i = 0; i < paymentLst.size(); i++){
-//    		MPOSPaymentDetail payment = paymentLst.get(i);
-//	    	String strTotalPaid = Utils.currencyFormat(payment.getTotalPay());
+    	List<MPOSPaymentDetail> paymentLst =
+    			mPayment.listFcPayment(transId, false);
+    	for(int i = 0; i < paymentLst.size(); i++){
+    		MPOSPaymentDetail payment = paymentLst.get(i);
+	    	String strTotalPaid = Utils.currencyFormat(payment.getPayAmount());
 //	    	if(payment.getPayTypeId() == PaymentDetailDataSource.PAY_TYPE_CREDIT){
-//	    		String paymentText = payment.getPayTypeName();
-//	    		String cardNoText = "xxxx xxxx xxxx ";
-//	    		try {
+	    		//String paymentText = payment.getPayTypeName();
+	    		String cardNoText = "";//"xxxx xxxx xxxx ";
+	    		try {
 //	    			paymentText = payment.getPayTypeName() + ":" +
 //    					mCreditCard.getCreditCardType(payment.getCreditCardTypeId());
-//	    			cardNoText += payment.getCreditCardNo().substring(12, 16);
-//	    		} catch (Exception e) {
-//	    			Logger.appendLog(mContext, MPOSApplication.LOG_PATH,
-//	    					MPOSApplication.LOG_FILE_NAME, "Error gen creditcard no : " + e.getMessage());
-//	    		}
-//	    		mTextToPrint.append(paymentText);
-//	    		mTextToPrint.append(createHorizontalSpace(calculateLength(paymentText)));
-//	    		mTextToPrint.append("\n");
-//    			mTextToPrint.append(cardNoText);
-//    			mTextToPrint.append(createHorizontalSpace(
-//    					calculateLength(cardNoText) +
-//    					calculateLength(strTotalPaid)));
-//    			mTextToPrint.append(strTotalPaid);
-//	    	}else{
+	    			cardNoText = "Card No: " + payment.getCreditCardNo();//+= payment.getCreditCardNo().substring(12, 16);
+	    		} catch (Exception e) {
+	    			Logger.appendLog(mContext, MPOSApplication.LOG_PATH,
+	    					MPOSApplication.LOG_FILE_NAME, "Error gen creditcard no : " + e.getMessage());
+	    		}
+	    		mTextToPrint.append(cardNoText);
+    			mTextToPrint.append(createHorizontalSpace(
+    					calculateLength(cardNoText) +
+    					calculateLength(strTotalPaid)));
+    			mTextToPrint.append(strTotalPaid);
+//	    	}
+
+//            else{
 //	    		String paymentText = payment.getPayTypeName() + " ";
 //		    	if(i < paymentLst.size() - 1){
 //			    	mTextToPrint.append(paymentText);
@@ -1257,19 +1253,19 @@ public abstract class PrinterBase {
 //				    }
 //		    	}
 //	    	}
-//    		mTextToPrint.append("\n");
-//    	}
+    		mTextToPrint.append("\n");
+    	}
 	    mTextToPrint.append(createLine("=") + "\n");
 
-        if(trans.getPointBefore() > 0) {
+        if(trans.getPointBalance() > 0) {
             // balance
-            String balanceBeforeText = "Point before";
-            String balanceBefore = Utils.currencyFormat(trans.getPointBefore());
-            mTextToPrint.append(balanceBeforeText);
-            mTextToPrint.append(createHorizontalSpace(balanceBeforeText.length() + balanceBefore.length()));
-            mTextToPrint.append(balanceBefore + "\n");
+//            String balanceBeforeText = "Point before";
+//            String balanceBefore = Utils.currencyFormat(trans.getPointBefore());
+//            mTextToPrint.append(balanceBeforeText);
+//            mTextToPrint.append(createHorizontalSpace(balanceBeforeText.length() + balanceBefore.length()));
+//            mTextToPrint.append(balanceBefore + "\n");
 
-            String balanceText = "Current point";
+            String balanceText = "Card: " + trans.getTransactionNote() + " balance";
             String balance = Utils.currencyFormat(trans.getPointBalance());
             mTextToPrint.append(balanceText);
             mTextToPrint.append(createHorizontalSpace(balanceText.length() + balance.length()));
