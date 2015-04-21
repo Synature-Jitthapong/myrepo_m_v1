@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name" translatable="false">mPOS</string>
+    <string name="app_name" translatable="false">food court demo</string>
     <string name="tm_t81" translatable="false">TM-T81II</string>
     <string name="tm_t88v" translatable="false">TM-T88V</string>
     <string name="default_second_display_port" translatable="false">6600</string>

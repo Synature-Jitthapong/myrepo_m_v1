@@ -27,7 +27,7 @@
             android:gravity="center"
             android:orientation="vertical" >
 
-            <com.synature.mpos.CustomFontTextView
+            <com.synature.foodcourtdemo.CustomFontTextView
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

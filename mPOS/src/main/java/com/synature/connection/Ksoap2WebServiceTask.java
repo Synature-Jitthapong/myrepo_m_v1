@@ -10,7 +10,7 @@ import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
 
-import com.synature.mpos.R;
+import com.synature.foodcourtdemo.R;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

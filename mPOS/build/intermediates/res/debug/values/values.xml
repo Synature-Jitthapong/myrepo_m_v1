@@ -320,7 +320,7 @@
     <string name="all_session">--All Session--</string>
     <string name="alredy_endday">Already endday.</string>
     <string name="amount">Amount</string>
-    <string name="app_name" translatable="false">mPOS</string>
+    <string name="app_name" translatable="false">food court demo</string>
     <string name="apply">Apply</string>
     <string name="auto_backup_database" translatable="false">Auto backup database</string>
     <string name="backup" translatable="false">Backup</string>

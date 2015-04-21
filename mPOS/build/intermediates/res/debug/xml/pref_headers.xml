@@ -3,16 +3,16 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="com.synature.mpos.SettingsActivity$ConnectionPreferenceFragment"
+        android:fragment="com.synature.foodcourtdemo.SettingsActivity$ConnectionPreferenceFragment"
         android:title="@string/connection"/>
     <header
-        android:fragment="com.synature.mpos.SettingsActivity$GeneralPreferenceFragment"
+        android:fragment="com.synature.foodcourtdemo.SettingsActivity$GeneralPreferenceFragment"
         android:title="@string/general_setting"/>
 	<header
-        android:fragment="com.synature.mpos.SettingsActivity$PrinterPreferenceFragment"
+        android:fragment="com.synature.foodcourtdemo.SettingsActivity$PrinterPreferenceFragment"
         android:title="@string/printer_setting"/>
 	<header
-        android:fragment="com.synature.mpos.SettingsActivity$WintecSettingFragment"
+        android:fragment="com.synature.foodcourtdemo.SettingsActivity$WintecSettingFragment"
         android:title="@string/wintec_setting"/>
     <!-- <header
         android:fragment="com.synature.mpos.SettingsActivity$SecondDisplayPreferenceFragment"

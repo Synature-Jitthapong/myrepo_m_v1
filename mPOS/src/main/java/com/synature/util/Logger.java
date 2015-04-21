@@ -9,7 +9,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-import com.synature.mpos.Utils;
+import com.synature.foodcourtdemo.Utils;
 
 import android.content.Context;
 import android.util.Log;

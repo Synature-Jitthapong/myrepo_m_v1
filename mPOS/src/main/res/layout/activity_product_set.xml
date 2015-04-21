@@ -5,7 +5,7 @@
     android:baselineAligned="false"
     android:divider="@android:drawable/divider_horizontal_bright"
     android:padding="@dimen/default_margin"
-    tools:context="com.synature.mpos.ProductSetActivity"
+    tools:context="com.synature.foodcourtdemo.ProductSetActivity"
     tools:ignore="MergeRootFrame" >
 
     <ExpandableListView

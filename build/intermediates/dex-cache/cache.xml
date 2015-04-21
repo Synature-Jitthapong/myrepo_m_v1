@@ -6,77 +6,77 @@
         jumboMode="false"
         revision="21.1.2"
         sha1="62681b8212ca52278feafec31775fd0cb096d99a">
-        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\ksoap2-android-assembly-3.3.0-jar-with-dependencies-c5b588486ce0f38b7ef6669a08ee43d4d8a910e2.jar" />
+        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\ksoap2-android-assembly-3.3.0-jar-with-dependencies-c5b588486ce0f38b7ef6669a08ee43d4d8a910e2.jar" />
     </item>
     <item
         jar="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\libs\ePOS-Print.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="ab2b4caa13eb976f1acf8abb3e11f8afa04c25a7">
-        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\ePOS-Print-3c8401c1e1530fc376ca909be31e9fd395f44c22.jar" />
+        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\ePOS-Print-3c8401c1e1530fc376ca909be31e9fd395f44c22.jar" />
     </item>
     <item
         jar="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.0.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="c6d79137693d494dee16372d3921f919eb724ced">
-        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\classes-5eeddf4b154287981d3ce903bac5d883de6f0ad3.jar" />
+        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\classes-5eeddf4b154287981d3ce903bac5d883de6f0ad3.jar" />
     </item>
     <item
         jar="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\exploded-aar\myrepo_m_v1\synSlidingTab\unspecified\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="a82028204818c268f6e3965501f828258ae92f8d">
-        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\classes-54bfbd912a87d29f143859668f43e0436ba12309.jar" />
+        sha1="2e36cd60d85981e7054ce9085ec699998061d9e5">
+        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\classes-54bfbd912a87d29f143859668f43e0436ba12309.jar" />
     </item>
     <item
         jar="C:\Users\j1tth4\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-a92287d63268e4e8fa721c0d504815645347c74d.jar" />
+        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\support-annotations-22.0.0-a92287d63268e4e8fa721c0d504815645347c74d.jar" />
     </item>
     <item
         jar="C:\Users\j1tth4\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.2.4\a60a5e993c98c864010053cb901b7eab25306568\gson-2.2.4.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="a60a5e993c98c864010053cb901b7eab25306568">
-        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\gson-2.2.4-30784be49b2e8a80b67b11257efa6059c2f7ebb1.jar" />
+        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\gson-2.2.4-30784be49b2e8a80b67b11257efa6059c2f7ebb1.jar" />
     </item>
     <item
         jar="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\libs\WTAndroidJar2.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="20c83b3ce9d96bf7e2fb2793357414837d989cc9">
-        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\WTAndroidJar2-c125c57ca77e4357b0e992dc1672afb6108b27ec.jar" />
+        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\WTAndroidJar2-c125c57ca77e4357b0e992dc1672afb6108b27ec.jar" />
     </item>
     <item
         jar="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\libs\pinchzoom.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="a4def992b1f41525748db059dfdd21322cc3157e">
-        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\pinchzoom-1a410e524f1bf4344d71f21b5c4f40fc73e6b179.jar" />
+        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\pinchzoom-1a410e524f1bf4344d71f21b5c4f40fc73e6b179.jar" />
     </item>
     <item
         jar="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-78a43d6ff92311041362d86286e04c61f276ea26.jar" />
+        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\internal_impl-22.0.0-78a43d6ff92311041362d86286e04c61f276ea26.jar" />
     </item>
     <item
         jar="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.0.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="d84409890828e07d344a3b9b1da545dba9897b51">
-        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\classes-3ddd3f76c0fc41e53fd9d7ae9d14df796e327810.jar" />
+        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\classes-3ddd3f76c0fc41e53fd9d7ae9d14df796e327810.jar" />
     </item>
     <item
         jar="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\classes-08d62a4e62802a5f37f9fa872333c7b28071ef7f.jar" />
+        <dex dex="C:\Users\j1tth4\Documents\Git\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\classes-08d62a4e62802a5f37f9fa872333c7b28071ef7f.jar" />
     </item>
 
 </items>

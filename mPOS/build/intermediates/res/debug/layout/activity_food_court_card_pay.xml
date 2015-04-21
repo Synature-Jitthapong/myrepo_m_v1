@@ -3,7 +3,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.synature.mpos.FoodCourtCardPayActivity"
+    tools:context="com.synature.foodcourtdemo.FoodCourtCardPayActivity"
     tools:ignore="MergeRootFrame" >
 
 </FrameLayout><!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/layout/activity_food_court_card_pay.xml -->
