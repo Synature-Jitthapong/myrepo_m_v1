@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m/mPOS/src/main/res/values/array.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/array.xml -->
     <eat-comment/>
     <string-array name="baudrates_name">
         <item>9600</item>
@@ -33,11 +33,12 @@
     <string-array name="bill_type">
         <item>@string/receipt</item>
         <item>@string/finish_waste</item>
-        <item>@string/cash_inout</item>
     </string-array>
-    <string-array name="cash_type">
+    <string-array name="cash_type_menu">
         <item>@string/cash_out</item>
         <item>@string/cash_in</item>
+        <item>@string/reprint_cash_inout</item>
+        <item>@string/void_cash_inout</item>
     </string-array>
     <string-array name="connection_time_out_name">
         <item>10ms.</item>
@@ -83,7 +84,7 @@
         <item>@string/tm_t81</item>
         <item>@string/tm_t88v</item>
     </string-array>
-    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m/mPOS/src/main/res/values/colors.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="blue">#2196F3</color>
     <color name="blue_gray_light">#ffEFF4F4</color>
@@ -100,7 +101,7 @@
     <color name="orange">#FF5722</color>
     <color name="teal">#009688</color>
     <color name="white_gray">#fffafafa</color>
-    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m/mPOS/src/main/res/values/dimens.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">4dp</dimen>
     <dimen name="activity_vertical_margin">4dp</dimen>
@@ -111,11 +112,11 @@
     <dimen name="list_item_min_height">48dp</dimen>
     <dimen name="menu_text_large">22sp</dimen>
     <dimen name="min_margin">3dp</dimen>
-    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m/mPOS/src/main/res/values/integers.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/integers.xml -->
     <eat-comment/>
     <integer name="large_text_size">32</integer>
     <integer name="larger_text_size">48</integer>
-    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m/mPOS/src/main/res/values/strings.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="about">About MPOS</string>
     <string name="action_settings" translatable="false">Settings</string>
@@ -149,6 +150,7 @@
     <string name="cash_in">Cash In</string>
     <string name="cash_in_drawer" translatable="false">Cash In Drawer</string>
     <string name="cash_inout">Cash-In/Out</string>
+    <string name="cash_no">Cash No</string>
     <string name="cash_out">Cash Out</string>
     <string name="cash_paid">Cash Paid</string>
     <string name="cashier">Cashier</string>
@@ -213,6 +215,7 @@
     <string name="enter_enough_money">Not enough money.</string>
     <string name="enter_password">Please enter password</string>
     <string name="enter_price">Please enter product price.</string>
+    <string name="enter_reason">Please enter reason.</string>
     <string name="enter_staff_code">Please enter staff code</string>
     <string name="enter_valid_numeric">Please enter valid numeric.</string>
     <string name="epson_printer" translatable="false">Epson Printer</string>
@@ -308,6 +311,7 @@
     <string name="receipt_no">Receipt No.</string>
     <string name="remark">Remark</string>
     <string name="report">Reports</string>
+    <string name="reprint_cash_inout">Reprint Cash-In/Out</string>
     <string name="reprint_receipt">Reprint Receipt</string>
     <string name="reset">Reset</string>
     <string name="reset_endday">Reset Endday</string>
@@ -374,6 +378,7 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <string name="to">To</string>
     <string name="total">Total</string>
     <string name="total_cash" translatable="false">Total Cash</string>
+    <string name="total_cash_inout">Total Cash-In/Out</string>
     <string name="total_payment">Total pay</string>
     <string name="total_price">Total price</string>
     <string name="total_qty" translatable="false">Total Qty.</string>
@@ -398,6 +403,7 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <string name="void_bill_after_paid">Void Bill After Paid</string>
     <string name="void_bill_success">Void bill successfully.</string>
     <string name="void_by">Voided By </string>
+    <string name="void_cash_inout">Void Cash-In/Out</string>
     <string name="void_finish_waste" translatable="false">Void Finish Waste</string>
     <string name="void_receipt">Void Receipt</string>
     <string name="void_time">Void Time </string>
@@ -407,7 +413,7 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <string name="wintec_magnetic_reader_settings" translatable="false">mPOS Magnetic Reader Settings</string>
     <string name="wintec_setting">mPOS Settings</string>
     <string name="yes">Yes</string>
-    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m/mPOS/src/main/res/values/styles.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="ActivityDialogTheme" parent="android:Theme.Holo.Light.Dialog">
         <item name="android:windowIsFloating">false</item>

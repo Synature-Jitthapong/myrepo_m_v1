@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m/mPOS/src/main/res/values-th/strings.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values-th/strings.xml -->
     <eat-comment/>
     <string name="about">เกี่ยวกับ mPOS</string>
     <string name="all_session">--ทุกกะ--</string>
@@ -20,6 +20,7 @@
     <string name="cash">เงินสด</string>
     <string name="cash_in">เงินเข้า</string>
     <string name="cash_inout">เงิน-เข้า/ออก</string>
+    <string name="cash_no">หมายเลข เงิน-เข้า/ออก</string>
     <string name="cash_out">เงินออก</string>
     <string name="cash_paid">จ่ายเงินพอดี</string>
     <string name="cashier">แคชเชียร์</string>
@@ -76,6 +77,7 @@
     <string name="enter_enough_money">กรุณาใส่จำนวนเงินให้เพียงพอ</string>
     <string name="enter_password">กรุณาใส่รหัสผ่าน</string>
     <string name="enter_price">กรุณาใส่ราคา</string>
+    <string name="enter_reason">กรุณาใส่เหตุผล</string>
     <string name="enter_staff_code">กรุณาใส่รหัสพนักงาน</string>
     <string name="enter_valid_numeric">กรุณาใส่ตัวเลขให้ถูกต้อง</string>
     <string name="exit">ออกจากโปรแกรม</string>
@@ -158,6 +160,7 @@
     <string name="receipt_no">เลขที่ใบเสร็จ</string>
     <string name="remark">หมายเหตุ</string>
     <string name="report">รายงาน</string>
+    <string name="reprint_cash_inout">พิมพ์ เงิน-เข้า/ออก ซ้ำ</string>
     <string name="reprint_receipt">พิมพ์ใบเสร็จ</string>
     <string name="reset">เริ่มใหม่</string>
     <string name="reset_endday">รีเซ็ตการปิดสิ้นวัน</string>
@@ -208,6 +211,7 @@
     <string name="time">เวลา</string>
     <string name="to">ถึง</string>
     <string name="total">รวมทั้งหมด</string>
+    <string name="total_cash_inout">เงิน-เข้า/ออก ทั้งหมด</string>
     <string name="total_payment">ยอดชำระ</string>
     <string name="total_price">ราคารวม</string>
     <string name="total_receipt">จำนวนใบเสร็จ</string>
@@ -230,6 +234,7 @@
     <string name="void_bill_after_paid">จำนวนยกเลิกใบเสร็จ</string>
     <string name="void_bill_success">ยกเลิกใบเสร็จสำเร็จ</string>
     <string name="void_by">ยกเลิกโดย</string>
+    <string name="void_cash_inout">ยกเลิก เงิน-เข้า/ออก</string>
     <string name="void_receipt">ยกเลิกใบเสร็จ</string>
     <string name="void_time">เวลายกเลิก</string>
     <string name="wintec_setting">ตั้งค่าเครื่อง mPOS</string>
