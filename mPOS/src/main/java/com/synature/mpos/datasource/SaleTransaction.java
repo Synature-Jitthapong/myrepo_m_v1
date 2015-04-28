@@ -242,7 +242,7 @@ public class SaleTransaction extends MPOSDatabase{
 					order.setiShopID(mShop.getShopId());
 					order.setiVatType(cursor.getInt(cursor.getColumnIndex(ProductTable.COLUMN_VAT_TYPE)));
 					order.setiProductID(cursor.getInt(cursor.getColumnIndex(ProductTable.COLUMN_PRODUCT_ID)));
-					order.setiProductTypeID(cursor.getColumnIndex(ProductTable.COLUMN_PRODUCT_TYPE_ID));
+					order.setiProductTypeID(cursor.getInt(cursor.getColumnIndex(ProductTable.COLUMN_PRODUCT_TYPE_ID)));
 					order.setfQty(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_ORDER_QTY))));
 					order.setfPricePerUnit(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(ProductTable.COLUMN_PRODUCT_PRICE))));
 					order.setfRetailPrice(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_TOTAL_RETAIL_PRICE))));
