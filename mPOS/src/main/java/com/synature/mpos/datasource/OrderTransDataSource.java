@@ -1246,8 +1246,7 @@ public class OrderTransDataSource extends MPOSDatabase {
 	
 	/**
 	 * Get max receiptId
-	 * @param year
-	 * @param month
+	 * @param saleDate
 	 * @return max receiptId
 	 */
 	public int getMaxReceiptId(String saleDate) {

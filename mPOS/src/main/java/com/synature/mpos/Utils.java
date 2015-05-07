@@ -455,9 +455,9 @@ public class Utils {
 	public static int getLastDayToClearSale(Context context){
 		SharedPreferences sharedPref = PreferenceManager
 				.getDefaultSharedPreferences(context);
-		int days = -60;
+		int days = -90;
 		try {
-			String strDay = sharedPref.getString(SettingsActivity.KEY_PREF_MONTHS_TO_KEEP_SALE, "0");
+			String strDay = sharedPref.getString(SettingsActivity.KEY_PREF_MONTHS_TO_KEEP_SALE, "-90");
 			days = Integer.parseInt(strDay);
 		} catch (Exception e) {}
 		return days;
@@ -684,10 +684,6 @@ public class Utils {
 				Logger.appendLog(context, MPOSApplication.LOG_PATH, MPOSApplication.LOG_FILE_NAME, 
 						"Clear sale from: " + format.format(cFirst.getTime()) + "\n"
 								+ " to: " + format.format(cLast.getTime()));
-
-                Log.i(TAG, DateFormat.getTimeInstance().format(Calendar.getInstance().getTime())
-                        + "Clear sale from: " + format.format(cFirst.getTime()) + "\n"
-                                + " to: " + format.format(cLast.getTime()));
 			}
 		}
 	}

@@ -19,7 +19,7 @@ public class EndDaySaleSender extends MPOSServiceBase{
 	 * @param computerId
 	 * @param staffId
 	 * @param jsonSale
-	 * @param listener
+	 * @param receiver
 	 */
 	public EndDaySaleSender(Context context, int shopId, int computerId,
 			int staffId, String jsonSale, ResultReceiver receiver) {

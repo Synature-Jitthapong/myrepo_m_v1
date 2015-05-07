@@ -525,7 +525,7 @@ public class MainActivity extends FragmentActivity implements
 				if(totalQty > 0){
 					try {
 						mDsp.setItemTotalQty(mGlobal.qtyFormat(totalQty));
-						mDsp.setItemTotalAmount(mGlobal.currencyFormat(totalRetailPrice));
+						mDsp.setItemTotalAmount(mGlobal.currencyFormat(totalSalePrice));
 						mDsp.displayOrder();
 					} catch (Exception e) {
 						e.printStackTrace();
