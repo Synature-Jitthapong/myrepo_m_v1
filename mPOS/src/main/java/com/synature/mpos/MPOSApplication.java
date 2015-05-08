@@ -5,11 +5,19 @@ import java.lang.Thread.UncaughtExceptionHandler;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import com.synature.mpos.datasource.ComputerDataSource;
+import com.synature.mpos.datasource.SessionDataSource;
+import com.synature.mpos.datasource.ShopDataSource;
 import com.synature.util.Logger;
 
 import android.app.Application;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.ResultReceiver;
+import android.text.TextUtils;
+import android.util.Log;
 
 public class MPOSApplication extends Application {
 	/**
@@ -99,7 +107,7 @@ public class MPOSApplication extends Application {
 	public void onCreate() {
 		Thread.setDefaultUncaughtExceptionHandler(new MyUncaughtExceptionHandler());
 	}
-	
+
 	private class MyUncaughtExceptionHandler implements UncaughtExceptionHandler{
 
 		private UncaughtExceptionHandler mDefaultUEH;

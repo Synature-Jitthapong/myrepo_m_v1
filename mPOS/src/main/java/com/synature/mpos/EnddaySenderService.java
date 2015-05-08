@@ -17,6 +17,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.ResultReceiver;
 import android.text.TextUtils;
+import android.util.Log;
 
 public class EnddaySenderService extends SaleSenderServiceBase{
 
@@ -80,6 +81,7 @@ public class EnddaySenderService extends SaleSenderServiceBase{
 	 */
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
+		Log.i(TAG, "thread id: " + startId);
 		if(intent != null){
 			Message msg = mServiceHandler.obtainMessage();
 			msg.arg1 = startId;
@@ -146,15 +148,15 @@ public class EnddaySenderService extends SaleSenderServiceBase{
 					// try again with send all
 					sendEndday(SEND_ALL, sessionDate, shopId, computerId, staffId, receiver);
 					Logger.appendLog(getApplicationContext(), MPOSApplication.ERR_LOG_PATH, "", 
-							"Send endday with unsend sale fail: " + msg + "\n" + jsonEndday);
+							"Send endday with unsend sale fail: " + msg);
 				}else{
 					// if send all not work 
 					flagSendStatus(sessionDate, MPOSDatabase.NOT_SEND);
 					Logger.appendLog(getApplicationContext(), MPOSApplication.ERR_LOG_PATH, "", 
-							"Send all endday fail: " + msg + "\n" + jsonEndday);
+							"Send all endday fail: " + msg);
 					
 					Intent intent = new Intent(getApplicationContext(), RemoteStackTraceService.class);
-					intent.putExtra("stackTrace", "Send all endday fail: " + msg + "\n" + jsonEndday);
+					intent.putExtra("stackTrace", "Send all endday fail: " + msg);
 					startService(intent);
 					
 					if(receiver != null){
@@ -176,7 +178,7 @@ public class EnddaySenderService extends SaleSenderServiceBase{
 	 * @param staffId
 	 * @param receiver
 	 */
-	private void sendEndday(int sendMode, String sessionDate, int shopId, 
+	private synchronized void sendEndday(int sendMode, String sessionDate, int shopId,
 			int computerId, int staffId, ResultReceiver receiver){
 		JSONSaleSerialization jsonGenerator = new JSONSaleSerialization(this);
 		if(sendMode == SEND_CURRENT){ 

@@ -111,11 +111,11 @@ public class SessionDataSource extends MPOSDatabase{
 		List<com.synature.mpos.datasource.model.Session> sl =
 				new ArrayList<com.synature.mpos.datasource.model.Session>();
 		Cursor cursor = getReadableDatabase().query(
-				SessionTable.TABLE_SESSION, 
-				ALL_SESS_COLUMNS, 
-				SessionTable.COLUMN_SESS_DATE + "=?", 
+				SessionTable.TABLE_SESSION,
+				ALL_SESS_COLUMNS,
+				SessionTable.COLUMN_SESS_DATE + "=?",
 				new String[]{
-					sessDate
+						sessDate
 				}, null, null, null);
 		if(cursor.moveToFirst()){
 			do{
@@ -129,7 +129,54 @@ public class SessionDataSource extends MPOSDatabase{
 		cursor.close();
 		return sl;
 	}
-	
+
+	/**
+	 * @return null if no record
+	 */
+	public String getLastUnSendSessionEndday(){
+		String sessionDate = null;
+		Cursor cursor = getReadableDatabase().rawQuery(
+				"select " + SessionTable.COLUMN_SESS_DATE
+						+ " from " + SessionDetailTable.TABLE_SESSION_ENDDAY_DETAIL
+						+ " where " + COLUMN_SEND_STATUS + "=?"
+						+ " and " + SessionDetailTable.COLUMN_TOTAL_QTY_RECEIPT + " >? "
+						+ " order by " + SessionTable.COLUMN_SESS_DATE + " desc limit 1",
+				new String[]{
+						String.valueOf(NOT_SEND),
+						"0"
+				}
+		);
+		if(cursor.moveToFirst()){
+			sessionDate = cursor.getString(0);
+		}
+		cursor.close();
+		return sessionDate;
+	}
+
+	/**
+	 * @param sessionDate
+	 * @return close staffId
+	 */
+	public int getEnddayStaffId(String sessionDate){
+		int staffId = 1;
+		Cursor cursor = getReadableDatabase().rawQuery(
+				"select " + SessionTable.COLUMN_CLOSE_STAFF
+						+ " from " + SessionTable.TABLE_SESSION
+						+ " where " + SessionTable.COLUMN_SESS_DATE + "=?"
+						+ " and " + SessionTable.COLUMN_IS_ENDDAY + "=?"
+						+ " limit 1",
+				new String[]{
+						sessionDate,
+						String.valueOf(ALREADY_ENDDAY_STATUS)
+				}
+		);
+		if(cursor.moveToFirst()){
+			staffId = cursor.getInt(0);
+		}
+		cursor.close();
+		return staffId;
+	}
+
 	/**
 	 * Get unsend session date 
 	 * @return session date, null if not found

@@ -327,6 +327,11 @@ public class MainActivity extends FragmentActivity implements
 		countHoldOrder();
 		countSaleDataNotSend();
 		updateDisplayColumnMenu();
+
+		// try to send last endday
+		if(Utils.isSendEnddayAutomaticallyWhenAppStart(getApplicationContext())) {
+			tryToSendLastEndeday();
+		}
 		return true;
 	}
 
@@ -2633,7 +2638,71 @@ public class MainActivity extends FragmentActivity implements
 		intent.putExtra(EnddaySenderService.RECEIVER_NAME, new EnddayReceiver(new Handler()));
 		startService(intent);
 	}
-	
+
+	/**
+	 * Try to send last endday data
+	 */
+	private void tryToSendLastEndeday(){
+		SessionDataSource session = new SessionDataSource(this);
+		String sessionDate = session.getLastUnSendSessionEndday();
+		if(!TextUtils.isEmpty(sessionDate)) {
+			ShopDataSource shop = new ShopDataSource(this);
+			ComputerDataSource comp = new ComputerDataSource(this);
+			int enddayStaffId = session.getEnddayStaffId(sessionDate);
+			int shopId = shop.getShopId();
+			int computerId = comp.getComputerId();
+			Intent intent = new Intent(this, EnddaySenderService.class);
+			intent.putExtra(EnddaySenderService.WHAT_TO_DO_PARAM, EnddaySenderService.SEND_CURRENT);
+			intent.putExtra(EnddaySenderService.SESSION_DATE_PARAM, sessionDate);
+			intent.putExtra(EnddaySenderService.SHOP_ID_PARAM, shopId);
+			intent.putExtra(EnddaySenderService.COMPUTER_ID_PARAM, computerId);
+			intent.putExtra(EnddaySenderService.STAFF_ID_PARAM, enddayStaffId);
+			intent.putExtra(EnddaySenderService.RECEIVER_NAME, new SendLastEnddayReceiver(new Handler()));
+			startService(intent);
+		}
+	}
+
+	private class SendLastEnddayReceiver extends ResultReceiver{
+
+		private MenuItem mItemSendData;
+
+		/**
+		 * Create a new ResultReceive to receive results.  Your
+		 * {@link #onReceiveResult} method will be called from the thread running
+		 * <var>handler</var> if given, or from an arbitrary thread if null.
+		 *
+		 * @param handler
+		 */
+		public SendLastEnddayReceiver(Handler handler) {
+			super(handler);
+			Log.i("SendLastEndday", "begin send last endday");
+
+			if(mMenu != null) {
+				mItemSendData = mMenu.findItem(R.id.itemSendData);
+				mItemSendData.setEnabled(false);
+			}
+			Toast.makeText(MainActivity.this, getString(R.string.send_endday_data), Toast.LENGTH_LONG).show();
+		}
+
+		@Override
+		protected void onReceiveResult(int resultCode, Bundle resultData) {
+			super.onReceiveResult(resultCode, resultData);
+			switch (resultCode){
+				case EnddaySenderService.RESULT_SUCCESS:
+					Toast.makeText(MainActivity.this, getString(R.string.send_endday_data_success), Toast.LENGTH_SHORT).show();
+					countSaleDataNotSend();
+					Log.i("SendLastEndday", "send endday successfully.");
+					break;
+				case EnddaySenderService.RESULT_ERROR:
+					Log.e("SendLastEndday", resultData.getString("msg"));
+					break;
+			}
+			if(mMenu != null) {
+				mItemSendData.setEnabled(true);
+			}
+		}
+	}
+
 	@Override
 	public void onChangeLanguage() {
 		refreshSelf();

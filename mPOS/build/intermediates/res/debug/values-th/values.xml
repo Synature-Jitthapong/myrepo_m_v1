@@ -7,6 +7,7 @@
     <string name="alredy_endday">ปิดสิ้นวันแล้ว</string>
     <string name="amount">จำนวน</string>
     <string name="apply">ใช้</string>
+    <string name="auto_send_last_endday">ส่งข้อมูลสิ้นวันอัตโนมัติเมื่อเปิดโปรแกรม</string>
     <string name="balance">จำนวนคงเหลือ</string>
     <string name="bank">ธนาคาร</string>
     <string name="barcode">บาร์โค้ด</string>

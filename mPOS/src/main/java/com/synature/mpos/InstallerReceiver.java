@@ -41,9 +41,9 @@ public class InstallerReceiver extends BroadcastReceiver{
 			editor.putString(SettingsActivity.KEY_PREF_FILE_URL, "");
 			editor.commit();
 			
-//			Intent loginIntent = new Intent(context, LoginActivity.class);
-//			loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//			context.startActivity(loginIntent);
+			Intent loginIntent = new Intent(context, LoginActivity.class);
+			loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			context.startActivity(loginIntent);
 		}
 	}
 

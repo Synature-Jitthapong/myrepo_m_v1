@@ -53,6 +53,7 @@ public class SettingsActivity extends PreferenceActivity {
 	public static final String KEY_PREF_LAST_UPDATE = "last_update";
 	public static final String KEY_PREF_EXP_DATE = "software_exp_date";
 	public static final String KEY_PREF_LOCK_DATE = "software_lock_date";
+	public static final String KEY_PREF_AUTO_SEND_ENDDAY = "auto_send_last_endday";
 
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {

@@ -120,6 +120,7 @@
     <string name="app_name" translatable="false">mPOS</string>
     <string name="apply">Apply</string>
     <string name="auto_backup_database" translatable="false">Auto backup database</string>
+    <string name="auto_send_last_endday">Send last endday data automatically</string>
     <string name="backup" translatable="false">Backup</string>
     <string name="backup_db" translatable="false">Backup Database</string>
     <string name="backup_db_success" translatable="false">Backup database successfully.</string>

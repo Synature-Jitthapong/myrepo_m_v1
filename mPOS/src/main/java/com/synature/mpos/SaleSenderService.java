@@ -15,6 +15,7 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
 import android.os.ResultReceiver;
+import android.text.TextUtils;
 
 public class SaleSenderService extends SaleSenderServiceBase{
 
@@ -122,7 +123,7 @@ public class SaleSenderService extends SaleSenderServiceBase{
 //					try {
 //						JSONSaleLogFile.appendSale(getApplicationContext(), jsonSale);
 //					} catch (Exception e) {}
-//					Logger.appendLog(getApplicationContext(), MPOSApplication.LOG_PATH, MPOSApplication.LOG_FILE_NAME, 
+//					Logger.appendLog(getApplicationContext(), MPOSApplication.LOG_PATH, MPOSApplication.LOG_FILE_NAME,
 //							"Send partial successfully");
 //				}
 				if(receiver != null){
@@ -133,7 +134,7 @@ public class SaleSenderService extends SaleSenderServiceBase{
 				flagSendStatus(sessionDate, MPOSDatabase.NOT_SEND);
 				String msg = resultData.getString("msg");
 				Logger.appendLog(getApplicationContext(), MPOSApplication.ERR_LOG_PATH, "", 
-						"Send partial fail: " + msg + "\n" + jsonSale);
+						"Send partial fail: " + msg);
 				if(receiver != null){
 					Bundle b = new Bundle();
 					b.putString("msg", msg);
@@ -194,7 +195,7 @@ public class SaleSenderService extends SaleSenderServiceBase{
 	 * @param staffId
 	 * @param receiver
 	 */
-	private void sendPartialSale(String sessionDate, int shopId, int computerId, 
+	private synchronized void sendPartialSale(String sessionDate, int shopId, int computerId,
 			int staffId, ResultReceiver receiver){
 		JSONSaleSerialization jsonGenerator = 
 				new JSONSaleSerialization(getApplicationContext());
@@ -211,7 +212,7 @@ public class SaleSenderService extends SaleSenderServiceBase{
 	 * @param computerId
 	 * @param staffId
 	 */
-	private void sendLastSaleTransaction(String sessionDate, int shopId, 
+	private synchronized void sendLastSaleTransaction(String sessionDate, int shopId,
 			int computerId, int staffId){
 		JSONSaleSerialization jsonGenerator = 
 				new JSONSaleSerialization(getApplicationContext());
@@ -230,7 +231,7 @@ public class SaleSenderService extends SaleSenderServiceBase{
 	 * @param staffId
 	 * @param receiver
 	 */
-	private void sendSpecificSaleTransaction(int transactionId, String sessionDate, int shopId, 
+	private synchronized void sendSpecificSaleTransaction(int transactionId, String sessionDate, int shopId,
 			int computerId, int staffId, ResultReceiver receiver){
 		JSONSaleSerialization jsonGenerator = 
 				new JSONSaleSerialization(getApplicationContext());

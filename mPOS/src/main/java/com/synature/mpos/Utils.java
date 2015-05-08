@@ -573,6 +573,17 @@ public class Utils {
         return sharedPref.getString(SettingsActivity.KEY_PREF_SYNC_TIME, "");
     }
 
+	/**
+	 * @param context
+	 * @return true or false
+	 */
+	public static boolean isSendEnddayAutomaticallyWhenAppStart(Context context){
+		boolean isSend = true;
+		SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+		isSend = sharedPref.getBoolean(SettingsActivity.KEY_PREF_AUTO_SEND_ENDDAY, true);
+		return isSend;
+	}
+
     /**
      * @param context
      * @return true if already sync

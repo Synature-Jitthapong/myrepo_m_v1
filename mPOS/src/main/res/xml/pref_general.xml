@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="@string/general_setting" >
+    <PreferenceCategory android:title="@string/general_setting">
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="show_menu_image"
             android:title="@string/show_menu_image" />
-        <CheckBoxPreference android:key="enable_backup" android:title="@string/backup_db" android:defaultValue="true" android:summary="@string/auto_backup_database"/>
-        <ListPreference android:summary="@string/max_months_to_keep_sale" android:title="@string/keep_sale_data" android:key="months_keep_sale" android:entryValues="@array/months_to_keep_sale_value" android:entries="@array/months_to_keep_sale" android:defaultValue="-90"/>
-        
-        
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="enable_backup"
+            android:summary="@string/auto_backup_database"
+            android:title="@string/backup_db" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="auto_send_last_endday"
+            android:summary="@string/auto_send_last_endday"
+            android:title="@string/send_endday_data"
+            />
+        <ListPreference
+            android:defaultValue="-90"
+            android:entries="@array/months_to_keep_sale"
+            android:entryValues="@array/months_to_keep_sale_value"
+            android:key="months_keep_sale"
+            android:summary="@string/max_months_to_keep_sale"
+            android:title="@string/keep_sale_data" />
+
+
     </PreferenceCategory>
 
 </PreferenceScreen>
