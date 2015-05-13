@@ -380,9 +380,14 @@ public class LoginActivity extends Activity implements OnClickListener,
 	}
 	
 	private void requestValidUrl(){
-		SoftwareRegister register = new SoftwareRegister(this, new RegisterReceiver(new Handler()));
+//		SoftwareRegister register = new SoftwareRegister(this, new RegisterReceiver(new Handler()));
+//		ExecutorService executor = Executors.newSingleThreadExecutor();
+//		executor.execute(register);
+//		executor.shutdown();
+		DeviceChecker checker = new DeviceChecker(LoginActivity.this,
+				new DeviceCheckerReceiver(new Handler()));
 		ExecutorService executor = Executors.newSingleThreadExecutor();
-		executor.execute(register);
+		executor.execute(checker);
 		executor.shutdown();
 	}
 

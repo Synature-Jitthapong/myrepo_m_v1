@@ -423,9 +423,9 @@ public class Utils {
 	public static int getLastDayToClearSale(Context context){
 		SharedPreferences sharedPref = PreferenceManager
 				.getDefaultSharedPreferences(context);
-		int days = -60;
+		int days = -90;
 		try {
-			String strDay = sharedPref.getString(SettingsActivity.KEY_PREF_MONTHS_TO_KEEP_SALE, "0");
+			String strDay = sharedPref.getString(SettingsActivity.KEY_PREF_MONTHS_TO_KEEP_SALE, "-90");
 			days = Integer.parseInt(strDay);
 		} catch (Exception e) {}
 		return days;
