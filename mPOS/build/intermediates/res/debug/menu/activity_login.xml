@@ -35,4 +35,4 @@
         android:id="@+id/itemExit"
         android:title="@string/exit">
     </item>
-</menu><!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/menu/activity_login.xml -->
+</menu><!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/menu/activity_login.xml -->

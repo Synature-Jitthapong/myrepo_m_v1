@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/values/array.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/array.xml -->
     <eat-comment/>
     <string-array name="baudrates_name">
         <item>9600</item>
@@ -84,7 +84,7 @@
         <item>@string/tm_t81</item>
         <item>@string/tm_t88v</item>
     </string-array>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
@@ -106,7 +106,7 @@
     <color name="background_floating_material_light">#ffeeeeee</color>
     <color name="background_material_dark">#ff303030</color>
     <color name="background_material_light">#ffeeeeee</color>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/values/colors.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="blue">#2196F3</color>
     <color name="blue_gray_light">#ffEFF4F4</color>
@@ -114,7 +114,7 @@
     <color name="blue_grey">#607D8B</color>
     <color name="blue_grey_800">#37474F</color>
     <color name="blue_grey_900">#263238</color>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
@@ -124,17 +124,17 @@
     <color name="bright_foreground_material_light">@android:color/black</color>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/values/colors.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="cyan">#00BCD4</color>
     <color name="dark_gray">#ff858585</color>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
     <color name="dim_foreground_material_light">#ff323232</color>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/values/colors.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="gray">#ffcccccc</color>
     <color name="gray_light">#ffE5E5E5</color>
@@ -142,19 +142,19 @@
     <color name="grey_100">#F5F5F5</color>
     <color name="grey_300">#E0E0E0</color>
     <color name="grey_50">#FAFAFA</color>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="hint_foreground_material_dark">@color/bright_foreground_disabled_material_dark</color>
     <color name="hint_foreground_material_light">@color/bright_foreground_disabled_material_light</color>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/values/colors.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="indigo">#3F51B5</color>
     <color name="light_blue">#03A9F4</color>
     <color name="light_blue_gray">#78909C</color>
     <color name="light_green">#8BC34A</color>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>
     <color name="link_text_material_dark">@color/material_deep_teal_200</color>
     <color name="link_text_material_light">@color/material_deep_teal_500</color>
@@ -163,10 +163,10 @@
     <color name="material_blue_grey_950">#ff21272b</color>
     <color name="material_deep_teal_200">#ff80cbc4</color>
     <color name="material_deep_teal_500">#ff009688</color>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/values/colors.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="orange">#FF5722</color>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>
     <color name="primary_dark_material_dark">#ff000000</color>
     <color name="primary_dark_material_light">#ff757575</color>
@@ -184,7 +184,7 @@
     <color name="secondary_text_disabled_material_light">#24000000</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/values/colors.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="teal">#009688</color>
     <color name="white_gray">#fffafafa</color>
@@ -212,7 +212,7 @@
     <declare-styleable name="Toolbar"><attr format="reference" name="titleTextAppearance"/><attr format="reference" name="subtitleTextAppearance"/><attr name="title"/><attr name="subtitle"/><attr name="android:gravity"/><attr format="dimension" name="titleMargins"/><attr format="dimension" name="titleMarginStart"/><attr format="dimension" name="titleMarginEnd"/><attr format="dimension" name="titleMarginTop"/><attr format="dimension" name="titleMarginBottom"/><attr name="contentInsetStart"/><attr name="contentInsetEnd"/><attr name="contentInsetLeft"/><attr name="contentInsetRight"/><attr format="dimension" name="maxButtonHeight"/><attr format="reference" name="theme"/><attr format="reference" name="collapseIcon"/><attr format="string" name="collapseContentDescription"/><attr name="popupTheme"/><attr format="reference" name="navigationIcon"/><attr format="string" name="navigationContentDescription"/><attr name="android:minHeight"/></declare-styleable>
     <declare-styleable name="View"><attr format="dimension" name="paddingStart"/><attr format="dimension" name="paddingEnd"/><attr name="android:focusable"/></declare-styleable>
     <declare-styleable name="ViewStubCompat"><attr name="android:layout"/><attr name="android:inflatedId"/><attr name="android:id"/></declare-styleable>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="abc_action_bar_default_height_material">56dp</dimen>
     <dimen name="abc_action_bar_default_padding_material">4dp</dimen>
@@ -256,13 +256,13 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/values/dimens.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">4dp</dimen>
     <dimen name="activity_vertical_margin">4dp</dimen>
     <dimen name="default_margin">4dp</dimen>
     <dimen name="default_radius">6dp</dimen>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>
     <item name="dialog_fixed_height_major" type="dimen">80%</item>
     <item name="dialog_fixed_height_minor" type="dimen">100%</item>
@@ -270,14 +270,14 @@
     <item name="dialog_fixed_width_minor" type="dimen">320dp</item>
     <item format="float" name="disabled_alpha_material_dark" type="dimen">0.30</item>
     <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/values/dimens.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="large_text_size">32sp</dimen>
     <dimen name="larger_text_size">48sp</dimen>
     <dimen name="list_item_min_height">48dp</dimen>
     <dimen name="menu_text_large">22sp</dimen>
     <dimen name="min_margin">3dp</dimen>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>
     <item name="action_bar_activity_content" type="id"/>
     <item name="action_bar_spinner" type="id"/>
@@ -291,11 +291,11 @@
     <integer name="abc_config_activityDefaultDur">220</integer>
     <integer name="abc_config_activityShortDur">150</integer>
     <integer name="abc_max_action_buttons">2</integer>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/values/integers.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/integers.xml -->
     <eat-comment/>
     <integer name="large_text_size">32</integer>
     <integer name="larger_text_size">48</integer>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
@@ -313,7 +313,7 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/values/strings.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="about">About MPOS</string>
     <string name="action_settings" translatable="false">Settings</string>
@@ -613,7 +613,7 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <string name="wintec_magnetic_reader_settings" translatable="false">mPOS Magnetic Reader Settings</string>
     <string name="wintec_setting">mPOS Settings</string>
     <string name="yes">Yes</string>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/values/styles.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="ActivityDialogTheme" parent="android:Theme.Holo.Light.Dialog">
         <item name="android:windowIsFloating">false</item>
@@ -625,10 +625,10 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
         <item name="android:imageButtonStyle">@style/GrayButton</item>-->
         <!--<item name="android:editTextStyle">@style/EditTextStyle</item> -->
     </style>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>
     <style name="Animation.AppCompat.DropDownUp" parent="Base.Animation.AppCompat.DropDownUp"/>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/values/styles.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="android:Theme.Holo.Light">
         <!-- <item name="android:windowBackground">@color/blue_gray_light</item>-->
@@ -642,7 +642,7 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
         <!-- Support library compatibility -->
         <!--<item name="actionBarStyle">@style/MyActionBar</item>-->
     </style>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>
     <style name="Base.Animation.AppCompat.DropDownUp" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/abc_grow_fade_in_from_bottom</item>
@@ -1497,7 +1497,7 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
         <item name="android:scaleType">center</item>
         <item name="android:background">?attr/selectableItemBackground</item>
     </style>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/values/styles.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="BaseButton" parent="@android:style/Widget.Holo.Light.Button">
         <item name="android:textAllCaps">true</item>
@@ -1588,7 +1588,7 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
         <!-- Support library compatibility -->
         <!-- <item name="background">@color/indigo</item> -->
     </style>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
@@ -1727,7 +1727,7 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
         <item name="android:listChoiceIndicatorMultiple">@drawable/abc_btn_check_material</item>
     </style>
     <style name="Platform.AppCompat.Light.Dialog" parent="Platform.AppCompat.Dialog"/>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/values/styles.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="RedButton" parent="BaseButton.Light">
         <item name="android:background">@drawable/btn_holo_red</item>
@@ -1738,7 +1738,7 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <style name="RedButtonRightCorner" parent="BaseButton.Light">
         <item name="android:background">@drawable/btn_holo_red_right_corner</item>
     </style>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>
     <style name="RtlOverlay.Widget.AppCompat.ActionBar.TitleItem" parent="android:Widget">
         <item name="android:layout_gravity">center_vertical|left</item>
@@ -1843,7 +1843,7 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     </style>
     <style name="TextAppearance.Widget.AppCompat.Toolbar.Title" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Title">
     </style>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/values/styles.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="TextPrice" parent="@android:style/TextAppearance.Holo.Large">
         <item name="android:textColor">@color/blue</item>
@@ -1860,7 +1860,7 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
         <item name="android:gravity">right|center_vertical</item>
         <item name="android:padding">@dimen/default_margin</item>
     </style>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>
     <style name="Theme.AppCompat" parent="Base.Theme.AppCompat"/>
     <style name="Theme.AppCompat.CompactMenu" parent="Base.Theme.AppCompat.CompactMenu"/>

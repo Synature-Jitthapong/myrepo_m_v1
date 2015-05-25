@@ -208,4 +208,4 @@
         android:textAppearance="?android:attr/textAppearanceLargeInverse"
         android:textSize="@dimen/large_text_size" />
 
-</RelativeLayout><!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/layout/keypad.xml -->
+</RelativeLayout><!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/layout/keypad.xml -->

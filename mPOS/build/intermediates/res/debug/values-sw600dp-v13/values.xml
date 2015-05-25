@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values-sw600dp-v13/values.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values-sw600dp-v13/values.xml -->
     <eat-comment/>
     <dimen name="abc_action_bar_default_height_material">64dp</dimen>
     <dimen name="abc_action_bar_default_padding_material">4dp</dimen>
     <dimen name="abc_config_prefDialogWidth">580dp</dimen>
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/values-sw600dp/dimens.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values-sw600dp/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">8dp</dimen>
     <dimen name="activity_vertical_margin">8dp</dimen>
     <dimen name="default_margin">8dp</dimen>
     <dimen name="vertical_margin">4dp</dimen>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values-sw600dp-v13/values.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values-sw600dp-v13/values.xml -->
     <eat-comment/>
     <integer name="abc_max_action_buttons">5</integer>
-    <!-- From: file:/C:/Users/j1tth4/Documents/Git/myrepo_m_v1/mPOS/src/main/res/values-sw600dp/integers.xml -->
+    <!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/values-sw600dp/integers.xml -->
     <eat-comment/>
     <integer name="activity_dialog_height">500</integer>
 </resources>
