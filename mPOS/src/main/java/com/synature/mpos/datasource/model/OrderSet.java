@@ -64,6 +64,25 @@ public class OrderSet{
 		private int orderSetId;
 		private double orderSetQty;
 		private double deductAmount;
+		private double totalSale;
+		private double totalRetail;
+
+		public double getTotalSale() {
+			return totalSale;
+		}
+
+		public void setTotalSale(double totalSale) {
+			this.totalSale = totalSale;
+		}
+
+		public double getTotalRetail() {
+			return totalRetail;
+		}
+
+		public void setTotalRetail(double totalRetail) {
+			this.totalRetail = totalRetail;
+		}
+
 		public int getOrderSetId() {
 			return orderSetId;
 		}

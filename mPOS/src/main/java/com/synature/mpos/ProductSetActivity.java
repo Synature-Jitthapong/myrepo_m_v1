@@ -13,6 +13,9 @@ import com.synature.mpos.datasource.model.OrderSet.OrderSetDetail;
 import com.synature.mpos.datasource.model.Product;
 import com.synature.mpos.datasource.model.ProductComponent;
 import com.synature.mpos.datasource.model.ProductComponentGroup;
+import com.synature.mpos.datasource.table.OrderDetailTable;
+import com.synature.mpos.datasource.table.OrderTransTable;
+import com.synature.mpos.datasource.table.ProductTable;
 import com.synature.util.ImageLoader;
 
 import android.annotation.SuppressLint;
@@ -21,6 +24,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.KeyEvent;
@@ -59,6 +64,7 @@ public class ProductSetActivity extends Activity{
 	private int mProductId;
 	private int mOrderDetailId;
 	private String mSetGroupName;
+    private double mParentAmount = 1;
 	
 	private List<ProductComponent> mProductCompLst;
 	private List<OrderSet> mOrderSetLst;
@@ -151,8 +157,18 @@ public class ProductSetActivity extends Activity{
 			}	
 		}else if(intent.getStringExtra("mode").equals(EDIT_MODE)){
 			mOrderDetailId = intent.getIntExtra("orderDetailId", 0);
+            mParentAmount = intent.getDoubleExtra("parentAmount", 1);
+            SQLiteDatabase db = mTrans.getWritableDatabase();
+            db.execSQL(
+                    "update " + OrderDetailTable.TEMP_ORDER +
+                    " set " + OrderDetailTable.COLUMN_ORDER_QTY + "=" + OrderDetailTable.COLUMN_ORDER_QTY + "/" + mParentAmount +
+                    " where " + OrderTransTable.COLUMN_TRANS_ID + "=?" +
+                            " and " + OrderDetailTable.COLUMN_PARENT_ORDER_ID + "=?",
+                    new String[]{
+                            String.valueOf(mTransactionId),
+                            String.valueOf(mOrderDetailId)
+                    });
 		}
-
 		setupSetGroupButton();
 		loadOrderSet();
 	}
@@ -359,6 +375,19 @@ public class ProductSetActivity extends Activity{
 		}
 		
 		if(canDone){
+            if(getIntent().getStringExtra("mode").equals(EDIT_MODE)){
+                mTrans.getWritableDatabase().execSQL(
+                        "update " + OrderDetailTable.TEMP_ORDER +
+                                " set " + OrderDetailTable.COLUMN_ORDER_QTY + "=" + OrderDetailTable.COLUMN_ORDER_SET_QTY + "*" + mParentAmount + ", " +
+                                OrderDetailTable.COLUMN_TOTAL_RETAIL_PRICE + "=("  + OrderDetailTable.COLUMN_ORDER_SET_QTY + "*" + mParentAmount + ") * " + ProductTable.COLUMN_PRODUCT_PRICE + ", " +
+                                OrderDetailTable.COLUMN_TOTAL_SALE_PRICE + "=("  + OrderDetailTable.COLUMN_ORDER_SET_QTY + "*" + mParentAmount + ") * " + ProductTable.COLUMN_PRODUCT_PRICE +
+                                " where " + OrderDetailTable.COLUMN_PARENT_ORDER_ID + "=?" +
+                                " and " + OrderTransTable.COLUMN_TRANS_ID + "=?",
+                        new String[]{
+                                String.valueOf(mOrderDetailId),
+                                String.valueOf(mTransactionId)
+                        });
+            }
 			mTrans.getWritableDatabase().setTransactionSuccessful();
 			mTrans.getWritableDatabase().endTransaction();
 			// set result for show on display

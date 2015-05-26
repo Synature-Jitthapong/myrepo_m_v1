@@ -953,6 +953,7 @@ public class MainActivity extends FragmentActivity implements
 					intent.putExtra("computerId", mComputerId);
 					intent.putExtra("orderDetailId", orderDetail.getOrderDetailId());
 					intent.putExtra("productId", orderDetail.getProductId());
+                    intent.putExtra("parentAmount", orderDetail.getOrderQty());
 					startActivity(intent);
 				}
 				
@@ -991,6 +992,10 @@ public class MainActivity extends FragmentActivity implements
 							}
 						}).show();
 					}
+                    if(orderDetail.getProductTypeId() == ProductsDataSource.SET_CAN_SELECT){
+                        orderDetail.setOrdSetDetailLst(mTrans.listOrderSetDetail(orderDetail.getTransactionId(),
+                                orderDetail.getOrderDetailId()));
+                    }
 					mOrderDetailAdapter.notifyDataSetChanged();
 				}
 			});
@@ -1008,7 +1013,11 @@ public class MainActivity extends FragmentActivity implements
 							orderDetail.getVatType(),
 							mProducts.getVatRate(orderDetail.getProductId()),
 							orderDetail.getProductName(), orderDetail.getProductName1());
-					
+
+                    if(orderDetail.getProductTypeId() == ProductsDataSource.SET_CAN_SELECT){
+                        orderDetail.setOrdSetDetailLst(mTrans.listOrderSetDetail(orderDetail.getTransactionId(),
+                                orderDetail.getOrderDetailId()));
+                    }
 					mOrderDetailAdapter.notifyDataSetChanged();
 				}
 				
@@ -1042,7 +1051,10 @@ public class MainActivity extends FragmentActivity implements
 										orderDetail.getVatType(),
 										mProducts.getVatRate(orderDetail.getProductId()),
 										orderDetail.getProductName(), orderDetail.getProductName1());
-								
+                                if(orderDetail.getProductTypeId() == ProductsDataSource.SET_CAN_SELECT){
+                                    orderDetail.setOrdSetDetailLst(mTrans.listOrderSetDetail(orderDetail.getTransactionId(),
+                                            orderDetail.getOrderDetailId()));
+                                }
 								mOrderDetailAdapter.notifyDataSetChanged();
 							}
 						} catch (ParseException e) {
@@ -2691,10 +2703,8 @@ public class MainActivity extends FragmentActivity implements
 				case EnddaySenderService.RESULT_SUCCESS:
 					Toast.makeText(MainActivity.this, getString(R.string.send_endday_data_success), Toast.LENGTH_SHORT).show();
 					countSaleDataNotSend();
-					Log.i("SendLastEndday", "send endday successfully.");
 					break;
 				case EnddaySenderService.RESULT_ERROR:
-					Log.e("SendLastEndday", resultData.getString("msg"));
 					break;
 			}
 			if(mMenu != null) {

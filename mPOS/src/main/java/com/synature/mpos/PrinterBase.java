@@ -700,7 +700,7 @@ public abstract class PrinterBase {
     			for(OrderSetDetail setDetail : order.getOrdSetDetailLst()){
     				String setName = limitTextLength("   " + mFormat.qtyFormat(setDetail.getOrderSetQty()) + "x "
     						+ setDetail.getProductName());
-    				String setPrice = mFormat.currencyFormat(setDetail.getProductPrice());
+    				String setPrice = mFormat.currencyFormat(setDetail.getTotalRetail());
     				mTextToPrint.append(setName);
     				mTextToPrint.append(createHorizontalSpace(
     						calculateLength(setName) +
@@ -871,7 +871,7 @@ public abstract class PrinterBase {
     			for(OrderSetDetail setDetail : order.getOrdSetDetailLst()){
     				String setName = limitTextLength("   " + mFormat.qtyFormat(setDetail.getOrderSetQty()) + "x "
     						+ setDetail.getProductName());
-    				String setPrice = mFormat.currencyFormat(setDetail.getProductPrice());
+    				String setPrice = mFormat.currencyFormat(setDetail.getTotalRetail());
     				mTextToPrint.append(setName);
     				mTextToPrint.append(createHorizontalSpace(
     						calculateLength(setName) +
@@ -1011,7 +1011,7 @@ public abstract class PrinterBase {
     			for(OrderSetDetail setDetail : order.getOrdSetDetailLst()){
     				String setName = limitTextLength("   " + mFormat.qtyFormat(setDetail.getOrderSetQty()) + "x "
     						+ setDetail.getProductName());
-    				String setPrice = mFormat.currencyFormat(setDetail.getProductPrice());
+    				String setPrice = mFormat.currencyFormat(setDetail.getTotalRetail());
     				mTextToPrint.append(setName);
     				mTextToPrint.append(createHorizontalSpace(
     						calculateLength(setName) +

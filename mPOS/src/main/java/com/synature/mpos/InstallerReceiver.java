@@ -39,6 +39,7 @@ public class InstallerReceiver extends BroadcastReceiver{
 			editor.putString(SettingsActivity.KEY_PREF_NEED_TO_UPDATE, "0");
 			editor.putString(SettingsActivity.KEY_PREF_NEW_VERSION, "");
 			editor.putString(SettingsActivity.KEY_PREF_FILE_URL, "");
+			editor.putString(SettingsActivity.KEY_PREF_SYNC_TIME, "");
 			editor.commit();
 			
 			Intent loginIntent = new Intent(context, LoginActivity.class);

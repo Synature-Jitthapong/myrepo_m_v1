@@ -28,6 +28,7 @@ public class OrderDetailTable extends BaseColumn{
 	public static final String COLUMN_DEDUCT_AMOUNT = "deduct_amount";
 	public static final String COLUMN_PARENT_ORDER_ID = "parent_order_id";
     public static final String COLUMN_ORDER_STATUS = "order_status";
+    public static final String COLUMN_ORDER_SET_QTY = "order_set_qty";
 
 	private static final String ORDER_SQL_CREATE = 
 			" create table " + TABLE_ORDER + " ( " 
@@ -57,6 +58,7 @@ public class OrderDetailTable extends BaseColumn{
 			+ COLUMN_PARENT_ORDER_ID + " integer default 0, "
 			+ COLUMN_REMARK + " text, "
             + COLUMN_ORDER_STATUS + " integer default 1, "
+            + COLUMN_ORDER_SET_QTY + " real default 1, "
 			+ " primary key (" + COLUMN_ORDER_ID + " desc));";
 
 	public static void onCreate(SQLiteDatabase db) {
@@ -68,36 +70,42 @@ public class OrderDetailTable extends BaseColumn{
 	public static void onUpgrade(SQLiteDatabase db, int oldVersion,
 			int newVersion) {
         boolean isOrderWasteExists = MPOSDatabase.checkTableExists(db, TABLE_ORDER_WASTE);
-        db.beginTransaction();
-        try{
-            Log.i(TAG, "upgrading " + TABLE_ORDER + " from " + oldVersion + " to " + MPOSApplication.DB_VERSION);
-            String tbOrderCopy = "OrderDetailCopy";
-            String tbOrderWasteCopy = "OrderWasteCopy";
-            Log.i(TAG, DateFormat.getTimeInstance().format(Calendar.getInstance().getTime())
-                    + " backup data...");
-            db.execSQL("create table " + tbOrderCopy + " as select * from " + TABLE_ORDER);
-            db.execSQL("drop table if exists " + TABLE_ORDER);
-            db.execSQL("drop table if exists " + TEMP_ORDER);
-            Log.i(TAG, DateFormat.getTimeInstance().format(Calendar.getInstance().getTime())
-                    + " backup data successfully.");
-            if(isOrderWasteExists){
-                db.execSQL("create table " + tbOrderWasteCopy + " as select * from " + TABLE_ORDER_WASTE);
-                db.execSQL("drop table if exists " + TABLE_ORDER_WASTE);
+        if(oldVersion < 9) {
+            db.beginTransaction();
+            try {
+                Log.i(TAG, "upgrading " + TABLE_ORDER + " from " + oldVersion + " to " + MPOSApplication.DB_VERSION);
+                String tbOrderCopy = "OrderDetailCopy";
+                String tbOrderWasteCopy = "OrderWasteCopy";
+                Log.i(TAG, DateFormat.getTimeInstance().format(Calendar.getInstance().getTime())
+                        + " backup data...");
+                db.execSQL("create table " + tbOrderCopy + " as select * from " + TABLE_ORDER);
+                db.execSQL("drop table if exists " + TABLE_ORDER);
+                db.execSQL("drop table if exists " + TEMP_ORDER);
+                Log.i(TAG, DateFormat.getTimeInstance().format(Calendar.getInstance().getTime())
+                        + " backup data successfully.");
+                if (isOrderWasteExists) {
+                    db.execSQL("create table " + tbOrderWasteCopy + " as select * from " + TABLE_ORDER_WASTE);
+                    db.execSQL("drop table if exists " + TABLE_ORDER_WASTE);
+                }
+                onCreate(db);
+                copyToNewTable(db, tbOrderCopy, TABLE_ORDER);
+                if (isOrderWasteExists) {
+                    copyToNewTable(db, tbOrderWasteCopy, TABLE_ORDER_WASTE);
+                }
+                db.execSQL("create index if not exists ord_idx on " + TABLE_ORDER + "(" + COLUMN_ORDER_ID + ");");
+                db.execSQL("create index if not exists ord_waste_idx on " + TABLE_ORDER_WASTE + "(" + COLUMN_ORDER_ID + ");");
+                db.execSQL("reindex ord_idx;");
+                db.execSQL("reindex ord_waste_idx;");
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+                Log.i(TAG, DateFormat.getTimeInstance().format(Calendar.getInstance().getTime())
+                        + " upgrade " + TABLE_ORDER + " successfully.");
             }
-            onCreate(db);
-            copyToNewTable(db, tbOrderCopy, TABLE_ORDER);
-            if(isOrderWasteExists){
-                copyToNewTable(db, tbOrderWasteCopy, TABLE_ORDER_WASTE);
-            }
-            db.execSQL("create index if not exists ord_idx on " + TABLE_ORDER + "(" + COLUMN_ORDER_ID + ");");
-            db.execSQL("create index if not exists ord_waste_idx on " + TABLE_ORDER_WASTE + "(" + COLUMN_ORDER_ID + ");");
-            db.execSQL("reindex ord_idx;");
-            db.execSQL("reindex ord_waste_idx;");
-            db.setTransactionSuccessful();
-        }finally{
-            db.endTransaction();
-            Log.i(TAG, DateFormat.getTimeInstance().format(Calendar.getInstance().getTime())
-                    + " upgrade " + TABLE_ORDER + " successfully.");
+        }else if (newVersion == 10){
+            db.execSQL("alter table " + TABLE_ORDER + " add column " + COLUMN_ORDER_SET_QTY + " real default 1");
+            db.execSQL("alter table " + TEMP_ORDER + " add column " + COLUMN_ORDER_SET_QTY + " real default 1");
+            db.execSQL("alter table " + TABLE_ORDER_WASTE + " add column " + COLUMN_ORDER_SET_QTY + " real default 1");
         }
 	}
 
