@@ -358,6 +358,14 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <string name="test">Test</string>
     <string name="text_line1" translatable="false">Text Line 1</string>
     <string name="text_line2" translatable="false">Text Line 2</string>
+    <string name="third_party_link">Third party link</string>
+    <string name="third_party_link_app_1">App1</string>
+    <string name="third_party_link_app_2">App2</string>
+    <string name="third_party_link_app_3">App3</string>
+    <string name="third_party_link_app_4">App4</string>
+    <string name="third_party_link_app_5">App5</string>
+    <string name="third_party_link_app_name">App Name</string>
+    <string name="third_party_link_app_url">URL</string>
     <string name="three_month">3 month</string>
     <string name="time">Time</string>
     <string name="title_activity_database_upgrading" translatable="false">DatabaseUpgradingActivity</string>
@@ -446,6 +454,9 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
 		<item name="android:paddingTop">@dimen/default_margin</item>
 		<item name="android:paddingRight">2dp</item>
 		<item name="android:paddingBottom">@dimen/default_margin</item>
+    </style>
+    <style name="CustomDialogNoTitle" parent="android:Theme.Holo.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
     </style>
     <style name="EditTextQty" parent="@android:attr/editTextStyle">
         <item name="android:textAppearance">@android:style/TextAppearance.Holo.Large</item>

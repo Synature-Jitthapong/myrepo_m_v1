@@ -289,4 +289,12 @@ Tel: +66(0)-2-530-3835-6 Fax: +66(0)-2-530-3092\n E-mail: info@synaturegroup.com
     <string name="restore_last_sale">Do you want to restore lastes sale data?</string>
     <string name="close_sale_automatically">This time is new date. System will be automatically end day.</string>
     <string name="auto_send_last_endday">Send last endday data automatically</string>
+    <string name="third_party_link">Third party link</string>
+    <string name="third_party_link_app_1">App1</string>
+    <string name="third_party_link_app_2">App2</string>
+    <string name="third_party_link_app_3">App3</string>
+    <string name="third_party_link_app_4">App4</string>
+    <string name="third_party_link_app_5">App5</string>
+    <string name="third_party_link_app_name">App Name</string>
+    <string name="third_party_link_app_url">URL</string>
 </resources>

@@ -124,6 +124,14 @@ public class LoginActivity extends Activity implements OnClickListener,
 			if(!Utils.isAlreadySync(this))
 				requestValidUrl();
 		}
+
+		mTvDeviceCode.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				ThirdPartyLinkFragment f = new ThirdPartyLinkFragment();
+				f.show(getFragmentManager(), "");
+			}
+		});
 	}
 
 	@Override

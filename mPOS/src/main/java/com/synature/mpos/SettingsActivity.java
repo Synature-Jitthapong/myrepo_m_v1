@@ -42,7 +42,17 @@ public class SettingsActivity extends PreferenceActivity {
 	public static final String KEY_PREF_LANGUAGE_LIST = "language_list";
 	public static final String KEY_PREF_ENABLE_BACKUP_DB = "enable_backup_db";
 	public static final String KEY_PREF_MONTHS_TO_KEEP_SALE = "months_keep_sale";
-	
+	public static final String KEY_PREF_THIRD_PARTY_NAME1 = "third_party_app_name1";
+	public static final String KEY_PREF_THIRD_PARTY_URL1 = "third_party_app_url1";
+	public static final String KEY_PREF_THIRD_PARTY_NAME2 = "third_party_app_name2";
+	public static final String KEY_PREF_THIRD_PARTY_URL2 = "third_party_app_url2";
+	public static final String KEY_PREF_THIRD_PARTY_NAME3 = "third_party_app_name3";
+	public static final String KEY_PREF_THIRD_PARTY_URL3 = "third_party_app_url3";
+	public static final String KEY_PREF_THIRD_PARTY_NAME4 = "third_party_app_name4";
+	public static final String KEY_PREF_THIRD_PARTY_URL4 = "third_party_app_url4";
+	public static final String KEY_PREF_THIRD_PARTY_NAME5 = "third_party_app_name5";
+	public static final String KEY_PREF_THIRD_PARTY_URL5 = "third_party_app_url5";
+
 	// store update information
 	public static final String KEY_PREF_NEED_TO_UPDATE = "need_to_update";
 	public static final String KEY_PREF_NEW_VERSION = "new_version";
@@ -171,7 +181,26 @@ public class SettingsActivity extends PreferenceActivity {
 		}
 		
 	}
-	
+
+	public static class ThirdPartyLinkFragment extends PreferenceFragment{
+
+		@Override
+		public void onCreate(Bundle savedInstanceState) {
+			super.onCreate(savedInstanceState);
+			addPreferencesFromResource(R.xml.pref_third_party_link);
+			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_NAME1));
+			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_URL1));
+			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_NAME2));
+			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_URL2));
+//			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_NAME3));
+//			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_URL3));
+//			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_NAME4));
+//			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_URL4));
+//			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_NAME5));
+//			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_URL5));
+		}
+	}
+
 	public void dspTestClick(final View v){
 		WintecCustomerDisplay dsp = new WintecCustomerDisplay(getApplicationContext());
 		dsp.displayWelcome();

@@ -1,4 +1,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="CustomDialogNoTitle" parent="android:Theme.Holo.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
     <!-- AppTheme -->
     <style name="AppTheme" parent="android:Theme.Holo.Light">
         <!-- <item name="android:windowBackground">@color/blue_gray_light</item>-->

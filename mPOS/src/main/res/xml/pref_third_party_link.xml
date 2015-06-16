@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory android:title="@string/third_party_link_app_1">
+        <EditTextPreference
+            android:title="@string/third_party_link_app_name"
+            android:key="third_party_app_name1">
+        </EditTextPreference>
+        <EditTextPreference
+            android:title="@string/third_party_link_app_url"
+            android:key="third_party_app_url1">
+        </EditTextPreference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/third_party_link_app_2">
+        <EditTextPreference
+            android:title="@string/third_party_link_app_name"
+            android:key="third_party_app_name2">
+        </EditTextPreference>
+        <EditTextPreference
+            android:title="@string/third_party_link_app_url"
+            android:key="third_party_app_url2">
+        </EditTextPreference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/third_party_link_app_3">
+        <EditTextPreference
+            android:title="@string/third_party_link_app_name"
+            android:key="third_party_app_name3">
+        </EditTextPreference>
+        <EditTextPreference
+            android:title="@string/third_party_link_app_url"
+            android:key="third_party_app_url3">
+        </EditTextPreference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/third_party_link_app_4">
+        <EditTextPreference
+            android:title="@string/third_party_link_app_name"
+            android:key="third_party_app_name4">
+        </EditTextPreference>
+        <EditTextPreference
+            android:title="@string/third_party_link_app_url"
+            android:key="third_party_app_url4">
+        </EditTextPreference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/third_party_link_app_5">
+        <EditTextPreference
+            android:title="@string/third_party_link_app_name"
+            android:key="third_party_app_name5">
+        </EditTextPreference>
+        <EditTextPreference
+            android:title="@string/third_party_link_app_url"
+            android:key="third_party_app_url5">
+        </EditTextPreference>
+    </PreferenceCategory>
+</PreferenceScreen>
