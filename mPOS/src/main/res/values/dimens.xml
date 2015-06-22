@@ -10,4 +10,7 @@
     <dimen name="menu_text_large">22sp</dimen>
     <dimen name="list_item_min_height">48dp</dimen>
     <dimen name="default_radius">6dp</dimen>
+
+    <dimen name="dialog_width">1024dp</dimen>
+    <dimen name="dialog_height">600dp</dimen>
 </resources>

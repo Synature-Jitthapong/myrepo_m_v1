@@ -18,6 +18,7 @@ import com.synature.mpos.datasource.table.OrderTransTable;
 import com.synature.pos.Staff;
 import com.synature.util.FileManager;
 
+import android.app.FragmentManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
@@ -35,6 +36,7 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
@@ -77,7 +79,9 @@ public class LoginActivity extends Activity implements OnClickListener,
 	private TextView mTvDeviceCode;
 	private TextView mTvLastSyncTime;
 	private TextView mTvVersion;
-	
+
+	private MenuItem mThirdPartyMenu;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -124,14 +128,6 @@ public class LoginActivity extends Activity implements OnClickListener,
 			if(!Utils.isAlreadySync(this))
 				requestValidUrl();
 		}
-
-		mTvDeviceCode.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				ThirdPartyLinkFragment f = new ThirdPartyLinkFragment();
-				f.show(getFragmentManager(), "");
-			}
-		});
 	}
 
 	@Override
@@ -142,7 +138,43 @@ public class LoginActivity extends Activity implements OnClickListener,
 			}
 		}
 	}
-	
+
+	private void setupThirdPartyLink(){
+		if(mThirdPartyMenu != null) {
+			SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+			String app1 = preferences.getString(SettingsActivity.KEY_PREF_THIRD_PARTY_NAME1, "");
+			String app2 = preferences.getString(SettingsActivity.KEY_PREF_THIRD_PARTY_NAME2, "");
+			String app3 = preferences.getString(SettingsActivity.KEY_PREF_THIRD_PARTY_NAME3, "");
+			String app4 = preferences.getString(SettingsActivity.KEY_PREF_THIRD_PARTY_NAME4, "");
+			String app5 = preferences.getString(SettingsActivity.KEY_PREF_THIRD_PARTY_NAME5, "");
+
+			if (!TextUtils.isEmpty(app1) || !TextUtils.isEmpty(app2) || !TextUtils.isEmpty(app3) ||
+					!TextUtils.isEmpty(app4) || !TextUtils.isEmpty(app5)) {
+				mThirdPartyMenu.setVisible(true);
+
+				SubMenu subMenu = mThirdPartyMenu.getSubMenu();
+				subMenu.clear();
+				if (!TextUtils.isEmpty(app1)) {
+					subMenu.add(Menu.NONE, 0x101, 1, app1);
+				}
+				if (!TextUtils.isEmpty(app2)) {
+					subMenu.add(Menu.NONE, 0x102, 2, app2);
+				}
+				if (!TextUtils.isEmpty(app3)) {
+					subMenu.add(Menu.NONE, 0x103, 3, app3);
+				}
+				if (!TextUtils.isEmpty(app4)) {
+					subMenu.add(Menu.NONE, 0x104, 4, app4);
+				}
+				if (!TextUtils.isEmpty(app5)) {
+					subMenu.add(Menu.NONE, 0x105, 5, app5);
+				}
+			}else{
+				mThirdPartyMenu.setVisible(false);
+			}
+		}
+	}
+
 	/**
 	 * @return true if not have the session that is not end
 	 */
@@ -208,6 +240,9 @@ public class LoginActivity extends Activity implements OnClickListener,
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_login, menu);
+
+		mThirdPartyMenu = menu.findItem(R.id.itemThirdPartyApp);
+		setupThirdPartyLink();
 		return true;
 	}
 
@@ -258,9 +293,29 @@ public class LoginActivity extends Activity implements OnClickListener,
 		case R.id.itemTeamViewer:
 			openTeamViewer();
 			return true;
+		case 0x101:
+			displayThirdPartyWebView(0x101);
+			return true;
+		case 0x102:
+			displayThirdPartyWebView(0x102);
+			return true;
+		case 0x103:
+			displayThirdPartyWebView(0x103);
+			return true;
+		case 0x104:
+			displayThirdPartyWebView(0x104);
+			return true;
+		case 0x105:
+			displayThirdPartyWebView(0x105);
+			return true;
 		default:
 			return super.onOptionsItemSelected(item);	
 		}
+	}
+
+	private void displayThirdPartyWebView(int linkId){
+		ThirdPartyLinkFragment thirdPartyLinkDialog = ThirdPartyLinkFragment.newInstance(linkId);
+		thirdPartyLinkDialog.show(getFragmentManager(), ThirdPartyLinkFragment.TAG);
 	}
 
 	private void createUtilsPopup(final View v){
@@ -360,6 +415,8 @@ public class LoginActivity extends Activity implements OnClickListener,
 		}
 		displayWelcome();
 		checkUpdate();
+
+		setupThirdPartyLink();
 		super.onResume();
 	}
 	

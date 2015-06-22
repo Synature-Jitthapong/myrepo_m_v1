@@ -192,12 +192,12 @@ public class SettingsActivity extends PreferenceActivity {
 			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_URL1));
 			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_NAME2));
 			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_URL2));
-//			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_NAME3));
-//			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_URL3));
-//			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_NAME4));
-//			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_URL4));
-//			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_NAME5));
-//			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_URL5));
+			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_NAME3));
+			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_URL3));
+			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_NAME4));
+			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_URL4));
+			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_NAME5));
+			bindPreferenceSummaryToValue(findPreference(KEY_PREF_THIRD_PARTY_URL5));
 		}
 	}
 

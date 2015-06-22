@@ -313,12 +313,16 @@ receiver#com.synature.mpos.InstallerReceiver
 ADDED from AndroidManifest.xml:169:9
 	android:name
 		ADDED from AndroidManifest.xml:169:19
-intent-filter#android.intent.action.PACKAGE_REPLACED
+intent-filter#android.intent.action.PACKAGE_ADDED+android.intent.action.PACKAGE_REPLACED
 ADDED from AndroidManifest.xml:170:13
 action#android.intent.action.PACKAGE_REPLACED
 ADDED from AndroidManifest.xml:171:17
 	android:name
 		ADDED from AndroidManifest.xml:171:25
+action#android.intent.action.PACKAGE_ADDED
+ADDED from AndroidManifest.xml:172:17
+	android:name
+		ADDED from AndroidManifest.xml:172:25
 data
 ADDED from AndroidManifest.xml:173:17
 	android:scheme

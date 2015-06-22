@@ -27,6 +27,8 @@ public class OrderDetail extends Product{
 		private int discountType;	// 1 price, 2 percent
 		private boolean isChecked;
 		public EditText mTxtFocus;
+		private int orderStatusId;
+
 		private List<OrderSet.OrderSetDetail> ordSetDetailLst = new ArrayList<OrderSet.OrderSetDetail>();
 		private List<OrderComment> orderCommentLst = new ArrayList<OrderComment>();
 		public boolean isChecked() {
@@ -161,4 +163,12 @@ public class OrderDetail extends Product{
 		public List<OrderComment> getOrderCommentLst() {
 			return orderCommentLst;
 		}
+
+	public int getOrderStatusId() {
+		return orderStatusId;
+    }
+
+	public void setOrderStatusId(int orderStatusId) {
+		this.orderStatusId = orderStatusId;
 	}
+}

@@ -20,4 +20,14 @@
         android:layout_alignParentEnd="true"
         android:src="@drawable/ic_action_cancel"
         android:background="@drawable/btn_holo_gray_oval" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/loadingProgress"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone" />
+
 </RelativeLayout>

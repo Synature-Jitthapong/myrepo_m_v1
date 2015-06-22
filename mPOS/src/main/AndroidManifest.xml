@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.synature.mpos"
     android:installLocation="auto"
-    android:versionCode="33"
-    android:versionName="1.2.19" >
+    android:versionCode="34"
+    android:versionName="1.2.20" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -169,7 +169,7 @@
         <receiver android:name=".InstallerReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REPLACED" />
-
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>

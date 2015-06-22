@@ -891,6 +891,7 @@ public class OrderTransDataSource extends MPOSDatabase {
 				+ " a." + OrderDetailTable.COLUMN_PRICE_DISCOUNT + ","
 				+ " a." + OrderDetailTable.COLUMN_PRICE_OR_PERCENT + ","
 				+ " a." + BaseColumn.COLUMN_REMARK + ","
+				+ " a." + OrderDetailTable.COLUMN_ORDER_STATUS + ", "
 				+ " b." + ProductTable.COLUMN_PRODUCT_NAME + ", "
 				+ " b." + ProductTable.COLUMN_PRODUCT_NAME1 + ", "
 				+ " b." + ProductTable.COLUMN_PRODUCT_NAME2
@@ -923,6 +924,7 @@ public class OrderTransDataSource extends MPOSDatabase {
 				+ " SUM(a." + OrderDetailTable.COLUMN_PRICE_DISCOUNT + ") AS " + OrderDetailTable.COLUMN_PRICE_DISCOUNT + ","
 				+ " a." + OrderDetailTable.COLUMN_PRICE_OR_PERCENT + ","
 				+ " a." + BaseColumn.COLUMN_REMARK + ","
+				+ " a." + OrderDetailTable.COLUMN_ORDER_STATUS + ", "
 				+ " b." + ProductTable.COLUMN_PRODUCT_NAME + ", "
 				+ " b." + ProductTable.COLUMN_PRODUCT_NAME1 + ", "
 				+ " b." + ProductTable.COLUMN_PRODUCT_NAME2
@@ -955,6 +957,8 @@ public class OrderTransDataSource extends MPOSDatabase {
 		ord.setPriceDiscount(cursor.getFloat(cursor.getColumnIndex(OrderDetailTable.COLUMN_PRICE_DISCOUNT)));
 		ord.setPriceOrPercent(cursor.getInt(cursor.getColumnIndex(OrderDetailTable.COLUMN_PRICE_OR_PERCENT)));
 		ord.setOrderComment(cursor.getString(cursor.getColumnIndex(BaseColumn.COLUMN_REMARK)));
+		if(!cursor.isNull(cursor.getColumnIndex(OrderDetailTable.COLUMN_ORDER_STATUS)))
+			ord.setOrderStatusId(cursor.getInt(cursor.getColumnIndex(OrderDetailTable.COLUMN_ORDER_STATUS)));
 		ord.setOrdSetDetailLst(listOrderSetDetail(ord.getTransactionId(), ord.getOrderDetailId()));
 		ord.setOrderCommentLst(listOrderComment(ord.getTransactionId(), ord.getOrderDetailId()));
 		return ord;

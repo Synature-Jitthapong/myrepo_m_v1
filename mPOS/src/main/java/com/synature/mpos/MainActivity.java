@@ -693,6 +693,10 @@ public class MainActivity extends FragmentActivity implements
 				}, 10000);
 			}
 		}
+
+		Logger.appendLog(this, MPOSApplication.LOG_PATH,
+				MPOSApplication.LOG_FILE_NAME, "Close transaction: " + mTransactionId +
+						" by staffId: " + mStaffId);
 	}
 	
 	public class SendSaleResultReceiver extends ResultReceiver{
@@ -966,7 +970,7 @@ public class MainActivity extends FragmentActivity implements
 					double pricePerUnit = orderDetail.getProductPrice();
 					if(--qty > 0){
 						orderDetail.setOrderQty(qty);
-                        orderDetail.setTotalRetailPrice(pricePerUnit * qty);
+						orderDetail.setTotalRetailPrice(pricePerUnit * qty);
 						updateOrder(orderDetail.getOrderDetailId(),
 								qty, pricePerUnit,
 								orderDetail.getVatType(),
@@ -1007,7 +1011,7 @@ public class MainActivity extends FragmentActivity implements
 					double qty = orderDetail.getOrderQty();
                     double pricePerUnit = orderDetail.getProductPrice();
 					orderDetail.setOrderQty(++qty);
-                    orderDetail.setTotalRetailPrice(pricePerUnit * qty);
+					orderDetail.setTotalRetailPrice(pricePerUnit * qty);
 					updateOrder(orderDetail.getOrderDetailId(),
 							qty, pricePerUnit,
 							orderDetail.getVatType(),
@@ -1831,6 +1835,10 @@ public class MainActivity extends FragmentActivity implements
         if(mTransactionId == 0){
             mTransactionId = mTrans.openTransaction(mSession.getLastSessionDate(),
                     mShopId, mComputerId, mSessionId, mStaffId, mShop.getCompanyVatRate());
+
+			Logger.appendLog(this, MPOSApplication.LOG_PATH,
+					MPOSApplication.LOG_FILE_NAME, "Open transaction: " + mTransactionId +
+					" by staffId: " + mStaffId);
         }
         // update when changed user
         mTrans.updateTransaction(mTransactionId, mStaffId);
@@ -1991,6 +1999,10 @@ public class MainActivity extends FragmentActivity implements
 	 */
 	private void clearTransaction(){
 		mTrans.cancelTransaction(mTransactionId);
+
+		Logger.appendLog(this, MPOSApplication.LOG_PATH, MPOSApplication.LOG_FILE_NAME,
+				"!!! Cancel transaction: " + mTransactionId + " by staffId: " + mStaffId);
+
 		init();
 	}
 
