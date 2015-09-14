@@ -1323,6 +1323,7 @@ public class OrderTransDataSource extends MPOSDatabase {
 		cv.put(OrderTransTable.COLUMN_RECEIPT_YEAR, date.get(Calendar.YEAR));
 		cv.put(OrderTransTable.COLUMN_RECEIPT_MONTH, date.get(Calendar.MONTH) + 1);
 		cv.put(ProductTable.COLUMN_VAT_RATE, vatRate);
+		cv.put(ProductTable.COLUMN_SALE_MODE, 1);
 		long rowId = getWritableDatabase().insertOrThrow(
 				OrderTransTable.TEMP_ORDER_TRANS, null, cv);
 		if (rowId == -1)
