@@ -13,6 +13,12 @@
             android:title="@string/backup_db" />
         <CheckBoxPreference
             android:defaultValue="true"
+            android:key="send_real_time"
+            android:summary="@string/send_sale_realtime"
+            android:title="@string/send_sale_realtime"
+            />
+        <CheckBoxPreference
+            android:defaultValue="true"
             android:key="auto_send_last_endday"
             android:summary="@string/auto_send_last_endday"
             android:title="@string/send_endday_data"

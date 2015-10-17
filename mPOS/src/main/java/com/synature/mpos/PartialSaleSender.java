@@ -19,7 +19,7 @@ public class PartialSaleSender extends MPOSServiceBase{
 	 * @param computerId
 	 * @param staffId
 	 * @param jsonSale
-	 * @param listener
+	 * @param receiver
 	 */
 	public PartialSaleSender(Context context, int shopId, int computerId,
 			int staffId, String jsonSale, ResultReceiver receiver) {

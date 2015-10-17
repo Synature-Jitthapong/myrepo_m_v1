@@ -734,14 +734,20 @@ public class MainActivity extends FragmentActivity implements
 
 			@Override
 			public void onPostPrint() {
-				Intent intent = new Intent(MainActivity.this, SaleSenderService.class);
-				intent.putExtra(SaleSenderService.WHAT_TO_DO_PARAM, SaleSenderService.SEND_PARTIAL);
-				intent.putExtra(SaleSenderService.SESSION_DATE_PARAM, mSession.getLastSessionDate());
-				intent.putExtra(SaleSenderService.SHOP_ID_PARAM, mShopId);
-				intent.putExtra(SaleSenderService.COMPUTER_ID_PARAM, mComputerId);
-				intent.putExtra(SaleSenderService.STAFF_ID_PARAM, mStaffId);
-				intent.putExtra(SaleSenderService.RECEIVER_NAME, new SendSaleResultReceiver(new Handler()));
-				startService(intent);
+				// check enable send realtime
+				boolean isSendRealTime = Utils.isSendSaleRealTimeWhenCloseBill(MainActivity.this);
+//				Log.d("MainActivity", String.valueOf(isSendRealTime));
+
+				if(isSendRealTime) {
+					Intent intent = new Intent(MainActivity.this, SaleSenderService.class);
+					intent.putExtra(SaleSenderService.WHAT_TO_DO_PARAM, SaleSenderService.SEND_PARTIAL);
+					intent.putExtra(SaleSenderService.SESSION_DATE_PARAM, mSession.getLastSessionDate());
+					intent.putExtra(SaleSenderService.SHOP_ID_PARAM, mShopId);
+					intent.putExtra(SaleSenderService.COMPUTER_ID_PARAM, mComputerId);
+					intent.putExtra(SaleSenderService.STAFF_ID_PARAM, mStaffId);
+					intent.putExtra(SaleSenderService.RECEIVER_NAME, new SendSaleResultReceiver(new Handler()));
+					startService(intent);
+				}
 			}
 	};
 	

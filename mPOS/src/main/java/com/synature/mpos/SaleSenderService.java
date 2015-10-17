@@ -16,6 +16,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.ResultReceiver;
 import android.text.TextUtils;
+import android.util.Log;
 
 public class SaleSenderService extends SaleSenderServiceBase{
 
@@ -200,6 +201,10 @@ public class SaleSenderService extends SaleSenderServiceBase{
 		JSONSaleSerialization jsonGenerator = 
 				new JSONSaleSerialization(getApplicationContext());
 		String json = jsonGenerator.generateSale(sessionDate);
+
+//		Log.d("SendPartial ", json);
+//		Logger.appendLog(getApplicationContext(), MPOSApplication.LOG_PATH, "json", json);
+
 		PartialSaleSender sender = new PartialSaleSender(getApplicationContext(), shopId, computerId,staffId, json, 
 				new SendSaleReceiver(new Handler(), 
 						sessionDate, json, receiver));

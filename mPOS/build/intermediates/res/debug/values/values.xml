@@ -331,6 +331,7 @@
     <string name="send_endday_data_success">Send endday data successfully.</string>
     <string name="send_sale_data">Send sale data</string>
     <string name="send_sale_data_success">Send sale data successfully.</string>
+    <string name="send_sale_realtime">Send sale data real time</string>
     <string name="set_menu">Set Menu</string>
     <string name="setting">Setting</string>
     <string name="shift_close_report">Shift close report</string>

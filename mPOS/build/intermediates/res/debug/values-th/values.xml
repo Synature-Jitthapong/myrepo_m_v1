@@ -181,6 +181,7 @@
     <string name="send_endday_data_success">ส่งข้อมูลการปิดสิ้นวันสำเร็จ</string>
     <string name="send_sale_data">ส่งข้อมูลการขาย</string>
     <string name="send_sale_data_success">ส่งข้อมูลการขายสำเร็จ</string>
+    <string name="send_sale_realtime">ส่งข้อมูลการขายทันทีหลังเก็บเงิน</string>
     <string name="set_menu">ชุดสินค้า</string>
     <string name="setting">ตั้งค่า</string>
     <string name="shift_close_report">รายงานสรุปกะ</string>

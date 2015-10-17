@@ -249,7 +249,8 @@ public class SaleTransaction extends MPOSDatabase{
 					order.setfSalePrice(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_TOTAL_SALE_PRICE))));
 					order.setfTotalVatAmount(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_TOTAL_VAT))));
 					order.setfPriceDiscountAmount(Utils.fixesDigitLength(mFormat, 4, cursor.getDouble(cursor.getColumnIndex(OrderDetailTable.COLUMN_PRICE_DISCOUNT))));
-					order.setiSaleMode(cursor.getInt(cursor.getColumnIndex(ProductTable.COLUMN_SALE_MODE)));
+					//order.setiSaleMode(cursor.getInt(cursor.getColumnIndex(ProductTable.COLUMN_SALE_MODE)));
+					order.setiSaleMode(1);
                     order.setiStatusID(cursor.getInt(cursor.getColumnIndex(OrderDetailTable.COLUMN_ORDER_STATUS)));
 					order.setxListChildOrderSetLinkType7(buildChildOfSet(queryOrderSet(transId, ordId)));
 					order.setxListCommentInfo(buildOrderComment(queryOrderComment(transId, ordId)));

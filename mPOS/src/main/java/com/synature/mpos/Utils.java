@@ -574,6 +574,18 @@ public class Utils {
     }
 
 	/**
+	 * Send sale data real time when close bill
+	 * @param context
+	 * @return
+	 */
+	public static boolean isSendSaleRealTimeWhenCloseBill(Context context){
+		boolean isSendRealTime = true;
+		SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+		isSendRealTime = sharedPref.getBoolean(SettingsActivity.KEY_PREF_SEND_SALE_REAL_TIME, true);
+		return isSendRealTime;
+	}
+
+	/**
 	 * @param context
 	 * @return true or false
 	 */
