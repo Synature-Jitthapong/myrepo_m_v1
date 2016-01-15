@@ -12,200 +12,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fa425ed-4678-46c4-9fdb-fc77a50b667d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/effects_android_21.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/maps_android_21.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/usb_android_21.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/resources-debug.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/bundles/release/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout$1.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout$InternalViewPagerListener.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout$InternalViewPagerListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout$TabClickListener.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout$TabClickListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabStrip$1.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabStrip$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabStrip$SimpleTabColorizer.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabStrip$SimpleTabColorizer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabStrip.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabStrip.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout$1.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout$InternalViewPagerListener.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout$InternalViewPagerListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout$TabClickListener.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout$TabClickListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabStrip$1.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabStrip$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabStrip$SimpleTabColorizer.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabStrip$SimpleTabColorizer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabStrip.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabStrip.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/outputs/aar/synSlidingTab-release.aar" afterPath="$PROJECT_DIR$/synSlidingTab/build/outputs/aar/synSlidingTab-release.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_18_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_18_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/incremental/mergeAssets/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/incremental/mergeResources/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/badge_text_holo_green_dark.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/badge_text_holo_green_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/badge_text_holo_orange_dark.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/badge_text_holo_orange_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/badge_text_holo_red_dark.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/badge_text_holo_red_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/blue_dark_bottom_left_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/blue_dark_bottom_left_corner_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/blue_green_light_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/blue_green_light_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_blue_gray_light.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_blue_gray_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_blue.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_blue.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_blue_left_corner.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_blue_left_corner.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_blue_right_corner.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_blue_right_corner.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_gray.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_gray.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_gray_left_corner.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_gray_left_corner.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_gray_no_radius.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_gray_no_radius.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_gray_oval.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_gray_oval.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_gray_right_corner.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_gray_right_corner.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_green.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_green.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_green_left_corner.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_green_left_corner.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_green_no_radius.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_green_no_radius.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_green_right_corner.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_green_right_corner.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_orange.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_orange.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_red.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_red.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_red_left_corner.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_red_left_corner.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_red_right_corner.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_red_right_corner.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_dark_left_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_dark_left_corner_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_dark_right_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_dark_right_corner_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_dark_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_dark_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_light_left_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_light_left_corner_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_light_oval_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_light_oval_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_light_right_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_light_right_corner_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_light_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_light_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_light_shape_no_radius.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_light_shape_no_radius.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_gray_light_left_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_gray_light_left_corner_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_gray_light_oval_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_gray_light_oval_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_gray_light_right_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_gray_light_right_corner_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_gray_light_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_gray_light_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_gray_light_shape_no_radius.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_gray_light_shape_no_radius.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_green_left_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_green_left_corner_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_green_right_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_green_right_corner_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_green_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_green_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_green_shape_no_radius.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_green_shape_no_radius.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_orange_dark_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_orange_dark_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_red_dark_left_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_red_dark_left_corner_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_red_dark_right_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_red_dark_right_corner_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_red_dark_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_red_dark_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/light_blue_gray_shape_radius.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/light_blue_gray_shape_radius.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/light_gray_shape_radius.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/light_gray_shape_radius.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/list_selector.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/list_selector.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/menu_default.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/menu_default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/menu_pressed.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/menu_pressed.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/menu_selector.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/menu_selector.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/my_progressbar.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/my_progressbar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/red_button_default.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/red_button_default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout-sw600dp-v13/activity_payment.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout-sw600dp-v13/activity_payment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout-sw720dp-v13/activity_payment.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout-sw720dp-v13/activity_payment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/action_input_discount.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/action_input_discount.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_about.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_about.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_check_update.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_check_update.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_credit_pay.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_credit_pay.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_discount.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_discount.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_food_court_card_pay.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_food_court_card_pay.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_login.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_login.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_main.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_product_set.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_product_set.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_promotion.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_promotion.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_reprint.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_reprint.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_sale_report.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_sale_report.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_send_endday.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_send_endday.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_send_sale.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_send_sale.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_void_bill.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_void_bill.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/badge_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/badge_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/bill_report_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/bill_report_template.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/bill_viewer.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/bill_viewer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/button_dropdown_style.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/button_dropdown_style.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/button_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/button_template.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/comment_list_item.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/comment_list_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/confirm_credit_pay_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/confirm_credit_pay_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/database_list_item.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/database_list_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/database_listview.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/database_listview.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/date_condition.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/date_condition.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/discount_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/discount_template.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/drw_test_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/drw_test_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/dsp_test_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/dsp_test_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/edittext_password.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/edittext_password.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/endday_list_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/endday_list_template.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/endday_report_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/endday_report_template.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/finish_waste_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/finish_waste_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/food_court_payment_result.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/food_court_payment_result.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_bill_report.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_bill_report.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_cash_amount.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_cash_amount.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_clear_sale.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_clear_sale.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_endday_report.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_endday_report.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_food_court_card_pay.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_food_court_card_pay.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_product_report.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_product_report.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/hold_bill_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/hold_bill_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/hold_bill_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/hold_bill_template.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/input_discount_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/input_discount_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/input_text_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/input_text_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/keypad.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/keypad.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/keypad_ordering_utils_fragment.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/keypad_ordering_utils_fragment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/lang_sw.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/lang_sw.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/left_mid_right_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/left_mid_right_template.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/menu_comment.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/menu_comment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/menu_grid_view.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/menu_grid_view.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/menu_image_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/menu_image_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/menu_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/menu_template.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/order_detail_set_item.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/order_detail_set_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/order_list_item.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/order_list_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/order_set_detail_item.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/order_set_detail_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/order_set_item.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/order_set_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/order_set_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/order_set_template.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/other_payment_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/other_payment_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/payment_detail_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/payment_detail_template.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/print_test_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/print_test_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/product_report_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/product_report_template.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/product_size.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/product_size.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/progress.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/progress.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/receipt_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/receipt_template.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/reprint_trans_item.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/reprint_trans_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/send_trans_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/send_trans_template.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/session_spinner.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/session_spinner.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/set_group_button_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/set_group_button_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/set_item_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/set_item_template.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/spinner_view.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/spinner_view.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/sw_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/sw_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/switch_user_popup.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/switch_user_popup.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/template_flex_left_right.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/template_flex_left_right.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/text_view.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/text_view.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/tv_column_detail.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/tv_column_detail.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/tv_column_header.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/tv_column_header.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/user_verify_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/user_verify_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/void_item_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/void_item_template.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/action_send_sale.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/action_send_sale.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/action_utility.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/action_utility.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_credit_pay.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_credit_pay.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_discount.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_discount.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_login.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_login.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_main.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_payment.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_payment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_sale_report.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_sale_report.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_void_bill.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_void_bill.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/food_court_card_pay.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/food_court_card_pay.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/fragment_sale_report.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/fragment_sale_report.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/product_set.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/product_set.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/promotion.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/promotion.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/values-sw600dp-v13/values.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/values-sw600dp-v13/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/values-sw720dp-v13/values.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/values-sw720dp-v13/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/values-th/values.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/values-th/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/values-w820dp-v13/values.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/values-w820dp-v13/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/values/values.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_connection.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_connection.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_general.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_general.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_headers.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_headers.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_printer.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_printer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_second_display.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_second_display.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_wintec.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_wintec.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/outputs/apk/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/mPOS/build/outputs/apk/manifest-merger-debug-report.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/mPOS.iml" afterPath="$PROJECT_DIR$/mPOS/mPOS.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/res/values/array.xml" afterPath="$PROJECT_DIR$/mPOS/src/main/res/values/array.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/incremental/mergeAssets/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/incremental/mergeAssets/release/merger.xml" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/incremental/mergeAssets/release/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/incremental/packageResources/debug/merger.xml" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/incremental/packageResources/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/incremental/packageResources/release/merger.xml" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/incremental/packageResources/release/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/synSlidingTab.iml" afterPath="$PROJECT_DIR$/synSlidingTab/synSlidingTab.iml" />
     </list>
     <ignored path="myrepo_m.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -322,7 +139,7 @@
       <file leaf-file-name="array.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/values/array.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.69043154">
+            <state vertical-scroll-proportion="1.8574109">
               <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
               <folding />
             </state>
@@ -2169,6 +1986,7 @@
     <property name="ExportApk.ApkPath" value="$USER_HOME$/Desktop" />
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
+    <property name="device.picker.selection" value="192.168.56.101:5555" />
   </component>
   <component name="RunManager" selected="Android Application.mPOS">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -2318,7 +2136,7 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="false" name="mPOS" type="AndroidRunConfigurationType" factoryName="Android Application">
+    <configuration default="false" name="mPOS" type="AndroidRunConfigurationType" factoryName="Android Application" activateToolWindowBeforeRun="false">
       <module name="mPOS" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
@@ -2395,7 +2213,7 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3270869" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41346154" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41196582" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32423207" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879046" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
@@ -2803,7 +2621,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/values/array.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69043154">
+        <state vertical-scroll-proportion="1.8574109">
           <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
           <folding />
         </state>
