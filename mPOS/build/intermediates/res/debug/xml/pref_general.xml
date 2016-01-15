@@ -12,13 +12,13 @@
             android:summary="@string/auto_backup_database"
             android:title="@string/backup_db" />
         <CheckBoxPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="send_real_time"
             android:summary="@string/send_sale_realtime"
             android:title="@string/send_sale_realtime"
             />
         <CheckBoxPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="auto_send_last_endday"
             android:summary="@string/auto_send_last_endday"
             android:title="@string/send_endday_data"
@@ -30,8 +30,6 @@
             android:key="months_keep_sale"
             android:summary="@string/max_months_to_keep_sale"
             android:title="@string/keep_sale_data" />
-
-
     </PreferenceCategory>
 
 </PreferenceScreen><!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/xml/pref_general.xml -->

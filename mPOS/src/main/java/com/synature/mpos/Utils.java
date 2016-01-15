@@ -579,9 +579,9 @@ public class Utils {
 	 * @return
 	 */
 	public static boolean isSendSaleRealTimeWhenCloseBill(Context context){
-		boolean isSendRealTime = true;
+		boolean isSendRealTime = false;
 		SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-		isSendRealTime = sharedPref.getBoolean(SettingsActivity.KEY_PREF_SEND_SALE_REAL_TIME, true);
+		isSendRealTime = sharedPref.getBoolean(SettingsActivity.KEY_PREF_SEND_SALE_REAL_TIME, false);
 		return isSendRealTime;
 	}
 
@@ -590,9 +590,9 @@ public class Utils {
 	 * @return true or false
 	 */
 	public static boolean isSendEnddayAutomaticallyWhenAppStart(Context context){
-		boolean isSend = true;
+		boolean isSend = false;
 		SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-		isSend = sharedPref.getBoolean(SettingsActivity.KEY_PREF_AUTO_SEND_ENDDAY, true);
+		isSend = sharedPref.getBoolean(SettingsActivity.KEY_PREF_AUTO_SEND_ENDDAY, false);
 		return isSend;
 	}
 
