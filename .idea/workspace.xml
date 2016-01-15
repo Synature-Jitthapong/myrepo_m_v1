@@ -12,19 +12,200 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fa425ed-4678-46c4-9fdb-fc77a50b667d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/effects_android_21.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/maps_android_21.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/usb_android_21.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/Utils.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/Utils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/incremental/mergeResources/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_general.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_general.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/res/xml/pref_general.xml" afterPath="$PROJECT_DIR$/mPOS/src/main/res/xml/pref_general.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/resources-debug.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/bundles/release/classes.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout$1.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout$InternalViewPagerListener.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout$InternalViewPagerListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout$TabClickListener.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout$TabClickListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabStrip$1.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabStrip$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabStrip$SimpleTabColorizer.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabStrip$SimpleTabColorizer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabStrip.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabStrip.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout$1.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout$InternalViewPagerListener.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout$InternalViewPagerListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout$TabClickListener.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout$TabClickListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabStrip$1.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabStrip$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabStrip$SimpleTabColorizer.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabStrip$SimpleTabColorizer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabStrip.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabStrip.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/outputs/aar/synSlidingTab-release.aar" afterPath="$PROJECT_DIR$/synSlidingTab/build/outputs/aar/synSlidingTab-release.aar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_18_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_18_0_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/incremental/mergeAssets/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/incremental/mergeResources/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/badge_text_holo_green_dark.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/badge_text_holo_green_dark.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/badge_text_holo_orange_dark.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/badge_text_holo_orange_dark.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/badge_text_holo_red_dark.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/badge_text_holo_red_dark.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/blue_dark_bottom_left_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/blue_dark_bottom_left_corner_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/blue_green_light_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/blue_green_light_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_blue_gray_light.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_blue_gray_light.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_blue.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_blue.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_blue_left_corner.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_blue_left_corner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_blue_right_corner.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_blue_right_corner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_gray.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_gray.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_gray_left_corner.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_gray_left_corner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_gray_no_radius.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_gray_no_radius.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_gray_oval.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_gray_oval.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_gray_right_corner.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_gray_right_corner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_green.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_green.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_green_left_corner.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_green_left_corner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_green_no_radius.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_green_no_radius.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_green_right_corner.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_green_right_corner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_orange.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_orange.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_red.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_red.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_red_left_corner.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_red_left_corner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_red_right_corner.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/btn_holo_red_right_corner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_dark_left_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_dark_left_corner_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_dark_right_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_dark_right_corner_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_dark_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_dark_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_light_left_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_light_left_corner_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_light_oval_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_light_oval_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_light_right_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_light_right_corner_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_light_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_light_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_light_shape_no_radius.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_blue_light_shape_no_radius.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_gray_light_left_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_gray_light_left_corner_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_gray_light_oval_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_gray_light_oval_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_gray_light_right_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_gray_light_right_corner_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_gray_light_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_gray_light_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_gray_light_shape_no_radius.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_gray_light_shape_no_radius.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_green_left_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_green_left_corner_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_green_right_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_green_right_corner_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_green_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_green_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_green_shape_no_radius.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_green_shape_no_radius.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_orange_dark_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_orange_dark_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_red_dark_left_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_red_dark_left_corner_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_red_dark_right_corner_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_red_dark_right_corner_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_red_dark_shape.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/holo_red_dark_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/light_blue_gray_shape_radius.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/light_blue_gray_shape_radius.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/light_gray_shape_radius.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/light_gray_shape_radius.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/list_selector.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/list_selector.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/menu_default.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/menu_default.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/menu_pressed.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/menu_pressed.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/menu_selector.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/menu_selector.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/my_progressbar.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/my_progressbar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/red_button_default.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/drawable/red_button_default.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout-sw600dp-v13/activity_payment.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout-sw600dp-v13/activity_payment.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout-sw720dp-v13/activity_payment.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout-sw720dp-v13/activity_payment.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/action_input_discount.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/action_input_discount.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_about.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_about.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_check_update.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_check_update.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_credit_pay.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_credit_pay.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_discount.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_discount.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_food_court_card_pay.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_food_court_card_pay.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_login.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_login.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_main.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_product_set.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_product_set.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_promotion.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_promotion.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_reprint.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_reprint.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_sale_report.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_sale_report.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_send_endday.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_send_endday.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_send_sale.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_send_sale.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_void_bill.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/activity_void_bill.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/badge_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/badge_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/bill_report_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/bill_report_template.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/bill_viewer.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/bill_viewer.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/button_dropdown_style.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/button_dropdown_style.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/button_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/button_template.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/comment_list_item.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/comment_list_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/confirm_credit_pay_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/confirm_credit_pay_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/database_list_item.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/database_list_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/database_listview.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/database_listview.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/date_condition.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/date_condition.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/discount_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/discount_template.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/drw_test_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/drw_test_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/dsp_test_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/dsp_test_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/edittext_password.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/edittext_password.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/endday_list_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/endday_list_template.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/endday_report_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/endday_report_template.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/finish_waste_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/finish_waste_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/food_court_payment_result.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/food_court_payment_result.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_bill_report.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_bill_report.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_cash_amount.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_cash_amount.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_clear_sale.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_clear_sale.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_endday_report.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_endday_report.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_food_court_card_pay.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_food_court_card_pay.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_product_report.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/fragment_product_report.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/hold_bill_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/hold_bill_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/hold_bill_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/hold_bill_template.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/input_discount_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/input_discount_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/input_text_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/input_text_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/keypad.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/keypad.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/keypad_ordering_utils_fragment.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/keypad_ordering_utils_fragment.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/lang_sw.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/lang_sw.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/left_mid_right_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/left_mid_right_template.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/menu_comment.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/menu_comment.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/menu_grid_view.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/menu_grid_view.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/menu_image_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/menu_image_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/menu_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/menu_template.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/order_detail_set_item.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/order_detail_set_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/order_list_item.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/order_list_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/order_set_detail_item.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/order_set_detail_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/order_set_item.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/order_set_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/order_set_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/order_set_template.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/other_payment_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/other_payment_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/payment_detail_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/payment_detail_template.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/print_test_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/print_test_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/product_report_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/product_report_template.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/product_size.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/product_size.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/progress.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/progress.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/receipt_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/receipt_template.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/reprint_trans_item.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/reprint_trans_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/send_trans_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/send_trans_template.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/session_spinner.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/session_spinner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/set_group_button_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/set_group_button_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/set_item_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/set_item_template.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/spinner_view.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/spinner_view.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/sw_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/sw_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/switch_user_popup.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/switch_user_popup.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/template_flex_left_right.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/template_flex_left_right.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/text_view.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/text_view.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/tv_column_detail.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/tv_column_detail.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/tv_column_header.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/tv_column_header.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/user_verify_layout.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/user_verify_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/void_item_template.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/layout/void_item_template.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/action_send_sale.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/action_send_sale.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/action_utility.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/action_utility.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_credit_pay.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_credit_pay.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_discount.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_discount.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_login.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_login.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_main.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_payment.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_payment.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_sale_report.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_sale_report.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_void_bill.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/activity_void_bill.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/food_court_card_pay.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/food_court_card_pay.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/fragment_sale_report.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/fragment_sale_report.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/product_set.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/product_set.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/promotion.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/menu/promotion.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/values-sw600dp-v13/values.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/values-sw600dp-v13/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/values-sw720dp-v13/values.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/values-sw720dp-v13/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/values-th/values.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/values-th/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/values-w820dp-v13/values.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/values-w820dp-v13/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/values/values.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/values/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_connection.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_connection.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_general.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_general.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_headers.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_headers.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_printer.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_printer.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_second_display.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_second_display.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_wintec.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/debug/xml/pref_wintec.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/outputs/apk/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/mPOS/build/outputs/apk/manifest-merger-debug-report.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/mPOS.iml" afterPath="$PROJECT_DIR$/mPOS/mPOS.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/res/values/array.xml" afterPath="$PROJECT_DIR$/mPOS/src/main/res/values/array.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/incremental/mergeAssets/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/incremental/mergeAssets/release/merger.xml" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/incremental/mergeAssets/release/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/incremental/packageResources/debug/merger.xml" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/incremental/packageResources/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/incremental/packageResources/release/merger.xml" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/incremental/packageResources/release/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/synSlidingTab.iml" afterPath="$PROJECT_DIR$/synSlidingTab/synSlidingTab.iml" />
     </list>
     <ignored path="myrepo_m.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -87,7 +268,7 @@
     <favorites_list name="myrepo_m" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -141,8 +322,8 @@
       <file leaf-file-name="array.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/values/array.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.69043154">
+              <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -191,7 +372,7 @@
     </leaf>
   </component>
   <component name="GenerateSignedApkSettings">
-    <option name="KEY_STORE_PATH" value="$USER_HOME$/Develop/Android/synature" />
+    <option name="KEY_STORE_PATH" value="$PROJECT_DIR$/../../Android/synature" />
     <option name="KEY_ALIAS" value="iorder mobile ordering" />
   </component>
   <component name="Git.Settings">
@@ -210,12 +391,12 @@
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value=":mPOS" />
-                <option name="path" value="$PROJECT_DIR$/mPOS" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
                 <option name="name" value=":synSlidingTab" />
                 <option name="path" value="$PROJECT_DIR$/synSlidingTab" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value=":mPOS" />
+                <option name="path" value="$PROJECT_DIR$/mPOS" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="myrepo_m_v1" />
@@ -1496,7 +1677,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="5727026724003" />
+        <entry key="$PROJECT_DIR$" value="5811372693000" />
         <entry key="$PROJECT_DIR$/../myrepo_m_v2" value="5696280952372" />
       </map>
     </option>
@@ -1732,7 +1913,7 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.2/lombok-ast-0.2.2.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/4.0/asm-tree-4.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar" />
-                            <option value="$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/support-v4/18.0.0/support-v4-18.0.0.jar" />
+                            <option value="$USER_HOME$/android-sdks/extras/android/m2repository/com/android/support/support-v4/18.0.0/support-v4-18.0.0.jar" />
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$/synSlidingTab" />
@@ -1744,108 +1925,108 @@
               <option name="name" value="mPOS" />
               <option name="projectBuildClasspath">
                 <list>
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/language-groovy" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/base-services" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/ivy" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/ui" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/open-api" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/cunit" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/cli" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/messaging" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/osgi" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/resources-http" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/plugin-use" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/launcher" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/code-quality" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/javascript" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/dependency-management" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/language-jvm" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/resources" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/model-core" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/plugins" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/sonar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/publish" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/jacoco" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/maven" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/ide-native" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/tooling-api" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/diagnostics" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/announce" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/language-java" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/signing" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/wrapper" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/core" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/ear" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/antlr" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/base-services" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/base-services-groovy" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/build-comparison" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/build-init" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/model-groovy" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/platform-base" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/base-services-groovy" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/internal-integ-testing" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/antlr" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/scala" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/platform-native" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/reporting" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/jetty" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/platform-jvm" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/language-native" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/native" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/internal-testing" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/plugin-development" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/cli" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/code-quality" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/core" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/cunit" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/dependency-management" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/diagnostics" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/ear" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/ide" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-model-core-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-launcher-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-cli-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-base-services-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/ant-launcher-1.9.3.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-ui-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-tooling-api-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-model-groovy-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-resources-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-wrapper-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-core-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-open-api-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-base-services-groovy-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-messaging-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-native-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/groovy-all-2.3.6.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-docs-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/ide-native" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/internal-integ-testing" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/internal-testing" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/ivy" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/jacoco" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/javascript" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/jetty" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/language-groovy" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/language-java" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/language-jvm" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/language-native" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/launcher" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/maven" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/messaging" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/model-core" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/model-groovy" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/native" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/open-api" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/osgi" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/platform-base" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/platform-jvm" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/platform-native" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/plugin-development" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/plugin-use" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/plugins" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/publish" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/reporting" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/resources" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/resources-http" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/scala" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/signing" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/sonar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/tooling-api" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/ui" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/wrapper" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/ant-1.9.3.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-plugin-use-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-plugin-development-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/ant-launcher-1.9.3.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-base-services-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-base-services-groovy-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-cli-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-core-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-docs-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-launcher-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-messaging-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-model-core-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-model-groovy-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-native-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-open-api-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-resources-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-tooling-api-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-ui-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-wrapper-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/groovy-all-2.3.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/ant-antlr-1.9.3.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-announce-2.2.1.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-antlr-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-language-native-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-signing-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-build-comparison-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-build-init-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-code-quality-2.2.1.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-cunit-2.2.1.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-dependency-management-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-jetty-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-ide-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-code-quality-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-ear-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-javascript-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-resources-http-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-sonar-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-build-init-2.2.1.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-diagnostics-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/ivy-2.2.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-ear-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-ide-2.2.1.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-ide-native-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-maven-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-jacoco-2.2.1.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-ivy-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-jacoco-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-javascript-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-jetty-2.2.1.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-language-groovy-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-platform-base-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-platform-native-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-plugins-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-scala-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-publish-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-language-jvm-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-announce-2.2.1.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-language-java-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-reporting-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-platform-jvm-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-language-jvm-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-language-native-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-maven-2.2.1.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-osgi-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/ant-antlr-1.9.3.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-build-comparison-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-platform-base-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-platform-jvm-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-platform-native-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-plugin-development-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-plugin-use-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-plugins-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-publish-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-reporting-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-resources-http-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-scala-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-signing-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-sonar-2.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/ivy-2.2.0.jar" />
                   <option value="$PROJECT_DIR$/buildSrc/src/main/java" />
                   <option value="$PROJECT_DIR$/buildSrc/src/main/groovy" />
                 </list>
@@ -1870,6 +2051,7 @@
         <option value="$PROJECT_DIR$/mPOS/src/main/res/xml/pref_general.xml" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/Utils.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/res/values/array.xml" />
       </list>
     </option>
   </component>
@@ -1880,14 +2062,11 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="NamedScopeManager">
-    <order />
-  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="35" />
-    <option name="y" value="38" />
-    <option name="width" value="1274" />
-    <option name="height" value="722" />
+    <option name="x" value="26" />
+    <option name="y" value="23" />
+    <option name="width" value="1212" />
+    <option name="height" value="701" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1910,153 +2089,12 @@
       <autoscrollToSource />
       <autoscrollFromSource />
       <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myrepo_m_v1" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myrepo_m_v1" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myrepo_m_v1" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mPOS" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myrepo_m_v1" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mPOS" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xml" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myrepo_m_v1" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mPOS" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myrepo_m_v1" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mPOS" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="synature" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myrepo_m_v1" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mPOS" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="synature" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mpos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myrepo_m_v1" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mPOS" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="synature" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mpos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="datasource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myrepo_m_v1" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mPOS" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manifests" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2091,6 +2129,27 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myrepo_m_v1" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myrepo_m_v1" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2114,33 +2173,36 @@
   <component name="RunManager" selected="Android Application.mPOS">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
-      <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
-      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
-      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
-      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <Native>
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+      </Native>
+      <Java />
+      <Hybrid>
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+      </Hybrid>
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
       <method />
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
@@ -2150,28 +2212,30 @@
       <option name="METHOD_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
-      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
-      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
-      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <Native>
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+      </Native>
+      <Java />
+      <Hybrid>
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+      </Hybrid>
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2208,7 +2272,10 @@
       </option>
       <envs />
       <patterns />
-      <method />
+      <method>
+        <option name="Make" enabled="false" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -2253,33 +2320,36 @@
     </configuration>
     <configuration default="false" name="mPOS" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="mPOS" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
-      <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
-      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
-      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
-      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <Native>
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+      </Native>
+      <Java />
+      <Hybrid>
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+      </Hybrid>
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
       <method />
     </configuration>
     <list size="1">
@@ -2316,40 +2386,42 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="35" y="38" width="1274" height="722" extended-state="0" />
-    <editor active="false" />
+    <frame x="26" y="23" width="1212" height="701" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41346154" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3270869" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3270869" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3227848" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24924472" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15559158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32423207" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3270869" sideWeight="0.5536254" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943925" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39863715" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32423207" sideWeight="0.44637462" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3227848" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3270869" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41346154" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32423207" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879046" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3270869" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15555556" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24924472" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39863715" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943925" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32423207" sideWeight="0.44637462" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3270869" sideWeight="0.5536254" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -2731,8 +2803,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/values/array.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.69043154">
+          <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
           <folding />
         </state>
       </provider>

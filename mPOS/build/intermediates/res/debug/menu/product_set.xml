@@ -4,4 +4,4 @@
     <item android:id="@+id/itemConfirm" android:icon="@drawable/ic_action_accept" android:title="@string/confirm" android:showAsAction="always|withText"></item>
 
 </menu>
-<!-- From: file:/home/j1tth4/Android%20studioProjects/myrepo_m_v1/mPOS/src/main/res/menu/product_set.xml -->
+<!-- From: file:/Users/j1tth4/Develop/Android%20Studio/myrepo_m_v1/mPOS/src/main/res/menu/product_set.xml -->

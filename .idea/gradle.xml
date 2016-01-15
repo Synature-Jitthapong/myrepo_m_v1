@@ -13,6 +13,13 @@
             <option value="$PROJECT_DIR$/synSlidingTab" />
           </set>
         </option>
+        <option name="myModules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/mPOS" />
+            <option value="$PROJECT_DIR$/synSlidingTab" />
+          </set>
+        </option>
       </GradleProjectSettings>
     </option>
   </component>

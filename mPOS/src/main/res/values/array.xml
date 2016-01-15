@@ -53,7 +53,9 @@
         <item>15ms.</item>
         <item>30ms.</item>
         <item>45ms.</item>
-        <item>60ms.</item>
+        <item>1min.</item>
+        <item>2min.</item>
+        <item>3min.</item>
     </string-array>
     <string-array name="connection_time_out_value">
         <item>10</item>
@@ -61,6 +63,8 @@
         <item>30</item>
         <item>45</item>
         <item>60</item>
+        <item>120</item>
+        <item>180</item>
     </string-array>
     <string-array name="months_to_keep_sale">
         <item>@string/one_month</item>
