@@ -1,13 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 'Google Inc.:Google APIs:21'
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 21
+    buildToolsVersion '23.0.2'
 
     defaultConfig {
         applicationId "com.synature.mpos"
         minSdkVersion 14
-        targetSdkVersion 21
+        targetSdkVersion 19
+        versionCode 36
+        versionName "1.2.23"
     }
 
     buildTypes {

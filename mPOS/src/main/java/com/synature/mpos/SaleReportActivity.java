@@ -606,8 +606,11 @@ public class SaleReportActivity extends Activity{
 			if(shop.getCompanyVatType() == ProductsDataSource.VAT_TYPE_INCLUDED){
 				View vatView = inflater.inflate(R.layout.left_mid_right_template, null);
 				((TextView) vatView.findViewById(R.id.tvLeft)).setText(getString(R.string.before_vat));
-				((TextView) vatView.findViewById(R.id.tvRight)).setText(mHost.mFormat.currencyFormat(
-								trans.getTransactionVatable() - trans.getTransactionVat()));
+				((TextView) vatView.findViewById(R.id.tvRight))
+						.setText(mHost.mFormat.currencyFormat(
+								Utils.getSaleBeforeVat(trans.getTransactionVatable(),
+										shop.getCompanyVatRate(),
+										shop.getCompanyVatType())));
 				((TextView) vatView.findViewById(R.id.tvRight)).setTypeface(null, Typeface.BOLD);
 				mEnddaySumContent.addView(vatView);
 				
@@ -956,7 +959,8 @@ public class SaleReportActivity extends Activity{
 				final Report.ReportDetail report = mBillReport.getReportDetail().get(position);
 				double totalVat = report.getTotalVat();
 				double totalVatExcl = report.getVatExclude();
-				double vatable = report.getVatable();
+				double vatable = Utils.getSaleBeforeVat(report.getVatable(),
+						mHost.mShop.getCompanyVatRate(), mHost.mShop.getCompanyVatType());
 				double totalPrice = report.getTotalPrice();
 				double totalDiscount = report.getDiscount();
 				double subTotal = report.getSubTotal();
@@ -994,7 +998,7 @@ public class SaleReportActivity extends Activity{
 //				container.addView(createTextViewItem(getActivity(), mHost.mFormat.currencyFormat(totalPay - totalVatExcl),  
 //								Utils.getLinHorParams(0.7f)));
 				if(!isExcVat){
-					container.addView(createTextViewItem(getActivity(), mHost.mFormat.currencyFormat(vatable - totalVatExcl),  
+					container.addView(createTextViewItem(getActivity(), mHost.mFormat.currencyFormat(vatable),
 							Utils.getLinHorParams(0.7f)));
 				}
 				container.addView(createTextViewItem(getActivity(), mHost.mFormat.currencyFormat(totalVat),  

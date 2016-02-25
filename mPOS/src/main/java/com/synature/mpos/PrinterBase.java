@@ -465,7 +465,9 @@ public abstract class PrinterBase {
 		
 		if(mShop.getCompanyVatType() == ProductsDataSource.VAT_TYPE_INCLUDED){
 			String beforeVatText = mContext.getString(R.string.before_vat);
-			String beforeVat = mFormat.currencyFormat(trans.getTransactionVatable() - trans.getTransactionVat());
+			String beforeVat = mFormat.currencyFormat(
+					Utils.getSaleBeforeVat(trans.getTransactionVatable(),
+							mShop.getCompanyVatRate(), mShop.getCompanyVatType()));
 			String totalVatText = mContext.getString(R.string.total_vat) + " " +
 					NumberFormat.getInstance().format(mShop.getCompanyVatRate()) + "%";
 			String totalVat = mFormat.currencyFormat(trans.getTransactionVat());

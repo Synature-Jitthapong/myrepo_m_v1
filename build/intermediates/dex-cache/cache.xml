@@ -2,53 +2,53 @@
 <items version="2" >
 
     <item
-        jar="/Users/j1tth4/Develop/Android Studio/myrepo_m_v1/mPOS/build/intermediates/exploded-aar/myrepo_m_v1/synSlidingTab/unspecified/classes.jar"
+        jar="C:\Users\j1tth4\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
         jumboMode="false"
-        revision="21.1.2"
-        sha1="3e01e4ebbeb1bebb11822592234da296ff0952a0">
-        <dex dex="/Users/j1tth4/Develop/Android Studio/myrepo_m_v1/mPOS/build/intermediates/pre-dexed/debug/classes-4ea4be7dfa8a0bb840c31a5223739eee85ba28f2.jar" />
-    </item>
-    <item
-        jar="/Users/j1tth4/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a60a5e993c98c864010053cb901b7eab25306568">
-        <dex dex="/Users/j1tth4/Develop/Android Studio/myrepo_m_v1/mPOS/build/intermediates/pre-dexed/debug/gson-2.2.4-ccf7af1574173abcb8a47a36bad6463276f54cb2.jar" />
-    </item>
-    <item
-        jar="/Users/j1tth4/Develop/Android Studio/myrepo_m_v1/mPOS/libs/WTAndroidJar2.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="20c83b3ce9d96bf7e2fb2793357414837d989cc9">
-        <dex dex="/Users/j1tth4/Develop/Android Studio/myrepo_m_v1/mPOS/build/intermediates/pre-dexed/debug/WTAndroidJar2-b4f50757ce6b655909cd37303b095494b9d6f20a.jar" />
-    </item>
-    <item
-        jar="/Users/j1tth4/android-sdks/extras/android/m2repository/com/android/support/support-v4/18.0.0/support-v4-18.0.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
+        revision="23.0.2"
         sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="/Users/j1tth4/Develop/Android Studio/myrepo_m_v1/mPOS/build/intermediates/pre-dexed/debug/support-v4-18.0.0-4fc9870a21414acb57879795d45907270cd643bf.jar" />
+        <dex dex="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\support-v4-18.0.0_61a917782d954ea7d47fe652f691b048de6db2a8.jar" />
     </item>
     <item
-        jar="/Users/j1tth4/Develop/Android Studio/myrepo_m_v1/mPOS/libs/ePOS-Print.jar"
+        jar="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\libs\ksoap2-android-assembly-3.3.0-jar-with-dependencies.jar"
         jumboMode="false"
-        revision="21.1.2"
-        sha1="ab2b4caa13eb976f1acf8abb3e11f8afa04c25a7">
-        <dex dex="/Users/j1tth4/Develop/Android Studio/myrepo_m_v1/mPOS/build/intermediates/pre-dexed/debug/ePOS-Print-17399bc2cf50ac7a8542783eaad766604383358b.jar" />
-    </item>
-    <item
-        jar="/Users/j1tth4/Develop/Android Studio/myrepo_m_v1/mPOS/libs/pinchzoom.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a4def992b1f41525748db059dfdd21322cc3157e">
-        <dex dex="/Users/j1tth4/Develop/Android Studio/myrepo_m_v1/mPOS/build/intermediates/pre-dexed/debug/pinchzoom-19490704f1731b7d6aa73ac99036949f711a2a9c.jar" />
-    </item>
-    <item
-        jar="/Users/j1tth4/Develop/Android Studio/myrepo_m_v1/mPOS/libs/ksoap2-android-assembly-3.3.0-jar-with-dependencies.jar"
-        jumboMode="false"
-        revision="21.1.2"
+        revision="23.0.2"
         sha1="62681b8212ca52278feafec31775fd0cb096d99a">
-        <dex dex="/Users/j1tth4/Develop/Android Studio/myrepo_m_v1/mPOS/build/intermediates/pre-dexed/debug/ksoap2-android-assembly-3.3.0-jar-with-dependencies-57558880bdc6f5841dabb78e071875fd1f5ca2af.jar" />
+        <dex dex="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\ksoap2-android-assembly-3.3.0-jar-with-dependencies_f98265fb1a527d34a70837c4c29427302cfd0398.jar" />
+    </item>
+    <item
+        jar="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\libs\WTAndroidJar2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="20c83b3ce9d96bf7e2fb2793357414837d989cc9">
+        <dex dex="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\WTAndroidJar2_6bd7be4f29e89de957107090fd26fe2a84f6f850.jar" />
+    </item>
+    <item
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\com\google\code\gson\gson\2.2.4\gson-2.2.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\gson-2.2.4_313aff129984a0a45e086871ec03bfcc02e7284e.jar" />
+    </item>
+    <item
+        jar="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\libs\pinchzoom.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4def992b1f41525748db059dfdd21322cc3157e">
+        <dex dex="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\pinchzoom_3fe977e8ae52f036058201c9246c07a61cf2b9f4.jar" />
+    </item>
+    <item
+        jar="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\libs\ePOS-Print.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ab2b4caa13eb976f1acf8abb3e11f8afa04c25a7">
+        <dex dex="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\ePOS-Print_5f20634cd3f0b15cdaf1b47fa88f4775de641ad9.jar" />
+    </item>
+    <item
+        jar="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\build\intermediates\exploded-aar\myrepo_m_v1\synSlidingTab\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="9b0268ba1425669e6a70cf8885370b3d7649b5db">
+        <dex dex="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\myrepo_m_v1-synSlidingTab-unspecified_5b172d522d99ecf576f79d5773f88ca600527d13.jar" />
     </item>
 
 </items>

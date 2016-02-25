@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:choiceMode="singleChoice" >
-
-</ListView>
-<!-- From: file:/Users/j1tth4/Develop/Android%20Studio/myrepo_m_v1/mPOS/src/main/res/layout/database_listview.xml -->

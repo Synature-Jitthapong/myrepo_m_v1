@@ -12,7 +12,7 @@
             android:summary="@string/auto_backup_database"
             android:title="@string/backup_db" />
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:key="send_real_time"
             android:summary="@string/send_sale_realtime"
             android:title="@string/send_sale_realtime"

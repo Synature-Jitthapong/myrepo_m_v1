@@ -1394,10 +1394,10 @@ public class OrderTransDataSource extends MPOSDatabase {
 		// featureId = 19
 		ProgramFeatureDataSource featureDao = new ProgramFeatureDataSource(mContext);
 		ProgramFeature feature = featureDao.getProgramFeature(19);
+		ShopDataSource shopDao = new ShopDataSource(mContext);
 		if(feature != null){
 			if(feature.getFeatureValue() == 1 && totalSalePrice == 0){
 				totalSalePrice = getSummaryOrder(transactionId, true).getTotalRetailPrice();
-				ShopDataSource shopDao = new ShopDataSource(mContext);
 				double transVat = Utils.calculateVatAmount(totalSalePrice, shopDao.getCompanyVatRate(), 
 						shopDao.getCompanyVatType());
 				cv.put(OrderTransTable.COLUMN_TRANS_VAT, transVat);

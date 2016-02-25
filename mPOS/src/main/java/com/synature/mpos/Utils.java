@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.channels.FileChannel;
@@ -140,14 +142,23 @@ public class Utils {
 		calendar.setTimeInMillis(Long.parseLong(dateTime));
 		return calendar;
 	}
-	
-	public static double calculateVatAmount(double totalPrice, double vatRate, int vatType){
+
+	public static double getSaleBeforeVat(double saleIncVat, double vatRate, int vatType){
+		double saleBeforeVat = saleIncVat;
 		if(vatType == ProductsDataSource.VAT_TYPE_INCLUDED)
-			return totalPrice * vatRate / (100 + vatRate);
+			saleBeforeVat = saleIncVat * 100 / (100 + vatRate);
+		return saleBeforeVat;
+	}
+
+	public static double calculateVatAmount(double totalPrice, double vatRate, int vatType){
+		double vatAmount = 0;
+		if(vatType == ProductsDataSource.VAT_TYPE_INCLUDED)
+			vatAmount = totalPrice * vatRate / (100 + vatRate);
 		else if(vatType == ProductsDataSource.VAT_TYPE_EXCLUDE)
-			return totalPrice * vatRate / 100;
-		else
-			return 0;
+			vatAmount = totalPrice * vatRate / 100;
+		BigDecimal bd = new BigDecimal(vatAmount);
+		bd = bd.setScale(4, RoundingMode.HALF_UP);
+		return bd.doubleValue();
 	}
 	
 	/**
