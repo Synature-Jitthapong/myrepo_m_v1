@@ -176,6 +176,9 @@
         </service>
         <service android:name=".EnddaySenderService" >
         </service>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="5a08a1204e2d8493d1d333a5d5457c7349ff394c" />
     </application>
 
 </manifest>

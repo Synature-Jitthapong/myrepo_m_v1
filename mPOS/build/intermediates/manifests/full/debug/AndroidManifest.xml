@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.synature.mpos"
     android:installLocation="auto"
-    android:versionCode="36"
-    android:versionName="1.2.23" >
+    android:versionCode="37"
+    android:versionName="1.2.24" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -187,6 +187,10 @@
         </service>
         <service android:name="com.synature.mpos.EnddaySenderService" >
         </service>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="5a08a1204e2d8493d1d333a5d5457c7349ff394c" />
     </application>
 
 </manifest>

@@ -590,9 +590,9 @@ public class Utils {
 	 * @return
 	 */
 	public static boolean isSendSaleRealTimeWhenCloseBill(Context context){
-		boolean isSendRealTime = false;
+		boolean isSendRealTime = true;
 		SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-		isSendRealTime = sharedPref.getBoolean(SettingsActivity.KEY_PREF_SEND_SALE_REAL_TIME, false);
+		isSendRealTime = sharedPref.getBoolean(SettingsActivity.KEY_PREF_SEND_SALE_REAL_TIME, true);
 		return isSendRealTime;
 	}
 

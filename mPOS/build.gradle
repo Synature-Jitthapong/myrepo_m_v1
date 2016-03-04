@@ -1,4 +1,19 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 
 android {
     compileSdkVersion 21
@@ -8,8 +23,8 @@ android {
         applicationId "com.synature.mpos"
         minSdkVersion 14
         targetSdkVersion 19
-        versionCode 36
-        versionName "1.2.23"
+        versionCode 37
+        versionName "1.2.24"
     }
 
     buildTypes {
@@ -31,4 +46,7 @@ dependencies {
     compile files('libs/ePOS-Print.jar')
     compile files('libs/ksoap2-android-assembly-3.3.0-jar-with-dependencies.jar')
     compile files('libs/pinchzoom.jar')
+    compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
+        transitive = true;
+    }
 }

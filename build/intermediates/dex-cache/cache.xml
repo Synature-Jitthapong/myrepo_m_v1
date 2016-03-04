@@ -2,53 +2,88 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\j1tth4\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\support-v4-18.0.0_61a917782d954ea7d47fe652f691b048de6db2a8.jar" />
-    </item>
-    <item
-        jar="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\libs\ksoap2-android-assembly-3.3.0-jar-with-dependencies.jar"
+        jar="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\libs\ksoap2-android-assembly-3.3.0-jar-with-dependencies.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="62681b8212ca52278feafec31775fd0cb096d99a">
-        <dex dex="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\ksoap2-android-assembly-3.3.0-jar-with-dependencies_f98265fb1a527d34a70837c4c29427302cfd0398.jar" />
+        <dex dex="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\ksoap2-android-assembly-3.3.0-jar-with-dependencies_8fb95526d8dba07647c3eca4165e4498cc6f3753.jar" />
     </item>
     <item
-        jar="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\libs\WTAndroidJar2.jar"
+        jar="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\build\intermediates\exploded-aar\com.crashlytics.sdk.android\answers\1.3.6\jars\classes.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="20c83b3ce9d96bf7e2fb2793357414837d989cc9">
-        <dex dex="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\WTAndroidJar2_6bd7be4f29e89de957107090fd26fe2a84f6f850.jar" />
+        sha1="9af3b9b8114e685291aa00e6572b0a9131244956">
+        <dex dex="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\com.crashlytics.sdk.android-answers-1.3.6_2774b9b6bad17bb07734ab2f2abd01f65a4f29f1.jar" />
     </item>
     <item
         jar="C:\Program Files\Android\Android Studio\gradle\m2repository\com\google\code\gson\gson\2.2.4\gson-2.2.4.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="a60a5e993c98c864010053cb901b7eab25306568">
-        <dex dex="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\gson-2.2.4_313aff129984a0a45e086871ec03bfcc02e7284e.jar" />
+        <dex dex="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\gson-2.2.4_313aff129984a0a45e086871ec03bfcc02e7284e.jar" />
     </item>
     <item
-        jar="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\libs\pinchzoom.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="a4def992b1f41525748db059dfdd21322cc3157e">
-        <dex dex="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\pinchzoom_3fe977e8ae52f036058201c9246c07a61cf2b9f4.jar" />
-    </item>
-    <item
-        jar="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\libs\ePOS-Print.jar"
+        jar="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\libs\ePOS-Print.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="ab2b4caa13eb976f1acf8abb3e11f8afa04c25a7">
-        <dex dex="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\ePOS-Print_5f20634cd3f0b15cdaf1b47fa88f4775de641ad9.jar" />
+        <dex dex="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\ePOS-Print_a745c05381f3e27f3972bf1fd41038e5309af8b3.jar" />
     </item>
     <item
-        jar="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\build\intermediates\exploded-aar\myrepo_m_v1\synSlidingTab\unspecified\jars\classes.jar"
+        jar="C:\Users\toy_o\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="9b0268ba1425669e6a70cf8885370b3d7649b5db">
-        <dex dex="C:\Users\j1tth4\Documents\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\myrepo_m_v1-synSlidingTab-unspecified_5b172d522d99ecf576f79d5773f88ca600527d13.jar" />
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\support-v4-18.0.0_5844b80d8e343de2c68a3eb15d945db817760140.jar" />
+    </item>
+    <item
+        jar="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\libs\WTAndroidJar2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="20c83b3ce9d96bf7e2fb2793357414837d989cc9">
+        <dex dex="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\WTAndroidJar2_666c3321b14fa707a1177b79b4e32667019a5cbc.jar" />
+    </item>
+    <item
+        jar="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\build\intermediates\exploded-aar\io.fabric.sdk.android\fabric\1.3.10\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a5db9a2dd46d84285ef737f65030b74b6e8ee2a4">
+        <dex dex="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\io.fabric.sdk.android-fabric-1.3.10_545df8b12b39cf8a70e9691818da9515e8ee28fe.jar" />
+    </item>
+    <item
+        jar="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\build\intermediates\exploded-aar\myrepo_m_v1\synSlidingTab\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="26e3b49d4d63f6cdaf002671e1d2dcaab922e875">
+        <dex dex="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\myrepo_m_v1-synSlidingTab-unspecified_9a6f89a5a820baa7fed1f37a04dd29d82b71b6c7.jar" />
+    </item>
+    <item
+        jar="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\build\intermediates\exploded-aar\com.crashlytics.sdk.android\beta\1.1.4\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ad5bb101ced4d3939225c9b57e5a3d81547c1fbb">
+        <dex dex="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\com.crashlytics.sdk.android-beta-1.1.4_bddf4b72925d0df163477d2da27a409a3d50a317.jar" />
+    </item>
+    <item
+        jar="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\build\intermediates\exploded-aar\com.crashlytics.sdk.android\crashlytics\2.5.5\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="611605b6b640c1558f9bdea41de8ff837ab68ca8">
+        <dex dex="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\com.crashlytics.sdk.android-crashlytics-2.5.5_80fb54cdff0205617ae24d893f8250bef0612719.jar" />
+    </item>
+    <item
+        jar="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\libs\pinchzoom.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4def992b1f41525748db059dfdd21322cc3157e">
+        <dex dex="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\pinchzoom_9af8bf57bc4696b34b9045b9e255fe0db42b427e.jar" />
+    </item>
+    <item
+        jar="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\build\intermediates\exploded-aar\com.crashlytics.sdk.android\crashlytics-core\2.3.8\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c9ef45dcbd082cd63aac09a5e2cd443adb5df837">
+        <dex dex="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\release\com.crashlytics.sdk.android-crashlytics-core-2.3.8_be504eea6950aa3556028f30ec7d5b0c8c20139b.jar" />
     </item>
 
 </items>
