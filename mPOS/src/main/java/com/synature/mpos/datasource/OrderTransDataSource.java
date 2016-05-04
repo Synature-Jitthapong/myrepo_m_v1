@@ -2718,24 +2718,13 @@ public class OrderTransDataSource extends MPOSDatabase {
                 });
 	}
 
-	/**
-	 * @param transactionId
-	 * @param computerId
-	 * @param orderDetailId
-	 * @param productId
-	 * @param productTypeId
-	 * @param orderSetQty
-	 * @param productPrice
-	 * @param pcompGroupId
-	 * @param reqAmount
-	 * @param reqMinAmount
-	 * @return maxOrderId
-	 */
 	public int addOrderSet(int transactionId, int computerId, int orderDetailId,
 			int productId, int productTypeId, double orderSetQty, double productPrice, 
-			int pcompGroupId, double reqAmount, double reqMinAmount) {
+			int pcompGroupId, double reqAmount, double reqMinAmount, double vatRate, int vatType) {
 		int maxOrderId = getMaxOrderDetailId();
 		double totalRetailPrice = productPrice * orderSetQty;
+		double vat = Utils.calculateVatAmount(totalRetailPrice, vatRate, vatType);
+
 		ContentValues cv = new ContentValues();
 		cv.put(OrderDetailTable.COLUMN_ORDER_ID, maxOrderId);
 		cv.put(OrderTransTable.COLUMN_TRANS_ID, transactionId);
@@ -2754,6 +2743,10 @@ public class OrderTransDataSource extends MPOSDatabase {
 		cv.put(OrderDetailTable.COLUMN_REMARK, "");
 		cv.put(OrderDetailTable.COLUMN_PARENT_ORDER_ID, orderDetailId);
         cv.put(OrderDetailTable.COLUMN_ORDER_STATUS, ORDER_STATUS_NORMAL);
+		cv.put(ProductTable.COLUMN_VAT_TYPE, vatType);
+		cv.put(OrderDetailTable.COLUMN_TOTAL_VAT, vat);
+		if (vatType == ProductsDataSource.VAT_TYPE_EXCLUDE)
+			cv.put(OrderDetailTable.COLUMN_TOTAL_VAT_EXCLUDE, vat);
 		try {
 			getWritableDatabase().insertOrThrow(OrderDetailTable.TEMP_ORDER, null, cv);
 		} catch (SQLException e) {

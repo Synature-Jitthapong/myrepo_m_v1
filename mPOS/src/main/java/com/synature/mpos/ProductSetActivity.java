@@ -28,6 +28,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -174,6 +175,18 @@ public class ProductSetActivity extends Activity{
 	}
 
 	@Override
+	protected void onDestroy() {
+		try {
+			if (mTrans.getWritableDatabase().inTransaction()) {
+				mTrans.getWritableDatabase().endTransaction();
+			}
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		super.onDestroy();
+	}
+
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.product_set, menu);
@@ -243,7 +256,9 @@ public class ProductSetActivity extends Activity{
 								double price = pComp.getFlexibleProductPrice() > 0 ? pComp.getFlexibleProductPrice() : 0.0d;
 								addOrderSet(pCompGroup.getProductGroupId(), pComp.getProductId(), 
 										qty, price, pCompGroup.getRequireAmount(), 
-										pCompGroup.getRequireMinAmount(), pCompGroup.getGroupName(), pComp.getProductName());
+										pCompGroup.getRequireMinAmount(),
+										pCompGroup.getGroupName(), pComp.getProductName(),
+										pComp.getVatRate(), pComp.getVatType());
 							}
 						}
 					}
@@ -742,8 +757,10 @@ public class ProductSetActivity extends Activity{
 					// childProductAmount is weight amount of set
 					double qty = pComp.getChildProductAmount() > 0 ? pComp.getChildProductAmount() : 1;
 					double price = pComp.getFlexibleIncludePrice() == 1 ? pComp.getFlexibleProductPrice() : 0;
-					addOrderSet(mPcompGroupId, pComp.getProductId(), qty, price, mRequireAmount, mRequireMinAmount,
-							mGroupName, pComp.getProductName());
+					addOrderSet(mPcompGroupId, pComp.getProductId(), qty,
+							price, mRequireAmount, mRequireMinAmount,
+							mGroupName, pComp.getProductName(),
+							pComp.getVatRate(), pComp.getVatType());
 					loadOrderSet();
 				}
 				
@@ -768,7 +785,7 @@ public class ProductSetActivity extends Activity{
 	 * @return orderSetId
 	 */
 	private int addOrderSet(int pCompGroupId, int productId, double deductQty, double price, double requireAmount,
-			 double requireMinAmount, String groupName, String productName){
+			 double requireMinAmount, String groupName, String productName, double vatRate, int vatType){
 		int orderSetId = 0;
 		if(requireAmount > 0){
 			// count total group qty from db
@@ -777,7 +794,9 @@ public class ProductSetActivity extends Activity{
 			if(totalQty < requireAmount){
 				if(deductQty <= requireAmount - totalQty){
 					orderSetId = mTrans.addOrderSet(mTransactionId, mComputerId, mOrderDetailId, productId, 
-							ProductsDataSource.CHILD_OF_SET_HAVE_PRICE, deductQty, price, pCompGroupId, requireAmount, requireMinAmount);
+							ProductsDataSource.CHILD_OF_SET_HAVE_PRICE, deductQty,
+							price, pCompGroupId, requireAmount, requireMinAmount,
+							vatRate, vatType);
 				}else{
 					new AlertDialog.Builder(ProductSetActivity.this)
 					.setTitle(groupName)
@@ -799,7 +818,9 @@ public class ProductSetActivity extends Activity{
 			}
 		}else{
 			orderSetId = mTrans.addOrderSet(mTransactionId, mComputerId, mOrderDetailId, productId, 
-					ProductsDataSource.CHILD_OF_SET_HAVE_PRICE, deductQty, price, pCompGroupId, requireAmount, requireMinAmount);
+					ProductsDataSource.CHILD_OF_SET_HAVE_PRICE,
+					deductQty, price, pCompGroupId, requireAmount, requireMinAmount,
+					vatRate, vatType);
 		}
 		return orderSetId;
 	}

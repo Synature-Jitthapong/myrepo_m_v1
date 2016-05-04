@@ -16,15 +16,15 @@ repositories {
 
 
 android {
-    compileSdkVersion 21
+    compileSdkVersion 22
     buildToolsVersion '23.0.2'
 
     defaultConfig {
         applicationId "com.synature.mpos"
         minSdkVersion 14
         targetSdkVersion 19
-        versionCode 37
-        versionName "1.2.24"
+        versionCode 38
+        versionName "1.2.25"
     }
 
     buildTypes {

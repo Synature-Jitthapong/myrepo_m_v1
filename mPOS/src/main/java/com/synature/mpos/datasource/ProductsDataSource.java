@@ -188,24 +188,26 @@ public class ProductsDataSource extends MPOSDatabase {
 		List<ProductComponent> pCompLst = new ArrayList<ProductComponent>();
 		Cursor cursor = getReadableDatabase().rawQuery(
 				"SELECT a." + ProductComponentTable.COLUMN_PGROUP_ID + ","
-				+ " a." + ProductComponentTable.COLUMN_CHILD_PRODUCT_AMOUNT + ","
-				+ " a." + ProductComponentTable.COLUMN_FLEXIBLE_INCLUDE_PRICE + ","
-				+ " a." + ProductComponentTable.COLUMN_FLEXIBLE_PRODUCT_PRICE + ","
-				+ " a." + ProductTable.COLUMN_SALE_MODE + ","
-				+ " b." + ProductTable.COLUMN_PRODUCT_ID + ","
-				+ " b." + ProductTable.COLUMN_PRODUCT_NAME + ","
-				+ " b." + ProductTable.COLUMN_PRODUCT_NAME1 + ","
-				+ " b." + ProductTable.COLUMN_PRODUCT_PRICE + ","
-				+ " b." + ProductTable.COLUMN_IMG_FILE_NAME 
-				+ " FROM " + ProductComponentTable.TABLE_PCOMPONENT + " a "
-				+ " LEFT JOIN " + ProductTable.TABLE_PRODUCT + " b "
-				+ " ON a." + ProductComponentTable.COLUMN_CHILD_PRODUCT_ID + "=b." + ProductTable.COLUMN_PRODUCT_ID 
-				+ " WHERE a." + ProductComponentTable.COLUMN_PGROUP_ID + "=?"
-				+ " AND b." + COLUMN_DELETED + "=?"
-				+ " ORDER BY b." + ProductTable.COLUMN_ORDERING + ", b." + ProductTable.COLUMN_PRODUCT_NAME,
+						+ " a." + ProductComponentTable.COLUMN_CHILD_PRODUCT_AMOUNT + ","
+						+ " a." + ProductComponentTable.COLUMN_FLEXIBLE_INCLUDE_PRICE + ","
+						+ " a." + ProductComponentTable.COLUMN_FLEXIBLE_PRODUCT_PRICE + ","
+						+ " a." + ProductTable.COLUMN_SALE_MODE + ","
+						+ " b." + ProductTable.COLUMN_PRODUCT_ID + ","
+						+ " b." + ProductTable.COLUMN_PRODUCT_NAME + ","
+						+ " b." + ProductTable.COLUMN_PRODUCT_NAME1 + ","
+						+ " b." + ProductTable.COLUMN_PRODUCT_PRICE + ","
+						+ " b." + ProductTable.COLUMN_IMG_FILE_NAME + ", " +
+						" b. " + ProductTable.COLUMN_VAT_RATE + ", " +
+						" b. " + ProductTable.COLUMN_VAT_TYPE
+						+ " FROM " + ProductComponentTable.TABLE_PCOMPONENT + " a "
+						+ " LEFT JOIN " + ProductTable.TABLE_PRODUCT + " b "
+						+ " ON a." + ProductComponentTable.COLUMN_CHILD_PRODUCT_ID + "=b." + ProductTable.COLUMN_PRODUCT_ID
+						+ " WHERE a." + ProductComponentTable.COLUMN_PGROUP_ID + "=?"
+						+ " AND b." + COLUMN_DELETED + "=?"
+						+ " ORDER BY b." + ProductTable.COLUMN_ORDERING + ", b." + ProductTable.COLUMN_PRODUCT_NAME,
 				new String[]{
-					String.valueOf(groupId),
-					String.valueOf(NOT_DELETE)
+						String.valueOf(groupId),
+						String.valueOf(NOT_DELETE)
 				}
 		);
 		if(cursor.moveToFirst()){
@@ -221,6 +223,8 @@ public class ProductsDataSource extends MPOSDatabase {
 				pComp.setProductName1(cursor.getString(cursor.getColumnIndex(ProductTable.COLUMN_PRODUCT_NAME1)));
 				pComp.setImgName(cursor.getString(cursor.getColumnIndex(ProductTable.COLUMN_IMG_FILE_NAME)));
 				pComp.setProductPrice(cursor.getDouble(cursor.getColumnIndex(ProductTable.COLUMN_PRODUCT_PRICE)));
+				pComp.setVatRate(cursor.getDouble(cursor.getColumnIndex(ProductTable.COLUMN_VAT_RATE)));
+				pComp.setVatType(cursor.getInt(cursor.getColumnIndex(ProductTable.COLUMN_VAT_TYPE)));
 				pCompLst.add(pComp);
 			}while(cursor.moveToNext());
 		}

@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
@@ -679,12 +680,20 @@ public class Utils {
 		File sdPath = new File(sd, MPOSApplication.BACKUP_DB_PATH);
 		File files[] = sdPath.listFiles();
 		if(files != null){
-			Calendar current = Calendar.getInstance();
-			Calendar lastMod = Calendar.getInstance();
+			Calendar deleteDate = Calendar.getInstance();
+			deleteDate.add(Calendar.DAY_OF_YEAR, getLastDayToClearSale(context));
 			for(File file : files){
-				lastMod.setTimeInMillis(file.lastModified());
-				if(getDiffDay(lastMod) > current.getActualMaximum(Calendar.DAY_OF_MONTH)){
-					file.delete();
+				String fileName = file.getName().replace("_mpos.db", "");
+				try {
+					Date date = new SimpleDateFormat("yyyy-MM-dd").parse(fileName);
+					Calendar fileDate = Calendar.getInstance();
+					fileDate.setTime(date);
+
+					if(fileDate.compareTo(deleteDate) <= 0){
+						file.delete();
+					}
+				} catch (ParseException e) {
+					e.printStackTrace();
 				}
 			}
 		}
