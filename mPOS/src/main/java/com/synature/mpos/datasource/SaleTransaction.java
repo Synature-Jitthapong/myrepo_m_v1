@@ -25,6 +25,7 @@ import com.synature.pos.Question.QuestionAnswerData;
 import android.content.Context;
 import android.database.Cursor;
 import android.text.TextUtils;
+import android.util.Log;
 
 /*
  * This class to do generate SaleTransactionData
@@ -156,9 +157,11 @@ public class SaleTransaction extends MPOSDatabase{
 					
 					saleTrans.setxOrderTransaction(orderTrans);
 					Cursor orderDetailCursor = queryOrderDetail(transId);
+					Cursor orderPromotionCursor = queryOrderPromotion(transId);
 					saleTrans.setxAryOrderDetail(buildOrderDetailLst(orderDetailCursor));
-					saleTrans.setxAryOrderPromotion(builderOrderPromotionLst(queryOrderPromotion(transId)));
+					saleTrans.setxAryOrderPromotion(builderOrderPromotionLst(orderPromotionCursor));
 					orderDetailCursor.close();
+					orderPromotionCursor.close();
 					saleTrans.setxAryPaymentDetail(buildPaymentDetailLst(orderTrans.getiTransactionID()));
 					saleTransLst.add(saleTrans);
 				} while (cursor.moveToNext());
