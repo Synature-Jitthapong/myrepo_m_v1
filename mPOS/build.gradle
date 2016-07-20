@@ -23,8 +23,8 @@ android {
         applicationId "com.synature.mpos"
         minSdkVersion 14
         targetSdkVersion 19
-        versionCode 38
-        versionName "1.2.25"
+        versionCode 39
+        versionName "1.2.26"
     }
 
     buildTypes {
@@ -41,7 +41,7 @@ android {
 
 dependencies {
     compile project(':synSlidingTab')
-    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.google.code.gson:gson:2.7'
     compile files('libs/WTAndroidJar2.jar')
     compile files('libs/ePOS-Print.jar')
     compile files('libs/ksoap2-android-assembly-3.3.0-jar-with-dependencies.jar')

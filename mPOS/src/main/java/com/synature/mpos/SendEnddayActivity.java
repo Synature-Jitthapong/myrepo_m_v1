@@ -92,6 +92,12 @@ public class SendEnddayActivity extends Activity {
 	}
 
 	@Override
+	protected void onDestroy() {
+		startService(new Intent(this, EnddaySenderService.class));
+		super.onDestroy();
+	}
+
+	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch(item.getItemId()){
 			case android.R.id.home:

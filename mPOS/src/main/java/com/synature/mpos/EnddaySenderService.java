@@ -1,8 +1,5 @@
 package com.synature.mpos;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import com.synature.mpos.datasource.MPOSDatabase;
 import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.SessionDataSource;
@@ -28,12 +25,11 @@ public class EnddaySenderService extends SaleSenderServiceBase{
 	
 	public static final String RECEIVER_NAME = "enddaySenderReceiver";
 
-	private ExecutorService mExecutor;
-	private Looper mServiceLooper;
-	private ServiceHandler mServiceHandler;
+	private HandlerThread mEndDaySenderThread;
+	private EndDaySenderHandler mEndDaySenderHandler;
 	
-	private final class ServiceHandler extends Handler{
-		public ServiceHandler(Looper looper){
+	private final class EndDaySenderHandler extends Handler{
+		public EndDaySenderHandler(Looper looper){
 			super(looper);
 		}
 
@@ -55,19 +51,17 @@ public class EnddaySenderService extends SaleSenderServiceBase{
 
 	@Override
 	public void onCreate() {
-		HandlerThread thread = new HandlerThread("ServiceStartArguments",
-				android.os.Process.THREAD_PRIORITY_BACKGROUND);
-		thread.start();
+		mEndDaySenderThread = new HandlerThread("EndDaySenderThread");
+		mEndDaySenderThread.start();
 
-		mExecutor = Executors.newFixedThreadPool(THREAD_POOL);
-		mServiceLooper = thread.getLooper();
-		mServiceHandler = new ServiceHandler(mServiceLooper);
+		mEndDaySenderHandler = new EndDaySenderHandler(mEndDaySenderThread.getLooper());
 	}
 	
 	@Override
 	public void onDestroy() {
-		mExecutor.shutdown();
+		mEndDaySenderThread.quit();
 		super.onDestroy();
+		Log.d(TAG, "EndDayService stop");
 	}
 
 	/**
@@ -82,12 +76,14 @@ public class EnddaySenderService extends SaleSenderServiceBase{
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		Log.i(TAG, "thread id: " + startId);
-		if(intent != null){
-			Message msg = mServiceHandler.obtainMessage();
+		if(intent.getExtras() != null){
+			Message msg = mEndDaySenderHandler.obtainMessage();
 			msg.arg1 = startId;
 			Bundle b = intent.getExtras();
 			msg.setData(b);
-			mServiceHandler.sendMessage(msg);
+			mEndDaySenderHandler.sendMessage(msg);
+		}else{
+			stopSelf();
 		}
 		return START_NOT_STICKY;
 	}
@@ -141,6 +137,7 @@ public class EnddaySenderService extends SaleSenderServiceBase{
 				if(receiver != null){
 					receiver.send(RESULT_SUCCESS, null);
 				}
+				stopSelf();
 				break;
 			case RESULT_ERROR:
 				String msg = resultData.getString("msg");
@@ -155,13 +152,14 @@ public class EnddaySenderService extends SaleSenderServiceBase{
 					Logger.appendLog(getApplicationContext(), MPOSApplication.ERR_LOG_PATH, "", 
 							"Send all endday fail: " + msg);
 					
-					Intent intent = new Intent(getApplicationContext(), RemoteStackTraceService.class);
-					intent.putExtra("stackTrace", "Send all endday fail: " + msg);
-					startService(intent);
+//					Intent intent = new Intent(getApplicationContext(), RemoteStackTraceService.class);
+//					intent.putExtra("stackTrace", "Send all endday fail: " + msg);
+//					startService(intent);
 					
 					if(receiver != null){
 						receiver.send(RESULT_ERROR, resultData);
 					}
+					stopSelf();
 				}
 				break;
 			}
@@ -188,7 +186,7 @@ public class EnddaySenderService extends SaleSenderServiceBase{
 						sessionDate, jsonEndday, shopId, computerId, staffId, sendMode, receiver);
 				EndDayUnSendSaleSender sender = new EndDayUnSendSaleSender(getApplicationContext(), shopId, computerId, 
 						staffId, jsonEndday, enddayReceiver);
-				mExecutor.execute(sender);
+				sender.run();
 			}else{
 				if(receiver != null)
 					receiver.send(RESULT_SUCCESS, null);
@@ -200,7 +198,7 @@ public class EnddaySenderService extends SaleSenderServiceBase{
 						sessionDate, jsonEndday, shopId, computerId, staffId, sendMode, receiver);
 				EndDaySaleSender sender = new EndDaySaleSender(getApplicationContext(), shopId, computerId, 
 						staffId, jsonEndday, enddayReceiver);
-				mExecutor.execute(sender);
+				sender.run();
 			}else{
 				if(receiver != null)
 					receiver.send(RESULT_SUCCESS, null);

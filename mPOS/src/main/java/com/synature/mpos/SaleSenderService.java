@@ -1,8 +1,5 @@
 package com.synature.mpos;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import com.synature.mpos.datasource.MPOSDatabase;
 import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.util.Logger;
@@ -15,7 +12,6 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
 import android.os.ResultReceiver;
-import android.text.TextUtils;
 import android.util.Log;
 
 public class SaleSenderService extends SaleSenderServiceBase{
@@ -28,13 +24,12 @@ public class SaleSenderService extends SaleSenderServiceBase{
 	
 	public static final String RECEIVER_NAME = "saleSenderReceiver";
 	public static final String TRANS_ID_PARAM = "transactionId";
+
+	private HandlerThread mSenderThread;
+	private SaleSenderHandler mSaleSenderHandler;
 	
-	private ExecutorService mExecutor;
-	private Looper mServiceLooper;
-	private ServiceHandler mServiceHandler;
-	
-	private final class ServiceHandler extends Handler{
-		public ServiceHandler(Looper looper){
+	private final class SaleSenderHandler extends Handler{
+		public SaleSenderHandler(Looper looper){
 			super(looper);
 		}
 
@@ -61,19 +56,17 @@ public class SaleSenderService extends SaleSenderServiceBase{
 
 	@Override
 	public void onCreate() {
-		HandlerThread thread = new HandlerThread("ServiceStartArguments",
-				android.os.Process.THREAD_PRIORITY_BACKGROUND);
-		thread.start();
+		mSenderThread = new HandlerThread("SaleSenderThread");
+		mSenderThread.start();
 
-		mExecutor = Executors.newFixedThreadPool(THREAD_POOL);
-		mServiceLooper = thread.getLooper();
-		mServiceHandler = new ServiceHandler(mServiceLooper);
+		mSaleSenderHandler = new SaleSenderHandler(mSenderThread.getLooper());
 	}
 	
 	@Override
 	public void onDestroy() {
-		mExecutor.shutdown();
+		mSenderThread.quit();
 		super.onDestroy();
+		Log.d(TAG, "Sale Sender Service stop");
 	}
 
 	/**
@@ -86,12 +79,15 @@ public class SaleSenderService extends SaleSenderServiceBase{
 	 */
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
-		if(intent != null){
-			Message msg = mServiceHandler.obtainMessage();
+		Log.d(TAG, "Sale Sender Service start");
+		if(intent.getExtras() != null){
+			Message msg = new Message();
 			msg.arg1 = startId;
-			Bundle b = intent.getExtras();;
+			Bundle b = intent.getExtras();
 			msg.setData(b);
-			mServiceHandler.sendMessage(msg);
+			mSaleSenderHandler.sendMessage(msg);
+		}else{
+			stopSelf();
 		}
 		return START_NOT_STICKY;
 	}
@@ -130,6 +126,7 @@ public class SaleSenderService extends SaleSenderServiceBase{
 				if(receiver != null){
 					receiver.send(RESULT_SUCCESS, null);
 				}
+				stopSelf();
 				break;
 			case RESULT_ERROR:
 				flagSendStatus(sessionDate, MPOSDatabase.NOT_SEND);
@@ -141,6 +138,7 @@ public class SaleSenderService extends SaleSenderServiceBase{
 					b.putString("msg", msg);
 					receiver.send(RESULT_ERROR, b);
 				}
+				stopSelf();
 				break;
 			}
 		}
@@ -171,6 +169,7 @@ public class SaleSenderService extends SaleSenderServiceBase{
 				if(receiver != null){
 					receiver.send(RESULT_SUCCESS, null);
 				}
+				stopSelf();
 				break;
 			case RESULT_ERROR:
 				flagSendStatus(transactionId, MPOSDatabase.NOT_SEND);
@@ -182,6 +181,7 @@ public class SaleSenderService extends SaleSenderServiceBase{
 					b.putString("msg", msg);
 					receiver.send(RESULT_ERROR, b);
 				}
+				stopSelf();
 				break;
 			}
 		}
@@ -206,9 +206,8 @@ public class SaleSenderService extends SaleSenderServiceBase{
 //		Logger.appendLog(getApplicationContext(), MPOSApplication.LOG_PATH, "json", json);
 
 		PartialSaleSender sender = new PartialSaleSender(getApplicationContext(), shopId, computerId,staffId, json, 
-				new SendSaleReceiver(new Handler(), 
-						sessionDate, json, receiver));
-		mExecutor.execute(sender);
+				new SendSaleReceiver(new Handler(), sessionDate, json, receiver));
+		sender.run();
 	}
 	
 	/**
@@ -223,9 +222,8 @@ public class SaleSenderService extends SaleSenderServiceBase{
 				new JSONSaleSerialization(getApplicationContext());
 		String jsonSale = jsonGenerator.generateLastSaleTransaction(sessionDate);
 		PartialSaleSender sender = new PartialSaleSender(getApplicationContext(), shopId, computerId, staffId, jsonSale, 
-				new SendSaleReceiver(new Handler(), 
-						sessionDate, jsonSale, null));
-		mExecutor.execute(sender);
+				new SendSaleReceiver(new Handler(), sessionDate, jsonSale, null));
+		sender.run();
 	}
 	
 	/**
@@ -243,7 +241,7 @@ public class SaleSenderService extends SaleSenderServiceBase{
 		String jsonSale = jsonGenerator.generateSpecificSaleTransaction(transactionId, sessionDate);
 		PartialSaleSender sender = new PartialSaleSender(getApplicationContext(), shopId, computerId, staffId, jsonSale, 
 				new SendSpecificReceiver(new Handler(), transactionId, receiver));
-		mExecutor.execute(sender);
+		sender.run();
 	}
 	
 	/**
