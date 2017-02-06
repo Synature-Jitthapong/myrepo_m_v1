@@ -563,39 +563,46 @@ public class LoginActivity extends Activity implements OnClickListener,
 		@Override
 		protected void onReceiveResult(int resultCode, Bundle resultData) {
 			super.onReceiveResult(resultCode, resultData);
-			switch(resultCode){
-			case MPOSServiceBase.RESULT_SUCCESS:
-				if(progress.isShowing())
-					progress.dismiss();
-				DeviceChecker checker = new DeviceChecker(LoginActivity.this, 
-						new DeviceCheckerReceiver(new Handler()));
-				ExecutorService executor = Executors.newSingleThreadExecutor();
-				executor.execute(checker);
-				executor.shutdown();
-				break;
-			case MPOSServiceBase.RESULT_ERROR:
-				if(progress.isShowing())
-					progress.dismiss();
-				String msg = resultData.getString("msg");
-				new AlertDialog.Builder(LoginActivity.this)
-				.setCancelable(false)
-				.setMessage(msg)
-				.setNegativeButton(R.string.close, new DialogInterface.OnClickListener() {
-					
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-					}
-				})
-				.setPositiveButton(R.string.try_again, new DialogInterface.OnClickListener() {
-					
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						requestValidUrl();
-					}
-				})
-				.show();
-				break;
-			}
+			if(progress.isShowing())
+				progress.dismiss();
+			DeviceChecker checker = new DeviceChecker(LoginActivity.this,
+					new DeviceCheckerReceiver(new Handler()));
+			ExecutorService executor = Executors.newSingleThreadExecutor();
+			executor.execute(checker);
+			executor.shutdown();
+//			switch(resultCode){
+//			case MPOSServiceBase.RESULT_SUCCESS:
+//				if(progress.isShowing())
+//					progress.dismiss();
+//				DeviceChecker checker = new DeviceChecker(LoginActivity.this,
+//						new DeviceCheckerReceiver(new Handler()));
+//				ExecutorService executor = Executors.newSingleThreadExecutor();
+//				executor.execute(checker);
+//				executor.shutdown();
+//				break;
+//			case MPOSServiceBase.RESULT_ERROR:
+//				if(progress.isShowing())
+//					progress.dismiss();
+//				String msg = resultData.getString("msg");
+//				new AlertDialog.Builder(LoginActivity.this)
+//				.setCancelable(false)
+//				.setMessage(msg)
+//				.setNegativeButton(R.string.close, new DialogInterface.OnClickListener() {
+//
+//					@Override
+//					public void onClick(DialogInterface dialog, int which) {
+//					}
+//				})
+//				.setPositiveButton(R.string.try_again, new DialogInterface.OnClickListener() {
+//
+//					@Override
+//					public void onClick(DialogInterface dialog, int which) {
+//						requestValidUrl();
+//					}
+//				})
+//				.show();
+//				break;
+//			}
 		}
 		
 	}

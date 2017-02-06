@@ -14,7 +14,7 @@
         <EditTextPreference 
         	android:key="server_url" 
         	android:title="@string/url" 
-        	android:selectAllOnFocus="true" android:enabled="false"/>
+        	android:selectAllOnFocus="true" android:enabled="true"/>
         <ListPreference android:key="connection_time_out" android:title="@string/connection_time_out" android:defaultValue="30" android:entries="@array/connection_time_out_name" android:entryValues="@array/connection_time_out_value"/>
 	</PreferenceCategory>
 

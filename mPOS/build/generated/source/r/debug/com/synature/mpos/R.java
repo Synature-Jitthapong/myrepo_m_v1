@@ -846,11 +846,7 @@ public final class R {
         public static final int yes=0x7f0700e7;
     }
     public static final class style {
-        /**  <item name="android:editTextStyle">@style/EditTextStyle</item> 
-         */
         public static final int ActivityDialogTheme=0x7f0a0000;
-        /**  <item name="android:editTextStyle">@style/EditTextStyle</item> 
-         */
         public static final int AppTheme=0x7f0a0001;
         public static final int BaseButton=0x7f0a0002;
         public static final int BaseButton_Light=0x7f0a0003;
