@@ -22,6 +22,7 @@
         <item name="android:imageButtonStyle">@style/GrayButton</item>
         <!-- <item name="android:editTextStyle">@style/EditTextStyle</item> -->
     </style>
+
     <!-- ActionBar styles -->
     <style name="MyActionBar"
            parent="@android:style/Widget.Holo.Light.ActionBar.Solid">

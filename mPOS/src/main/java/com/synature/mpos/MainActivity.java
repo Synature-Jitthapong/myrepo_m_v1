@@ -41,6 +41,7 @@ import com.synature.pos.SecondDisplayProperty.clsSecDisplay_TransSummary;
 import com.synature.util.ImageLoader;
 import com.synature.util.Logger;
 
+import android.content.ContextWrapper;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -1943,8 +1944,8 @@ public class MainActivity extends FragmentActivity implements
 			}
 			
 		});
-		
-		AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle(R.string.hold_bill);
 		builder.setView(holdBillView);
 		builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
@@ -1957,8 +1958,6 @@ public class MainActivity extends FragmentActivity implements
 		
 		final AlertDialog dialog = builder.create();
 		dialog.show();
-		dialog.getWindow().setLayout(690, 
-				WindowManager.LayoutParams.WRAP_CONTENT);
 		dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new OnClickListener(){
 	
 			@Override
