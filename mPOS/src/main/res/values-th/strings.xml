@@ -232,4 +232,5 @@
     <string name="close_sale_automatically">วันนี้เป็นวันใหม่แล้ว โปรแกรมจะปิดสิ้นวันให้อัตโนมัติเพื่อเริ่มวันขายใหม่</string>
     <string name="auto_send_last_endday">ส่งข้อมูลสิ้นวันอัตโนมัติเมื่อเปิดโปรแกรม</string>
     <string name="send_sale_realtime">ส่งข้อมูลการขายทันทีหลังเก็บเงิน</string>
+    <string name="please_select_printer">เลือกปริ้นเตอร์</string>
 </resources>

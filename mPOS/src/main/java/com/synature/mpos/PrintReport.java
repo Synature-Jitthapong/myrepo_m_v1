@@ -3,6 +3,8 @@ package com.synature.mpos;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import com.epson.eposprint.EposException;
+
 public class PrintReport extends AsyncTask<Void, Void, Void>{
 
 	public static enum WhatPrint{
@@ -64,20 +66,25 @@ public class PrintReport extends AsyncTask<Void, Void, Void>{
 				break;
 			}
 		}else{
-			EPSONPrinter epPrinter = new EPSONPrinter(mContext);
-			switch(mWhatPrint){
-			case SUMMARY_SALE:
-				epPrinter.createTextForPrintSummaryReport(mSessionId, mStaffId, mDateTo);
-				epPrinter.print();
-				break;
-			case PRODUCT_REPORT:
-				epPrinter.createTextForPrintSaleByProductReport(mDateFrom, mDateTo);
-				epPrinter.print();
-				break;
-			case BILL_REPORT:
-				epPrinter.createTextForPrintSaleByBillReport(mDateFrom, mDateTo);
-				epPrinter.print();
-				break;
+			EPSONPrinter epPrinter;
+			try {
+				epPrinter = new EPSONPrinter(mContext);
+				switch(mWhatPrint){
+					case SUMMARY_SALE:
+						epPrinter.createTextForPrintSummaryReport(mSessionId, mStaffId, mDateTo);
+						epPrinter.print();
+						break;
+					case PRODUCT_REPORT:
+						epPrinter.createTextForPrintSaleByProductReport(mDateFrom, mDateTo);
+						epPrinter.print();
+						break;
+					case BILL_REPORT:
+						epPrinter.createTextForPrintSaleByBillReport(mDateFrom, mDateTo);
+						epPrinter.print();
+						break;
+				}
+			} catch (EposException e) {
+				e.printStackTrace();
 			}
 		}
 		return null;

@@ -1,6 +1,7 @@
 package com.synature.mpos;
 
 import android.content.Context;
+import android.os.Build;
 
 import com.epson.eposprint.BatteryStatusChangeEventListener;
 import com.epson.eposprint.Builder;
@@ -25,29 +26,27 @@ public class EPSONPrinter extends PrinterBase implements
 	/**
 	 * @param context
 	 */
-	public EPSONPrinter(Context context){
+	public EPSONPrinter(Context context) throws EposException{
 		super(context);
 		mContext = context;
 		mPrinter = new Print(context.getApplicationContext());
-		mPrinter.setStatusChangeEventCallback(this);
-		mPrinter.setBatteryStatusChangeEventCallback(this);
-		try {
-			mBuilder = new Builder(Utils.getEPSONModelName(mContext), Builder.MODEL_ANK, mContext);
-			mBuilder.addTextSize(1, 1);
-			mBuilder.addTextFont(Builder.FONT_B);
-			open();
-		} catch (EposException e) {
-			e.printStackTrace();
+		if(mPrinter != null) {
+			mPrinter.setStatusChangeEventCallback(this);
+			mPrinter.setBatteryStatusChangeEventCallback(this);
+			String deviceName = Utils.getPrinterIp(context);
+			String modelName = Utils.getEPSONModelName(mContext);
+			int deviceType = Print.DEVTYPE_TCP;
+			if (Utils.isEnableBluetoothPrinter(context)) {
+				deviceType = Print.DEVTYPE_BLUETOOTH;
+				deviceName = Utils.getBluetoothAddress(context);
+				modelName = "TM-m30";
+			}
+			if(open(deviceType, deviceName)) {
+				mBuilder = new Builder(modelName, Builder.MODEL_ANK, mContext);
+				mBuilder.addTextSize(1, 1);
+				mBuilder.addTextFont(Builder.FONT_A);
+			}
 		}
-	}
-	
-	/**
-	 * @param context
-	 * @param langToPrint
-	 */
-	public EPSONPrinter(Context context, int langToPrint){
-		this(context);
-		mLangToPrint = langToPrint;
 	}
 	
 	protected void print(){
@@ -61,6 +60,7 @@ public class EPSONPrinter extends PrinterBase implements
 			}
 			mBuilder.addFeedUnit(30);
 			mBuilder.addCut(Builder.CUT_FEED);
+			mBuilder.addPulse(Builder.PARAM_DEFAULT, Builder.PARAM_DEFAULT);
 			mPrinter.sendData(mBuilder, 10000, status, battery);
 		} catch (EposException e) {
 			e.printStackTrace();
@@ -77,14 +77,18 @@ public class EPSONPrinter extends PrinterBase implements
 	}
 	
 	private void createBuilder() throws EposException{
+		if(mBuilder == null)
+			return;
 		mBuilder.addText(mTextToPrint.toString());
 	}
 	
-	private void open(){
+	private boolean open(int deviceType, String deviceName){
 		try {
-			mPrinter.openPrinter(Print.DEVTYPE_TCP, Utils.getPrinterIp(mContext), 0, 1000);
+			mPrinter.openPrinter(deviceType, deviceName, Print.FALSE, Print.PARAM_DEFAULT);
+			return true;
 		} catch (EposException e) {
 			e.printStackTrace();
+			return false;
 		}	
 	}
 

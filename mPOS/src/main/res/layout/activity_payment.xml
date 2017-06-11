@@ -19,7 +19,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:background="@color/light_blue_gray"
-            android:minHeight="72dip"
+            android:minHeight="96dp"
             android:paddingLeft="4dp"
             android:paddingRight="4dp" >
 
@@ -167,7 +167,7 @@
 
     <RelativeLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1" >
 
         <HorizontalScrollView
@@ -176,8 +176,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
+            android:layout_marginBottom="48dp"
             android:background="@color/light_blue_gray"
-            android:minHeight="72dip"
+            android:minHeight="96dp"
             android:paddingLeft="4dp"
             android:paddingRight="4dp" >
 
@@ -195,29 +196,33 @@
         <include
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/horizontalScrollView2"
-            android:layout_weight="1"
+            android:layout_centerInParent="true"
             layout="@layout/keypad" />
 
+        <Button
+            android:id="@+id/btnCancel"
+            style="@style/GrayButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/margin_large"
+            android:layout_marginBottom="@dimen/default_margin"
+            android:minHeight="96dp"
+            android:minWidth="256dp"
+            android:text="@android:string/cancel"
+            android:textSize="@dimen/large_text_size" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1" >
 
         <GridView
             android:id="@+id/gvPaymentButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/btnConfirm"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/tvTotalPrice"
-            android:layout_weight="1"
+            android:layout_centerInParent="true"
             android:gravity="center"
             android:horizontalSpacing="4dp"
             android:numColumns="2"
@@ -235,6 +240,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/default_margin"
             android:minHeight="96dp"
             android:minWidth="256dp"
             android:text="@string/confirm"

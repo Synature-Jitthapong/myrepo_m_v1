@@ -32,12 +32,13 @@ import android.view.WindowManager.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
-public class CreditPayActivity extends Activity implements TextWatcher{
+public class CreditPayActivity extends Activity implements TextWatcher, View.OnClickListener{
 	
 	public static final String TAG = "CreditPayActivity";
 	
@@ -77,21 +78,17 @@ public class CreditPayActivity extends Activity implements TextWatcher{
 	private Spinner mSpCardType;
 	private Spinner mSpExpYear;
 	private Spinner mSpExpMonth;
+	private Button mBtnConfirm;
+	private Button mBtnCancel;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_ACTION_BAR);
-	    getWindow().setFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND,
-	            WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-	    LayoutParams params = getWindow().getAttributes();
-	    params.width = WindowManager.LayoutParams.MATCH_PARENT;
-	    params.height= getResources().getInteger(R.integer.activity_dialog_height);
-	    params.alpha = 1.0f;
-	    params.dimAmount = 0.5f;
-	    getWindow().setAttributes((android.view.WindowManager.LayoutParams) params); 
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND,
+				WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+		getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+				WindowManager.LayoutParams.MATCH_PARENT);
 		setContentView(R.layout.activity_credit_pay);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		mTvTotalPrice = (TextView) findViewById(R.id.tvTotalPrice);
 		mTxtTotalPay = (EditText) findViewById(R.id.txtCardPayAmount);
@@ -104,11 +101,16 @@ public class CreditPayActivity extends Activity implements TextWatcher{
 		mSpCardType = (Spinner) findViewById(R.id.spCardType);
 		mSpExpYear = (Spinner) findViewById(R.id.spExpYear);
 		mSpExpMonth = (Spinner) findViewById(R.id.spExpMonth);
+		mBtnConfirm = (Button) findViewById(R.id.btnConfirm);
+		mBtnCancel = (Button) findViewById(R.id.btnCancel);
 		mTxtTotalPay.setSelectAllOnFocus(true);
 		mTxtCardNoSeq1.addTextChangedListener(this);
 		mTxtCardNoSeq2.addTextChangedListener(this);
 		mTxtCardNoSeq3.addTextChangedListener(this);
 		mTxtCardNoSeq4.addTextChangedListener(this);
+
+		mBtnConfirm.setOnClickListener(this);
+		mBtnCancel.setOnClickListener(this);
 		
 		mSpExpYear.setOnItemSelectedListener(new OnItemSelectedListener(){
 
@@ -190,25 +192,25 @@ public class CreditPayActivity extends Activity implements TextWatcher{
 		super.onResume();
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_credit_pay, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch(item.getItemId()){
-		case android.R.id.home:
-			finish();
-			return true;
-		case R.id.itemConfirm:
-			confirm();
-			return true;
-			default:
-				return super.onOptionsItemSelected(item);
-		}
-	}
+//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//		getMenuInflater().inflate(R.menu.activity_credit_pay, menu);
+//		return true;
+//	}
+//
+//	@Override
+//	public boolean onOptionsItemSelected(MenuItem item) {
+//		switch(item.getItemId()){
+//		case android.R.id.home:
+//			finish();
+//			return true;
+//		case R.id.itemConfirm:
+//			confirm();
+//			return true;
+//			default:
+//				return super.onOptionsItemSelected(item);
+//		}
+//	}
 
 	private void createSpinnerYear(){
 		String[] years = new String[10];
@@ -514,6 +516,15 @@ public class CreditPayActivity extends Activity implements TextWatcher{
 		if(mMsrThread != null){
 			mMsrThread.interrupt();
 			mMsrThread = null;
+		}
+	}
+
+	@Override
+	public void onClick(View v) {
+		if(v == mBtnConfirm){
+			confirm();
+		}else{
+			finish();
 		}
 	}
 

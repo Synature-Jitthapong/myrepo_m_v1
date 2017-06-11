@@ -11,6 +11,8 @@ import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 
+import com.epson.eposprint.EposException;
+
 public class BillViewerFragment extends DialogFragment implements OnClickListener{
 
 	public static final String TAG = BillViewerFragment.class.getSimpleName();
@@ -107,9 +109,13 @@ public class BillViewerFragment extends DialogFragment implements OnClickListene
                 wtPrinter.mTextToPrint.append(mTextPrint.getTextToPrint());
                 wtPrinter.print();
             }else{
-                EPSONPrinter epPrinter = new EPSONPrinter(getActivity());
-                epPrinter.mTextToPrint.append(mTextPrint.getTextToPrint());
-                epPrinter.print();
+				try {
+					EPSONPrinter epPrinter = new EPSONPrinter(getActivity());
+					epPrinter.mTextToPrint.append(mTextPrint.getTextToPrint());
+					epPrinter.print();
+				} catch (EposException e) {
+					e.printStackTrace();
+				}
             }
             return null;
         }

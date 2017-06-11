@@ -3,6 +3,7 @@ package com.synature.mpos;
 import java.util.Calendar;
 import java.util.List;
 
+import com.epson.eposprint.EposException;
 import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.PaymentDetailDataSource;
@@ -27,6 +28,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ReprintActivity extends Activity {
 	
@@ -204,21 +206,26 @@ public class ReprintActivity extends Activity {
 					wtPrinter.createTextForPrintWasteReceipt(mTransactionId, true, false);
 				wtPrinter.print();
 			}else{
-				EPSONPrinter epPrinter = new EPSONPrinter(ReprintActivity.this);	
-				if(mBillType == RECEIPT)
-					epPrinter.createTextForPrintReceipt(mTransactionId, true, false);
-				else if(mBillType == WASTE)
-					epPrinter.createTextForPrintWasteReceipt(mTransactionId, true, false);
-				epPrinter.print();
-			}
-			runOnUiThread(new Runnable(){
+				EPSONPrinter epPrinter;
+				try {
+					epPrinter = new EPSONPrinter(ReprintActivity.this);
+					if(mBillType == RECEIPT)
+						epPrinter.createTextForPrintReceipt(mTransactionId, true, false);
+					else if(mBillType == WASTE)
+						epPrinter.createTextForPrintWasteReceipt(mTransactionId, true, false);
+					epPrinter.print();
+					runOnUiThread(new Runnable(){
 
-				@Override
-				public void run() {
-					mBtnPrint.setEnabled(true);
+						@Override
+						public void run() {
+							mBtnPrint.setEnabled(true);
+						}
+
+					});
+				} catch (EposException e) {
+					e.printStackTrace();
 				}
-				
-			});
+			}
 			return null;
 		}
 	}

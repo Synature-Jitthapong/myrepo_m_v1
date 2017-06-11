@@ -23,6 +23,11 @@
         <!-- <item name="android:editTextStyle">@style/EditTextStyle</item> -->
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
     <!-- ActionBar styles -->
     <style name="MyActionBar"
            parent="@android:style/Widget.Holo.Light.ActionBar.Solid">

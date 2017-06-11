@@ -20,6 +20,8 @@
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <supports-screens
         android:requiresSmallestWidthDp="1024"
@@ -107,7 +109,7 @@
             android:label="@string/payment"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
-            android:theme="@style/ActivityDialogTheme"
+            android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" >
         </activity>
         <activity
@@ -115,6 +117,7 @@
             android:label="@string/credit_pay"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" >
         </activity>
         <activity

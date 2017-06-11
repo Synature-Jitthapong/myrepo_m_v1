@@ -37,13 +37,12 @@ import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.epson.eposprint.EposException;
 import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.ProductsDataSource;
 import com.synature.mpos.datasource.SessionDataSource;
 import com.synature.util.Logger;
-
-import org.w3c.dom.Text;
 
 @SuppressLint("ShowToast")
 public class Utils {
@@ -371,7 +370,46 @@ public class Utils {
 				.getDefaultSharedPreferences(context);
 		return sharedPref.getString(SettingsActivity.KEY_PREF_PRINTER_LIST, "");
 	}
-	
+
+	public static boolean isEnableBluetoothPrinter(Context context){
+		SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+		return sharedPref.getBoolean(SettingsActivity.KEY_PREF_BLUETOOTH_PRINTER, false);
+	}
+
+	public static String getBluetoothAddress(Context context) {
+		SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+		return sharedPref.getString(SettingsActivity.KEY_BT_PRINTER_MAC_ADDRESS, "");
+	}
+
+	public static String getEposExceptionText(int state){
+		switch(state){
+			case EposException.SUCCESS:
+				return "SUCCESS";
+			case    EposException.ERR_PARAM:
+				return "ERR_PARAM";
+			case    EposException.ERR_OPEN:
+				return "ERR_OPEN";
+			case    EposException.ERR_CONNECT:
+				return "ERR_CONNECT";
+			case    EposException.ERR_TIMEOUT:
+				return "ERR_TIMEOUT";
+			case    EposException.ERR_MEMORY:
+				return "ERR_MEMORY";
+			case    EposException.ERR_ILLEGAL:
+				return "ERR_ILLEGAL";
+			case    EposException.ERR_PROCESSING:
+				return "ERR_PROCESSING";
+			case    EposException.ERR_UNSUPPORTED:
+				return "ERR_UNSUPPORTED";
+			case    EposException.ERR_OFF_LINE:
+				return "ERR_OFF_LINE";
+			case    EposException.ERR_FAILURE:
+				return "ERR_FAILURE";
+			default:
+				return String.format("%d", state);
+		}
+	}
+
 	/**
 	 * @param context
 	 * @return epson printer ip
@@ -710,13 +748,16 @@ public class Utils {
 		if(!TextUtils.isEmpty(firstDate)){
 			int lastDay = getLastDayToClearSale(context);
 			Calendar cFirst = Calendar.getInstance();
-			Calendar cLast = Calendar.getInstance();
+			Calendar cTemp = Calendar.getInstance();
 			cFirst.setTimeInMillis(Long.parseLong(firstDate));
-			cLast.add(Calendar.DAY_OF_YEAR, lastDay);
-			if(cLast.get(Calendar.DAY_OF_MONTH) > 1){
-				cLast.set(Calendar.DAY_OF_MONTH, 1);
-				cLast.add(Calendar.DAY_OF_MONTH, -1);
-			}
+            cTemp.add(Calendar.DAY_OF_YEAR, lastDay);
+//			if(cTemp.get(Calendar.DAY_OF_MONTH) > 1){
+//                cTemp.set(Calendar.DAY_OF_MONTH, 1);
+//                cTemp.add(Calendar.DAY_OF_MONTH, -1);
+//			}
+			Calendar cLast = new GregorianCalendar(cTemp.get(Calendar.YEAR),
+                    cTemp.get(Calendar.MONTH), cTemp.get(Calendar.DAY_OF_MONTH));
+            //long date = cLast.getTimeInMillis();
 			if(cLast.compareTo(cFirst) > 0){
                 Log.i(TAG, DateFormat.getTimeInstance().format(Calendar.getInstance().getTime())
                         + " begin clear over sale");

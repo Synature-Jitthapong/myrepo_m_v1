@@ -92,9 +92,10 @@ public class SessionDataSource extends MPOSDatabase{
 	public String getFirstSessionDate(){
 		String firstSessDate = "";
 		Cursor cursor = getReadableDatabase().rawQuery(
-				"SELECT " + SessionTable.COLUMN_SESS_DATE
-				+ " FROM " + SessionTable.TABLE_SESSION
-				+ " ORDER BY " + SessionTable.COLUMN_SESS_DATE + " ASC LIMIT 1", null);
+				"SELECT " + SessionTable.COLUMN_SESS_DATE +
+						" FROM " + SessionTable.TABLE_SESSION +
+						" WHERE " + SessionTable.COLUMN_IS_ENDDAY + "=?" +
+						" ORDER BY " + SessionTable.COLUMN_SESS_DATE + " ASC LIMIT 1", new String[]{"1"});
 		if(cursor.moveToFirst()){
 			firstSessDate = cursor.getString(0);
 		}

@@ -76,17 +76,17 @@ public class PaymentActivity extends Activity implements OnClickListener,
 	private TextView mTvChange;
 	private GridView mGvPaymentButton;
 	private Button mBtnConfirm;
+	private Button mBtnCancel;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_ACTION_BAR);
 	    getWindow().setFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND,
 	            WindowManager.LayoutParams.FLAG_DIM_BEHIND);
 	    getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
 				WindowManager.LayoutParams.MATCH_PARENT);
 		setContentView(R.layout.activity_payment);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+
 	    setFinishOnTouchOutside(false);
 		mLvPayment = (ListView) findViewById(R.id.lvPayDetail);
 		mTxtEnterPrice = (EditText) findViewById(R.id.txtDisplay);
@@ -96,7 +96,9 @@ public class PaymentActivity extends Activity implements OnClickListener,
 		mTvChange = (TextView) findViewById(R.id.tvChange);
 		mGvPaymentButton = (GridView) findViewById(R.id.gvPaymentButton);
 		mBtnConfirm = (Button) findViewById(R.id.btnConfirm);
-		mBtnConfirm.setOnClickListener(mOnConfirmClick);
+		mBtnCancel = (Button) findViewById(R.id.btnCancel);
+		mBtnConfirm.setOnClickListener(this);
+		mBtnCancel.setOnClickListener(this);
 		
 		Intent intent = getIntent();
 		mTransactionId = intent.getIntExtra("transactionId", 0);
@@ -146,35 +148,6 @@ public class PaymentActivity extends Activity implements OnClickListener,
 		super.onResume();
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_payment, menu);
-		return true;
-	}
-
-	OnClickListener mOnConfirmClick = new OnClickListener(){
-
-		@Override
-		public void onClick(View arg0) {
-			confirm();
-		}
-		
-	};
-	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch(item.getItemId()){
-		case android.R.id.home:
-			cancel();
-			return true;
-		case R.id.itemConfirm:
-			confirm();
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);	
-		}
-	}
-	
 	private void summary(){ 
 		OrderDetail sumOrder = mTrans.getSummaryOrder(mTransactionId, true);
 		mTotalPrice = sumOrder.getTotalSalePrice() + sumOrder.getVatExclude();
@@ -344,74 +317,80 @@ public class PaymentActivity extends Activity implements OnClickListener,
 		finish();
 	}
 
-	@Override
-	public void onClick(View v) {
-		switch(v.getId()){
-		case R.id.btn0:
-			mStrTotalPay.append("0");
-			displayEnterPrice();
-			break;
-		case R.id.btn1:
-			mStrTotalPay.append("1");
-			displayEnterPrice();
-			break;
-		case R.id.btn2:
-			mStrTotalPay.append("2");
-			displayEnterPrice();
-			break;
-		case R.id.btn3:
-			mStrTotalPay.append("3");
-			displayEnterPrice();
-			break;
-		case R.id.btn4:
-			mStrTotalPay.append("4");
-			displayEnterPrice();
-			break;
-		case R.id.btn5:
-			mStrTotalPay.append("5");
-			displayEnterPrice();
-			break;
-		case R.id.btn6:
-			mStrTotalPay.append("6");
-			displayEnterPrice();
-			break;
-		case R.id.btn7:
-			mStrTotalPay.append("7");
-			displayEnterPrice();
-			break;
-		case R.id.btn8:
-			mStrTotalPay.append("8");
-			displayEnterPrice();
-			break;
-		case R.id.btn9:
-			mStrTotalPay.append("9");
-			displayEnterPrice();
-			break;
-		case R.id.btnClear:
-			mStrTotalPay = new StringBuilder();
-			displayEnterPrice();
-			break;
-		case R.id.btnDel:
-			try {
-				mStrTotalPay.deleteCharAt(mStrTotalPay.length() - 1);
-			} catch (Exception e) {
-				mStrTotalPay = new StringBuilder();
-			}
-			displayEnterPrice();
-			break;
-		case R.id.btnDot:
-			mStrTotalPay.append(".");
-			displayEnterPrice();
-			break;
-		case R.id.btnEnter:
-			if(!mStrTotalPay.toString().isEmpty()){
-				addPayment(PaymentDetailDataSource.PAY_TYPE_CASH, "");
-			}
-			break;
-		}
-	}
-	
-	private void popupOtherPayment(String payTypeName, final int payTypeId){
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnConfirm:
+                confirm();
+                break;
+            case R.id.btnCancel:
+                cancel();
+                break;
+            case R.id.btn0:
+                mStrTotalPay.append("0");
+                displayEnterPrice();
+                break;
+            case R.id.btn1:
+                mStrTotalPay.append("1");
+                displayEnterPrice();
+                break;
+            case R.id.btn2:
+                mStrTotalPay.append("2");
+                displayEnterPrice();
+                break;
+            case R.id.btn3:
+                mStrTotalPay.append("3");
+                displayEnterPrice();
+                break;
+            case R.id.btn4:
+                mStrTotalPay.append("4");
+                displayEnterPrice();
+                break;
+            case R.id.btn5:
+                mStrTotalPay.append("5");
+                displayEnterPrice();
+                break;
+            case R.id.btn6:
+                mStrTotalPay.append("6");
+                displayEnterPrice();
+                break;
+            case R.id.btn7:
+                mStrTotalPay.append("7");
+                displayEnterPrice();
+                break;
+            case R.id.btn8:
+                mStrTotalPay.append("8");
+                displayEnterPrice();
+                break;
+            case R.id.btn9:
+                mStrTotalPay.append("9");
+                displayEnterPrice();
+                break;
+            case R.id.btnClear:
+                mStrTotalPay = new StringBuilder();
+                displayEnterPrice();
+                break;
+            case R.id.btnDel:
+                try {
+                    mStrTotalPay.deleteCharAt(mStrTotalPay.length() - 1);
+                } catch (Exception e) {
+                    mStrTotalPay = new StringBuilder();
+                }
+                displayEnterPrice();
+                break;
+            case R.id.btnDot:
+                mStrTotalPay.append(".");
+                displayEnterPrice();
+                break;
+            case R.id.btnEnter:
+                if (!mStrTotalPay.toString().isEmpty()) {
+                    addPayment(PaymentDetailDataSource.PAY_TYPE_CASH, "");
+                }
+                break;
+        }
+    }
+
+    private void popupOtherPayment(String payTypeName, final int payTypeId){
 		LayoutInflater inflater = (LayoutInflater)
 				this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View v = inflater.inflate(R.layout.other_payment_layout, null);
@@ -462,7 +441,7 @@ public class PaymentActivity extends Activity implements OnClickListener,
 				final PayType payType = payTypeLst.get(i);
 				final Button btnPayType = new Button(PaymentActivity.this);
 				btnPayType.setMinWidth(128);
-				btnPayType.setMinHeight(64);
+				btnPayType.setMinHeight(96);
 				btnPayType.setText(payType.getPayTypeName());
 				btnPayType.setOnClickListener(new OnClickListener(){
 	
@@ -498,7 +477,7 @@ public class PaymentActivity extends Activity implements OnClickListener,
 			final PayType payType = payTypeLst.get(i);
 			final Button btnPayType = new Button(PaymentActivity.this);
 			btnPayType.setMinWidth(128);
-			btnPayType.setMinHeight(64);
+			btnPayType.setMinHeight(96);
 			btnPayType.setText(payType.getPayTypeName());
 			btnPayType.setOnClickListener(new OnClickListener(){
 
@@ -565,7 +544,7 @@ public class PaymentActivity extends Activity implements OnClickListener,
 				convertView = mInflater.inflate(R.layout.button_template, null);
 				holder.btnPayment = (Button) convertView;
 				holder.btnPayment.setMinWidth(128);
-				holder.btnPayment.setMinHeight(90);
+				holder.btnPayment.setMinHeight(196);
 				convertView.setTag(holder);
 			}else{
 				holder = (ViewHolder) convertView.getTag();
