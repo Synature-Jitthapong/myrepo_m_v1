@@ -3,39 +3,12 @@
 
     <item
         is-multidex="false"
-        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\pinchzoom.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a4def992b1f41525748db059dfdd21322cc3157e">
-        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\pinchzoom_11245cacf86ad56c76ae38ca90ff17f6635d55eb.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\toy_o\.android\build-cache\23cd6ec269c564d7a8fb332c5c724ed35450b18a\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="a5db9a2dd46d84285ef737f65030b74b6e8ee2a4">
         <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\classes_37d04ce7d6a2911dd6d8b8a39525462ddafd7689.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\toy_o\.android\build-cache\cb39af01b21d30079192b1a387b6c105aecafffa\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ad5bb101ced4d3939225c9b57e5a3d81547c1fbb">
-        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\classes_c13df661e3394fff1c63f5c8c40966123075a4db.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\toy_o\.android\build-cache\a577e1c4358651c22a83d783d7599aaf3825ef0e\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="611605b6b640c1558f9bdea41de8ff837ab68ca8">
-        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\classes_f182790b855425cadb700b23240bf4ae634bcd97.jar" />
     </item>
     <item
         is-multidex="false"
@@ -48,30 +21,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\ePOS-Print.jar"
+        jar="C:\Users\toy_o\.android\build-cache\cb39af01b21d30079192b1a387b6c105aecafffa\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="25.0.2"
-        sha1="a106cd4d9499677a7db2eec6638f2eae618e250a">
-        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\ePOS-Print_df10516f22e0a9e794e64009f546582581f6c145.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\WTAndroidJar2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="20c83b3ce9d96bf7e2fb2793357414837d989cc9">
-        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\WTAndroidJar2_ef195af0fc5bd9e4d7987ced2b37060c2ba15d5f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\toy_o\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\support-v4-18.0.0_5844b80d8e343de2c68a3eb15d945db817760140.jar" />
+        revision="25.0.3"
+        sha1="ad5bb101ced4d3939225c9b57e5a3d81547c1fbb">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\classes_c13df661e3394fff1c63f5c8c40966123075a4db.jar" />
     </item>
     <item
         is-multidex="false"
@@ -93,12 +48,174 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\WTAndroidJar2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="20c83b3ce9d96bf7e2fb2793357414837d989cc9">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\WTAndroidJar2_ef195af0fc5bd9e4d7987ced2b37060c2ba15d5f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\.android\build-cache\23cd6ec269c564d7a8fb332c5c724ed35450b18a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="a5db9a2dd46d84285ef737f65030b74b6e8ee2a4">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\classes_37d04ce7d6a2911dd6d8b8a39525462ddafd7689.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\.android\build-cache\a577e1c4358651c22a83d783d7599aaf3825ef0e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="611605b6b640c1558f9bdea41de8ff837ab68ca8">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\classes_f182790b855425cadb700b23240bf4ae634bcd97.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\pinchzoom.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="a4def992b1f41525748db059dfdd21322cc3157e">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\pinchzoom_11245cacf86ad56c76ae38ca90ff17f6635d55eb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\ePOS-Print.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="a106cd4d9499677a7db2eec6638f2eae618e250a">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\ePOS-Print_df10516f22e0a9e794e64009f546582581f6c145.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\support-annotations-22.0.0_c371e93cf04001791802d192fd42827448ee4565.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\synSlidingTab\build\intermediates\bundles\default\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="a0e2457acb0faa447976ae85dbad46b1370adde8">
         <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\classes_3535f256c653b1d482a666d6198eceb44d3c55e2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\pinchzoom.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a4def992b1f41525748db059dfdd21322cc3157e">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\pinchzoom_11245cacf86ad56c76ae38ca90ff17f6635d55eb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\.android\build-cache\a577e1c4358651c22a83d783d7599aaf3825ef0e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="611605b6b640c1558f9bdea41de8ff837ab68ca8">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\classes_f182790b855425cadb700b23240bf4ae634bcd97.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\.android\build-cache\80ed4db92c270f2c67e9df5710de7e1041ef29fd\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c9ef45dcbd082cd63aac09a5e2cd443adb5df837">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\classes_0e3208081b1056eb7bf75d3a6fe208c9b7d41182.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\.android\build-cache\13969f929425b4ca979d67a93055d8adb64ec67d\output\jars\libs\internal_impl-22.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\internal_impl-22.0.0_03405877438107f6184dd7ee9ee4b2407a3ae5de.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\.android\build-cache\c9008604ddfc4e76811562a542abe91e58b36224\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9af3b9b8114e685291aa00e6572b0a9131244956">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\classes_fc867b5771388af1d267d39298061a4e6b5290cd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\.android\build-cache\cb39af01b21d30079192b1a387b6c105aecafffa\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ad5bb101ced4d3939225c9b57e5a3d81547c1fbb">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\classes_c13df661e3394fff1c63f5c8c40966123075a4db.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\synSlidingTab\build\intermediates\bundles\default\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4244b7e41023cdca1264207f4b482b6bbb25e04d">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\classes_3535f256c653b1d482a666d6198eceb44d3c55e2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\ePOS-Print.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a106cd4d9499677a7db2eec6638f2eae618e250a">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\ePOS-Print_df10516f22e0a9e794e64009f546582581f6c145.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\ksoap2-android-assembly-3.3.0-jar-with-dependencies.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="62681b8212ca52278feafec31775fd0cb096d99a">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\ksoap2-android-assembly-3.3.0-jar-with-dependencies_a480404a3325343120b722e9a56727572e09487a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\gson-2.7_0912e59f832338dd9a5d0a0c4c614754961ac17a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\.android\build-cache\13969f929425b4ca979d67a93055d8adb64ec67d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\classes_f748098d0a19e42618b0c055aeaf14d757b437f9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\WTAndroidJar2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="20c83b3ce9d96bf7e2fb2793357414837d989cc9">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\WTAndroidJar2_ef195af0fc5bd9e4d7987ced2b37060c2ba15d5f.jar" />
     </item>
 
 </items>

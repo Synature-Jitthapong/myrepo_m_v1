@@ -36,15 +36,17 @@ public class EPSONPrinter extends PrinterBase implements
 			String deviceName = Utils.getPrinterIp(context);
 			String modelName = Utils.getEPSONModelName(mContext);
 			int deviceType = Print.DEVTYPE_TCP;
+			int font = Builder.FONT_B;
 			if (Utils.isEnableBluetoothPrinter(context)) {
 				deviceType = Print.DEVTYPE_BLUETOOTH;
 				deviceName = Utils.getBluetoothAddress(context);
 				modelName = "TM-m30";
+				font = Builder.FONT_A;
 			}
 			if(open(deviceType, deviceName)) {
 				mBuilder = new Builder(modelName, Builder.MODEL_ANK, mContext);
 				mBuilder.addTextSize(1, 1);
-				mBuilder.addTextFont(Builder.FONT_A);
+				mBuilder.addTextFont(font);
 			}
 		}
 	}
