@@ -17,8 +17,15 @@
   <component name="ChangeListManager">
     <list default="true" id="f8a6f04e-4696-40bd-ab46-408bb2a292ab" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/resources-debug.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/outputs/aar/synSlidingTab-release.aar" afterPath="$PROJECT_DIR$/synSlidingTab/build/outputs/aar/synSlidingTab-release.aar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/generated/source/buildConfig/debug/com/synature/mpos/BuildConfig.java" afterPath="$PROJECT_DIR$/mPOS/build/generated/source/buildConfig/debug/com/synature/mpos/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/mPOS.iml" afterPath="$PROJECT_DIR$/mPOS/mPOS.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/Utils.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/Utils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/SessionDataSource.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/SessionDataSource.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/bundles/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/bundles/debug/AndroidManifest.xml" />
     </list>
     <ignored path="myrepo_m_v1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,7 +60,7 @@
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mPOS/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
+            <state relative-caret-position="414">
               <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
               <folding />
             </state>
@@ -63,7 +70,7 @@
       <file leaf-file-name="DownloadService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/DownloadService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-230">
+            <state relative-caret-position="184">
               <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
               <folding />
             </state>
@@ -73,8 +80,18 @@
       <file leaf-file-name="Utils.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="754" column="24" selection-start-line="754" selection-start-column="24" selection-end-line="754" selection-end-column="24" />
+            <state relative-caret-position="424">
+              <caret line="767" column="0" selection-start-line="767" selection-start-column="0" selection-end-line="767" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SessionDataSource.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/SessionDataSource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="703">
+              <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -2273,7 +2290,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1" value="5986135501602" />
+        <entry key="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1" value="5986468271399" />
         <entry key="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1" value="5877363526529" />
       </map>
     </option>
@@ -2602,12 +2619,12 @@
         <option value="$PROJECT_DIR$/mPOS/src/main/res/layout/activity_payment.xml" />
         <option value="$PROJECT_DIR$/mPOS/src/main/res/values-th/strings.xml" />
         <option value="$PROJECT_DIR$/mPOS/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/SessionDataSource.java" />
-        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/Utils.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/EPSONPrinter.java" />
         <option value="$PROJECT_DIR$/mPOS/build.gradle" />
         <option value="$PROJECT_DIR$/synSlidingTab/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/synSlidingTab/build.gradle" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/Utils.java" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/SessionDataSource.java" />
       </list>
     </option>
   </component>
@@ -2642,9 +2659,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2925,7 +2943,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2933,7 +2950,7 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
-    <property name="device.picker.selection" value="5203ba284c2cb3b1" />
+    <property name="device.picker.selection" value="192.168.200.101:5555" />
     <property name="ScreenshotViewer.SavePath" value="$USER_HOME$/Desktop" />
     <property name="ExportApk.ApkPath" value="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS" />
     <property name="ExportApk.Flavors" value="" />
@@ -3291,7 +3308,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20848057" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -3311,7 +3328,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17400645" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39764705" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39693758" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -3340,7 +3357,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="9" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/Utils.java</url>
+          <line>748</line>
+          <properties />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="10" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -3752,14 +3777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/SessionDataSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1955">
-          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/OrderTransDataSource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="29233">
@@ -3826,7 +3843,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
+        <state relative-caret-position="414">
           <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
           <folding />
         </state>
@@ -3834,16 +3851,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/DownloadService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-230">
+        <state relative-caret-position="184">
           <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/SessionDataSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="754" column="24" selection-start-line="754" selection-start-column="24" selection-end-line="754" selection-end-column="24" />
+        <state relative-caret-position="424">
+          <caret line="767" column="0" selection-start-line="767" selection-start-column="0" selection-end-line="767" selection-end-column="0" />
           <folding />
         </state>
       </provider>

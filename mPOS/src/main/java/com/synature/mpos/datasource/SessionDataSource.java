@@ -102,7 +102,26 @@ public class SessionDataSource extends MPOSDatabase{
 		cursor.close();
 		return firstSessDate;
 	}
-	
+
+	public String getLastEndDaySessionDate(){
+		String sessDate = "";
+		Cursor cursor = getReadableDatabase().query(
+				SessionTable.TABLE_SESSION,
+				new String[]{
+						SessionTable.COLUMN_SESS_DATE
+				},
+				SessionTable.COLUMN_IS_ENDDAY + "=?",
+				new String[]{
+						"1"
+				}, null, null,
+				SessionTable.COLUMN_SESS_DATE + " DESC ", "1");
+		if(cursor.moveToFirst()){
+			sessDate = cursor.getString(0);
+		}
+		cursor.close();
+		return sessDate;
+	}
+
 	/**
 	 * list all session in day
 	 * @param sessDate
