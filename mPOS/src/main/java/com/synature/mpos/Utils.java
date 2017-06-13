@@ -707,24 +707,22 @@ public class Utils {
 	public static void deleteOverSale(Context context){
 		SessionDataSource sessionDao = new SessionDataSource(context);
 		String firstDate = sessionDao.getFirstSessionDate();
-		if(!TextUtils.isEmpty(firstDate)){
-			int lastDay = getLastDayToClearSale(context);
+		String lastDate = sessionDao.getLastEndDaySessionDate();
+		if(!TextUtils.isEmpty(firstDate) && !TextUtils.isEmpty(lastDate)){
+			int dayToKeep = getLastDayToClearSale(context);
 			Calendar cFirst = Calendar.getInstance();
 			Calendar cLast = Calendar.getInstance();
 			cFirst.setTimeInMillis(Long.parseLong(firstDate));
-			cLast.add(Calendar.DAY_OF_YEAR, lastDay);
-			if(cLast.get(Calendar.DAY_OF_MONTH) > 1){
-				cLast.set(Calendar.DAY_OF_MONTH, 1);
-				cLast.add(Calendar.DAY_OF_MONTH, -1);
-			}
+			cLast.setTimeInMillis(Long.parseLong(lastDate));
+			cLast.add(Calendar.DAY_OF_YEAR, dayToKeep);
 			if(cLast.compareTo(cFirst) > 0){
-                Log.i(TAG, DateFormat.getTimeInstance().format(Calendar.getInstance().getTime())
-                        + " begin clear over sale");
+				Log.i(TAG, DateFormat.getTimeInstance().format(Calendar.getInstance().getTime())
+						+ " begin clear over sale");
 				OrderTransDataSource trans = new OrderTransDataSource(context);
 				trans.deleteSale(firstDate, String.valueOf(cLast.getTimeInMillis()));
-			
+
 				DateFormat format = DateFormat.getDateInstance(DateFormat.LONG);
-				Logger.appendLog(context, MPOSApplication.LOG_PATH, MPOSApplication.LOG_FILE_NAME, 
+				Logger.appendLog(context, MPOSApplication.LOG_PATH, MPOSApplication.LOG_FILE_NAME,
 						"Clear sale from: " + format.format(cFirst.getTime()) + "\n"
 								+ " to: " + format.format(cLast.getTime()));
 			}

@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="crashlytics-core-2.3.8">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/mPOS/build/intermediates/exploded-aar/com.crashlytics.sdk.android/crashlytics-core/2.3.8/res" />
-      <root url="jar://$PROJECT_DIR$/mPOS/build/intermediates/exploded-aar/com.crashlytics.sdk.android/crashlytics-core/2.3.8/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.android/build-cache/80ed4db92c270f2c67e9df5710de7e1041ef29fd/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/80ed4db92c270f2c67e9df5710de7e1041ef29fd/output/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

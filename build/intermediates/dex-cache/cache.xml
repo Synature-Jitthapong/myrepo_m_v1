@@ -1,3 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\ksoap2-android-assembly-3.3.0-jar-with-dependencies.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="62681b8212ca52278feafec31775fd0cb096d99a">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\ksoap2-android-assembly-3.3.0-jar-with-dependencies_a480404a3325343120b722e9a56727572e09487a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\pinchzoom.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="a4def992b1f41525748db059dfdd21322cc3157e">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\pinchzoom_11245cacf86ad56c76ae38ca90ff17f6635d55eb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\synSlidingTab\build\intermediates\bundles\default\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4244b7e41023cdca1264207f4b482b6bbb25e04d">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\classes_3535f256c653b1d482a666d6198eceb44d3c55e2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\ePOS-Print.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ab2b4caa13eb976f1acf8abb3e11f8afa04c25a7">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\ePOS-Print_df10516f22e0a9e794e64009f546582581f6c145.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\WTAndroidJar2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="20c83b3ce9d96bf7e2fb2793357414837d989cc9">
+        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\WTAndroidJar2_ef195af0fc5bd9e4d7987ced2b37060c2ba15d5f.jar" />
+    </item>
+
+</items>

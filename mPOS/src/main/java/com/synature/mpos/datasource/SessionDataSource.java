@@ -92,9 +92,10 @@ public class SessionDataSource extends MPOSDatabase{
 	public String getFirstSessionDate(){
 		String firstSessDate = "";
 		Cursor cursor = getReadableDatabase().rawQuery(
-				"SELECT " + SessionTable.COLUMN_SESS_DATE
-				+ " FROM " + SessionTable.TABLE_SESSION
-				+ " ORDER BY " + SessionTable.COLUMN_SESS_DATE + " ASC LIMIT 1", null);
+				"SELECT " + SessionTable.COLUMN_SESS_DATE +
+						" FROM " + SessionTable.TABLE_SESSION +
+						" WHERE " + SessionTable.COLUMN_IS_ENDDAY + "=?" +
+						" ORDER BY " + SessionTable.COLUMN_SESS_DATE + " ASC LIMIT 1", new String[]{"1"});
 		if(cursor.moveToFirst()){
 			firstSessDate = cursor.getString(0);
 		}
@@ -567,8 +568,26 @@ public class SessionDataSource extends MPOSDatabase{
 		cursor.close();
 		return sessDate;
 	}
-	
-	
+
+	public String getLastEndDaySessionDate(){
+		String sessDate = "";
+		Cursor cursor = getReadableDatabase().query(
+				SessionTable.TABLE_SESSION,
+				new String[]{
+						SessionTable.COLUMN_SESS_DATE
+				},
+				SessionTable.COLUMN_IS_ENDDAY + "=?",
+				new String[]{
+						"1"
+				}, null, null,
+				SessionTable.COLUMN_SESS_DATE + " DESC ", "1");
+		if(cursor.moveToFirst()){
+			sessDate = cursor.getString(0);
+		}
+		cursor.close();
+		return sessDate;
+	}
+
 	/**
 	 * get sessionId from sessionDate
 	 * @param sessionDate
