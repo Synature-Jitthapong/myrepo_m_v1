@@ -11,57 +11,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8898c534-ce79-4b55-8427-455374fb306b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/android_android_17.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/android_android_22.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_18_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/bundles/release/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/bundles/release/classes.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout$InternalViewPagerListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout$TabClickListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout$TabColorizer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabStrip$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabStrip$SimpleTabColorizer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/debug/com/j1tth4/slidinglibs/SlidingTabStrip.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/resources-debug.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/BuildConfig.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/BuildConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout$1.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout$InternalViewPagerListener.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout$InternalViewPagerListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout$TabClickListener.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout$TabClickListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout$TabColorizer.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout$TabColorizer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabLayout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabStrip$1.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabStrip$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabStrip$SimpleTabColorizer.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabStrip$SimpleTabColorizer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabStrip.class" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/classes/release/com/j1tth4/slidinglibs/SlidingTabStrip.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/outputs/aar/synSlidingTab-release.aar" afterPath="$PROJECT_DIR$/synSlidingTab/build/outputs/aar/synSlidingTab-release.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/answers_1_3_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/answers_1_3_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/beta_1_1_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/beta_1_1_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/crashlytics_2_5_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/crashlytics_2_5_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/crashlytics_core_2_3_8.xml" afterPath="$PROJECT_DIR$/.idea/libraries/crashlytics_core_2_3_8.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/fabric_1_3_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/fabric_1_3_10.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build.gradle" afterPath="$PROJECT_DIR$/mPOS/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/generated/source/buildConfig/debug/com/synature/mpos/BuildConfig.java" afterPath="$PROJECT_DIR$/mPOS/build/generated/source/buildConfig/debug/com/synature/mpos/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/generated/source/r/debug/com/synature/mpos/R.java" afterPath="$PROJECT_DIR$/mPOS/build/generated/source/r/debug/com/synature/mpos/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/mPOS.iml" afterPath="$PROJECT_DIR$/mPOS/mPOS.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/Utils.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/Utils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/SessionDataSource.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/SessionDataSource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myrepo_m_v1.iml" afterPath="$PROJECT_DIR$/myrepo_m_v1.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build.gradle" afterPath="$PROJECT_DIR$/synSlidingTab/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/generated/source/buildConfig/debug/com/j1tth4/slidinglibs/BuildConfig.java" afterPath="$PROJECT_DIR$/synSlidingTab/build/generated/source/buildConfig/debug/com/j1tth4/slidinglibs/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/generated/source/buildConfig/release/com/j1tth4/slidinglibs/BuildConfig.java" afterPath="$PROJECT_DIR$/synSlidingTab/build/generated/source/buildConfig/release/com/j1tth4/slidinglibs/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/bundles/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/bundles/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/synSlidingTab/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/synSlidingTab.iml" afterPath="$PROJECT_DIR$/synSlidingTab/synSlidingTab.iml" />
-    </list>
+    <list default="true" id="8898c534-ce79-4b55-8427-455374fb306b" name="Default" comment="" />
     <ignored path="myrepo_m_v1.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -95,8 +45,8 @@
       <file leaf-file-name="Utils.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="729" column="5" selection-start-line="706" selection-start-column="4" selection-end-line="729" selection-end-column="5" />
+            <state relative-caret-position="601">
+              <caret line="730" column="4" selection-start-line="730" selection-start-column="4" selection-end-line="730" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -3926,8 +3876,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="729" column="5" selection-start-line="706" selection-start-column="4" selection-end-line="729" selection-end-column="5" />
+        <state relative-caret-position="601">
+          <caret line="730" column="4" selection-start-line="730" selection-start-column="4" selection-end-line="730" selection-end-column="4" />
           <folding />
         </state>
       </provider>
