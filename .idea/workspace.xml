@@ -13,14 +13,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8898c534-ce79-4b55-8427-455374fb306b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/res/resources-debug.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/outputs/aar/synSlidingTab-release.aar" afterPath="$PROJECT_DIR$/synSlidingTab/build/outputs/aar/synSlidingTab-release.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build.gradle" afterPath="$PROJECT_DIR$/mPOS/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/generated/source/buildConfig/debug/com/synature/mpos/BuildConfig.java" afterPath="$PROJECT_DIR$/mPOS/build/generated/source/buildConfig/debug/com/synature/mpos/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/generated/source/buildConfig/debug/com/j1tth4/slidinglibs/BuildConfig.java" afterPath="$PROJECT_DIR$/synSlidingTab/build/generated/source/buildConfig/debug/com/j1tth4/slidinglibs/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/intermediates/bundles/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/synSlidingTab/build/intermediates/bundles/debug/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/mPOS.iml" afterPath="$PROJECT_DIR$/mPOS/mPOS.iml" />
     </list>
     <ignored path="myrepo_m_v1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mPOS/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+            <state relative-caret-position="184">
+              <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -92,11 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="array.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="array.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/values/array.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="667">
-              <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+            <state relative-caret-position="329">
+              <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -140,7 +135,7 @@
     </leaf>
   </component>
   <component name="GenerateSignedApkSettings">
-    <option name="KEY_STORE_PATH" value="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\synature" />
+    <option name="KEY_STORE_PATH" value="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\synature" />
     <option name="KEY_ALIAS" value="iorder mobile ordering" />
   </component>
   <component name="Git.Settings">
@@ -2398,7 +2393,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="$PROJECT_DIR$" value="5869294868459" />
-        <entry key="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1" value="5986475990571" />
+        <entry key="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1" value="5986477076601" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -3105,9 +3100,10 @@
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="device.picker.selection" value="Tab7_1280x800_API_17" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/synature" />
-    <property name="ExportApk.ApkPath" value="C:\Users\toy_o\Documents\GitHub\myrepo_m_v1\mPOS" />
+    <property name="ExportApk.ApkPath" value="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS" />
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
+    <property name="ExportApk.SignV1" value="true" />
   </component>
   <component name="RunManager" selected="Android App.mPOS">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -3865,14 +3861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/values/array.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/synSlidingTab/synSlidingTab.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -3946,8 +3934,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+        <state relative-caret-position="184">
+          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/values/array.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
           <folding />
         </state>
       </provider>
