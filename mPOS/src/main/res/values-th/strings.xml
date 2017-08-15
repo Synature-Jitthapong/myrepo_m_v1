@@ -228,7 +228,7 @@
     <string name="team_viewer">เปิด TeamViewer</string>
     <string name="load_last_sale">กำลังโหลดข้อมูลการขายล่าสุด&#8230;</string>
     <string name="restore_last_sale">ต้องการนำข้อมูลการขายล่าสุดเข้าเครื่องขายหรือไม่?</string>
-    <string name="try_again" translatable="false">ลองอีกครั้ง</string>
+    <string name="try_again">ลองอีกครั้ง</string>
     <string name="close_sale_automatically">วันนี้เป็นวันใหม่แล้ว โปรแกรมจะปิดสิ้นวันให้อัตโนมัติเพื่อเริ่มวันขายใหม่</string>
     <string name="auto_send_last_endday">ส่งข้อมูลสิ้นวันอัตโนมัติเมื่อเปิดโปรแกรม</string>
     <string name="send_sale_realtime">ส่งข้อมูลการขายทันทีหลังเก็บเงิน</string>

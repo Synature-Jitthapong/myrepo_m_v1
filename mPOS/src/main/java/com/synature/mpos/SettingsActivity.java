@@ -121,7 +121,17 @@ public class SettingsActivity extends PreferenceActivity {
 						preference.getContext()).getString(preference.getKey(),
 						""));
 	}
-	
+
+	protected boolean isValidFragment(String fragmentName) {
+		return PreferenceFragment.class.getName().equals(fragmentName)
+				|| PrinterPreferenceFragment.class.getName().equals(fragmentName)
+				|| WintecSettingFragment.class.getName().equals(fragmentName)
+				|| ConnectionPreferenceFragment.class.getName().equals(fragmentName)
+				|| GeneralPreferenceFragment.class.getName().equals(fragmentName)
+				|| SecondDisplayPreferenceFragment.class.getName().equals(fragmentName)
+				|| ThirdPartyLinkFragment.class.getName().equals(fragmentName);
+	}
+
 	public static class PrinterPreferenceFragment extends PreferenceFragment {
 		@Override
 		public void onCreate(Bundle savedInstanceState) {
