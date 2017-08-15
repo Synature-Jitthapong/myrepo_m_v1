@@ -3,7 +3,7 @@
     package="com.synature.mpos"
     android:installLocation="auto"
     android:versionCode="41"
-    android:versionName="demo-bt" >
+    android:versionName="1.2.27" >
 
     <uses-sdk
         android:minSdkVersion="14"
