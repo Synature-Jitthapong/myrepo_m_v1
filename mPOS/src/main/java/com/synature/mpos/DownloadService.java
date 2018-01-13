@@ -5,14 +5,12 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
+import java.net.URL;
 
 import android.app.Service;
 import android.content.Intent;
-import android.net.http.AndroidHttpClient;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
@@ -38,27 +36,23 @@ public class DownloadService extends Service{
 				String fileName = getFileNameFromUrl(fileUrl);
 				InputStream input = null;
 				RandomAccessFile out = null;
-				AndroidHttpClient httpClient = null;
+				HttpURLConnection httpClient = null;
 				try {
 					File sdPath = Environment
 							.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
 					File apk = new File(sdPath + File.separator + fileName);
-
-					httpClient = AndroidHttpClient.newInstance("DownloadService");
-					HttpGet httpGet = new HttpGet(fileUrl);
-					HttpResponse response = httpClient.execute(httpGet);
-					HttpEntity entity = response.getEntity();
-					long totalFileSize = entity.getContentLength();
+					URL url = new URL(fileUrl);
+					httpClient = (HttpURLConnection) url.openConnection();
+					long totalFileSize = httpClient.getContentLength();
 					long prevFileSize = 0;
 					long downloaded = 0;
 					if (apk.exists()) {
 						prevFileSize = apk.length();
 						if(totalFileSize > prevFileSize){
-							httpGet.addHeader("Range", "bytes="+ apk.length() + "-");
+							httpClient.setRequestProperty("Range", "bytes="+ apk.length() + "-");
 							
-							httpClient.close();
-							httpClient = AndroidHttpClient.newInstance("DownloadService");
-							response = httpClient.execute(httpGet);
+							httpClient.disconnect();
+							httpClient = (HttpURLConnection) url.openConnection();
 						}else if(totalFileSize == prevFileSize){
 							Bundle resultData = new Bundle();
 							resultData.putString("fileName", fileName);
@@ -68,8 +62,7 @@ public class DownloadService extends Service{
 							apk.delete();
 						}
 					}
-					entity = response.getEntity();
-					input = new BufferedInputStream(entity.getContent());
+					input = new BufferedInputStream(httpClient.getInputStream());
 					byte buffer[] = new byte[1024];
 					int count = 0;
 					out = new RandomAccessFile(apk, "rwd");
@@ -117,7 +110,7 @@ public class DownloadService extends Service{
 						}
 					}
 					if(httpClient != null){
-						httpClient.close();
+						httpClient.disconnect();
 						httpClient = null;
 					}
 					stopSelf();

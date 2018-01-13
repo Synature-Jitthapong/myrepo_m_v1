@@ -252,12 +252,15 @@ public class Utils {
 		return result;
 	}
 
-	public static double stringToDouble(String text) throws ParseException{
-		double value = 0.0d;
-		NumberFormat format = NumberFormat.getInstance(Locale.getDefault());
-		Number num = format.parse(text);
-		value = num.doubleValue();
-		return value;
+	public static double stringToDouble(String text){
+		NumberFormat format = NumberFormat.getInstance(Locale.US);
+		Number num = null;
+		try {
+			num = format.parse(text);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return num != null ? num.doubleValue() : 0;
 	}
 
 	public static void logServerResponse(Context context, String msg){

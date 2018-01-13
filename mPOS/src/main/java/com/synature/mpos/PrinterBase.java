@@ -46,9 +46,10 @@ public abstract class PrinterBase {
 	protected StaffsDataSource mStaff;
 	protected CreditCardDataSource mCreditCard;
 	protected Context mContext;
-	
+	private boolean mPrintNoPriceComment;
+
 	protected StringBuilder mTextToPrint;
-	
+
 	public PrinterBase(Context context){
 		mContext = context;
 		mTrans = new OrderTransDataSource(context);
@@ -60,7 +61,9 @@ public abstract class PrinterBase {
 		mCreditCard = new CreditCardDataSource(context);
 		mTextToPrint = new StringBuilder();
 	}
-	 
+
+	public abstract void print();
+
 	protected String createHorizontalSpace(int usedSpace){
 		StringBuilder space = new StringBuilder();
 		if(usedSpace > HORIZONTAL_MAX_SPACE){
@@ -996,7 +999,7 @@ public abstract class PrinterBase {
     		mTextToPrint.append("\n");
     		if(order.getOrderCommentLst() != null && order.getOrderCommentLst().size() > 0){
     			for(Comment comm : order.getOrderCommentLst()){
-    				if(comm.getCommentPrice() > 0){
+    				if(mPrintNoPriceComment || comm.getCommentPrice() > 0){
 	    				String commName = limitTextLength("   " + mFormat.qtyFormat(comm.getCommentQty()) + "x "
 	    						+ comm.getCommentName());
 	    				String commPrice = mFormat.currencyFormat(comm.getCommentTotalPrice());
@@ -1197,5 +1200,9 @@ public abstract class PrinterBase {
     	if(isVoid){
     		mTrans.updateTransactionVoidEjournal(transId, mTextToPrint.toString());
     	}
+	}
+
+	public void setPrintNoPriceComment(boolean mPrintNoPriceComment) {
+		mPrintNoPriceComment = mPrintNoPriceComment;
 	}
 }

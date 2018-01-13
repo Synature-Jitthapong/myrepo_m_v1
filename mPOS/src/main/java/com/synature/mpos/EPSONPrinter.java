@@ -49,8 +49,9 @@ public class EPSONPrinter extends PrinterBase implements
 		this(context);
 		mLangToPrint = langToPrint;
 	}
-	
-	protected void print(){
+
+	@Override
+	public void print(){
 		int[] status = new int[1];
 		int[] battery = new int[1];
 		try {

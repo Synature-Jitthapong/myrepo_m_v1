@@ -208,7 +208,7 @@ public class PromotionActivity extends Activity {
 		
 		@Override
 		public void onClick(View view) {
-			resetDiscount();
+			//resetDiscount();
 			if(view.isSelected()){
 				for(int i = 0; i < mPromoPriceGroupLst.size(); i++){
 					View child = mPromoButtonContainer.getChildAt(i);

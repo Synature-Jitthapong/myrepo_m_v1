@@ -170,8 +170,6 @@
 
         <service android:name=".DownloadService" >
         </service>
-        <service android:name=".RemoteStackTraceService" >
-        </service>
         <service android:name=".SaleSenderService" >
         </service>
         <service android:name=".EnddaySenderService" >

@@ -27,7 +27,8 @@ public class WintecPrinter extends PrinterBase{
 		mPrinter.PRN_SetCodePage(70);
 	}
 
-	protected void print(){
+	@Override
+	public void print(){
 		String[] subElement = mTextToPrint.toString().split("\n");
     	for(String data : subElement){
     		ThreeLevelPrint supportThai = LevelTextPrint.parsingThaiLevel(data);

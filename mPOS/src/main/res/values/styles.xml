@@ -27,7 +27,7 @@
            parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
         <item name="android:background">@android:color/holo_orange_dark</item>
     </style>
-    <style name="EditTextQty" parent="@android:attr/editTextStyle">
+    <style name="EditTextQty" parent="@android:style/Widget.EditText">
         <item name="android:textAppearance">@android:style/TextAppearance.Holo.Large</item>
         <item name="android:maxEms">8</item>
         <item name="android:minEms">2</item>
