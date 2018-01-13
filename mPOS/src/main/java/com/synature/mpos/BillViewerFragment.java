@@ -88,6 +88,11 @@ public class BillViewerFragment extends DialogFragment implements OnClickListene
 		public TextPrint(Context context) {
 			super(context);
 		}
+
+		@Override
+		public void print() {
+
+		}
 	}
 
     private class PrintCheck extends PrintReceipt{

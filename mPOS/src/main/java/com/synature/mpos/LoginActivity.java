@@ -58,7 +58,7 @@ public class LoginActivity extends Activity implements OnClickListener,
 	 */
 	public static final int REQUEST_FOR_SETTING_DATE = 1;
 	
-	public static enum WhatToDo{
+	public enum WhatToDo{
 		VIEW_REPORT,
 		UTILITY
 	};
@@ -86,7 +86,7 @@ public class LoginActivity extends Activity implements OnClickListener,
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		
+
 		mBtnLogin = (Button) findViewById(R.id.btnLogin);
 		mTxtUser = (EditText) findViewById(R.id.txtUser);
 		mTxtPass = (EditText) findViewById(R.id.txtPass);
