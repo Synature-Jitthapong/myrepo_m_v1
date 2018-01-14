@@ -12,23 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8898c534-ce79-4b55-8427-455374fb306b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/generated/source/buildConfig/debug/com/synature/mpos/BuildConfig.java" afterPath="$PROJECT_DIR$/mPOS/build/generated/source/buildConfig/debug/com/synature/mpos/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/generated/source/r/debug/com/synature/mpos/R.java" afterPath="$PROJECT_DIR$/mPOS/build/generated/source/r/debug/com/synature/mpos/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/symbols/debug/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/mPOS.iml" afterPath="$PROJECT_DIR$/mPOS/mPOS.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/BillViewerFragment.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/BillViewerFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/CreditPayActivity.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/CreditPayActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/DiscountActivity.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/DiscountActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/LoginActivity.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/LoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/MainActivity.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ManageCashAmountFragment.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ManageCashAmountFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PaymentActivity.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PaymentActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ProductSetActivity.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ProductSetActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/WintecCustomerDisplay.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/WintecCustomerDisplay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/build/generated/source/buildConfig/debug/com/j1tth4/slidinglibs/BuildConfig.java" afterPath="$PROJECT_DIR$/synSlidingTab/build/generated/source/buildConfig/debug/com/j1tth4/slidinglibs/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/synSlidingTab.iml" afterPath="$PROJECT_DIR$/synSlidingTab/synSlidingTab.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PromotionActivity.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PromotionActivity.java" />
     </list>
     <ignored path="myrepo_m_v1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,55 +44,73 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DownloadService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/DownloadService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="30" column="31" lean-forward="false" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#990#3838#0" expanded="true" />
-                <element signature="e#3837#3838#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActivityThread.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-27/android/app/ActivityThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="2655" column="0" lean-forward="false" selection-start-line="2655" selection-start-column="0" selection-end-line="2655" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductSetActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ProductSetActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="150" column="52" lean-forward="false" selection-start-line="150" selection-start-column="52" selection-end-line="150" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CheckUpdateActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/CheckUpdateActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
+            <state relative-caret-position="3255">
               <caret line="247" column="30" lean-forward="false" selection-start-line="247" selection-start-column="30" selection-end-line="247" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="185" column="75" lean-forward="false" selection-start-line="185" selection-start-column="75" selection-end-line="185" selection-end-column="75" />
+            <state relative-caret-position="105">
+              <caret line="191" column="80" lean-forward="false" selection-start-line="191" selection-start-column="80" selection-end-line="191" selection-end-column="80" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PromotionActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PromotionActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="296">
+              <caret line="213" column="61" lean-forward="false" selection-start-line="213" selection-start-column="61" selection-end-line="213" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderTransDataSource.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/OrderTransDataSource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="2064" column="29" lean-forward="false" selection-start-line="2064" selection-start-column="29" selection-end-line="2072" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SaleSenderService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SaleSenderService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="202" column="45" lean-forward="false" selection-start-line="202" selection-start-column="45" selection-end-line="202" selection-end-column="45" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JSONSaleSerialization.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/JSONSaleSerialization.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="55" column="55" lean-forward="false" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SaleTransaction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/SaleTransaction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="106">
+              <caret line="1673" column="24" lean-forward="false" selection-start-line="1673" selection-start-column="24" selection-end-line="1673" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -117,10 +119,10 @@
       <file leaf-file-name="SoftwareRegister.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SoftwareRegister.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
+            <state relative-caret-position="60">
               <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
               <folding>
-                <element signature="e#2781#2829#0" expanded="true" />
+                <element signature="imports" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -129,9 +131,11 @@
       <file leaf-file-name="RegisterServiceBase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/RegisterServiceBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
+            <state relative-caret-position="135">
               <caret line="20" column="49" lean-forward="false" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -139,7 +143,7 @@
       <file leaf-file-name="MPOSApplication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/MPOSApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
+            <state relative-caret-position="270">
               <caret line="37" column="31" lean-forward="false" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
               <folding />
             </state>
@@ -2768,7 +2772,6 @@
       <list>
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SaleSenderServiceBase.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/SaleTransaction.java" />
-        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/OrderTransDataSource.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SendEnddayActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SaleSenderService.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/EnddaySenderService.java" />
@@ -2786,7 +2789,6 @@
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/EPSONPrinter.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PrintReceipt.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/Utils.java" />
-        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PromotionActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/BillViewerFragment.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/CreditPayActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/DiscountActivity.java" />
@@ -2799,6 +2801,8 @@
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SoftwareRegister.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/DownloadService.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/CheckUpdateActivity.java" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/OrderTransDataSource.java" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PromotionActivity.java" />
       </list>
     </option>
   </component>
@@ -2823,7 +2827,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2834,6 +2839,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2958,8 +2964,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3054,7 +3058,8 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method>
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515863469422" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515907394812" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -3101,7 +3106,8 @@
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
       </Profilers>
       <method>
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515863469422" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515907394812" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3282,7 +3288,10 @@
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
-      <method />
+      <method>
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515907394812" />
+      </method>
     </configuration>
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue="Android App.mPOS" />
@@ -3428,6 +3437,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -3446,7 +3456,6 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24810892" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2486631" sideWeight="0.48863637" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -3461,6 +3470,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Fabric" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -3491,18 +3501,11 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="47" />
+      <option name="time" value="49" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/util/LevelTextPrint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SaleSenderServiceBase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -3541,65 +3544,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/SaleTransaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="198" column="0" lean-forward="false" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
-          <folding>
-            <element signature="e#4530#4556#0" expanded="false" />
-            <element signature="e#9517#9542#0" expanded="false" />
-            <element signature="e#11224#11250#0" expanded="false" />
-            <element signature="e#12820#12843#0" expanded="false" />
-            <element signature="e#16581#16608#0" expanded="false" />
-            <element signature="e#18190#18213#0" expanded="false" />
-            <element signature="e#20910#20929#0" expanded="false" />
-            <element signature="e#42446#42447#0" expanded="false" />
-            <element signature="e#42478#42479#0" expanded="false" />
-            <element signature="e#42811#42812#0" expanded="false" />
-            <element signature="e#42846#42847#0" expanded="false" />
-            <element signature="e#43148#43171#0" expanded="false" />
-            <element signature="e#43250#43276#0" expanded="false" />
-            <element signature="e#43353#43378#0" expanded="false" />
-            <element signature="e#47372#47373#0" expanded="false" />
-            <element signature="e#47408#47409#0" expanded="false" />
-            <element signature="e#51271#51298#0" expanded="false" />
-            <element signature="e#51372#51395#0" expanded="false" />
-            <element signature="e#55615#55616#0" expanded="false" />
-            <element signature="e#55644#55645#0" expanded="false" />
-            <element signature="e#55697#55698#0" expanded="false" />
-            <element signature="e#55740#55741#0" expanded="false" />
-            <element signature="e#55781#55782#0" expanded="false" />
-            <element signature="e#55816#55817#0" expanded="false" />
-            <element signature="e#57450#57451#0" expanded="false" />
-            <element signature="e#57479#57480#0" expanded="false" />
-            <element signature="e#57532#57533#0" expanded="false" />
-            <element signature="e#57575#57576#0" expanded="false" />
-            <element signature="e#57616#57617#0" expanded="false" />
-            <element signature="e#57651#57652#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/JSONSaleSerialization.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="77" column="57" lean-forward="false" selection-start-line="77" selection-start-column="57" selection-end-line="77" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SendSaleActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5842">
           <caret line="299" column="13" lean-forward="false" selection-start-line="299" selection-start-column="13" selection-end-line="299" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/OrderTransDataSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53314">
-          <caret line="2358" column="74" lean-forward="false" selection-start-line="2358" selection-start-column="74" selection-end-line="2358" selection-end-column="74" />
           <folding />
         </state>
       </provider>
@@ -3638,24 +3586,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/synSlidingTab/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="1" column="36" lean-forward="false" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SaleSenderService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="82" column="29" lean-forward="false" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+      <provider editor-type-id="android-manifest">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/synSlidingTab/build.gradle">
@@ -3727,48 +3665,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7752">
           <caret line="456" column="0" lean-forward="false" selection-start-line="456" selection-start-column="0" selection-end-line="456" selection-end-column="0" />
-          <folding>
-            <marker date="1515860618587" expanded="true" signature="25636:25882" ph="..." />
-            <marker date="1515860618587" expanded="true" signature="25932:26016" ph="..." />
-            <marker date="1515860618587" expanded="true" signature="26076:26275" ph="..." />
-            <marker date="1515860618587" expanded="true" signature="26333:26427" ph="..." />
-            <marker date="1515860618587" expanded="true" signature="26481:26673" ph="..." />
-            <marker date="1515860618587" expanded="true" signature="26734:26934" ph="..." />
-            <marker date="1515860618587" expanded="true" signature="26991:27076" ph="..." />
-            <marker date="1515860618587" expanded="true" signature="27143:27240" ph="..." />
-            <marker date="1515860618587" expanded="true" signature="27305:27400" ph="..." />
-            <marker date="1515860618587" expanded="true" signature="27468:27566" ph="..." />
-            <marker date="1515860618587" expanded="true" signature="27595:27766" ph="..." />
-            <marker date="1515860618587" expanded="true" signature="27840:27960" ph="..." />
-            <marker date="1515860618587" expanded="true" signature="28018:28132" ph="..." />
-            <marker date="1515860618587" expanded="true" signature="28205:28375" ph="..." />
-            <marker date="1515860618587" expanded="true" signature="28464:28556" ph="..." />
-            <marker date="1515860618587" expanded="true" signature="28611:28694" ph="..." />
-            <marker date="1515860618587" expanded="true" signature="28759:28854" ph="..." />
-            <marker date="1515860618587" expanded="true" signature="28920:29016" ph="..." />
-            <marker date="1515860618587" expanded="true" signature="29095:29232" ph="..." />
-            <marker date="1515860618587" expanded="true" signature="29309:29542" ph="..." />
-            <marker date="1515860618587" expanded="true" signature="29617:29815" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/RemoteStackTraceService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/RemoteStackTraceService.java" />
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="172" column="32" lean-forward="false" selection-start-line="172" selection-start-column="32" selection-end-line="172" selection-end-column="32" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/WintecPrinter.java">
@@ -3800,7 +3709,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="287">
           <caret line="61" column="16" lean-forward="false" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3909,14 +3817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PromotionActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="226" column="12" lean-forward="false" selection-start-line="226" selection-start-column="12" selection-end-line="226" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/BillViewerFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
@@ -3933,22 +3833,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/DiscountActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="332" column="13" lean-forward="false" selection-start-line="332" selection-start-column="13" selection-end-line="332" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ManageCashAmountFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="78">
           <caret line="140" column="28" lean-forward="false" selection-start-line="140" selection-start-column="28" selection-end-line="140" selection-end-column="28" />
           <folding>
-            <element signature="e#4292#4359#0" expanded="true" />
-            <element signature="e#4784#5546#0" expanded="true" />
-            <element signature="e#5545#5546#0" expanded="true" />
+            <element signature="e#4292#4359#0" expanded="false" />
+            <element signature="e#4784#5546#0" expanded="false" />
+            <element signature="e#5545#5546#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3966,7 +3858,7 @@
         <state relative-caret-position="188">
           <caret line="446" column="13" lean-forward="false" selection-start-line="446" selection-start-column="13" selection-end-line="446" selection-end-column="13" />
           <folding>
-            <element signature="e#15727#16277#0" expanded="true" />
+            <element signature="e#15727#16277#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3999,41 +3891,117 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="78">
           <caret line="176" column="34" lean-forward="false" selection-start-line="176" selection-start-column="34" selection-end-line="176" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ProductSetActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
+        <state relative-caret-position="1545">
           <caret line="150" column="52" lean-forward="false" selection-start-line="150" selection-start-column="52" selection-end-line="150" selection-end-column="52" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#14968#14969#0" expanded="false" />
+            <element signature="e#15038#15039#0" expanded="false" />
+            <element signature="e#19483#19484#0" expanded="false" />
+            <element signature="e#19560#19561#0" expanded="false" />
+            <element signature="e#19893#19894#0" expanded="false" />
+            <element signature="e#19955#19956#0" expanded="false" />
+            <element signature="e#20217#20218#0" expanded="false" />
+            <element signature="e#20261#20262#0" expanded="false" />
+            <element signature="e#20351#20352#0" expanded="false" />
+            <element signature="e#20383#20384#0" expanded="false" />
+            <element signature="e#20442#20443#0" expanded="false" />
+            <element signature="e#20478#20479#0" expanded="false" />
+            <element signature="e#31721#31722#0" expanded="false" />
+            <element signature="e#31804#31805#0" expanded="false" />
+            <element signature="e#31879#31880#0" expanded="false" />
+            <element signature="e#31939#31940#0" expanded="false" />
+            <element signature="e#32004#32005#0" expanded="false" />
+            <element signature="e#32043#32044#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-27/android/app/ActivityThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
+        <state relative-caret-position="36750">
           <caret line="2655" column="0" lean-forward="false" selection-start-line="2655" selection-start-column="0" selection-end-line="2655" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#283389#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#5740#5741#0" expanded="false" />
+            <element signature="e#5766#5767#0" expanded="false" />
+            <element signature="e#12489#12490#0" expanded="false" />
+            <element signature="e#12577#12578#0" expanded="false" />
+            <element signature="e#21886#21887#0" expanded="false" />
+            <element signature="e#21955#21956#0" expanded="false" />
+            <element signature="e#34158#34159#0" expanded="false" />
+            <element signature="e#34216#34217#0" expanded="false" />
+            <element signature="e#36081#36082#0" expanded="false" />
+            <element signature="e#36142#36143#0" expanded="false" />
+            <element signature="e#36189#36190#0" expanded="false" />
+            <element signature="e#36241#36242#0" expanded="false" />
+            <element signature="e#36612#36613#0" expanded="false" />
+            <element signature="e#36661#36662#0" expanded="false" />
+            <element signature="e#38950#38951#0" expanded="false" />
+            <element signature="e#39005#39006#0" expanded="false" />
+            <element signature="e#40288#40289#0" expanded="false" />
+            <element signature="e#40346#40347#0" expanded="false" />
+            <element signature="e#41113#41114#0" expanded="false" />
+            <element signature="e#41171#41172#0" expanded="false" />
+            <element signature="e#52994#52995#0" expanded="false" />
+            <element signature="e#53057#53058#0" expanded="false" />
+            <element signature="e#53549#53550#0" expanded="false" />
+            <element signature="e#53604#53605#0" expanded="false" />
+            <element signature="e#56658#56659#0" expanded="false" />
+            <element signature="e#56724#56725#0" expanded="false" />
+            <element signature="e#82946#82947#0" expanded="false" />
+            <element signature="e#82991#82992#0" expanded="false" />
+            <element signature="e#85558#85559#0" expanded="false" />
+            <element signature="e#85583#85584#0" expanded="false" />
+            <element signature="e#92079#92080#0" expanded="false" />
+            <element signature="e#92145#92146#0" expanded="false" />
+            <element signature="e#92204#92205#0" expanded="false" />
+            <element signature="e#92237#92238#0" expanded="false" />
+            <element signature="e#92292#92293#0" expanded="false" />
+            <element signature="e#92331#92332#0" expanded="false" />
+            <element signature="e#92529#92530#0" expanded="false" />
+            <element signature="e#92573#92574#0" expanded="false" />
+            <element signature="e#92606#92607#0" expanded="false" />
+            <element signature="e#92636#92637#0" expanded="false" />
+            <element signature="e#92679#92680#0" expanded="false" />
+            <element signature="e#92721#92722#0" expanded="false" />
+            <element signature="e#92759#92760#0" expanded="false" />
+            <element signature="e#92811#92812#0" expanded="false" />
+            <element signature="e#113390#113391#0" expanded="false" />
+            <element signature="e#113444#113445#0" expanded="false" />
+            <element signature="e#113985#113986#0" expanded="false" />
+            <element signature="e#114036#114037#0" expanded="false" />
+            <element signature="e#134261#134262#0" expanded="false" />
+            <element signature="e#134299#134300#0" expanded="false" />
+            <element signature="e#136669#136670#0" expanded="false" />
+            <element signature="e#136721#136722#0" expanded="false" />
+            <element signature="e#276256#276257#0" expanded="false" />
+            <element signature="e#276314#276315#0" expanded="false" />
+            <element signature="e#281083#281084#0" expanded="false" />
+            <element signature="e#281138#281139#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/DownloadService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
+        <state relative-caret-position="225">
           <caret line="30" column="31" lean-forward="false" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#990#3838#0" expanded="true" />
-            <element signature="e#3837#3838#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/CheckUpdateActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
+        <state relative-caret-position="3255">
           <caret line="247" column="30" lean-forward="false" selection-start-line="247" selection-start-column="30" selection-end-line="247" selection-end-column="30" />
           <folding />
         </state>
@@ -4041,25 +4009,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SoftwareRegister.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
+        <state relative-caret-position="60">
           <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
           <folding>
-            <element signature="e#2781#2829#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/RegisterServiceBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
+        <state relative-caret-position="135">
           <caret line="20" column="49" lean-forward="false" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/MPOSApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
+        <state relative-caret-position="270">
           <caret line="37" column="31" lean-forward="false" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
           <folding />
         </state>
@@ -4081,10 +4051,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/DiscountActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="405" column="44" lean-forward="false" selection-start-line="405" selection-start-column="44" selection-end-line="405" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="185" column="75" lean-forward="false" selection-start-line="185" selection-start-column="75" selection-end-line="185" selection-end-column="75" />
+        <state relative-caret-position="105">
+          <caret line="191" column="80" lean-forward="false" selection-start-line="191" selection-start-column="80" selection-end-line="191" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-27/android/database/sqlite/SQLiteDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-164">
+          <caret line="1734" column="16" lean-forward="false" selection-start-line="1734" selection-start-column="16" selection-end-line="1734" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SaleSenderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="202" column="45" lean-forward="false" selection-start-line="202" selection-start-column="45" selection-end-line="202" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/JSONSaleSerialization.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="55" column="55" lean-forward="false" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/SaleTransaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="1673" column="24" lean-forward="false" selection-start-line="1673" selection-start-column="24" selection-end-line="1673" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/OrderTransDataSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="2064" column="29" lean-forward="false" selection-start-line="2064" selection-start-column="29" selection-end-line="2072" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PromotionActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="213" column="61" lean-forward="false" selection-start-line="213" selection-start-column="61" selection-end-line="213" selection-end-column="61" />
           <folding />
         </state>
       </provider>

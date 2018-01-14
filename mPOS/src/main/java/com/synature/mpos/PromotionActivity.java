@@ -158,7 +158,7 @@ public class PromotionActivity extends Activity {
 		ProductsDataSource p = new ProductsDataSource(PromotionActivity.this);
 		for(OrderDetail detail : mOrderLst){
 			double totalRetailPrice = detail.getTotalRetailPrice();
-			double discount = DiscountActivity.calculateDiscount(totalRetailPrice, 
+			double discount = DiscountActivity.calculateDiscount(totalRetailPrice,
 					0, DiscountActivity.PRICE_DISCOUNT_TYPE);
 			double priceAfterDiscount = totalRetailPrice - discount;
 			
@@ -208,7 +208,7 @@ public class PromotionActivity extends Activity {
 		
 		@Override
 		public void onClick(View view) {
-			//resetDiscount();
+			resetDiscount();
 			if(view.isSelected()){
 				for(int i = 0; i < mPromoPriceGroupLst.size(); i++){
 					View child = mPromoButtonContainer.getChildAt(i);
