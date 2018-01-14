@@ -1,6 +1,9 @@
 package com.synature.mpos;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -15,6 +18,7 @@ import com.synature.mpos.datasource.StaffsDataSource;
 import com.synature.mpos.datasource.UserVerification;
 import com.synature.mpos.datasource.model.OrderTransaction;
 import com.synature.mpos.datasource.table.OrderTransTable;
+import com.synature.pos.ShopProperty;
 import com.synature.pos.Staff;
 import com.synature.util.FileManager;
 
@@ -181,15 +185,28 @@ public class LoginActivity extends Activity implements OnClickListener,
 	private boolean checkSessionDate(){
 		// check if have session
 		if(mSession.getLastSessionId() > 0){
+			ShopProperty shopProp = mShop.getShopProperty();
 			// get last session date
 			final Calendar lastSessDate = Calendar.getInstance();
 			lastSessDate.setTimeInMillis(Long.parseLong(mSession.getLastSessionDate()));
+			Calendar currentDate = Calendar.getInstance();
+			Calendar closeTime = Calendar.getInstance();
+			try {
+				Date d = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(shopProp.getCloseHour());
+				Calendar temp = Calendar.getInstance();
+				temp.setTime(d);
+				closeTime.set(Calendar.HOUR_OF_DAY, temp.get(Calendar.HOUR_OF_DAY));
+				closeTime.set(Calendar.MINUTE, temp.get(Calendar.MINUTE));
+				closeTime.set(Calendar.SECOND, temp.get(Calendar.SECOND));
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
 			/*
 			 *  sessionDate > currentDate
 			 *  mPOS will force to go to date & time Settings
 			 *  for setting correct date.
 			 */
-			if(lastSessDate.getTime().compareTo(Utils.getDate().getTime()) > 0){
+			if(lastSessDate.after(Utils.getDate())){
 				new AlertDialog.Builder(this)
 				.setCancelable(false)
 				.setTitle(R.string.system_date)
@@ -210,7 +227,7 @@ public class LoginActivity extends Activity implements OnClickListener,
 					}
 				}).show();
 				return false;
-			}else if(Utils.getDate().getTime().compareTo(lastSessDate.getTime()) > 0){
+			}else if(currentDate.after(closeTime)){
 				Calendar lastSessCal = Calendar.getInstance();
 				lastSessCal.setTimeInMillis(Long.parseLong(mSession.getLastSessionDate()));
 				Utils.endingMultipleDay(LoginActivity.this, mShop.getShopId(), 
@@ -348,7 +365,6 @@ public class LoginActivity extends Activity implements OnClickListener,
 						intent.putExtra("staffId", 1);
 						intent.putExtra("shopId", mShop.getShopId());
 						intent.putExtra("computerId", mComputer.getComputerId());
-                        intent.putExtra("ignoreSendStatus", SendEnddayActivity.IGNORE_SEND_STATUS);
 						startActivity(intent);
 						return true;
 					case R.id.itemResetEndday:
