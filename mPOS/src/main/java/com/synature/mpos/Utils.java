@@ -41,6 +41,8 @@ import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.ProductsDataSource;
 import com.synature.mpos.datasource.SessionDataSource;
+import com.synature.mpos.datasource.ShopDataSource;
+import com.synature.pos.ShopProperty;
 import com.synature.util.Logger;
 
 import org.w3c.dom.Text;
@@ -134,7 +136,29 @@ public class Utils {
 		return new GregorianCalendar(c.get(Calendar.YEAR), 
 				c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
 	}
-	
+
+	public static Calendar getCloseTime(Context context){
+		ShopDataSource shop = new ShopDataSource(context);
+		SessionDataSource session = new SessionDataSource(context);
+		ShopProperty shopProp = shop.getShopProperty();
+		Calendar closeTime = Calendar.getInstance();
+		closeTime.setTimeInMillis(Long.parseLong(session.getLastSessionDate()));
+		try {
+			Date d = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(shopProp.getCloseHour());
+			Calendar temp = Calendar.getInstance();
+			temp.setTime(d);
+			if(temp.get(Calendar.HOUR_OF_DAY) > 0)
+				closeTime.add(Calendar.DAY_OF_MONTH, 1);
+			closeTime.set(Calendar.HOUR_OF_DAY, temp.get(Calendar.HOUR_OF_DAY));
+			closeTime.set(Calendar.HOUR, temp.get(Calendar.HOUR));
+			closeTime.set(Calendar.MINUTE, temp.get(Calendar.MINUTE));
+			closeTime.set(Calendar.SECOND, temp.get(Calendar.SECOND));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return closeTime;
+	}
+
 	public static Calendar convertStringToCalendar(String dateTime){
 		Calendar calendar = getCalendar();
 		if(dateTime == null || dateTime.isEmpty()){

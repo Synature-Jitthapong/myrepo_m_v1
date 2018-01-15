@@ -17,6 +17,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 
+import org.kobjects.util.Util;
+
 public class SessionDataSource extends MPOSDatabase{
 	
 	public static final int NOT_ENDDAY_STATUS = 0;
@@ -633,6 +635,7 @@ public class SessionDataSource extends MPOSDatabase{
 	 */
 	public int getCurrentSessionId() {
 		int sessionId = 0;
+		String saleDate = checkEndday(getLastSessionDate()) ? String.valueOf(Utils.getDate().getTimeInMillis()) : getLastSessionDate();
 		Cursor cursor = getReadableDatabase().query(
 				SessionTable.TABLE_SESSION,
 				new String[] { 
@@ -641,7 +644,7 @@ public class SessionDataSource extends MPOSDatabase{
                 SessionTable.COLUMN_SESS_DATE + "=?" +
                 " and " + OrderTransTable.COLUMN_CLOSE_STAFF + "=?",
 				new String[] {
-                    String.valueOf(Utils.getDate().getTimeInMillis()),
+                    String.valueOf(saleDate),
 					String.valueOf(0) 
 				}, null, null, SessionTable.COLUMN_SESS_ID + " DESC ", "1");
 		if (cursor.moveToFirst()) {

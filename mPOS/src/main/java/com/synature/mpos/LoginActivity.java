@@ -190,17 +190,7 @@ public class LoginActivity extends Activity implements OnClickListener,
 			final Calendar lastSessDate = Calendar.getInstance();
 			lastSessDate.setTimeInMillis(Long.parseLong(mSession.getLastSessionDate()));
 			Calendar currentDate = Calendar.getInstance();
-			Calendar closeTime = Calendar.getInstance();
-			try {
-				Date d = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(shopProp.getCloseHour());
-				Calendar temp = Calendar.getInstance();
-				temp.setTime(d);
-				closeTime.set(Calendar.HOUR_OF_DAY, temp.get(Calendar.HOUR_OF_DAY));
-				closeTime.set(Calendar.MINUTE, temp.get(Calendar.MINUTE));
-				closeTime.set(Calendar.SECOND, temp.get(Calendar.SECOND));
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
+			Calendar closeTime = Utils.getCloseTime(this);
 			/*
 			 *  sessionDate > currentDate
 			 *  mPOS will force to go to date & time Settings

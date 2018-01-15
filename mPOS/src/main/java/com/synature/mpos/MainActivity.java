@@ -38,6 +38,7 @@ import com.synature.mpos.datasource.model.Product;
 import com.synature.mpos.datasource.model.ProductDept;
 import com.synature.mpos.seconddisplay.SecondDisplayJSON;
 import com.synature.pos.SecondDisplayProperty.clsSecDisplay_TransSummary;
+import com.synature.pos.ShopProperty;
 import com.synature.util.ImageLoader;
 import com.synature.util.Logger;
 
@@ -1869,12 +1870,13 @@ public class MainActivity extends FragmentActivity implements
 			 * is not valid.
 			 * It will be return to LoginActivity for new initial
 			 */
-            String lastSessDate = mSession.getLastSessionDate();
-            if (!TextUtils.isEmpty(lastSessDate)) {
-                Calendar sessCal = Calendar.getInstance();
-                sessCal.setTimeInMillis(Long.parseLong(lastSessDate));
-                if (Utils.getDate().getTime().compareTo(sessCal.getTime()) > 0 ||
-                        sessCal.getTime().compareTo(Utils.getDate().getTime()) > 0) {
+            if (!TextUtils.isEmpty(mSession.getLastSessionDate())) {
+                // get last session date
+                final Calendar lastSessDate = Calendar.getInstance();
+                lastSessDate.setTimeInMillis(Long.parseLong(mSession.getLastSessionDate()));
+                Calendar currentDate = Calendar.getInstance();
+                Calendar closeTime = Utils.getCloseTime(this);
+                if (currentDate.after(closeTime)) {
                     // check last session is already end day ?
                     if (!mSession.checkEndday(mSession.getLastSessionDate())) {
                         new AlertDialog.Builder(this)
@@ -1901,25 +1903,6 @@ public class MainActivity extends FragmentActivity implements
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
             finish();
         }
-    }
-
-    private boolean checkShopClosingTime() {
-        boolean isClose = false;
-        Calendar current = Calendar.getInstance();
-        Calendar closeTime = Calendar.getInstance();
-        SimpleDateFormat iso8601format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        try {
-            Date date = iso8601format.parse(mShop.getShopProperty().getCloseHour());
-            closeTime.set(Calendar.HOUR_OF_DAY, date.getHours());
-            closeTime.set(Calendar.MINUTE, date.getMinutes());
-            closeTime.set(Calendar.SECOND, date.getSeconds());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        if (current.getTime().compareTo(closeTime.getTime()) > 0) {
-            isClose = true;
-        }
-        return isClose;
     }
 
     private void showHoldBill() {
