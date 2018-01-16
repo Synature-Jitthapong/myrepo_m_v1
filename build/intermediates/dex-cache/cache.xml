@@ -3,48 +3,213 @@
 
     <item
         is-multidex="false"
-        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\synSlidingTab\build\intermediates\bundles\default\classes.jar"
+        jar="C:\Users\jitth\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\27.0.2\b9ef4342c934a1a8b107506273dc8061662a322\support-annotations-27.0.2.jar"
         jumboMode="false"
+        min-sdk-version="14"
         optimize="true"
-        revision="25.0.3"
-        sha1="4244b7e41023cdca1264207f4b482b6bbb25e04d">
-        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\classes_3535f256c653b1d482a666d6198eceb44d3c55e2.jar" />
+        revision="27.0.3"
+        sha1="0b9ef4342c934a1a8b107506273dc8061662a322">
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\17.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\ksoap2-android-assembly-3.3.0-jar-with-dependencies.jar"
+        jar="C:\Users\jitth\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.8.0\c4ba5371a29ac9b2ad6129b1d39ea38750043eff\gson-2.8.0.jar"
         jumboMode="false"
+        min-sdk-version="14"
         optimize="true"
-        revision="25.0.3"
-        sha1="62681b8212ca52278feafec31775fd0cb096d99a">
-        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\ksoap2-android-assembly-3.3.0-jar-with-dependencies_a480404a3325343120b722e9a56727572e09487a.jar" />
+        revision="27.0.3"
+        sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\5.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\pinchzoom.jar"
+        jar="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\ePOS-Print.jar"
         jumboMode="false"
+        min-sdk-version="14"
         optimize="true"
-        revision="25.0.3"
-        sha1="a4def992b1f41525748db059dfdd21322cc3157e">
-        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\pinchzoom_11245cacf86ad56c76ae38ca90ff17f6635d55eb.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\ePOS-Print.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
+        revision="27.0.3"
         sha1="ab2b4caa13eb976f1acf8abb3e11f8afa04c25a7">
-        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\ePOS-Print_df10516f22e0a9e794e64009f546582581f6c145.jar" />
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\2.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\WTAndroidJar2.jar"
+        jar="C:\Users\jitth\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.2.aar\1efe45e6132dae5fc5f59e8ee1b8e556\jars\classes.jar"
         jumboMode="false"
+        min-sdk-version="14"
         optimize="true"
-        revision="25.0.3"
+        revision="27.0.3"
+        sha1="ac2ce6027755bcf49442e70597bec0feb9064f68">
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\14.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\jitth\.gradle\caches\modules-2\files-2.1\android.arch.core\common\1.0.0\a2d487452376193fc8c103dd2b9bd5f2b1b44563\common-1.0.0.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.3"
+        sha1="a2d487452376193fc8c103dd2b9bd5f2b1b44563">
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\20.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\jitth\.gradle\caches\modules-2\files-2.1\android.arch.lifecycle\common\1.0.3\7d7f60c4783872861222166f6164215f8951c7b1\common-1.0.3.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.3"
+        sha1="7d7f60c4783872861222166f6164215f8951c7b1">
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\19.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\synSlidingTab\build\intermediates\intermediate-jars\release\classes.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.3"
+        sha1="4244b7e41023cdca1264207f4b482b6bbb25e04d">
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\21.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\ksoap2-android-assembly-3.3.0-jar-with-dependencies.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.3"
+        sha1="62681b8212ca52278feafec31775fd0cb096d99a">
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\jitth\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.0.2.aar\d75ca6d5ac5596afdf05dbdc86e7ad13\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.3"
+        sha1="25c8cb628374f9a2d59ff9e1172753751e9a9f84">
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\12.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\jitth\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.2.aar\1d017dd9e5f6a10403c64147c1bacabb\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.3"
+        sha1="ed6560f31a6a40b5965f5879d8f2eab1f68def05">
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\15.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\jitth\.gradle\caches\transforms-1\files-1.1\crashlytics-core-2.3.8.aar\c23df5b29ebdca5409970987e70fb29b\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.3"
+        sha1="c9ef45dcbd082cd63aac09a5e2cd443adb5df837">
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\jitth\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\2f2b141acdcb7f62c65123b9aed01503\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.3"
+        sha1="d7cc5473b9cf4ea159a263cd477fb3ecb2987b96">
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\18.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\WTAndroidJar2.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.3"
         sha1="20c83b3ce9d96bf7e2fb2793357414837d989cc9">
-        <dex dex="C:\Users\toy_o\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\pre-dexed\debug\WTAndroidJar2_ef195af0fc5bd9e4d7987ced2b37060c2ba15d5f.jar" />
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\jitth\.gradle\caches\transforms-1\files-1.1\fabric-1.3.10.aar\f101478f542e9c3953980be12a078281\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.3"
+        sha1="a5db9a2dd46d84285ef737f65030b74b6e8ee2a4">
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\10.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\jitth\.gradle\caches\transforms-1\files-1.1\answers-1.3.6.aar\f27a4a6ed96600dfc04e890dc135cb99\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.3"
+        sha1="9af3b9b8114e685291aa00e6572b0a9131244956">
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\pinchzoom.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.3"
+        sha1="a4def992b1f41525748db059dfdd21322cc3157e">
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\jitth\.gradle\caches\transforms-1\files-1.1\crashlytics-2.5.5.aar\8dd3bed05b159d6aaf6e2c7ae8aa3428\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.3"
+        sha1="611605b6b640c1558f9bdea41de8ff837ab68ca8">
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\jitth\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.2.aar\a3052f2feee88b1425e6ea113fcd764b\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.3"
+        sha1="b432e82447a3af781e927b9ba0bbb9fe2a496d4a">
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\16.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\jitth\.gradle\caches\transforms-1\files-1.1\support-v4-27.0.2.aar\e4bd7b31f4c1b49e0fa0c9b02cdc7278\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.3"
+        sha1="bcd0bcdef85b31a656af76e39c0c95ce70800772">
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\jitth\.gradle\caches\transforms-1\files-1.1\beta-1.1.4.aar\5fef38c91e627077711d0eca0d0761ad\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.3"
+        sha1="ad5bb101ced4d3939225c9b57e5a3d81547c1fbb">
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\11.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\jitth\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.2.aar\dca1f0076512c0903c0c421a67266fdb\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.3"
+        sha1="618f75fe11febf263e3234c7da7dc892232a5608">
+        <dex dex="C:\Users\jitth\Documents\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\13.jar" />
     </item>
 
 </items>

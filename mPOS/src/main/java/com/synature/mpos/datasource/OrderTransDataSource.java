@@ -1418,6 +1418,8 @@ public class OrderTransDataSource extends MPOSDatabase {
                         String.valueOf(transactionId)
                 });
 		moveTransToRealTable(transactionId);
+		PrintReceiptLogDataSource printLog = new PrintReceiptLogDataSource(mContext);
+		printLog.deletePrintStatus();
 	}
 
 	/**

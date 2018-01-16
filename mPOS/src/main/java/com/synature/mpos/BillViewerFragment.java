@@ -61,15 +61,19 @@ public class BillViewerFragment extends DialogFragment implements OnClickListene
 		mBtnPrint.setOnClickListener(this);
 		
 		mTextPrint = new TextPrint(getActivity());
+		mTextPrint.setPrintNoPriceComment(true);
 		if(mViewMode == CHECK_VIEW){
 			mTextPrint.createTextForPrintCheckReceipt(mTransactionId);
 		}else if (mViewMode == REPORT_VIEW){
-			if(!mIsCopy)
+			if(!mIsCopy) {
 				mBtnPrint.setVisibility(View.GONE);
-			if(mBillType == RECEIPT)
+			}
+			if(mBillType == RECEIPT) {
 				mTextPrint.createTextForPrintReceipt(mTransactionId, mIsCopy, false);
-			else if(mBillType == WASTE)
+			}
+			else if(mBillType == WASTE) {
 				mTextPrint.createTextForPrintWasteReceipt(mTransactionId, mIsCopy, false);
+			}
 		}
 		mTextView.setText(mTextPrint.getTextToPrint());
 		

@@ -20,7 +20,7 @@ public class PrintReceipt extends AsyncTask<Void, Void, Void> {
     protected PrintReceiptLogDataSource mPrintLog;
     protected Context mContext;
 
-    private PrinterBase mPrinter;
+    protected PrinterBase mPrinter;
 
     /**
      * @param context
@@ -35,6 +35,7 @@ public class PrintReceipt extends AsyncTask<Void, Void, Void> {
         } else {
             mPrinter = new EPSONPrinter(mContext);
         }
+        mPrinter.setPrintNoPriceComment(true);
     }
 
     @Override
@@ -45,9 +46,11 @@ public class PrintReceipt extends AsyncTask<Void, Void, Void> {
             try {
                 mPrinter.createTextForPrintReceipt(printReceipt.getTransactionId(), printReceipt.isCopy(), false);
                 mPrinter.print();
-                mPrintLog.deletePrintStatus(printReceipt.getPrintId(), printReceipt.getTransactionId());
+                mPrintLog.updatePrintStatus(printReceipt.getPrintId(), printReceipt.getTransactionId(),
+                        PrintReceiptLogDataSource.PRINT_SUCCESS);
             } catch (Exception e) {
-                mPrintLog.updatePrintStatus(printReceipt.getPrintId(), printReceipt.getTransactionId(), PrintReceiptLogDataSource.PRINT_NOT_SUCCESS);
+                mPrintLog.updatePrintStatus(printReceipt.getPrintId(), printReceipt.getTransactionId(),
+                        PrintReceiptLogDataSource.PRINT_NOT_SUCCESS);
                 Logger.appendLog(mContext,
                         MPOSApplication.LOG_PATH, MPOSApplication.LOG_FILE_NAME,
                         " Print receipt fail : " + e.getMessage());

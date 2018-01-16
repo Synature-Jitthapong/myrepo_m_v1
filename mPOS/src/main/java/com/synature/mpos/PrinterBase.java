@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.synature.mpos.datasource.ComputerDataSource;
 import com.synature.mpos.datasource.CreditCardDataSource;
@@ -62,7 +63,9 @@ public abstract class PrinterBase {
 		mTextToPrint = new StringBuilder();
 	}
 
-	public abstract void print();
+	public void print(){
+		Log.d("PrinterBase", mTextToPrint.toString());
+	}
 
 	protected String createHorizontalSpace(int usedSpace){
 		StringBuilder space = new StringBuilder();
@@ -688,7 +691,7 @@ public abstract class PrinterBase {
     		mTextToPrint.append("\n");
     		if(order.getOrderCommentLst() != null && order.getOrderCommentLst().size() > 0){
     			for(Comment comm : order.getOrderCommentLst()){
-    				if(comm.getCommentPrice() > 0){
+    				if(mPrintNoPriceComment || comm.getCommentPrice() > 0){
 	    				String commName = limitTextLength("   " + mFormat.qtyFormat(comm.getCommentQty()) + "x "
 	    						+ comm.getCommentName());
 	    				String commPrice = mFormat.currencyFormat(comm.getCommentTotalPrice());
@@ -701,6 +704,16 @@ public abstract class PrinterBase {
     				}
     			}
     		}
+			if(mPrintNoPriceComment && !TextUtils.isEmpty(order.getOrderComment())) {
+				String commName = limitTextLength("   " + order.getOrderComment());
+				String commPrice = "";
+				mTextToPrint.append(commName);
+				mTextToPrint.append(createHorizontalSpace(
+						calculateLength(commName) +
+								calculateLength(commPrice)));
+				mTextToPrint.append(commPrice);
+				mTextToPrint.append("\n");
+			}
     		if(order.getOrdSetDetailLst() != null && order.getOrdSetDetailLst().size() > 0){
     			for(OrderSetDetail setDetail : order.getOrdSetDetailLst()){
     				String setName = limitTextLength("   " + mFormat.qtyFormat(setDetail.getOrderSetQty()) + "x "
@@ -1012,6 +1025,16 @@ public abstract class PrinterBase {
     				}
     			}
     		}
+			if(mPrintNoPriceComment && !TextUtils.isEmpty(order.getOrderComment())) {
+				String commName = limitTextLength("   " + order.getOrderComment());
+				String commPrice = "";
+				mTextToPrint.append(commName);
+				mTextToPrint.append(createHorizontalSpace(
+						calculateLength(commName) +
+								calculateLength(commPrice)));
+				mTextToPrint.append(commPrice);
+				mTextToPrint.append("\n");
+			}
     		if(order.getOrdSetDetailLst() != null && order.getOrdSetDetailLst().size() > 0){
     			for(OrderSetDetail setDetail : order.getOrdSetDetailLst()){
     				String setName = limitTextLength("   " + mFormat.qtyFormat(setDetail.getOrderSetQty()) + "x "
@@ -1202,7 +1225,7 @@ public abstract class PrinterBase {
     	}
 	}
 
-	public void setPrintNoPriceComment(boolean mPrintNoPriceComment) {
-		mPrintNoPriceComment = mPrintNoPriceComment;
+	public void setPrintNoPriceComment(boolean printNoPriceComment) {
+		mPrintNoPriceComment = printNoPriceComment;
 	}
 }

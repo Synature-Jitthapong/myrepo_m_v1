@@ -54,7 +54,15 @@ public class PrintReceiptLogDataSource extends MPOSDatabase{
 		cursor.close();
 		return printLst;
 	}
-	
+
+	public void deletePrintStatus(){
+		getWritableDatabase().delete(PrintReceiptLogTable.TABLE_PRINT_LOG,
+				PrintReceiptLogTable.COLUMN_PRINT_RECEIPT_LOG_STATUS + "=?",
+				new String[]{
+						String.valueOf(PrintReceiptLogDataSource.PRINT_SUCCESS)
+				});
+	}
+
 	/**
 	 * @param printId
 	 * @param transactionId
