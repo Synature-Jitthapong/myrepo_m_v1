@@ -102,7 +102,6 @@
             android:label="@string/payment"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
-            android:theme="@style/ActivityDialogTheme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" >
         </activity>
         <activity

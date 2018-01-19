@@ -35,287 +35,283 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class PaymentActivity extends Activity implements OnClickListener, 
-	FinishWasteDialogFragment.OnFinishWasteListener{
-	
-	public static final int REQUEST_CREDIT_PAY = 1;
-	public static final int RESULT_ENOUGH = 2;
-	public static final int RESULT_NOT_ENOUGH = 3;
-	
-	public static boolean sIsRunning = false;
+public class PaymentActivity extends Activity implements OnClickListener,
+        FinishWasteDialogFragment.OnFinishWasteListener {
 
-	/*
-	 * credit pay not enough result code
-	 */
-	private int mResultCreditCode = RESULT_NOT_ENOUGH;
-	
-	private PaymentDetailDataSource mPayment;
-	private OrderTransDataSource mTrans;
-	private GlobalPropertyDataSource mGlobal;
-	
-	private List<MPOSPaymentDetail> mPayLst;
-	private PaymentAdapter mPaymentAdapter;
-	private PaymentButtonAdapter mPaymentButtonAdapter;
+    public static final int REQUEST_CREDIT_PAY = 1;
+    public static final int RESULT_ENOUGH = 2;
+    public static final int RESULT_NOT_ENOUGH = 3;
 
-	private StringBuilder mStrTotalPay;
-	private int mTransactionId;
-	private int mComputerId;
-	private int mStaffId;
-	private double mTotalPrice;
-	private double mTotalSalePrice;
-	private double mTotalPay;
-	private double mTotalPayAmount;
-	private double mPaymentLeft;
-	private double mChange;
-	
-	private ListView mLvPayment;
-	private EditText mTxtEnterPrice;
-	private TextView mTvTotalPaid;
-	private TextView mTvPaymentLeft;
-	private TextView mTvTotalPrice;
-	private TextView mTvChange;
-	private GridView mGvPaymentButton;
-	private Button mBtnConfirm;
-	private Button mBtnCancel;
-	
-	@Override
-	public void onCreate(Bundle savedInstanceState){
-		super.onCreate(savedInstanceState);
-	    getWindow().setFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND,
-	            WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-	    getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
-				WindowManager.LayoutParams.MATCH_PARENT);
-		setContentView(R.layout.activity_payment);
+    public static boolean sIsRunning = false;
 
-	    setFinishOnTouchOutside(false);
-		mLvPayment = (ListView) findViewById(R.id.lvPayDetail);
-		mTxtEnterPrice = (EditText) findViewById(R.id.txtDisplay);
-		mTvTotalPaid = (TextView) findViewById(R.id.tvTotalPaid);
-		mTvPaymentLeft = (TextView) findViewById(R.id.tvPaymentLeft);
-		mTvTotalPrice = (TextView) findViewById(R.id.tvTotalPrice);
-		mTvChange = (TextView) findViewById(R.id.tvChange);
-		mGvPaymentButton = (GridView) findViewById(R.id.gvPaymentButton);
-		mBtnConfirm = (Button) findViewById(R.id.btnConfirm);
-		mBtnCancel = (Button) findViewById(R.id.btnCancel);
-		mBtnConfirm.setOnClickListener(this);
-		mBtnCancel.setOnClickListener(this);
-		
-		Intent intent = getIntent();
-		mTransactionId = intent.getIntExtra("transactionId", 0);
-		mComputerId = intent.getIntExtra("computerId", 0);
-		mStaffId = intent.getIntExtra("staffId", 0);
-		
-		mTrans = new OrderTransDataSource(this);
-		mPayment = new PaymentDetailDataSource(this);
-		mGlobal = new GlobalPropertyDataSource(this);
-		
-		mPaymentAdapter = new PaymentAdapter();
-		mPayLst = new ArrayList<MPOSPaymentDetail>();
-		mPaymentButtonAdapter = new PaymentButtonAdapter();
-		mStrTotalPay = new StringBuilder();
-		mLvPayment.setAdapter(mPaymentAdapter);
-		mGvPaymentButton.setAdapter(mPaymentButtonAdapter);
-		setupPaytypeButton();
-		setupPaytypeWasteButton();
-		displayEnterPrice();
-	}
+    /*
+     * credit pay not enough result code
+     */
+    private int mResultCreditCode = RESULT_NOT_ENOUGH;
 
-	@Override
-	protected void onStart() {
-		super.onStart();
-		sIsRunning = true;
-	}
+    private PaymentDetailDataSource mPayment;
+    private OrderTransDataSource mTrans;
+    private GlobalPropertyDataSource mGlobal;
 
-	@Override
-	protected void onStop() {
-		super.onStop();
-		sIsRunning = false;
-	}
+    private List<MPOSPaymentDetail> mPayLst;
+    private PaymentAdapter mPaymentAdapter;
+    private PaymentButtonAdapter mPaymentButtonAdapter;
 
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if(requestCode == REQUEST_CREDIT_PAY){
-			mResultCreditCode = resultCode;
-		}
-	}
-	
-	@Override
-	protected void onResume() {
-		summary();
-		loadPayDetail();
-		if(mResultCreditCode == RESULT_ENOUGH)
-			confirm();
-		super.onResume();
-	}
+    private StringBuilder mStrTotalPay;
+    private int mTransactionId;
+    private int mComputerId;
+    private int mStaffId;
+    private double mTotalPrice;
+    private double mTotalSalePrice;
+    private double mTotalPay;
+    private double mTotalPayAmount;
+    private double mPaymentLeft;
+    private double mChange;
 
-	private void summary(){ 
-		OrderDetail sumOrder = mTrans.getSummaryOrder(mTransactionId, true);
-		mTotalPrice = sumOrder.getTotalSalePrice() + sumOrder.getVatExclude();
-		mTotalSalePrice = Utils.roundingPrice(mGlobal.getRoundingType(), mTotalPrice);
-		mTvTotalPrice.setText(mGlobal.currencyFormat(mTotalSalePrice));
-	}
-	
-	private class PaymentAdapter extends BaseAdapter{
+    private ListView mLvPayment;
+    private EditText mTxtEnterPrice;
+    private TextView mTvTotalPaid;
+    private TextView mTvPaymentLeft;
+    private TextView mTvTotalPrice;
+    private TextView mTvChange;
+    private GridView mGvPaymentButton;
+    private Button mBtnConfirm;
+    private Button mBtnCancel;
 
-		@Override
-		public int getCount() {
-			return mPayLst != null ? mPayLst.size() : 0;
-		}
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND,
+                WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT);
+        setContentView(R.layout.activity_payment);
 
-		@Override
-		public MPOSPaymentDetail getItem(int position) {
-			return mPayLst.get(position);
-		}
+        setFinishOnTouchOutside(false);
+        mLvPayment = (ListView) findViewById(R.id.lvPayDetail);
+        mTxtEnterPrice = (EditText) findViewById(R.id.txtDisplay);
+        mTvTotalPaid = (TextView) findViewById(R.id.tvTotalPaid);
+        mTvPaymentLeft = (TextView) findViewById(R.id.tvPaymentLeft);
+        mTvTotalPrice = (TextView) findViewById(R.id.tvTotalPrice);
+        mTvChange = (TextView) findViewById(R.id.tvChange);
+        mGvPaymentButton = (GridView) findViewById(R.id.gvPaymentButton);
+        mBtnConfirm = (Button) findViewById(R.id.btnConfirm);
+        mBtnCancel = (Button) findViewById(R.id.btnCancel);
+        mBtnConfirm.setOnClickListener(this);
+        mBtnCancel.setOnClickListener(this);
 
-		@Override
-		public long getItemId(int position) {
-			return position;
-		}
+        Intent intent = getIntent();
+        mTransactionId = intent.getIntExtra("transactionId", 0);
+        mComputerId = intent.getIntExtra("computerId", 0);
+        mStaffId = intent.getIntExtra("staffId", 0);
 
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			PaymentDetailViewHolder holder;
-			if(convertView == null){
-				convertView = getLayoutInflater().inflate(R.layout.payment_detail_template, parent, false);
-				holder = new PaymentDetailViewHolder();
-				holder.tvPayType = (TextView) convertView.findViewById(R.id.tvPayType);
-				holder.tvPayDetail = (TextView) convertView.findViewById(R.id.tvPayDetail);
-				holder.tvPayAmount = (TextView) convertView.findViewById(R.id.tvPayAmount);
-				holder.btnDel = (Button) convertView.findViewById(R.id.btnDelete);
-				convertView.setTag(holder);
-			}else{
-				holder = (PaymentDetailViewHolder) convertView.getTag();
-			}
-			final MPOSPaymentDetail payment = mPayLst.get(position);
-			holder.tvPayType.setText(payment.getPayTypeName());
-			holder.tvPayDetail.setText(payment.getRemark());
-			holder.tvPayAmount.setText(mGlobal.currencyFormat(payment.getTotalPay()));
-			holder.btnDel.setOnClickListener(new OnClickListener(){
+        mTrans = new OrderTransDataSource(this);
+        mPayment = new PaymentDetailDataSource(this);
+        mGlobal = new GlobalPropertyDataSource(this);
 
-				@Override
-				public void onClick(View v) {
-					deletePayment(payment.getTransactionId(), payment.getPayTypeId());
-				}
-				
-			});
-			
-			return convertView;
-		}
-		
-		private class PaymentDetailViewHolder{
-			TextView tvPayType;
-			TextView tvPayDetail;
-			TextView tvPayAmount;
-			Button btnDel;
-		}
-	}
-	
-	private void loadPayDetail(){
-		mPayLst = mPayment.listPayment(mTransactionId);
-		mPaymentAdapter.notifyDataSetChanged();
-		mTotalPayAmount = mPayment.getTotalPayAmount(mTransactionId, true);
-		mPaymentLeft = mTotalSalePrice - mTotalPayAmount;
-		mChange = mTotalPayAmount - mTotalSalePrice;
-		mTvTotalPaid.setText(mGlobal.currencyFormat(mTotalPayAmount));
-		if(mPaymentLeft < 0)
-			mPaymentLeft = 0.0d;
-		if(mChange < 0)
-			mChange = 0.0d;
-		mTvPaymentLeft.setText(mGlobal.currencyFormat( mPaymentLeft));
-		mTvChange.setText(mGlobal.currencyFormat(mChange));
-	}
-	
-	private void deletePayment(int transactionId, int payTypeId){
-		mPayment.deletePaymentDetail(transactionId, payTypeId);
-		loadPayDetail();
-	}
-	
-	private void addPayment(int payTypeId, String remark){
-		if(mTotalPay > 0 && mPaymentLeft > 0){ 
-			mPayment.addPaymentDetail(mTransactionId, mComputerId, payTypeId, mTotalPay, 
-					mTotalPay >= mPaymentLeft ? mPaymentLeft : mTotalPay, "",
-					0, 0, 0, 0, remark);
-			loadPayDetail();
-			// display pay type to customer display
-			if(Utils.isEnableWintecCustomerDisplay(PaymentActivity.this)){
-				WintecCustomerDisplay dsp = new WintecCustomerDisplay(PaymentActivity.this);
-				dsp.displayPayment(mPayment.getPaymentTypeName(payTypeId), mGlobal.currencyFormat(mTotalPay));
-			}
-		}
-		mStrTotalPay = new StringBuilder();
-		displayEnterPrice();
-	}
-	
-	private void calculateInputPrice(){
-		try {
-			mTotalPay = Utils.stringToDouble(mStrTotalPay.toString().replace(",", ""));
-		} catch (ParseException e) {
-			mTotalPay = 0.0d;
-		}
-	}
-	
-	private void displayEnterPrice(){
-		calculateInputPrice();
-		mTxtEnterPrice.setText(mGlobal.currencyFormat(mTotalPay));
-	}
-	
-	public void creditPay(){
-		if(mTotalSalePrice > 0 && mPaymentLeft > 0){
-			Intent intent = new Intent(PaymentActivity.this, CreditPayActivity.class);
-			intent.putExtra("transactionId", mTransactionId);
-			intent.putExtra("computerId", mComputerId);
-			intent.putExtra("paymentLeft", mPaymentLeft);
-			startActivityForResult(intent, REQUEST_CREDIT_PAY);
-		}
-	}
+        mPaymentAdapter = new PaymentAdapter();
+        mPayLst = new ArrayList<MPOSPaymentDetail>();
+        mPaymentButtonAdapter = new PaymentButtonAdapter();
+        mStrTotalPay = new StringBuilder();
+        mLvPayment.setAdapter(mPaymentAdapter);
+        mGvPaymentButton.setAdapter(mPaymentButtonAdapter);
+        setupPaytypeButton();
+        setupPaytypeWasteButton();
+        displayEnterPrice();
+    }
 
-	public void confirm() {
-		if(mTotalPayAmount >= mTotalSalePrice){
-			mPayment.confirmPayment(mTransactionId);
-			closeTransaction();
-			setResultAndFinish(PrintReceipt.NORMAL);
-			// open cash drawer
-			WintecCashDrawer drw = new WintecCashDrawer(this);
-			drw.openCashDrawer();
-			drw.close();
-		}else{
-			new AlertDialog.Builder(PaymentActivity.this)
-			.setMessage(R.string.enter_enough_money)
-			.setNeutralButton(R.string.close, new DialogInterface.OnClickListener() {
-				
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					
-				}
-			})
-			.show();
-			
-		}
-	}
-	
-	private void setResultAndFinish(int printType){
-		mChange = mTotalPayAmount - mTotalSalePrice;
-		Intent intent = new Intent(this, MainActivity.class);
-		intent.putExtra("printType", printType);
-		intent.putExtra("totalSalePrice", mTotalSalePrice);
-		intent.putExtra("totalPaid", mTotalPayAmount);
-		intent.putExtra("change", mChange);
-		intent.putExtra("transactionId", mTransactionId);
-		intent.putExtra("staffId", mStaffId);
-		setResult(RESULT_OK, intent);
-		finish();
-	}
-	
-	private void closeTransaction(){
+    @Override
+    protected void onStart() {
+        super.onStart();
+        sIsRunning = true;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        sIsRunning = false;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CREDIT_PAY) {
+            mResultCreditCode = resultCode;
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        summary();
+        loadPayDetail();
+        if (mResultCreditCode == RESULT_ENOUGH)
+            confirm();
+        super.onResume();
+    }
+
+    private void summary() {
+        OrderDetail sumOrder = mTrans.getSummaryOrder(mTransactionId, true);
+        mTotalPrice = sumOrder.getTotalSalePrice() + sumOrder.getVatExclude();
+        mTotalSalePrice = Utils.roundingPrice(mGlobal.getRoundingType(), mTotalPrice);
+        mTvTotalPrice.setText(mGlobal.currencyFormat(mTotalSalePrice));
+    }
+
+    private class PaymentAdapter extends BaseAdapter {
+
+        @Override
+        public int getCount() {
+            return mPayLst != null ? mPayLst.size() : 0;
+        }
+
+        @Override
+        public MPOSPaymentDetail getItem(int position) {
+            return mPayLst.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            PaymentDetailViewHolder holder;
+            if (convertView == null) {
+                convertView = getLayoutInflater().inflate(R.layout.payment_detail_template, parent, false);
+                holder = new PaymentDetailViewHolder();
+                holder.tvPayType = (TextView) convertView.findViewById(R.id.tvPayType);
+                holder.tvPayDetail = (TextView) convertView.findViewById(R.id.tvPayDetail);
+                holder.tvPayAmount = (TextView) convertView.findViewById(R.id.tvPayAmount);
+                holder.btnDel = (Button) convertView.findViewById(R.id.btnDelete);
+                convertView.setTag(holder);
+            } else {
+                holder = (PaymentDetailViewHolder) convertView.getTag();
+            }
+            final MPOSPaymentDetail payment = mPayLst.get(position);
+            holder.tvPayType.setText(payment.getPayTypeName());
+            holder.tvPayDetail.setText(payment.getRemark());
+            holder.tvPayAmount.setText(mGlobal.currencyFormat(payment.getTotalPay()));
+            holder.btnDel.setOnClickListener(new OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    deletePayment(payment.getTransactionId(), payment.getPayTypeId());
+                }
+
+            });
+
+            return convertView;
+        }
+
+        private class PaymentDetailViewHolder {
+            TextView tvPayType;
+            TextView tvPayDetail;
+            TextView tvPayAmount;
+            Button btnDel;
+        }
+    }
+
+    private void loadPayDetail() {
+        mPayLst = mPayment.listPayment(mTransactionId);
+        mPaymentAdapter.notifyDataSetChanged();
+        mTotalPayAmount = mPayment.getTotalPayAmount(mTransactionId, true);
+        mPaymentLeft = mTotalSalePrice - mTotalPayAmount;
+        mChange = mTotalPayAmount - mTotalSalePrice;
+        mTvTotalPaid.setText(mGlobal.currencyFormat(mTotalPayAmount));
+        if (mPaymentLeft < 0)
+            mPaymentLeft = 0.0d;
+        if (mChange < 0)
+            mChange = 0.0d;
+        mTvPaymentLeft.setText(mGlobal.currencyFormat(mPaymentLeft));
+        mTvChange.setText(mGlobal.currencyFormat(mChange));
+    }
+
+    private void deletePayment(int transactionId, int payTypeId) {
+        mPayment.deletePaymentDetail(transactionId, payTypeId);
+        loadPayDetail();
+    }
+
+    private void addPayment(int payTypeId, String remark) {
+        if (mTotalPay > 0 && mPaymentLeft > 0) {
+            mPayment.addPaymentDetail(mTransactionId, mComputerId, payTypeId, mTotalPay,
+                    mTotalPay >= mPaymentLeft ? mPaymentLeft : mTotalPay, "",
+                    0, 0, 0, 0, remark);
+            loadPayDetail();
+            // display pay type to customer display
+            if (Utils.isEnableWintecCustomerDisplay(PaymentActivity.this)) {
+                WintecCustomerDisplay dsp = new WintecCustomerDisplay(PaymentActivity.this);
+                dsp.displayPayment(mPayment.getPaymentTypeName(payTypeId), mGlobal.currencyFormat(mTotalPay));
+            }
+        }
+        mStrTotalPay = new StringBuilder();
+        displayEnterPrice();
+    }
+
+    private void calculateInputPrice() {
+        mTotalPay = Utils.stringToDouble(mStrTotalPay.toString().replace(",", ""));
+    }
+
+    private void displayEnterPrice() {
+        calculateInputPrice();
+        mTxtEnterPrice.setText(mGlobal.currencyFormat(mTotalPay));
+    }
+
+    public void creditPay() {
+        if (mTotalSalePrice > 0 && mPaymentLeft > 0) {
+            Intent intent = new Intent(PaymentActivity.this, CreditPayActivity.class);
+            intent.putExtra("transactionId", mTransactionId);
+            intent.putExtra("computerId", mComputerId);
+            intent.putExtra("paymentLeft", mPaymentLeft);
+            startActivityForResult(intent, REQUEST_CREDIT_PAY);
+        }
+    }
+
+    public void confirm() {
+        if (mTotalPayAmount >= mTotalSalePrice) {
+            mPayment.confirmPayment(mTransactionId);
+            closeTransaction();
+            setResultAndFinish(PrintReceipt.NORMAL);
+            // open cash drawer
+            WintecCashDrawer drw = new WintecCashDrawer(this);
+            drw.openCashDrawer();
+            drw.close();
+        } else {
+            new AlertDialog.Builder(PaymentActivity.this)
+                    .setMessage(R.string.enter_enough_money)
+                    .setNeutralButton(R.string.close, new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    })
+                    .show();
+
+        }
+    }
+
+    private void setResultAndFinish(int printType) {
+        mChange = mTotalPayAmount - mTotalSalePrice;
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("printType", printType);
+        intent.putExtra("totalSalePrice", mTotalSalePrice);
+        intent.putExtra("totalPaid", mTotalPayAmount);
+        intent.putExtra("change", mChange);
+        intent.putExtra("transactionId", mTransactionId);
+        intent.putExtra("staffId", mStaffId);
+        setResult(RESULT_OK, intent);
+        finish();
+    }
+
+    private void closeTransaction() {
         SessionDataSource sessionDataSource = new SessionDataSource(this);
-		mTrans.closeTransaction(mTransactionId, mStaffId, mTotalPrice,
+        mTrans.closeTransaction(mTransactionId, mStaffId, mTotalPrice,
                 sessionDataSource.getLastSessionDate());
-	}
+    }
 
-	private void cancel() {
-		mPayment.deleteAllPaymentDetail(mTransactionId);
-		finish();
-	}
+    private void cancel() {
+        mPayment.deleteAllPaymentDetail(mTransactionId);
+        finish();
+    }
 
     @Override
     public void onClick(View v) {
@@ -390,199 +386,193 @@ public class PaymentActivity extends Activity implements OnClickListener,
         }
     }
 
-    private void popupOtherPayment(String payTypeName, final int payTypeId){
-		LayoutInflater inflater = (LayoutInflater)
-				this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View v = inflater.inflate(R.layout.other_payment_layout, null);
-		final EditText txtAmount = (EditText) v.findViewById(R.id.txtAmount);
-		final EditText txtRemark = (EditText) v.findViewById(R.id.txtRemark);
-		txtAmount.setText(mGlobal.currencyFormat(mTotalSalePrice));
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle(payTypeName);
-		builder.setView(v);
-		builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-			
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-			}
-		});
-		builder.setPositiveButton(android.R.string.ok, null);
-		final AlertDialog d = builder.create();
-		d.show();
-		d.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new OnClickListener(){
+    private void popupOtherPayment(String payTypeName, final int payTypeId) {
+        LayoutInflater inflater = (LayoutInflater)
+                this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View v = inflater.inflate(R.layout.other_payment_layout, null);
+        final EditText txtAmount = (EditText) v.findViewById(R.id.txtAmount);
+        final EditText txtRemark = (EditText) v.findViewById(R.id.txtRemark);
+        txtAmount.setText(mGlobal.currencyFormat(mTotalSalePrice));
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(payTypeName);
+        builder.setView(v);
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
 
-			@Override
-			public void onClick(View v) {
-				double paid = 0;
-				try {
-					paid = Utils.stringToDouble(txtAmount.getText().toString());
-					if(paid > 0){
-						mStrTotalPay = new StringBuilder();
-						mStrTotalPay.append(mGlobal.currencyFormat(paid));
-						calculateInputPrice();
-						addPayment(payTypeId, txtRemark.getText().toString());
-						d.dismiss();
-					}
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			
-		});
-	}
-	
-	private void setupPaytypeWasteButton(){
-		List<PayType> payTypeLst = mPayment.listPaytypeWest();
-		if(payTypeLst != null){
-			LinearLayout payTypeContent = (LinearLayout) findViewById(R.id.payTypeWasteContainer);
-			payTypeContent.removeAllViews();
-			for(int i = 0; i < payTypeLst.size(); i++){
-				final PayType payType = payTypeLst.get(i);
-				final Button btnPayType = new Button(PaymentActivity.this);
-				btnPayType.setMinWidth(128);
-				btnPayType.setMinHeight(96);
-				btnPayType.setText(payType.getPayTypeName());
-				btnPayType.setOnClickListener(new OnClickListener(){
-	
-					@Override
-					public void onClick(View v) {
-						FinishWasteDialogFragment westDialog = 
-								FinishWasteDialogFragment.newInstance(
-										payType.getPayTypeID(), payType.getPayTypeName(),
-										payType.getDocumentTypeID(), payType.getDocumentTypeHeader(), mTotalPrice);
-						westDialog.show(getFragmentManager(), FinishWasteDialogFragment.TAG);
-					}
-					
-				});
-				if(i == 0 && payTypeLst.size() == 1){
-					btnPayType.setBackgroundResource(R.drawable.btn_holo_gray);
-				}else if(i == 0){
-					btnPayType.setBackgroundResource(R.drawable.btn_holo_gray_left_corner);
-				}else if (i == payTypeLst.size() - 1){
-					btnPayType.setBackgroundResource(R.drawable.btn_holo_gray_right_corner);
-				}else{
-					btnPayType.setBackgroundResource(R.drawable.btn_holo_gray_no_radius);
-				}
-				payTypeContent.addView(btnPayType);
-			}
-		}
-	}
-	
-	private void setupPaytypeButton(){
-		List<PayType> payTypeLst = mPayment.listPayType();
-		LinearLayout payTypeContent = (LinearLayout) findViewById(R.id.payTypeContent);
-		payTypeContent.removeAllViews();
-		for(int i = 0; i < payTypeLst.size(); i++){
-			final PayType payType = payTypeLst.get(i);
-			final Button btnPayType = new Button(PaymentActivity.this);
-			btnPayType.setMinWidth(128);
-			btnPayType.setMinHeight(96);
-			btnPayType.setText(payType.getPayTypeName());
-			btnPayType.setOnClickListener(new OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        builder.setPositiveButton(android.R.string.ok, null);
+        final AlertDialog d = builder.create();
+        d.show();
+        d.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new OnClickListener() {
 
-				@Override
-				public void onClick(View v) {
-					if(payType.getPayTypeID() == PaymentDetailDataSource.PAY_TYPE_CASH){
-						
-					}else if(payType.getPayTypeID() == PaymentDetailDataSource.PAY_TYPE_CREDIT){
-						creditPay();
-					}else{
-						popupOtherPayment(payType.getPayTypeName(), payType.getPayTypeID());
-					}
-				}
-				
-			});
-			if(i == 0 && payTypeLst.size() == 1){
-				btnPayType.setBackgroundResource(R.drawable.btn_holo_gray);
-			}else if(i == 0){
-				btnPayType.setBackgroundResource(R.drawable.btn_holo_gray_left_corner);
-			}else if (i == payTypeLst.size() - 1){
-				btnPayType.setBackgroundResource(R.drawable.btn_holo_gray_right_corner);
-			}else{
-				btnPayType.setBackgroundResource(R.drawable.btn_holo_gray_no_radius);
-			}
-			payTypeContent.addView(btnPayType);
-		}
-	}
-	
-	private class PaymentButtonAdapter extends BaseAdapter{
-		
-		private PaymentAmountButtonDataSource mPaymentButton;
-		private List<com.synature.pos.PaymentAmountButton> mPaymentButtonLst;
-		private LayoutInflater mInflater;
-		
-		public PaymentButtonAdapter(){
-			mInflater = (LayoutInflater)
-					PaymentActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			mPaymentButton = new PaymentAmountButtonDataSource(PaymentActivity.this);
-			mPaymentButtonLst = mPaymentButton.listPaymentButton();
-		}
-		
-		@Override
-		public int getCount() {
-			return mPaymentButtonLst != null ? mPaymentButtonLst.size() : 0;
-		}
+            @Override
+            public void onClick(View v) {
+                double paid = paid = Utils.stringToDouble(txtAmount.getText().toString());
+                if (paid > 0) {
+                    mStrTotalPay = new StringBuilder();
+                    mStrTotalPay.append(mGlobal.currencyFormat(paid));
+                    calculateInputPrice();
+                    addPayment(payTypeId, txtRemark.getText().toString());
+                    d.dismiss();
+                }
+            }
 
-		@Override
-		public com.synature.pos.PaymentAmountButton getItem(int position) {
-			return mPaymentButtonLst.get(position);
-		}
+        });
+    }
 
-		@Override
-		public long getItemId(int position) {
-			return position;
-		}
+    private void setupPaytypeWasteButton() {
+        List<PayType> payTypeLst = mPayment.listPaytypeWest();
+        if (payTypeLst != null) {
+            LinearLayout payTypeContent = (LinearLayout) findViewById(R.id.payTypeWasteContainer);
+            payTypeContent.removeAllViews();
+            for (int i = 0; i < payTypeLst.size(); i++) {
+                final PayType payType = payTypeLst.get(i);
+                final Button btnPayType = new Button(PaymentActivity.this);
+                btnPayType.setMinWidth(128);
+                btnPayType.setMinHeight(96);
+                btnPayType.setText(payType.getPayTypeName());
+                btnPayType.setOnClickListener(new OnClickListener() {
 
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			final com.synature.pos.PaymentAmountButton paymentButton = 
-					mPaymentButtonLst.get(position);
-			ViewHolder holder;
-			if(convertView == null){
-				holder = new ViewHolder();
-				convertView = mInflater.inflate(R.layout.button_template, null);
-				holder.btnPayment = (Button) convertView;
-				holder.btnPayment.setMinWidth(128);
-				holder.btnPayment.setMinHeight(196);
-				convertView.setTag(holder);
-			}else{
-				holder = (ViewHolder) convertView.getTag();
-			}	
-			holder.btnPayment.setText(mGlobal.currencyFormat(
-					paymentButton.getPaymentAmount()));
-			holder.btnPayment.setOnClickListener(new OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        FinishWasteDialogFragment westDialog =
+                                FinishWasteDialogFragment.newInstance(
+                                        payType.getPayTypeID(), payType.getPayTypeName(),
+                                        payType.getDocumentTypeID(), payType.getDocumentTypeHeader(), mTotalPrice);
+                        westDialog.show(getFragmentManager(), FinishWasteDialogFragment.TAG);
+                    }
 
-				@Override
-				public void onClick(View v) {
-					mStrTotalPay = new StringBuilder();
-					mStrTotalPay.append(mGlobal.currencyFormat(
-							paymentButton.getPaymentAmount()));
-					calculateInputPrice();
-					addPayment(PaymentDetailDataSource.PAY_TYPE_CASH, "");
-				}
-				
-			});
-			return convertView;
-		}
-		
-		class ViewHolder{
-			Button btnPayment;
-		}
-	}
+                });
+                if (i == 0 && payTypeLst.size() == 1) {
+                    btnPayType.setBackgroundResource(R.drawable.btn_holo_gray);
+                } else if (i == 0) {
+                    btnPayType.setBackgroundResource(R.drawable.btn_holo_gray_left_corner);
+                } else if (i == payTypeLst.size() - 1) {
+                    btnPayType.setBackgroundResource(R.drawable.btn_holo_gray_right_corner);
+                } else {
+                    btnPayType.setBackgroundResource(R.drawable.btn_holo_gray_no_radius);
+                }
+                payTypeContent.addView(btnPayType);
+            }
+        }
+    }
 
-	@Override
-	public void onWasteConfirm(int payTypeId, int docTypeId, String docTypeHeader, double totalPrice, String remark){
+    private void setupPaytypeButton() {
+        List<PayType> payTypeLst = mPayment.listPayType();
+        LinearLayout payTypeContent = (LinearLayout) findViewById(R.id.payTypeContent);
+        payTypeContent.removeAllViews();
+        for (int i = 0; i < payTypeLst.size(); i++) {
+            final PayType payType = payTypeLst.get(i);
+            final Button btnPayType = new Button(PaymentActivity.this);
+            btnPayType.setMinWidth(128);
+            btnPayType.setMinHeight(96);
+            btnPayType.setText(payType.getPayTypeName());
+            btnPayType.setOnClickListener(new OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    if (payType.getPayTypeID() == PaymentDetailDataSource.PAY_TYPE_CASH) {
+
+                    } else if (payType.getPayTypeID() == PaymentDetailDataSource.PAY_TYPE_CREDIT) {
+                        creditPay();
+                    } else {
+                        popupOtherPayment(payType.getPayTypeName(), payType.getPayTypeID());
+                    }
+                }
+
+            });
+            if (i == 0 && payTypeLst.size() == 1) {
+                btnPayType.setBackgroundResource(R.drawable.btn_holo_gray);
+            } else if (i == 0) {
+                btnPayType.setBackgroundResource(R.drawable.btn_holo_gray_left_corner);
+            } else if (i == payTypeLst.size() - 1) {
+                btnPayType.setBackgroundResource(R.drawable.btn_holo_gray_right_corner);
+            } else {
+                btnPayType.setBackgroundResource(R.drawable.btn_holo_gray_no_radius);
+            }
+            payTypeContent.addView(btnPayType);
+        }
+    }
+
+    private class PaymentButtonAdapter extends BaseAdapter {
+
+        private PaymentAmountButtonDataSource mPaymentButton;
+        private List<com.synature.pos.PaymentAmountButton> mPaymentButtonLst;
+        private LayoutInflater mInflater;
+
+        public PaymentButtonAdapter() {
+            mInflater = (LayoutInflater)
+                    PaymentActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            mPaymentButton = new PaymentAmountButtonDataSource(PaymentActivity.this);
+            mPaymentButtonLst = mPaymentButton.listPaymentButton();
+        }
+
+        @Override
+        public int getCount() {
+            return mPaymentButtonLst != null ? mPaymentButtonLst.size() : 0;
+        }
+
+        @Override
+        public com.synature.pos.PaymentAmountButton getItem(int position) {
+            return mPaymentButtonLst.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            final com.synature.pos.PaymentAmountButton paymentButton =
+                    mPaymentButtonLst.get(position);
+            ViewHolder holder;
+            if (convertView == null) {
+                holder = new ViewHolder();
+                convertView = mInflater.inflate(R.layout.button_template, null);
+                holder.btnPayment = (Button) convertView;
+                holder.btnPayment.setMinWidth(128);
+                holder.btnPayment.setMinHeight(196);
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder) convertView.getTag();
+            }
+            holder.btnPayment.setText(mGlobal.currencyFormat(
+                    paymentButton.getPaymentAmount()));
+            holder.btnPayment.setOnClickListener(new OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    mStrTotalPay = new StringBuilder();
+                    mStrTotalPay.append(mGlobal.currencyFormat(
+                            paymentButton.getPaymentAmount()));
+                    calculateInputPrice();
+                    addPayment(PaymentDetailDataSource.PAY_TYPE_CASH, "");
+                }
+
+            });
+            return convertView;
+        }
+
+        class ViewHolder {
+            Button btnPayment;
+        }
+    }
+
+    @Override
+    public void onWasteConfirm(int payTypeId, int docTypeId, String docTypeHeader, double totalPrice, String remark) {
         SessionDataSource sessionDataSource = new SessionDataSource(this);
-		mPayment.addPaymentDetailWaste(mTransactionId, mComputerId, payTypeId, totalPrice, remark);
-		mPayment.confirmWastePayment(mTransactionId);
-		mTrans.closeWasteTransaction(mTransactionId, mStaffId, docTypeId,
+        mPayment.addPaymentDetailWaste(mTransactionId, mComputerId, payTypeId, totalPrice, remark);
+        mPayment.confirmWastePayment(mTransactionId);
+        mTrans.closeWasteTransaction(mTransactionId, mStaffId, docTypeId,
                 docTypeHeader, totalPrice, sessionDataSource.getLastSessionDate());
-		setResultAndFinish(PrintReceipt.WASTE);
-	}
-	
-	@Override
-	public void onWasteCancel() {
-		cancel();
-	}
+        setResultAndFinish(PrintReceipt.WASTE);
+    }
+
+    @Override
+    public void onWasteCancel() {
+        cancel();
+    }
 }
