@@ -1,9 +1,10 @@
 package com.synature.mpos;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.imagezoom.ImageAttacher;
 import com.imagezoom.ImageAttacher.OnMatrixChangedListener;
 import com.imagezoom.ImageAttacher.OnPhotoTapListener;
-import com.synature.util.ImageLoader;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -24,7 +25,6 @@ public class ImageViewPinchZoom extends DialogFragment{
 	private String mImgName;
 	private String mMenuName;
 	private String mMenuPrice;
-	private ImageLoader mImgLoader;
 	
 	public static ImageViewPinchZoom newInstance(String imgName, String menuName, String menuPrice){
 		ImageViewPinchZoom frag = new ImageViewPinchZoom();
@@ -53,16 +53,13 @@ public class ImageViewPinchZoom extends DialogFragment{
 
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
-		mImgLoader = new ImageLoader(getActivity(), 0,
-				MPOSApplication.IMG_DIR, ImageLoader.IMAGE_SIZE.LARGE);
-		
 		mImgName = getArguments().getString("imgName");
 		mMenuName = getArguments().getString("menuName");
 		mMenuPrice = getArguments().getString("menuPrice");
 		
 		LayoutInflater inflater = (LayoutInflater)
 				getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View menuImgView = inflater.inflate(R.layout.menu_image_layout, null);
+		final View menuImgView = inflater.inflate(R.layout.menu_image_layout, null);
 		final ImageView imgMenu = (ImageView) menuImgView.findViewById(R.id.imgMenu);
 		final TextView tvMenuName = (TextView) menuImgView.findViewById(R.id.textView1);
 		final TextView tvMenuPrice = (TextView) menuImgView.findViewById(R.id.textView2);
@@ -83,7 +80,13 @@ public class ImageViewPinchZoom extends DialogFragment{
 
 			@Override
 			public void run() {
-				mImgLoader.displayImage(Utils.getImageUrl(getActivity()) + mImgName, imgMenu);
+				Glide.with(getActivity())
+						.load(Utils.getImageUrl(getActivity()) + mImgName)
+						.diskCacheStrategy(DiskCacheStrategy.ALL)
+						.signature(Utils.getGlideSignatureString())
+						.centerCrop()
+						.into(imgMenu);
+
 				imgMenu.setVisibility(View.VISIBLE);
 				tvMenuName.setText(mMenuName);
 				tvMenuPrice.setText(mMenuPrice);

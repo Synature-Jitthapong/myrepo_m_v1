@@ -28,15 +28,18 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.database.SQLException;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.Settings.Secure;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.bumptech.glide.signature.StringSignature;
 import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.ProductsDataSource;
@@ -592,11 +595,21 @@ public class Utils {
 	 * @param langCode
 	 */
 	public static void switchLanguage(Context context, String langCode){
-		Locale locale = new Locale(langCode);  
-		Locale.setDefault(locale); 
-		Configuration config = new Configuration();
-		config.locale = locale; 
-		context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
+//		Locale locale = new Locale(langCode);
+//		Locale.setDefault(locale);
+//		Configuration config = new Configuration();
+//		config.locale = locale;
+//		context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
+
+		Resources res = context.getResources();
+		// Change locale settings in the app.
+		DisplayMetrics dm = res.getDisplayMetrics();
+		android.content.res.Configuration conf = res.getConfiguration();
+		String[] langCodes = langCode.split("_");
+		String language = langCodes[0];
+		String country = langCodes[1];
+		conf.locale = new Locale(language, country);
+		res.updateConfiguration(conf, dm);
 	}
 	
 	public static Locale getLocale(Context context){
@@ -786,7 +799,11 @@ public class Utils {
 		}
 		return inFiles;
 	}
-	
+
+	public static StringSignature getGlideSignatureString(){
+		return new StringSignature(new SimpleDateFormat("yyyyMMdd").format(Calendar.getInstance().getTime()));
+	}
+
 	public static LinearLayout.LayoutParams getLinHorParams(float weight){
 		return new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, weight);
 	}

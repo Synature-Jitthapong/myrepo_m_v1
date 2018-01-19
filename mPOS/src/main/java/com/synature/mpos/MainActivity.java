@@ -9,15 +9,14 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.text.NumberFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.j1tth4.slidinglibs.SlidingTabLayout;
 import com.synature.mpos.SwitchLangFragment.OnChangeLanguageListener;
 import com.synature.mpos.datasource.ComputerDataSource;
@@ -38,8 +37,6 @@ import com.synature.mpos.datasource.model.Product;
 import com.synature.mpos.datasource.model.ProductDept;
 import com.synature.mpos.seconddisplay.SecondDisplayJSON;
 import com.synature.pos.SecondDisplayProperty.clsSecDisplay_TransSummary;
-import com.synature.pos.ShopProperty;
-import com.synature.util.ImageLoader;
 import com.synature.util.Logger;
 
 import android.os.AsyncTask;
@@ -145,8 +142,6 @@ public class MainActivity extends FragmentActivity implements
     private List<ProductDept> mProductDeptLst;
     private MenuItemPagerAdapter mPageAdapter;
 
-    private ImageLoader mImageLoader;
-
     private int mSessionId;
     private int mTransactionId;
     private int mStaffId;
@@ -187,9 +182,6 @@ public class MainActivity extends FragmentActivity implements
 
         mShopId = mShop.getShopId();
         mComputerId = mComputer.getComputerId();
-
-        mImageLoader = new ImageLoader(this, 0,
-                MPOSApplication.IMG_DIR, ImageLoader.IMAGE_SIZE.MEDIUM);
 
         mDsp = new WintecCustomerDisplay(this);
 
@@ -1400,9 +1392,14 @@ public class MainActivity extends FragmentActivity implements
                     holder.tvMenu.setTextSize(14);
                     holder.imgMenu.setVisibility(View.VISIBLE);
                     holder.imgMenu.setImageBitmap(null);
-                    ((MainActivity) getActivity()).mImageLoader.displayImage(
-                            Utils.getImageUrl(getActivity()) +
-                                    p.getImgName(), holder.imgMenu);
+
+                    Glide.with(getActivity())
+                            .load(Utils.getImageUrl(getActivity()) +
+                                    p.getImgName())
+                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .signature(Utils.getGlideSignatureString())
+                            .centerCrop()
+                            .into(holder.imgMenu);
                 } else {
                     holder.tvMenu.setLines(4);
                     holder.tvMenu.setTextSize(getResources().getDimension(R.dimen.menu_text_large));
@@ -1464,9 +1461,14 @@ public class MainActivity extends FragmentActivity implements
 
             if (Utils.isShowMenuImage(MainActivity.this)) {
                 holder.imgMenu.setVisibility(View.VISIBLE);
-                mImageLoader.displayImage(
-                        Utils.getImageUrl(MainActivity.this) +
-                                p.getImgName(), holder.imgMenu);
+
+                Glide.with(MainActivity.this)
+                        .load(Utils.getImageUrl(MainActivity.this) +
+                                p.getImgName())
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .signature(Utils.getGlideSignatureString())
+                        .centerCrop()
+                        .into(holder.imgMenu);
             }
             return convertView;
         }

@@ -1,10 +1,11 @@
 package com.synature.mpos;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.ProductsDataSource;
@@ -16,7 +17,6 @@ import com.synature.mpos.datasource.model.ProductComponentGroup;
 import com.synature.mpos.datasource.table.OrderDetailTable;
 import com.synature.mpos.datasource.table.OrderTransTable;
 import com.synature.mpos.datasource.table.ProductTable;
-import com.synature.util.ImageLoader;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -24,11 +24,9 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -673,8 +671,6 @@ public class ProductSetActivity extends Activity {
 
         private LayoutInflater mInflater;
 
-        private ImageLoader mImgLoader;
-
         /**
          * @param pcompGroupId
          * @param requireAmount
@@ -684,9 +680,6 @@ public class ProductSetActivity extends Activity {
             mGroupName = groupName;
             mRequireAmount = requireAmount;
             mRequireMinAmount = requireMinAmount;
-
-            mImgLoader = new ImageLoader(ProductSetActivity.this, 0,
-                    MPOSApplication.IMG_DIR, ImageLoader.IMAGE_SIZE.MEDIUM);
 
             mInflater = (LayoutInflater)
                     getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -741,7 +734,13 @@ public class ProductSetActivity extends Activity {
                 holder.tvMenu.setTextSize(14);
                 holder.imgMenu.setVisibility(View.VISIBLE);
                 holder.imgMenu.setImageBitmap(null);
-                mImgLoader.displayImage(Utils.getImageUrl(ProductSetActivity.this) + pComp.getImgName(), holder.imgMenu);
+                Glide.with(ProductSetActivity.this)
+                        .load(Utils.getImageUrl(ProductSetActivity.this) +
+                                pComp.getImgName())
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .signature(Utils.getGlideSignatureString())
+                        .centerCrop()
+                        .into(holder.imgMenu);
             } else {
                 holder.tvMenu.setLines(4);
                 holder.tvMenu.setTextSize(getResources().getDimension(R.dimen.menu_text_large));
