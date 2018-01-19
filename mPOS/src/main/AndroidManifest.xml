@@ -101,12 +101,14 @@
             android:name=".PaymentActivity"
             android:label="@string/payment"
             android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" >
         </activity>
         <activity
             android:name=".CreditPayActivity"
             android:label="@string/credit_pay"
+            android:theme="@style/AppTheme.NoActionBar"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" >

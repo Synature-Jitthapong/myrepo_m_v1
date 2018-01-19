@@ -11,15 +11,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8898c534-ce79-4b55-8427-455374fb306b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mPOS/src/main/res/layout-sw600dp/activity_payment.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mPOS/src/main/res/layout-sw720dp/activity_payment.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/generated/source/buildConfig/debug/com/synature/mpos/BuildConfig.java" afterPath="$PROJECT_DIR$/mPOS/build/generated/source/buildConfig/debug/com/synature/mpos/BuildConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/mPOS.iml" afterPath="$PROJECT_DIR$/mPOS/mPOS.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PaymentActivity.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PaymentActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/mPOS/src/main/res/values/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/res/layout/activity_payment.xml" afterPath="$PROJECT_DIR$/mPOS/src/main/res/layout/activity_payment.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/mPOS/src/main/res/values/styles.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/synSlidingTab.iml" afterPath="$PROJECT_DIR$/synSlidingTab/synSlidingTab.iml" />
     </list>
     <ignored path="myrepo_m_v1.iws" />
@@ -58,7 +58,7 @@
             <state relative-caret-position="2806">
               <caret line="283" column="0" lean-forward="false" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
               <folding>
-                <marker date="1516361437805" expanded="true" signature="111635:111636" ph="{...}" />
+                <marker date="1516361894027" expanded="true" signature="111635:111636" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -70,21 +70,7 @@
             <state relative-caret-position="577">
               <caret line="805" column="0" lean-forward="false" selection-start-line="805" selection-start-column="0" selection-end-line="805" selection-end-column="0" />
               <folding>
-                <marker date="1516361437852" expanded="true" signature="25208:25303" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mPOS/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
-              <folding>
-                <marker date="1516361437743" expanded="true" signature="1222:1324" ph="{...}" />
-                <marker date="1516361437743" expanded="true" signature="1288:1298" ph="{" />
-                <marker date="1516361437743" expanded="true" signature="1316:1322" ph="}" />
+                <marker date="1516361894083" expanded="true" signature="25208:25303" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -93,11 +79,31 @@
       <file leaf-file-name="PaymentActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PaymentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="80" column="13" lean-forward="false" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
+            <state relative-caret-position="457">
+              <caret line="536" column="49" lean-forward="false" selection-start-line="536" selection-start-column="49" selection-end-line="536" selection-end-column="49" />
               <folding>
+                <element signature="e#5601#5602#0" expanded="true" />
+                <element signature="e#5668#5669#0" expanded="true" />
+                <element signature="e#5744#5745#0" expanded="true" />
+                <element signature="e#5796#5797#0" expanded="true" />
+                <element signature="e#5861#5862#0" expanded="true" />
+                <element signature="e#5900#5901#0" expanded="true" />
+                <element signature="e#7081#7297#0" expanded="true" />
+                <element signature="e#7296#7297#0" expanded="true" />
                 <element signature="e#14939#15471#0" expanded="true" />
                 <element signature="e#15470#15471#0" expanded="true" />
+                <element signature="e#16158#16737#0" expanded="true" />
+                <element signature="e#16736#16737#0" expanded="true" />
+                <element signature="e#17962#18464#0" expanded="true" />
+                <element signature="e#18463#18464#0" expanded="true" />
+                <element signature="e#19675#19676#0" expanded="true" />
+                <element signature="e#19762#19763#0" expanded="true" />
+                <element signature="e#19984#19985#0" expanded="true" />
+                <element signature="e#20023#20024#0" expanded="true" />
+                <element signature="e#20910#21341#0" expanded="true" />
+                <element signature="e#21340#21341#0" expanded="true" />
+                <element signature="e#22083#22084#0" expanded="true" />
+                <element signature="e#22107#22108#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -105,14 +111,15 @@
       </file>
       <file leaf-file-name="activity_payment.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/layout/activity_payment.xml">
-          <provider editor-type-id="android-designer2">
+          <provider selected="true" editor-type-id="android-designer2">
             <state />
           </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="201" column="0" lean-forward="false" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="234" column="51" lean-forward="false" selection-start-line="234" selection-start-column="51" selection-end-line="234" selection-end-column="51" />
               <folding>
                 <element signature="e#8267#8288#0" expanded="true" />
+                <element signature="e#9048#9071#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -124,42 +131,42 @@
             <state relative-caret-position="181">
               <caret line="281" column="61" lean-forward="false" selection-start-line="281" selection-start-column="61" selection-end-line="281" selection-end-column="61" />
               <folding>
-                <marker date="1516361437775" expanded="true" signature="8415:10332" ph="//..." />
-                <marker date="1516361437775" expanded="false" signature="11667:11681" ph="&quot;Close&quot;" />
-                <marker date="1516361437775" expanded="false" signature="11683:11829" ph="(dialog, which) → { " />
-                <marker date="1516361437775" expanded="false" signature="11838:11869" ph=" }" />
-                <marker date="1516361437775" expanded="true" signature="11888:11927" ph="//..." />
-                <marker date="1516361437775" expanded="false" signature="12097:12113" ph="&quot;Payment&quot;" />
-                <marker date="1516361437775" expanded="false" signature="12134:12161" ph="&quot;Not enough money.&quot;" />
-                <marker date="1516361437775" expanded="false" signature="12188:12202" ph="&quot;Close&quot;" />
-                <marker date="1516361437775" expanded="true" signature="12251:12389" ph="{...}" />
-                <marker date="1516361437775" expanded="true" signature="12364:12378" ph="{...}" />
-                <marker date="1516361437775" expanded="true" signature="12405:13264" ph="//..." />
-                <marker date="1516361437775" expanded="true" signature="13304:14253" ph="{...}" />
-                <marker date="1516361437775" expanded="false" signature="13534:13575" ph="&quot;Please select&quot;" />
-                <marker date="1516361437775" expanded="false" signature="13672:13688" ph="&lt;~&gt;" />
-                <marker date="1516361437775" expanded="true" signature="13885:14248" ph="{...}" />
-                <marker date="1516361437775" expanded="true" signature="13990:14121" ph="{...}" />
-                <marker date="1516361437775" expanded="true" signature="14190:14240" ph="{...}" />
-                <marker date="1516361437775" expanded="true" signature="14284:15119" ph="{...}" />
-                <marker date="1516361437775" expanded="false" signature="14455:14496" ph="&quot;Please select&quot;" />
-                <marker date="1516361437775" expanded="false" signature="14580:14590" ph="&lt;~&gt;" />
-                <marker date="1516361437775" expanded="true" signature="14773:15114" ph="{...}" />
-                <marker date="1516361437775" expanded="true" signature="14878:14987" ph="{...}" />
-                <marker date="1516361437775" expanded="true" signature="15056:15106" ph="{...}" />
-                <marker date="1516361437775" expanded="true" signature="15176:15755" ph="{...}" />
-                <marker date="1516361437775" expanded="true" signature="16037:16120" ph="{...}" />
-                <marker date="1516361437775" expanded="true" signature="16162:16230" ph="{...}" />
-                <marker date="1516361437775" expanded="true" signature="16329:19992" ph="{...}" />
-                <marker date="1516361437775" expanded="false" signature="16408:16413" ph=" { " />
-                <marker date="1516361437775" expanded="false" signature="16475:16479" ph=" }" />
-                <marker date="1516361437775" expanded="true" signature="16515:19989" ph="{...}" />
-                <marker date="1516361437775" expanded="false" signature="16802:16862" ph="() → {" />
-                <marker date="1516361437775" expanded="false" signature="19227:19247" ph="&quot;Credit Card&quot;" />
-                <marker date="1516361437775" expanded="false" signature="19341:19355" ph="&quot;Close&quot;" />
-                <marker date="1516361437775" expanded="true" signature="19395:19517" ph="{...}" />
-                <marker date="1516361437775" expanded="true" signature="19493:19506" ph="{...}" />
-                <marker date="1516361437775" expanded="false" signature="19712:19730" ph="}" />
+                <marker date="1516361893990" expanded="true" signature="8415:10332" ph="//..." />
+                <marker date="1516361893990" expanded="false" signature="11667:11681" ph="&quot;Close&quot;" />
+                <marker date="1516361893990" expanded="false" signature="11683:11829" ph="(dialog, which) → { " />
+                <marker date="1516361893990" expanded="false" signature="11838:11869" ph=" }" />
+                <marker date="1516361893990" expanded="true" signature="11888:11927" ph="//..." />
+                <marker date="1516361893990" expanded="false" signature="12097:12113" ph="&quot;Payment&quot;" />
+                <marker date="1516361893990" expanded="false" signature="12134:12161" ph="&quot;Not enough money.&quot;" />
+                <marker date="1516361893990" expanded="false" signature="12188:12202" ph="&quot;Close&quot;" />
+                <marker date="1516361893990" expanded="true" signature="12251:12389" ph="{...}" />
+                <marker date="1516361893990" expanded="true" signature="12364:12378" ph="{...}" />
+                <marker date="1516361893990" expanded="true" signature="12405:13264" ph="//..." />
+                <marker date="1516361893990" expanded="true" signature="13304:14253" ph="{...}" />
+                <marker date="1516361893990" expanded="false" signature="13534:13575" ph="&quot;Please select&quot;" />
+                <marker date="1516361893990" expanded="false" signature="13672:13688" ph="&lt;~&gt;" />
+                <marker date="1516361893990" expanded="true" signature="13885:14248" ph="{...}" />
+                <marker date="1516361893990" expanded="true" signature="13990:14121" ph="{...}" />
+                <marker date="1516361893990" expanded="true" signature="14190:14240" ph="{...}" />
+                <marker date="1516361893990" expanded="true" signature="14284:15119" ph="{...}" />
+                <marker date="1516361893990" expanded="false" signature="14455:14496" ph="&quot;Please select&quot;" />
+                <marker date="1516361893990" expanded="false" signature="14580:14590" ph="&lt;~&gt;" />
+                <marker date="1516361893990" expanded="true" signature="14773:15114" ph="{...}" />
+                <marker date="1516361893990" expanded="true" signature="14878:14987" ph="{...}" />
+                <marker date="1516361893990" expanded="true" signature="15056:15106" ph="{...}" />
+                <marker date="1516361893990" expanded="true" signature="15176:15755" ph="{...}" />
+                <marker date="1516361893990" expanded="true" signature="16037:16120" ph="{...}" />
+                <marker date="1516361893990" expanded="true" signature="16162:16230" ph="{...}" />
+                <marker date="1516361893990" expanded="true" signature="16329:19992" ph="{...}" />
+                <marker date="1516361893990" expanded="false" signature="16408:16413" ph=" { " />
+                <marker date="1516361893990" expanded="false" signature="16475:16479" ph=" }" />
+                <marker date="1516361893990" expanded="true" signature="16515:19989" ph="{...}" />
+                <marker date="1516361893990" expanded="false" signature="16802:16862" ph="() → {" />
+                <marker date="1516361893990" expanded="false" signature="19227:19247" ph="&quot;Credit Card&quot;" />
+                <marker date="1516361893990" expanded="false" signature="19341:19355" ph="&quot;Close&quot;" />
+                <marker date="1516361893990" expanded="true" signature="19395:19517" ph="{...}" />
+                <marker date="1516361893990" expanded="true" signature="19493:19506" ph="{...}" />
+                <marker date="1516361893990" expanded="false" signature="19712:19730" ph="}" />
               </folding>
             </state>
           </provider>
@@ -194,8 +201,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="105" column="19" lean-forward="false" selection-start-line="105" selection-start-column="19" selection-end-line="105" selection-end-column="19" />
+            <state relative-caret-position="128">
+              <caret line="104" column="49" lean-forward="false" selection-start-line="104" selection-start-column="49" selection-end-line="104" selection-end-column="49" />
               <folding>
                 <element signature="e#1743#1761#0" expanded="true" />
                 <element signature="e#2012#2030#0" expanded="true" />
@@ -205,15 +212,25 @@
                 <element signature="e#3862#3879#0" expanded="true" />
                 <element signature="e#4098#4113#0" expanded="true" />
                 <element signature="e#4274#4291#0" expanded="true" />
-                <element signature="e#4567#4587#0" expanded="true" />
-                <element signature="e#4862#4886#0" expanded="true" />
-                <element signature="e#5102#5127#0" expanded="true" />
-                <element signature="e#5296#5314#0" expanded="true" />
-                <element signature="e#5484#5501#0" expanded="true" />
-                <element signature="e#5784#5810#0" expanded="true" />
-                <element signature="e#6028#6053#0" expanded="true" />
-                <element signature="e#6278#6300#0" expanded="true" />
+                <element signature="e#4623#4643#0" expanded="true" />
+                <element signature="e#4974#4998#0" expanded="true" />
+                <element signature="e#5214#5239#0" expanded="true" />
+                <element signature="e#5408#5426#0" expanded="true" />
+                <element signature="e#5596#5613#0" expanded="true" />
+                <element signature="e#5896#5922#0" expanded="true" />
+                <element signature="e#6140#6165#0" expanded="true" />
+                <element signature="e#6390#6412#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="styles.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/values/styles.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="26" column="57" lean-forward="false" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -2870,7 +2887,6 @@
         <option value="$PROJECT_DIR$/synSlidingTab/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SettingsActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/res/values-th/strings.xml" />
-        <option value="$PROJECT_DIR$/mPOS/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/mPOS/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/RemoteStackTraceService.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/WintecPrinter.java" />
@@ -2901,8 +2917,10 @@
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ImageViewPinchZoom.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/CreditPayActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/res/values/dimens.xml" />
-        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PaymentActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/res/layout/activity_payment.xml" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PaymentActivity.java" />
       </list>
     </option>
   </component>
@@ -3206,7 +3224,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516361826089" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516362926616" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -3254,7 +3272,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516361826089" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516362926616" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3286,27 +3304,6 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -3437,7 +3434,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516361826090" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516362926617" />
       </method>
     </configuration>
     <list size="1">
@@ -3587,15 +3584,15 @@
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24810892" sideWeight="0.5163044" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24810892" sideWeight="0.48863637" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24810892" sideWeight="0.48863637" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39869282" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3267974" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3267974" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -3605,7 +3602,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24810892" sideWeight="0.48369566" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24810892" sideWeight="0.48369566" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -3686,13 +3683,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/EPSONPrinter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="53" column="10" lean-forward="false" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ManageCashAmountFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="78">
@@ -3975,9 +3965,9 @@
         <state relative-caret-position="173">
           <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
           <folding>
-            <marker date="1516361437743" expanded="true" signature="1222:1324" ph="{...}" />
-            <marker date="1516361437743" expanded="true" signature="1288:1298" ph="{" />
-            <marker date="1516361437743" expanded="true" signature="1316:1322" ph="}" />
+            <marker date="1516361893963" expanded="true" signature="1222:1324" ph="{...}" />
+            <marker date="1516361893963" expanded="true" signature="1288:1298" ph="{" />
+            <marker date="1516361893963" expanded="true" signature="1316:1322" ph="}" />
           </folding>
         </state>
       </provider>
@@ -3995,7 +3985,7 @@
         <state relative-caret-position="577">
           <caret line="805" column="0" lean-forward="false" selection-start-line="805" selection-start-column="0" selection-end-line="805" selection-end-column="0" />
           <folding>
-            <marker date="1516361437852" expanded="true" signature="25208:25303" ph="{...}" />
+            <marker date="1516361894083" expanded="true" signature="25208:25303" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -4005,7 +3995,7 @@
         <state relative-caret-position="2806">
           <caret line="283" column="0" lean-forward="false" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
           <folding>
-            <marker date="1516361437805" expanded="true" signature="111635:111636" ph="{...}" />
+            <marker date="1516361894027" expanded="true" signature="111635:111636" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -4031,7 +4021,7 @@
         <state relative-caret-position="167">
           <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4041,42 +4031,42 @@
         <state relative-caret-position="181">
           <caret line="281" column="61" lean-forward="false" selection-start-line="281" selection-start-column="61" selection-end-line="281" selection-end-column="61" />
           <folding>
-            <marker date="1516361437775" expanded="true" signature="8415:10332" ph="//..." />
-            <marker date="1516361437775" expanded="false" signature="11667:11681" ph="&quot;Close&quot;" />
-            <marker date="1516361437775" expanded="false" signature="11683:11829" ph="(dialog, which) → { " />
-            <marker date="1516361437775" expanded="false" signature="11838:11869" ph=" }" />
-            <marker date="1516361437775" expanded="true" signature="11888:11927" ph="//..." />
-            <marker date="1516361437775" expanded="false" signature="12097:12113" ph="&quot;Payment&quot;" />
-            <marker date="1516361437775" expanded="false" signature="12134:12161" ph="&quot;Not enough money.&quot;" />
-            <marker date="1516361437775" expanded="false" signature="12188:12202" ph="&quot;Close&quot;" />
-            <marker date="1516361437775" expanded="true" signature="12251:12389" ph="{...}" />
-            <marker date="1516361437775" expanded="true" signature="12364:12378" ph="{...}" />
-            <marker date="1516361437775" expanded="true" signature="12405:13264" ph="//..." />
-            <marker date="1516361437775" expanded="true" signature="13304:14253" ph="{...}" />
-            <marker date="1516361437775" expanded="false" signature="13534:13575" ph="&quot;Please select&quot;" />
-            <marker date="1516361437775" expanded="false" signature="13672:13688" ph="&lt;~&gt;" />
-            <marker date="1516361437775" expanded="true" signature="13885:14248" ph="{...}" />
-            <marker date="1516361437775" expanded="true" signature="13990:14121" ph="{...}" />
-            <marker date="1516361437775" expanded="true" signature="14190:14240" ph="{...}" />
-            <marker date="1516361437775" expanded="true" signature="14284:15119" ph="{...}" />
-            <marker date="1516361437775" expanded="false" signature="14455:14496" ph="&quot;Please select&quot;" />
-            <marker date="1516361437775" expanded="false" signature="14580:14590" ph="&lt;~&gt;" />
-            <marker date="1516361437775" expanded="true" signature="14773:15114" ph="{...}" />
-            <marker date="1516361437775" expanded="true" signature="14878:14987" ph="{...}" />
-            <marker date="1516361437775" expanded="true" signature="15056:15106" ph="{...}" />
-            <marker date="1516361437775" expanded="true" signature="15176:15755" ph="{...}" />
-            <marker date="1516361437775" expanded="true" signature="16037:16120" ph="{...}" />
-            <marker date="1516361437775" expanded="true" signature="16162:16230" ph="{...}" />
-            <marker date="1516361437775" expanded="true" signature="16329:19992" ph="{...}" />
-            <marker date="1516361437775" expanded="false" signature="16408:16413" ph=" { " />
-            <marker date="1516361437775" expanded="false" signature="16475:16479" ph=" }" />
-            <marker date="1516361437775" expanded="true" signature="16515:19989" ph="{...}" />
-            <marker date="1516361437775" expanded="false" signature="16802:16862" ph="() → {" />
-            <marker date="1516361437775" expanded="false" signature="19227:19247" ph="&quot;Credit Card&quot;" />
-            <marker date="1516361437775" expanded="false" signature="19341:19355" ph="&quot;Close&quot;" />
-            <marker date="1516361437775" expanded="true" signature="19395:19517" ph="{...}" />
-            <marker date="1516361437775" expanded="true" signature="19493:19506" ph="{...}" />
-            <marker date="1516361437775" expanded="false" signature="19712:19730" ph="}" />
+            <marker date="1516361893990" expanded="true" signature="8415:10332" ph="//..." />
+            <marker date="1516361893990" expanded="false" signature="11667:11681" ph="&quot;Close&quot;" />
+            <marker date="1516361893990" expanded="false" signature="11683:11829" ph="(dialog, which) → { " />
+            <marker date="1516361893990" expanded="false" signature="11838:11869" ph=" }" />
+            <marker date="1516361893990" expanded="true" signature="11888:11927" ph="//..." />
+            <marker date="1516361893990" expanded="false" signature="12097:12113" ph="&quot;Payment&quot;" />
+            <marker date="1516361893990" expanded="false" signature="12134:12161" ph="&quot;Not enough money.&quot;" />
+            <marker date="1516361893990" expanded="false" signature="12188:12202" ph="&quot;Close&quot;" />
+            <marker date="1516361893990" expanded="true" signature="12251:12389" ph="{...}" />
+            <marker date="1516361893990" expanded="true" signature="12364:12378" ph="{...}" />
+            <marker date="1516361893990" expanded="true" signature="12405:13264" ph="//..." />
+            <marker date="1516361893990" expanded="true" signature="13304:14253" ph="{...}" />
+            <marker date="1516361893990" expanded="false" signature="13534:13575" ph="&quot;Please select&quot;" />
+            <marker date="1516361893990" expanded="false" signature="13672:13688" ph="&lt;~&gt;" />
+            <marker date="1516361893990" expanded="true" signature="13885:14248" ph="{...}" />
+            <marker date="1516361893990" expanded="true" signature="13990:14121" ph="{...}" />
+            <marker date="1516361893990" expanded="true" signature="14190:14240" ph="{...}" />
+            <marker date="1516361893990" expanded="true" signature="14284:15119" ph="{...}" />
+            <marker date="1516361893990" expanded="false" signature="14455:14496" ph="&quot;Please select&quot;" />
+            <marker date="1516361893990" expanded="false" signature="14580:14590" ph="&lt;~&gt;" />
+            <marker date="1516361893990" expanded="true" signature="14773:15114" ph="{...}" />
+            <marker date="1516361893990" expanded="true" signature="14878:14987" ph="{...}" />
+            <marker date="1516361893990" expanded="true" signature="15056:15106" ph="{...}" />
+            <marker date="1516361893990" expanded="true" signature="15176:15755" ph="{...}" />
+            <marker date="1516361893990" expanded="true" signature="16037:16120" ph="{...}" />
+            <marker date="1516361893990" expanded="true" signature="16162:16230" ph="{...}" />
+            <marker date="1516361893990" expanded="true" signature="16329:19992" ph="{...}" />
+            <marker date="1516361893990" expanded="false" signature="16408:16413" ph=" { " />
+            <marker date="1516361893990" expanded="false" signature="16475:16479" ph=" }" />
+            <marker date="1516361893990" expanded="true" signature="16515:19989" ph="{...}" />
+            <marker date="1516361893990" expanded="false" signature="16802:16862" ph="() → {" />
+            <marker date="1516361893990" expanded="false" signature="19227:19247" ph="&quot;Credit Card&quot;" />
+            <marker date="1516361893990" expanded="false" signature="19341:19355" ph="&quot;Close&quot;" />
+            <marker date="1516361893990" expanded="true" signature="19395:19517" ph="{...}" />
+            <marker date="1516361893990" expanded="true" signature="19493:19506" ph="{...}" />
+            <marker date="1516361893990" expanded="false" signature="19712:19730" ph="}" />
           </folding>
         </state>
       </provider>
@@ -4100,26 +4090,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/layout/activity_payment.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="201" column="0" lean-forward="false" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
-          <folding>
-            <element signature="e#8267#8288#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml">
       <provider editor-type-id="android-manifest">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="105" column="19" lean-forward="false" selection-start-line="105" selection-start-column="19" selection-end-line="105" selection-end-column="19" />
+        <state relative-caret-position="128">
+          <caret line="104" column="49" lean-forward="false" selection-start-line="104" selection-start-column="49" selection-end-line="104" selection-end-column="49" />
           <folding>
             <element signature="e#1743#1761#0" expanded="true" />
             <element signature="e#2012#2030#0" expanded="true" />
@@ -4129,25 +4106,67 @@
             <element signature="e#3862#3879#0" expanded="true" />
             <element signature="e#4098#4113#0" expanded="true" />
             <element signature="e#4274#4291#0" expanded="true" />
-            <element signature="e#4567#4587#0" expanded="true" />
-            <element signature="e#4862#4886#0" expanded="true" />
-            <element signature="e#5102#5127#0" expanded="true" />
-            <element signature="e#5296#5314#0" expanded="true" />
-            <element signature="e#5484#5501#0" expanded="true" />
-            <element signature="e#5784#5810#0" expanded="true" />
-            <element signature="e#6028#6053#0" expanded="true" />
-            <element signature="e#6278#6300#0" expanded="true" />
+            <element signature="e#4623#4643#0" expanded="true" />
+            <element signature="e#4974#4998#0" expanded="true" />
+            <element signature="e#5214#5239#0" expanded="true" />
+            <element signature="e#5408#5426#0" expanded="true" />
+            <element signature="e#5596#5613#0" expanded="true" />
+            <element signature="e#5896#5922#0" expanded="true" />
+            <element signature="e#6140#6165#0" expanded="true" />
+            <element signature="e#6390#6412#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="26" column="57" lean-forward="false" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/layout/activity_payment.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="234" column="51" lean-forward="false" selection-start-line="234" selection-start-column="51" selection-end-line="234" selection-end-column="51" />
+          <folding>
+            <element signature="e#8267#8288#0" expanded="true" />
+            <element signature="e#9048#9071#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PaymentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="80" column="13" lean-forward="false" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
+        <state relative-caret-position="457">
+          <caret line="536" column="49" lean-forward="false" selection-start-line="536" selection-start-column="49" selection-end-line="536" selection-end-column="49" />
           <folding>
+            <element signature="e#5601#5602#0" expanded="true" />
+            <element signature="e#5668#5669#0" expanded="true" />
+            <element signature="e#5744#5745#0" expanded="true" />
+            <element signature="e#5796#5797#0" expanded="true" />
+            <element signature="e#5861#5862#0" expanded="true" />
+            <element signature="e#5900#5901#0" expanded="true" />
+            <element signature="e#7081#7297#0" expanded="true" />
+            <element signature="e#7296#7297#0" expanded="true" />
             <element signature="e#14939#15471#0" expanded="true" />
             <element signature="e#15470#15471#0" expanded="true" />
+            <element signature="e#16158#16737#0" expanded="true" />
+            <element signature="e#16736#16737#0" expanded="true" />
+            <element signature="e#17962#18464#0" expanded="true" />
+            <element signature="e#18463#18464#0" expanded="true" />
+            <element signature="e#19675#19676#0" expanded="true" />
+            <element signature="e#19762#19763#0" expanded="true" />
+            <element signature="e#19984#19985#0" expanded="true" />
+            <element signature="e#20023#20024#0" expanded="true" />
+            <element signature="e#20910#21341#0" expanded="true" />
+            <element signature="e#21340#21341#0" expanded="true" />
+            <element signature="e#22083#22084#0" expanded="true" />
+            <element signature="e#22107#22108#0" expanded="true" />
           </folding>
         </state>
       </provider>

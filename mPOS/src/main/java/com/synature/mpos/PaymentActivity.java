@@ -467,7 +467,7 @@ public class PaymentActivity extends Activity implements OnClickListener,
             final PayType payType = payTypeLst.get(i);
             final Button btnPayType = new Button(PaymentActivity.this);
             btnPayType.setMinWidth(128);
-            btnPayType.setMinHeight(96);
+            btnPayType.setMinHeight(72);
             btnPayType.setText(payType.getPayTypeName());
             btnPayType.setOnClickListener(new OnClickListener() {
 
@@ -534,7 +534,7 @@ public class PaymentActivity extends Activity implements OnClickListener,
                 convertView = mInflater.inflate(R.layout.button_template, null);
                 holder.btnPayment = (Button) convertView;
                 holder.btnPayment.setMinWidth(128);
-                holder.btnPayment.setMinHeight(196);
+                holder.btnPayment.setMinHeight(96);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
