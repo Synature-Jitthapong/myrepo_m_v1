@@ -19,8 +19,9 @@ public class WastePrintReceipt extends PrintReceipt {
         for (int i = 0; i < printLogLst.size(); i++) {
             PrintReceiptLogDataSource.PrintReceipt printReceipt = printLogLst.get(i);
             try {
-                mPrinter.createTextForPrintWasteReceipt(printReceipt.getTransactionId(), printReceipt.isCopy(), false);
-                mPrinter.print();
+                PrinterBase printer = initPrinter();
+                printer.createTextForPrintWasteReceipt(printReceipt.getTransactionId(), printReceipt.isCopy(), false);
+                printer.print();
                 mPrintLog.deletePrintStatus(printReceipt.getPrintId(), printReceipt.getTransactionId());
             } catch (Exception e) {
                 mPrintLog.updatePrintStatus(printReceipt.getPrintId(), printReceipt.getTransactionId(), PrintReceiptLogDataSource.PRINT_NOT_SUCCESS);

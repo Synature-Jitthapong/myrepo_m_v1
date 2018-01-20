@@ -37,6 +37,11 @@
             android:title="@string/printer_name" android:dependency="printer_internal"/>
     </PreferenceCategory>
 
+    <CheckBoxPreference
+        android:key="bluetooth_printer"
+        android:dependency="printer_internal"
+        android:title="@string/bluetooth_printer"/>
+
     <Preference
         android:layout="@layout/print_test_layout"
         android:title="@string/print_test" />

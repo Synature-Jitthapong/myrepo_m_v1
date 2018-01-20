@@ -5,6 +5,7 @@ import java.util.List;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import com.epson.eposprint.EposException;
 import com.synature.mpos.datasource.PrintReceiptLogDataSource;
 import com.synature.util.Logger;
 
@@ -52,7 +53,7 @@ public class PrintReceipt extends AsyncTask<Void, Void, Void> {
         return null;
     }
 
-    protected PrinterBase initPrinter(){
+    protected PrinterBase initPrinter() throws EposException{
         PrinterBase printer;
         if (Utils.isInternalPrinterSetting(mContext)) {
             printer = new WintecPrinter(mContext);

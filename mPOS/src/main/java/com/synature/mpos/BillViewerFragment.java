@@ -111,12 +111,12 @@ public class BillViewerFragment extends DialogFragment implements OnClickListene
         @Override
         protected Void doInBackground(Void... arg0) {
             PrinterBase printer;
-            if (Utils.isInternalPrinterSetting(getActivity())) {
-                printer = new WintecPrinter(getActivity());
-            } else {
-                printer = new EPSONPrinter(getActivity());
-            }
             try {
+                if (Utils.isInternalPrinterSetting(getActivity())) {
+                    printer = new WintecPrinter(getActivity());
+                } else {
+                    printer = new EPSONPrinter(getActivity());
+                }
                 printer.mTextToPrint.append(mTextPrint.getTextToPrint());
                 printer.print();
             } catch (Exception e) {

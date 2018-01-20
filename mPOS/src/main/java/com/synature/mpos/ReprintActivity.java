@@ -198,8 +198,8 @@ public class ReprintActivity extends Activity {
 
         @Override
         protected Void doInBackground(Void... arg0) {
-            PrinterBase printer = initPrinter();
             try {
+                PrinterBase printer = initPrinter();
                 if (mBillType == RECEIPT)
                     printer.createTextForPrintReceipt(mTransactionId, true, false);
                 else if (mBillType == WASTE)
