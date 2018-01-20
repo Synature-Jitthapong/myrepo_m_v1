@@ -198,19 +198,23 @@ public class ReprintActivity extends Activity {
 
         @Override
         protected Void doInBackground(Void... arg0) {
-            if (mBillType == RECEIPT)
-                mPrinter.createTextForPrintReceipt(mTransactionId, true, false);
-            else if (mBillType == WASTE)
-                mPrinter.createTextForPrintWasteReceipt(mTransactionId, true, false);
-            mPrinter.print();
-            runOnUiThread(new Runnable() {
+            PrinterBase printer = initPrinter();
+            try {
+                if (mBillType == RECEIPT)
+                    printer.createTextForPrintReceipt(mTransactionId, true, false);
+                else if (mBillType == WASTE)
+                    printer.createTextForPrintWasteReceipt(mTransactionId, true, false);
+                printer.print();
+                runOnUiThread(new Runnable() {
 
-                @Override
-                public void run() {
-                    mBtnPrint.setEnabled(true);
-                }
+                    @Override
+                    public void run() {
+                        mBtnPrint.setEnabled(true);
+                    }
 
-            });
+                });
+            } catch (Exception e) {
+            }
             return null;
         }
     }

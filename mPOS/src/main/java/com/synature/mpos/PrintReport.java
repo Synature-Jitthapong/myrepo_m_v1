@@ -2,6 +2,7 @@ package com.synature.mpos;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.text.TextUtils;
 
 public class PrintReport extends AsyncTask<Void, Void, Void>{
 
@@ -47,39 +48,38 @@ public class PrintReport extends AsyncTask<Void, Void, Void>{
 
 	@Override
 	protected Void doInBackground(Void... arg0) {
+		PrinterBase printer;
 		if(Utils.isInternalPrinterSetting(mContext)){
-			WintecPrinter wtPrinter = new WintecPrinter(mContext);
+			printer = new WintecPrinter(mContext);
 			switch(mWhatPrint){
 			case SUMMARY_SALE:
-				wtPrinter.createTextForPrintSummaryReport(mSessionId, mStaffId, mDateTo);
-				wtPrinter.print();
+				printer.createTextForPrintSummaryReport(mSessionId, mStaffId, mDateTo);
 				break;
 			case PRODUCT_REPORT:
-				wtPrinter.createTextForPrintSaleByProductReport(mDateFrom, mDateTo);
-				wtPrinter.print();
+				printer.createTextForPrintSaleByProductReport(mDateFrom, mDateTo);
 				break;
 			case BILL_REPORT:
-				wtPrinter.createTextForPrintSaleByBillReport(mDateFrom, mDateTo);
-				wtPrinter.print();
+				printer.createTextForPrintSaleByBillReport(mDateFrom, mDateTo);
 				break;
 			}
 		}else{
-			EPSONPrinter epPrinter = new EPSONPrinter(mContext);
+			printer = new EPSONPrinter(mContext);
 			switch(mWhatPrint){
 			case SUMMARY_SALE:
-				epPrinter.createTextForPrintSummaryReport(mSessionId, mStaffId, mDateTo);
-				epPrinter.print();
+				printer.createTextForPrintSummaryReport(mSessionId, mStaffId, mDateTo);
 				break;
 			case PRODUCT_REPORT:
-				epPrinter.createTextForPrintSaleByProductReport(mDateFrom, mDateTo);
-				epPrinter.print();
+				printer.createTextForPrintSaleByProductReport(mDateFrom, mDateTo);
 				break;
 			case BILL_REPORT:
-				epPrinter.createTextForPrintSaleByBillReport(mDateFrom, mDateTo);
-				epPrinter.print();
+				printer.createTextForPrintSaleByBillReport(mDateFrom, mDateTo);
 				break;
 			}
 		}
+		try {
+			if (TextUtils.isEmpty(printer.getTextToPrint()))
+				printer.print();
+		}catch(Exception e){}
 		return null;
 	}
 }

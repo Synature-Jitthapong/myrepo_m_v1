@@ -20,8 +20,6 @@ public class PrintReceipt extends AsyncTask<Void, Void, Void> {
     protected PrintReceiptLogDataSource mPrintLog;
     protected Context mContext;
 
-    protected PrinterBase mPrinter;
-
     /**
      * @param context
      */
@@ -29,13 +27,6 @@ public class PrintReceipt extends AsyncTask<Void, Void, Void> {
         mContext = context;
         mPrintLog = new PrintReceiptLogDataSource(context);
         mListener = listener;
-
-        if (Utils.isInternalPrinterSetting(mContext)) {
-            mPrinter = new WintecPrinter(mContext);
-        } else {
-            mPrinter = new EPSONPrinter(mContext);
-        }
-        mPrinter.setPrintNoPriceComment(true);
     }
 
     @Override
@@ -44,8 +35,10 @@ public class PrintReceipt extends AsyncTask<Void, Void, Void> {
         for (int i = 0; i < printLogLst.size(); i++) {
             PrintReceiptLogDataSource.PrintReceipt printReceipt = printLogLst.get(i);
             try {
-                mPrinter.createTextForPrintReceipt(printReceipt.getTransactionId(), printReceipt.isCopy(), false);
-                mPrinter.print();
+                PrinterBase printer = initPrinter();
+                printer.setPrintNoPriceComment(true);
+                printer.createTextForPrintReceipt(printReceipt.getTransactionId(), printReceipt.isCopy(), false);
+                printer.print();
                 mPrintLog.updatePrintStatus(printReceipt.getPrintId(), printReceipt.getTransactionId(),
                         PrintReceiptLogDataSource.PRINT_SUCCESS);
             } catch (Exception e) {
@@ -57,6 +50,16 @@ public class PrintReceipt extends AsyncTask<Void, Void, Void> {
             }
         }
         return null;
+    }
+
+    protected PrinterBase initPrinter(){
+        PrinterBase printer;
+        if (Utils.isInternalPrinterSetting(mContext)) {
+            printer = new WintecPrinter(mContext);
+        } else {
+            printer = new EPSONPrinter(mContext);
+        }
+        return printer;
     }
 
     @Override
