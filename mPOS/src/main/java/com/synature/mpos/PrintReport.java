@@ -1,18 +1,18 @@
 package com.synature.mpos;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.text.TextUtils;
+import android.widget.Toast;
 
 public class PrintReport extends AsyncTask<Void, Void, Void> {
 
-    public static enum WhatPrint {
+    public enum WhatPrint {
         SUMMARY_SALE,
         PRODUCT_REPORT,
         BILL_REPORT
     }
-
-    ;
 
     private Context mContext;
     private WhatPrint mWhatPrint;
@@ -79,9 +79,16 @@ public class PrintReport extends AsyncTask<Void, Void, Void> {
                         break;
                 }
             }
-            if (TextUtils.isEmpty(printer.getTextToPrint()))
+            if (!TextUtils.isEmpty(printer.getTextToPrint()))
                 printer.print();
-        } catch (Exception e) {
+        } catch (final Exception e) {
+            ((Activity) mContext).runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(mContext, "Some think wrong when try to init printer " +
+                            e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
         }
         return null;
     }

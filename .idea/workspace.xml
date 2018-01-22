@@ -11,24 +11,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8898c534-ce79-4b55-8427-455374fb306b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/BluetoothPrinterListDialogFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mPOS/src/main/res/layout/fragment_bluetooth_printer_setting.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mPOS/src/main/res/layout/fragment_printer_select.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/libs/ePOS-Print.jar" afterPath="$PROJECT_DIR$/mPOS/libs/ePOS-Print.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/jniLibs/armeabi/libeposprint.so" afterPath="$PROJECT_DIR$/mPOS/src/main/jniLibs/armeabi/libeposprint.so" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/generated/source/buildConfig/debug/com/synature/mpos/BuildConfig.java" afterPath="$PROJECT_DIR$/mPOS/build/generated/source/buildConfig/debug/com/synature/mpos/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build.gradle" afterPath="$PROJECT_DIR$/mPOS/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/mPOS.iml" afterPath="$PROJECT_DIR$/mPOS/mPOS.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/BillViewerFragment.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/BillViewerFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/EPSONPrinter.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/EPSONPrinter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PrintReceipt.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PrintReceipt.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/LoginActivity.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/LoginActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ManageCashAmountFragment.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ManageCashAmountFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PrintReport.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PrintReport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ReprintActivity.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ReprintActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SettingsActivity.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SettingsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/Utils.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/Utils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/WastePrintReceipt.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/WastePrintReceipt.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/mPOS/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/res/xml/pref_printer.xml" afterPath="$PROJECT_DIR$/mPOS/src/main/res/xml/pref_printer.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/res/xml/pref_headers.xml" afterPath="$PROJECT_DIR$/mPOS/src/main/res/xml/pref_headers.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/synSlidingTab.iml" afterPath="$PROJECT_DIR$/synSlidingTab/synSlidingTab.iml" />
     </list>
     <ignored path="myrepo_m_v1.iws" />
@@ -61,113 +56,317 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BluetoothPrinterListDialogFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/BluetoothPrinterListDialogFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="47" column="60" lean-forward="false" selection-start-line="47" selection-start-column="60" selection-end-line="47" selection-end-column="60" />
-              <folding>
-                <element signature="e#2087#2117#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/Utils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="402" column="26" lean-forward="false" selection-start-line="402" selection-start-column="26" selection-end-line="402" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WastePrintReceipt.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/WastePrintReceipt.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="21" column="42" lean-forward="false" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PrintReport.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PrintReport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+            <state relative-caret-position="562">
+              <caret line="79" column="17" lean-forward="false" selection-start-line="79" selection-start-column="17" selection-end-line="79" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReprintActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ReprintActivity.java">
+      <file leaf-file-name="PrinterBase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PrinterBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="219" column="5" lean-forward="false" selection-start-line="219" selection-start-column="5" selection-end-line="219" selection-end-column="5" />
+            <state relative-caret-position="540">
+              <caret line="65" column="16" lean-forward="false" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
               <folding>
-                <marker date="1516458453779" expanded="true" signature="8476:8477" ph="{...}" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#5005#5006#0" expanded="false" />
+                <element signature="e#5042#5043#0" expanded="false" />
+                <marker date="1516433072161" expanded="true" signature="53683:53686" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SettingsActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SettingsActivity.java">
+      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="37">
-              <caret line="195" column="21" lean-forward="false" selection-start-line="195" selection-start-column="21" selection-end-line="195" selection-end-column="21" />
-              <folding />
+            <state relative-caret-position="293">
+              <caret line="167" column="0" lean-forward="false" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
+              <folding>
+                <element signature="e#3695#3722#0" expanded="true" />
+                <element signature="e#4635#4666#0" expanded="true" />
+                <element signature="e#9380#9400#0" expanded="true" />
+                <element signature="e#9438#9463#0" expanded="true" />
+                <element signature="e#9797#9823#0" expanded="true" />
+                <element signature="e#9825#10267#0" expanded="true" />
+                <element signature="e#10266#10267#0" expanded="true" />
+                <element signature="e#10826#10855#0" expanded="true" />
+                <element signature="e#10974#11007#0" expanded="true" />
+                <element signature="e#11147#11162#0" expanded="true" />
+                <element signature="e#11261#11275#0" expanded="true" />
+                <element signature="e#15091#18644#0" expanded="true" />
+                <element signature="e#17567#17593#0" expanded="true" />
+                <element signature="e#17643#17677#0" expanded="true" />
+                <element signature="e#18104#18464#0" expanded="true" />
+                <element signature="e#18463#18464#0" expanded="true" />
+                <element signature="e#18643#18644#0" expanded="true" />
+                <element signature="e#18780#18793#0" expanded="true" />
+                <element signature="e#18823#18844#0" expanded="true" />
+                <element signature="e#18881#18892#0" expanded="true" />
+                <element signature="e#19118#19130#0" expanded="true" />
+                <element signature="e#20020#20056#0" expanded="true" />
+                <element signature="e#20090#20124#0" expanded="true" />
+                <element signature="e#20165#20179#0" expanded="true" />
+                <element signature="e#20446#20868#0" expanded="true" />
+                <element signature="e#20867#20868#0" expanded="true" />
+                <element signature="e#21675#21715#0" expanded="true" />
+                <element signature="e#22814#22828#0" expanded="true" />
+                <element signature="e#23477#23504#0" expanded="true" />
+                <element signature="e#24663#24677#0" expanded="true" />
+                <element signature="e#25312#25339#0" expanded="true" />
+                <element signature="e#26473#26487#0" expanded="true" />
+                <element signature="e#26773#26791#0" expanded="true" />
+                <element signature="e#26793#27083#0" expanded="true" />
+                <element signature="e#27082#27083#0" expanded="true" />
+                <element signature="e#28131#28171#0" expanded="true" />
+                <element signature="e#28300#28335#0" expanded="true" />
+                <element signature="e#28479#28504#0" expanded="true" />
+                <element signature="e#28610#28950#0" expanded="true" />
+                <element signature="e#28949#28950#0" expanded="true" />
+                <element signature="e#30366#30394#0" expanded="true" />
+                <element signature="e#30448#30490#0" expanded="true" />
+                <element signature="e#30550#30564#0" expanded="true" />
+                <element signature="e#31035#31073#0" expanded="true" />
+                <element signature="e#31161#31201#0" expanded="true" />
+                <element signature="e#31363#31397#0" expanded="true" />
+                <element signature="e#31461#31497#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pref_printer.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/xml/pref_printer.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="34" column="51" lean-forward="false" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
-              <folding>
-                <element signature="e#1811#1838#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml">
+          <provider editor-type-id="android-manifest">
             <state />
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="array.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/values/array.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="36" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+            <state relative-caret-position="105">
+              <caret line="7" column="78" lean-forward="false" selection-start-line="7" selection-start-column="78" selection-end-line="7" selection-end-column="78" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EPSONPrinter.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SaleReportActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SaleReportActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5460">
+              <caret line="427" column="25" lean-forward="false" selection-start-line="427" selection-start-column="25" selection-end-line="427" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#10373#10374#0" expanded="false" />
+                <element signature="e#10407#10408#0" expanded="false" />
+                <element signature="e#10547#10548#0" expanded="false" />
+                <element signature="e#10609#10610#0" expanded="false" />
+                <element signature="e#10675#10676#0" expanded="false" />
+                <element signature="e#10718#10719#0" expanded="false" />
+                <element signature="e#10773#10774#0" expanded="false" />
+                <element signature="e#10799#10800#0" expanded="false" />
+                <element signature="e#15169#15170#0" expanded="false" />
+                <element signature="e#15188#15189#0" expanded="false" />
+                <element signature="e#15232#15233#0" expanded="false" />
+                <element signature="e#15278#15279#0" expanded="false" />
+                <element signature="e#15333#15334#0" expanded="false" />
+                <element signature="e#15368#15369#0" expanded="false" />
+                <element signature="e#15423#15424#0" expanded="false" />
+                <element signature="e#15449#15450#0" expanded="false" />
+                <element signature="e#30434#30435#0" expanded="false" />
+                <element signature="e#30494#30495#0" expanded="false" />
+                <element signature="e#30560#30561#0" expanded="false" />
+                <element signature="e#30602#30603#0" expanded="false" />
+                <element signature="e#30657#30658#0" expanded="false" />
+                <element signature="e#30683#30684#0" expanded="false" />
+                <element signature="e#37694#37695#0" expanded="false" />
+                <element signature="e#37774#37775#0" expanded="false" />
+                <element signature="e#37958#37959#0" expanded="false" />
+                <element signature="e#37984#37985#0" expanded="false" />
+                <element signature="e#46891#46892#0" expanded="false" />
+                <element signature="e#46947#46948#0" expanded="false" />
+                <element signature="e#47305#47306#0" expanded="false" />
+                <element signature="e#47336#47337#0" expanded="false" />
+                <element signature="e#53732#53733#0" expanded="false" />
+                <element signature="e#53763#53764#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mPOS/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="615">
+              <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="2498" column="21" lean-forward="false" selection-start-line="2498" selection-start-column="21" selection-end-line="2498" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#9780#11370#0" expanded="false" />
+                <element signature="e#11369#11370#0" expanded="false" />
+                <element signature="e#11640#11641#0" expanded="false" />
+                <element signature="e#11681#11682#0" expanded="false" />
+                <element signature="e#15681#15682#0" expanded="false" />
+                <element signature="e#15712#15713#0" expanded="false" />
+                <element signature="e#15857#15858#0" expanded="false" />
+                <element signature="e#15890#15891#0" expanded="false" />
+                <element signature="e#18533#18561#0" expanded="false" />
+                <element signature="e#25391#25935#0" expanded="false" />
+                <element signature="e#25934#25935#0" expanded="false" />
+                <element signature="e#26215#26389#0" expanded="false" />
+                <element signature="e#26388#26389#0" expanded="false" />
+                <element signature="e#26699#27162#0" expanded="false" />
+                <element signature="e#26849#27104#0" expanded="false" />
+                <element signature="e#27103#27104#0" expanded="false" />
+                <element signature="e#27161#27162#0" expanded="false" />
+                <element signature="e#27523#27524#0" expanded="false" />
+                <element signature="e#27561#27562#0" expanded="false" />
+                <element signature="e#30285#31858#0" expanded="false" />
+                <element signature="e#31857#31858#0" expanded="false" />
+                <element signature="e#34225#34226#0" expanded="false" />
+                <element signature="e#34308#34309#0" expanded="false" />
+                <element signature="e#34618#34619#0" expanded="false" />
+                <element signature="e#34683#34684#0" expanded="false" />
+                <element signature="e#34949#34950#0" expanded="false" />
+                <element signature="e#34993#34994#0" expanded="false" />
+                <element signature="e#35083#35084#0" expanded="false" />
+                <element signature="e#35115#35116#0" expanded="false" />
+                <element signature="e#35174#35175#0" expanded="false" />
+                <element signature="e#35210#35211#0" expanded="false" />
+                <element signature="e#38395#39053#0" expanded="false" />
+                <element signature="e#39052#39053#0" expanded="false" />
+                <element signature="e#39104#39822#0" expanded="false" />
+                <element signature="e#39821#39822#0" expanded="false" />
+                <element signature="e#41248#41637#0" expanded="false" />
+                <element signature="e#41636#41637#0" expanded="false" />
+                <element signature="e#42110#43191#0" expanded="false" />
+                <element signature="e#43190#43191#0" expanded="false" />
+                <element signature="e#43250#43582#0" expanded="false" />
+                <element signature="e#43581#43582#0" expanded="false" />
+                <element signature="e#43633#45173#0" expanded="false" />
+                <element signature="e#45172#45173#0" expanded="false" />
+                <element signature="e#48270#48271#0" expanded="false" />
+                <element signature="e#48308#48309#0" expanded="false" />
+                <element signature="e#49451#49452#0" expanded="false" />
+                <element signature="e#49520#49521#0" expanded="false" />
+                <element signature="e#49585#49586#0" expanded="false" />
+                <element signature="e#49638#49639#0" expanded="false" />
+                <element signature="e#49703#49704#0" expanded="false" />
+                <element signature="e#49742#49743#0" expanded="false" />
+                <element signature="e#51093#51490#0" expanded="false" />
+                <element signature="e#51489#51490#0" expanded="false" />
+                <element signature="e#52495#52496#0" expanded="false" />
+                <element signature="e#52548#52549#0" expanded="false" />
+                <element signature="e#53975#54529#0" expanded="false" />
+                <element signature="e#54528#54529#0" expanded="false" />
+                <element signature="e#54580#55222#0" expanded="false" />
+                <element signature="e#55221#55222#0" expanded="false" />
+                <element signature="e#55574#55575#0" expanded="false" />
+                <element signature="e#55629#55630#0" expanded="false" />
+                <element signature="e#55834#55835#0" expanded="false" />
+                <element signature="e#55891#55892#0" expanded="false" />
+                <element signature="e#55965#55966#0" expanded="false" />
+                <element signature="e#56029#56030#0" expanded="false" />
+                <element signature="e#56102#56103#0" expanded="false" />
+                <element signature="e#56149#56150#0" expanded="false" />
+                <element signature="e#58969#58970#0" expanded="false" />
+                <element signature="e#59036#59037#0" expanded="false" />
+                <element signature="e#59101#59102#0" expanded="false" />
+                <element signature="e#59153#59154#0" expanded="false" />
+                <element signature="e#59218#59219#0" expanded="false" />
+                <element signature="e#59257#59258#0" expanded="false" />
+                <element signature="e#64698#64949#0" expanded="false" />
+                <element signature="e#64948#64949#0" expanded="false" />
+                <element signature="e#65969#66300#0" expanded="false" />
+                <element signature="e#66299#66300#0" expanded="false" />
+                <element signature="e#66578#66952#0" expanded="false" />
+                <element signature="e#66951#66952#0" expanded="false" />
+                <element signature="e#67741#69164#0" expanded="false" />
+                <element signature="e#69163#69164#0" expanded="false" />
+                <element signature="e#69823#70135#0" expanded="false" />
+                <element signature="e#70134#70135#0" expanded="false" />
+                <element signature="e#73186#73337#0" expanded="false" />
+                <element signature="e#73336#73337#0" expanded="false" />
+                <element signature="e#76658#77065#0" expanded="false" />
+                <element signature="e#77064#77065#0" expanded="false" />
+                <element signature="e#78000#78369#0" expanded="false" />
+                <element signature="e#78368#78369#0" expanded="false" />
+                <element signature="e#79069#80870#0" expanded="false" />
+                <element signature="e#80869#80870#0" expanded="false" />
+                <element signature="e#82715#83443#0" expanded="false" />
+                <element signature="e#83442#83443#0" expanded="false" />
+                <element signature="e#84604#85323#0" expanded="false" />
+                <element signature="e#85322#85323#0" expanded="false" />
+                <element signature="e#88034#88568#0" expanded="false" />
+                <element signature="e#88567#88568#0" expanded="false" />
+                <element signature="e#88769#88782#0" expanded="false" />
+                <element signature="e#90908#91293#0" expanded="false" />
+                <element signature="e#91292#91293#0" expanded="false" />
+                <element signature="e#91808#93200#0" expanded="false" />
+                <element signature="e#93199#93200#0" expanded="false" />
+                <element signature="e#93977#94495#0" expanded="false" />
+                <element signature="e#94494#94495#0" expanded="false" />
+                <element signature="e#97286#98182#0" expanded="false" />
+                <element signature="e#98181#98182#0" expanded="false" />
+                <element signature="e#98555#99448#0" expanded="false" />
+                <element signature="e#99447#99448#0" expanded="false" />
+                <element signature="e#99721#100614#0" expanded="false" />
+                <element signature="e#100613#100614#0" expanded="false" />
+                <element signature="e#100691#101611#0" expanded="false" />
+                <element signature="e#101610#101611#0" expanded="false" />
+                <element signature="e#106411#106792#0" expanded="false" />
+                <element signature="e#106791#106792#0" expanded="false" />
+                <element signature="e#107245#107563#0" expanded="false" />
+                <element signature="e#107562#107563#0" expanded="false" />
+                <element signature="e#107669#108058#0" expanded="false" />
+                <element signature="e#108057#108058#0" expanded="false" />
+                <element signature="e#111512#111513#0" expanded="false" />
+                <element signature="e#111541#111542#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EPSONPrinter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/EPSONPrinter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="52" column="19" lean-forward="false" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
+            <state relative-caret-position="1238">
+              <caret line="101" column="67" lean-forward="false" selection-start-line="101" selection-start-column="67" selection-end-line="101" selection-end-column="67" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PrintReceipt.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PrintReceipt.java">
+      <file leaf-file-name="SettingsActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SettingsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="55" column="60" lean-forward="false" selection-start-line="55" selection-start-column="60" selection-end-line="55" selection-end-column="60" />
+            <state relative-caret-position="353">
+              <caret line="355" column="52" lean-forward="false" selection-start-line="355" selection-start-column="52" selection-end-line="355" selection-end-column="52" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ManageCashAmountFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ManageCashAmountFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding>
+                <element signature="e#4725#5487#0" expanded="false" />
+                <element signature="e#5486#5487#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -188,13 +387,15 @@
       <find>language</find>
       <find>waste</find>
       <find>print(</find>
-      <find>print</find>
       <find>print()</find>
       <find>onactivi</find>
       <find>payment</find>
       <find>getepsonme</find>
       <find>permission</find>
       <find>self</find>
+      <find>print</find>
+      <find>closeship</find>
+      <find>onclos</find>
     </findStrings>
   </component>
   <component name="GenerateSignedApkSettings">
@@ -2820,7 +3021,6 @@
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/RemoteStackTraceService.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/WintecPrinter.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/DiscountActivity.java" />
-        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ManageCashAmountFragment.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/WintecCustomerDisplay.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SoftwareRegister.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/DownloadService.java" />
@@ -2828,19 +3028,16 @@
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PromotionActivity.java" />
         <option value="$PROJECT_DIR$/synSlidingTab/build.gradle" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SaleSenderService.java" />
-        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/LoginActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/SessionDataSource.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PrinterBase.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/PrintReceiptLogDataSource.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/OrderTransDataSource.java" />
-        <option value="$PROJECT_DIR$/mPOS/build.gradle" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/MyGlideModule.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/MainActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ProductSetActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ImageViewPinchZoom.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/CreditPayActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/res/values/dimens.xml" />
-        <option value="$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/mPOS/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/mPOS/src/main/res/layout/activity_payment.xml" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PaymentActivity.java" />
@@ -2849,11 +3046,17 @@
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/BillViewerFragment.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/WastePrintReceipt.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PrintReceipt.java" />
-        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PrintReport.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ReprintActivity.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/res/xml/pref_printer.xml" />
-        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/EPSONPrinter.java" />
         <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SettingsActivity.java" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/res/xml/pref_headers.xml" />
+        <option value="$PROJECT_DIR$/mPOS/build.gradle" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ManageCashAmountFragment.java" />
+        <option value="$PROJECT_DIR$/mPOS/libs/ePOS-Print.jar!/com/epson/eposprint/Print.class" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PrintReport.java" />
+        <option value="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/EPSONPrinter.java" />
       </list>
     </option>
   </component>
@@ -2879,9 +3082,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2927,6 +3127,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myrepo_m_v1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myrepo_m_v1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mPOS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xml" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3008,6 +3238,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="jniLibs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="armeabi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myrepo_m_v1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myrepo_m_v1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mPOS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -3050,16 +3310,37 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myrepo_m_v1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myrepo_m_v1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mPOS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="device.picker.selection" value="192.168.109.101:5555" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../iorder" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../myrepo_m_v1_traf" />
     <property name="ExportApk.ApkPath" value="C:\Users\jitth\Desktop" />
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
@@ -3075,6 +3356,9 @@
       <recent name="com.synature.mpos" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jitth\AndroidStudioProjects\myrepo_m_v1\mPOS\src\main\jniLibs\armeabi" />
+      <recent name="C:\Users\jitth\AndroidStudioProjects\myrepo_m_v1\mPOS\libs" />
+      <recent name="C:\Users\jitth\AndroidStudioProjects\myrepo_m_v1\mPOS\src\main\jniLibs" />
       <recent name="C:\Users\jitth\AndroidStudioProjects\myrepo_m_v1\mPOS\src\main\res\layout" />
       <recent name="C:\Users\jitth\AndroidStudioProjects\myrepo_m_v1\mPOS\src\main\java\com\synature\mpos" />
     </key>
@@ -3162,7 +3446,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516460118610" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516614366992" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -3210,7 +3494,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516460118610" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516614366992" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3393,7 +3677,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516460118613" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516614366993" />
       </method>
     </configuration>
     <list size="1">
@@ -3539,69 +3823,45 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24810892" sideWeight="0.5163044" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24810892" sideWeight="0.48863637" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39869282" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3267974" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24810892" sideWeight="0.5163044" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24810892" sideWeight="0.48369566" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24810892" sideWeight="0.48369566" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24810892" sideWeight="0.48863637" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39869282" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24810892" sideWeight="0.5163044" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286219" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24810892" sideWeight="0.48863637" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39869282" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3267974" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24810892" sideWeight="0.48369566" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Fabric" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -3630,55 +3890,18 @@
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/LoginActivity.java</url>
+          <line>153</line>
+          <properties />
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="74" />
+      <option name="time" value="82" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PromotionActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="211" column="34" lean-forward="false" selection-start-line="211" selection-start-column="34" selection-end-line="211" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/synSlidingTab/synSlidingTab.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/synSlidingTab/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PartialSaleSender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="23" column="11" lean-forward="false" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/datasource/table/OrderTransTable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -3764,7 +3987,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20790">
           <caret line="1422" column="0" lean-forward="false" selection-start-line="1422" selection-start-column="0" selection-end-line="1422" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3782,26 +4004,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/MPOSApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2880">
-          <caret line="283" column="0" lean-forward="false" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -3841,41 +4047,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="35" lean-forward="false" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/layout/activity_credit_pay.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
-          <caret line="104" column="49" lean-forward="false" selection-start-line="104" selection-start-column="49" selection-end-line="104" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="57" lean-forward="false" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/layout/activity_payment.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="3465">
           <caret line="235" column="0" lean-forward="false" selection-start-line="235" selection-start-column="0" selection-end-line="235" selection-end-column="0" />
@@ -3884,9 +4080,6 @@
             <marker date="1516433072239" expanded="true" signature="9971:10649" ph="..." />
           </folding>
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PaymentActivity.java">
@@ -3897,48 +4090,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PrinterBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="69" column="16" lean-forward="false" selection-start-line="69" selection-start-column="16" selection-end-line="69" selection-end-column="16" />
-          <folding>
-            <marker date="1516433072161" expanded="true" signature="53683:53686" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/WintecPrinter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/layout/fragment_bluetooth_printer_setting.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="46" lean-forward="false" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
           <caret line="301" column="18" lean-forward="false" selection-start-line="301" selection-start-column="18" selection-end-line="301" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="742" column="5" lean-forward="false" selection-start-line="742" selection-start-column="5" selection-end-line="742" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3954,36 +4120,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#66426#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/layout/fragment_printer_select.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/BluetoothPrinterListDialogFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
+        <state relative-caret-position="495">
           <caret line="47" column="60" lean-forward="false" selection-start-line="47" selection-start-column="60" selection-end-line="47" selection-end-column="60" />
-          <folding>
-            <element signature="e#2087#2117#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PrintReceipt.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
+        <state relative-caret-position="720">
           <caret line="55" column="60" lean-forward="false" selection-start-line="55" selection-start-column="60" selection-end-line="55" selection-end-column="60" />
           <folding />
         </state>
@@ -3991,23 +4153,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/WastePrintReceipt.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
+        <state relative-caret-position="240">
           <caret line="21" column="42" lean-forward="false" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PrintReport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ReprintActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
+        <state relative-caret-position="2865">
           <caret line="219" column="5" lean-forward="false" selection-start-line="219" selection-start-column="5" selection-end-line="219" selection-end-column="5" />
           <folding>
             <marker date="1516458453779" expanded="true" signature="8476:8477" ph="{...}" />
@@ -4016,48 +4170,367 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/xml/pref_printer.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="34" column="51" lean-forward="false" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
-          <folding>
-            <element signature="e#1811#1838#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
       <provider editor-type-id="android-designer2">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="51" lean-forward="false" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/values/array.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="36" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
+        <state relative-caret-position="5310">
           <caret line="402" column="26" lean-forward="false" selection-start-line="402" selection-start-column="26" selection-end-line="402" selection-end-column="26" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#4317#4318#0" expanded="false" />
+            <element signature="e#4353#4354#0" expanded="false" />
+            <element signature="e#19612#19613#0" expanded="false" />
+            <element signature="e#19658#19659#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/EPSONPrinter.java">
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/res/xml/pref_headers.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="52" column="19" lean-forward="false" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
+        <state relative-caret-position="240">
+          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="9" />
+          <folding>
+            <marker date="1516590664516" expanded="false" signature="856:882" ph="&quot;Third party link&quot;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-27/android/app/Instrumentation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="1118" column="0" lean-forward="false" selection-start-line="1118" selection-start-column="0" selection-end-line="1118" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-27/android/app/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="6685" column="7" lean-forward="true" selection-start-line="6685" selection-start-column="7" selection-end-line="6685" selection-end-column="7" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/WintecPrinter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-90">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SaleReportActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5460">
+          <caret line="427" column="25" lean-forward="false" selection-start-line="427" selection-start-column="25" selection-end-line="427" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#10373#10374#0" expanded="false" />
+            <element signature="e#10407#10408#0" expanded="false" />
+            <element signature="e#10547#10548#0" expanded="false" />
+            <element signature="e#10609#10610#0" expanded="false" />
+            <element signature="e#10675#10676#0" expanded="false" />
+            <element signature="e#10718#10719#0" expanded="false" />
+            <element signature="e#10773#10774#0" expanded="false" />
+            <element signature="e#10799#10800#0" expanded="false" />
+            <element signature="e#15169#15170#0" expanded="false" />
+            <element signature="e#15188#15189#0" expanded="false" />
+            <element signature="e#15232#15233#0" expanded="false" />
+            <element signature="e#15278#15279#0" expanded="false" />
+            <element signature="e#15333#15334#0" expanded="false" />
+            <element signature="e#15368#15369#0" expanded="false" />
+            <element signature="e#15423#15424#0" expanded="false" />
+            <element signature="e#15449#15450#0" expanded="false" />
+            <element signature="e#30434#30435#0" expanded="false" />
+            <element signature="e#30494#30495#0" expanded="false" />
+            <element signature="e#30560#30561#0" expanded="false" />
+            <element signature="e#30602#30603#0" expanded="false" />
+            <element signature="e#30657#30658#0" expanded="false" />
+            <element signature="e#30683#30684#0" expanded="false" />
+            <element signature="e#37694#37695#0" expanded="false" />
+            <element signature="e#37774#37775#0" expanded="false" />
+            <element signature="e#37958#37959#0" expanded="false" />
+            <element signature="e#37984#37985#0" expanded="false" />
+            <element signature="e#46891#46892#0" expanded="false" />
+            <element signature="e#46947#46948#0" expanded="false" />
+            <element signature="e#47305#47306#0" expanded="false" />
+            <element signature="e#47336#47337#0" expanded="false" />
+            <element signature="e#53732#53733#0" expanded="false" />
+            <element signature="e#53763#53764#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PrinterBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="65" column="16" lean-forward="false" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#5005#5006#0" expanded="false" />
+            <element signature="e#5042#5043#0" expanded="false" />
+            <marker date="1516433072161" expanded="true" signature="53683:53686" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ManageCashAmountFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="e#4725#5487#0" expanded="false" />
+            <element signature="e#5486#5487#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/mPOS/libs/ePOS-Print.jar!/com/epson/eposprint/Print.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="169" column="5" lean-forward="false" selection-start-line="169" selection-start-column="5" selection-end-line="169" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="78" lean-forward="false" selection-start-line="7" selection-start-column="78" selection-end-line="7" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="167" column="0" lean-forward="false" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
+          <folding>
+            <element signature="e#3695#3722#0" expanded="true" />
+            <element signature="e#4635#4666#0" expanded="true" />
+            <element signature="e#9380#9400#0" expanded="true" />
+            <element signature="e#9438#9463#0" expanded="true" />
+            <element signature="e#9797#9823#0" expanded="true" />
+            <element signature="e#9825#10267#0" expanded="true" />
+            <element signature="e#10266#10267#0" expanded="true" />
+            <element signature="e#10826#10855#0" expanded="true" />
+            <element signature="e#10974#11007#0" expanded="true" />
+            <element signature="e#11147#11162#0" expanded="true" />
+            <element signature="e#11261#11275#0" expanded="true" />
+            <element signature="e#15091#18644#0" expanded="true" />
+            <element signature="e#17567#17593#0" expanded="true" />
+            <element signature="e#17643#17677#0" expanded="true" />
+            <element signature="e#18104#18464#0" expanded="true" />
+            <element signature="e#18463#18464#0" expanded="true" />
+            <element signature="e#18643#18644#0" expanded="true" />
+            <element signature="e#18780#18793#0" expanded="true" />
+            <element signature="e#18823#18844#0" expanded="true" />
+            <element signature="e#18881#18892#0" expanded="true" />
+            <element signature="e#19118#19130#0" expanded="true" />
+            <element signature="e#20020#20056#0" expanded="true" />
+            <element signature="e#20090#20124#0" expanded="true" />
+            <element signature="e#20165#20179#0" expanded="true" />
+            <element signature="e#20446#20868#0" expanded="true" />
+            <element signature="e#20867#20868#0" expanded="true" />
+            <element signature="e#21675#21715#0" expanded="true" />
+            <element signature="e#22814#22828#0" expanded="true" />
+            <element signature="e#23477#23504#0" expanded="true" />
+            <element signature="e#24663#24677#0" expanded="true" />
+            <element signature="e#25312#25339#0" expanded="true" />
+            <element signature="e#26473#26487#0" expanded="true" />
+            <element signature="e#26773#26791#0" expanded="true" />
+            <element signature="e#26793#27083#0" expanded="true" />
+            <element signature="e#27082#27083#0" expanded="true" />
+            <element signature="e#28131#28171#0" expanded="true" />
+            <element signature="e#28300#28335#0" expanded="true" />
+            <element signature="e#28479#28504#0" expanded="true" />
+            <element signature="e#28610#28950#0" expanded="true" />
+            <element signature="e#28949#28950#0" expanded="true" />
+            <element signature="e#30366#30394#0" expanded="true" />
+            <element signature="e#30448#30490#0" expanded="true" />
+            <element signature="e#30550#30564#0" expanded="true" />
+            <element signature="e#31035#31073#0" expanded="true" />
+            <element signature="e#31161#31201#0" expanded="true" />
+            <element signature="e#31363#31397#0" expanded="true" />
+            <element signature="e#31461#31497#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PrintReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="562">
+          <caret line="79" column="17" lean-forward="false" selection-start-line="79" selection-start-column="17" selection-end-line="79" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="2498" column="21" lean-forward="false" selection-start-line="2498" selection-start-column="21" selection-end-line="2498" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#9780#11370#0" expanded="false" />
+            <element signature="e#11369#11370#0" expanded="false" />
+            <element signature="e#11640#11641#0" expanded="false" />
+            <element signature="e#11681#11682#0" expanded="false" />
+            <element signature="e#15681#15682#0" expanded="false" />
+            <element signature="e#15712#15713#0" expanded="false" />
+            <element signature="e#15857#15858#0" expanded="false" />
+            <element signature="e#15890#15891#0" expanded="false" />
+            <element signature="e#18533#18561#0" expanded="false" />
+            <element signature="e#25391#25935#0" expanded="false" />
+            <element signature="e#25934#25935#0" expanded="false" />
+            <element signature="e#26215#26389#0" expanded="false" />
+            <element signature="e#26388#26389#0" expanded="false" />
+            <element signature="e#26699#27162#0" expanded="false" />
+            <element signature="e#26849#27104#0" expanded="false" />
+            <element signature="e#27103#27104#0" expanded="false" />
+            <element signature="e#27161#27162#0" expanded="false" />
+            <element signature="e#27523#27524#0" expanded="false" />
+            <element signature="e#27561#27562#0" expanded="false" />
+            <element signature="e#30285#31858#0" expanded="false" />
+            <element signature="e#31857#31858#0" expanded="false" />
+            <element signature="e#34225#34226#0" expanded="false" />
+            <element signature="e#34308#34309#0" expanded="false" />
+            <element signature="e#34618#34619#0" expanded="false" />
+            <element signature="e#34683#34684#0" expanded="false" />
+            <element signature="e#34949#34950#0" expanded="false" />
+            <element signature="e#34993#34994#0" expanded="false" />
+            <element signature="e#35083#35084#0" expanded="false" />
+            <element signature="e#35115#35116#0" expanded="false" />
+            <element signature="e#35174#35175#0" expanded="false" />
+            <element signature="e#35210#35211#0" expanded="false" />
+            <element signature="e#38395#39053#0" expanded="false" />
+            <element signature="e#39052#39053#0" expanded="false" />
+            <element signature="e#39104#39822#0" expanded="false" />
+            <element signature="e#39821#39822#0" expanded="false" />
+            <element signature="e#41248#41637#0" expanded="false" />
+            <element signature="e#41636#41637#0" expanded="false" />
+            <element signature="e#42110#43191#0" expanded="false" />
+            <element signature="e#43190#43191#0" expanded="false" />
+            <element signature="e#43250#43582#0" expanded="false" />
+            <element signature="e#43581#43582#0" expanded="false" />
+            <element signature="e#43633#45173#0" expanded="false" />
+            <element signature="e#45172#45173#0" expanded="false" />
+            <element signature="e#48270#48271#0" expanded="false" />
+            <element signature="e#48308#48309#0" expanded="false" />
+            <element signature="e#49451#49452#0" expanded="false" />
+            <element signature="e#49520#49521#0" expanded="false" />
+            <element signature="e#49585#49586#0" expanded="false" />
+            <element signature="e#49638#49639#0" expanded="false" />
+            <element signature="e#49703#49704#0" expanded="false" />
+            <element signature="e#49742#49743#0" expanded="false" />
+            <element signature="e#51093#51490#0" expanded="false" />
+            <element signature="e#51489#51490#0" expanded="false" />
+            <element signature="e#52495#52496#0" expanded="false" />
+            <element signature="e#52548#52549#0" expanded="false" />
+            <element signature="e#53975#54529#0" expanded="false" />
+            <element signature="e#54528#54529#0" expanded="false" />
+            <element signature="e#54580#55222#0" expanded="false" />
+            <element signature="e#55221#55222#0" expanded="false" />
+            <element signature="e#55574#55575#0" expanded="false" />
+            <element signature="e#55629#55630#0" expanded="false" />
+            <element signature="e#55834#55835#0" expanded="false" />
+            <element signature="e#55891#55892#0" expanded="false" />
+            <element signature="e#55965#55966#0" expanded="false" />
+            <element signature="e#56029#56030#0" expanded="false" />
+            <element signature="e#56102#56103#0" expanded="false" />
+            <element signature="e#56149#56150#0" expanded="false" />
+            <element signature="e#58969#58970#0" expanded="false" />
+            <element signature="e#59036#59037#0" expanded="false" />
+            <element signature="e#59101#59102#0" expanded="false" />
+            <element signature="e#59153#59154#0" expanded="false" />
+            <element signature="e#59218#59219#0" expanded="false" />
+            <element signature="e#59257#59258#0" expanded="false" />
+            <element signature="e#64698#64949#0" expanded="false" />
+            <element signature="e#64948#64949#0" expanded="false" />
+            <element signature="e#65969#66300#0" expanded="false" />
+            <element signature="e#66299#66300#0" expanded="false" />
+            <element signature="e#66578#66952#0" expanded="false" />
+            <element signature="e#66951#66952#0" expanded="false" />
+            <element signature="e#67741#69164#0" expanded="false" />
+            <element signature="e#69163#69164#0" expanded="false" />
+            <element signature="e#69823#70135#0" expanded="false" />
+            <element signature="e#70134#70135#0" expanded="false" />
+            <element signature="e#73186#73337#0" expanded="false" />
+            <element signature="e#73336#73337#0" expanded="false" />
+            <element signature="e#76658#77065#0" expanded="false" />
+            <element signature="e#77064#77065#0" expanded="false" />
+            <element signature="e#78000#78369#0" expanded="false" />
+            <element signature="e#78368#78369#0" expanded="false" />
+            <element signature="e#79069#80870#0" expanded="false" />
+            <element signature="e#80869#80870#0" expanded="false" />
+            <element signature="e#82715#83443#0" expanded="false" />
+            <element signature="e#83442#83443#0" expanded="false" />
+            <element signature="e#84604#85323#0" expanded="false" />
+            <element signature="e#85322#85323#0" expanded="false" />
+            <element signature="e#88034#88568#0" expanded="false" />
+            <element signature="e#88567#88568#0" expanded="false" />
+            <element signature="e#88769#88782#0" expanded="false" />
+            <element signature="e#90908#91293#0" expanded="false" />
+            <element signature="e#91292#91293#0" expanded="false" />
+            <element signature="e#91808#93200#0" expanded="false" />
+            <element signature="e#93199#93200#0" expanded="false" />
+            <element signature="e#93977#94495#0" expanded="false" />
+            <element signature="e#94494#94495#0" expanded="false" />
+            <element signature="e#97286#98182#0" expanded="false" />
+            <element signature="e#98181#98182#0" expanded="false" />
+            <element signature="e#98555#99448#0" expanded="false" />
+            <element signature="e#99447#99448#0" expanded="false" />
+            <element signature="e#99721#100614#0" expanded="false" />
+            <element signature="e#100613#100614#0" expanded="false" />
+            <element signature="e#100691#101611#0" expanded="false" />
+            <element signature="e#101610#101611#0" expanded="false" />
+            <element signature="e#106411#106792#0" expanded="false" />
+            <element signature="e#106791#106792#0" expanded="false" />
+            <element signature="e#107245#107563#0" expanded="false" />
+            <element signature="e#107562#107563#0" expanded="false" />
+            <element signature="e#107669#108058#0" expanded="false" />
+            <element signature="e#108057#108058#0" expanded="false" />
+            <element signature="e#111512#111513#0" expanded="false" />
+            <element signature="e#111541#111542#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/SettingsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="195" column="21" lean-forward="false" selection-start-line="195" selection-start-column="21" selection-end-line="195" selection-end-column="21" />
+        <state relative-caret-position="353">
+          <caret line="355" column="52" lean-forward="false" selection-start-line="355" selection-start-column="52" selection-end-line="355" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/EPSONPrinter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1238">
+          <caret line="101" column="67" lean-forward="false" selection-start-line="101" selection-start-column="67" selection-end-line="101" selection-end-column="67" />
           <folding />
         </state>
       </provider>

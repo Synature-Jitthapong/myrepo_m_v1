@@ -33,6 +33,16 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\jitth\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\ePOS-Print.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="27.0.3"
+        sha1="a106cd4d9499677a7db2eec6638f2eae618e250a">
+        <dex dex="C:\Users\jitth\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\2.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\jitth\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\WTAndroidJar2.jar"
         jumboMode="false"
         min-sdk-version="14"
@@ -40,16 +50,6 @@
         revision="27.0.3"
         sha1="20c83b3ce9d96bf7e2fb2793357414837d989cc9">
         <dex dex="C:\Users\jitth\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\jitth\AndroidStudioProjects\myrepo_m_v1\mPOS\libs\ePOS-Print.jar"
-        jumboMode="false"
-        min-sdk-version="14"
-        optimize="true"
-        revision="27.0.3"
-        sha1="ab2b4caa13eb976f1acf8abb3e11f8afa04c25a7">
-        <dex dex="C:\Users\jitth\AndroidStudioProjects\myrepo_m_v1\mPOS\build\intermediates\transforms\preDex\release\2.jar" />
     </item>
     <item
         is-multidex="false"

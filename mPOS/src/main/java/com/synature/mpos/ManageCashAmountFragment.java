@@ -1,7 +1,5 @@
 package com.synature.mpos;
 
-import java.text.ParseException;
-
 import com.synature.mpos.datasource.GlobalPropertyDataSource;
 
 import android.app.Activity;
@@ -10,7 +8,6 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -205,7 +202,7 @@ public class ManageCashAmountFragment extends DialogFragment implements OnClickL
         }
     }
 
-    public static interface OnManageCashAmountDismissListener {
+    public interface OnManageCashAmountDismissListener {
         void onOpenShift(double cashAmount);
 
         void onCloseShift(double cashAmount);

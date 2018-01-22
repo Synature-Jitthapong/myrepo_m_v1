@@ -1,9 +1,6 @@
 package com.synature.mpos;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -11,18 +8,17 @@ import com.synature.mpos.SoftwareExpirationChecker.SoftwareExpirationCheckerList
 import com.synature.mpos.datasource.ComputerDataSource;
 import com.synature.mpos.datasource.GlobalPropertyDataSource;
 import com.synature.mpos.datasource.MPOSDatabase;
-import com.synature.mpos.datasource.OrderTransDataSource;
 import com.synature.mpos.datasource.SessionDataSource;
 import com.synature.mpos.datasource.ShopDataSource;
 import com.synature.mpos.datasource.StaffsDataSource;
 import com.synature.mpos.datasource.UserVerification;
-import com.synature.mpos.datasource.model.OrderTransaction;
 import com.synature.mpos.datasource.table.OrderTransTable;
 import com.synature.pos.ShopProperty;
 import com.synature.pos.Staff;
 import com.synature.util.FileManager;
 
-import android.app.FragmentManager;
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
@@ -36,6 +32,8 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -51,731 +49,777 @@ import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
-public class LoginActivity extends Activity implements OnClickListener, 
-	OnEditorActionListener, UserVerifyDialogFragment.OnCheckPermissionListener,
-	SwitchLangFragment.OnChangeLanguageListener{
-	
-	public static final String TAG = "LoginActivity";
-	
-	/**
-	 * Request code for set system date
-	 */
-	public static final int REQUEST_FOR_SETTING_DATE = 1;
-	
-	public enum WhatToDo{
-		VIEW_REPORT,
-		UTILITY
-	};
+public class LoginActivity extends Activity implements OnClickListener,
+        OnEditorActionListener, UserVerifyDialogFragment.OnCheckPermissionListener,
+        SwitchLangFragment.OnChangeLanguageListener {
 
-	private WhatToDo mWhatToDo;
-	
-	private int mStaffId;
-	private int mStaffRoleId;
-	
-	private ShopDataSource mShop;
-	private SessionDataSource mSession;
-	private ComputerDataSource mComputer;
-	private GlobalPropertyDataSource mFormat;
-	
-	private Button mBtnLogin;
-	private EditText mTxtUser;
-	private EditText mTxtPass;
-	private TextView mTvDeviceCode;
-	private TextView mTvLastSyncTime;
-	private TextView mTvVersion;
+    public static final String TAG = "LoginActivity";
 
-	private MenuItem mThirdPartyMenu;
+    /**
+     * Request code for set system date
+     */
+    public static final int REQUEST_FOR_SETTING_DATE = 1;
+    public static final int REQUEST_PERMISSION = 101;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_login);
+    public enum WhatToDo {
+        VIEW_REPORT,
+        UTILITY
+    }
 
-		mBtnLogin = (Button) findViewById(R.id.btnLogin);
-		mTxtUser = (EditText) findViewById(R.id.txtUser);
-		mTxtPass = (EditText) findViewById(R.id.txtPass);
-		mTvDeviceCode = (TextView) findViewById(R.id.tvDeviceCode);
-		mTvLastSyncTime = (TextView) findViewById(R.id.tvLastSyncTime);
-		mTvVersion = (TextView) findViewById(R.id.tvVersion);
-		
-		mTxtUser.setSelectAllOnFocus(true);
-		mTxtPass.setSelectAllOnFocus(true);
-		mBtnLogin.setOnClickListener(this);
-		mTxtPass.setOnEditorActionListener(this);
+    ;
 
-		mTvDeviceCode.setText(Utils.getDeviceCode(this));
-		mTvVersion.setText(getString(R.string.version) + " " + Utils.getSoftWareVersion(this));
+    private WhatToDo mWhatToDo;
 
-		Utils.switchLanguage(this, Utils.getLangCode(this));
-		
-		mSession = new SessionDataSource(this);
-		mShop = new ShopDataSource(this);
-		mComputer = new ComputerDataSource(this);
-		mFormat = new GlobalPropertyDataSource(this);
-		try {
-			if(!TextUtils.isEmpty(mShop.getShopName())){
-				setTitle(mShop.getShopName());
-				getActionBar().setSubtitle(mComputer.getComputerProperty().getComputerName());
-			}
+    private int mStaffId;
+    private int mStaffRoleId;
+
+    private ShopDataSource mShop;
+    private SessionDataSource mSession;
+    private ComputerDataSource mComputer;
+    private GlobalPropertyDataSource mFormat;
+
+    private Button mBtnLogin;
+    private EditText mTxtUser;
+    private EditText mTxtPass;
+    private TextView mTvDeviceCode;
+    private TextView mTvLastSyncTime;
+    private TextView mTvVersion;
+
+    private MenuItem mThirdPartyMenu;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+
+        mBtnLogin = (Button) findViewById(R.id.btnLogin);
+        mTxtUser = (EditText) findViewById(R.id.txtUser);
+        mTxtPass = (EditText) findViewById(R.id.txtPass);
+        mTvDeviceCode = (TextView) findViewById(R.id.tvDeviceCode);
+        mTvLastSyncTime = (TextView) findViewById(R.id.tvLastSyncTime);
+        mTvVersion = (TextView) findViewById(R.id.tvVersion);
+
+        mTxtUser.setSelectAllOnFocus(true);
+        mTxtPass.setSelectAllOnFocus(true);
+        mBtnLogin.setOnClickListener(this);
+        mTxtPass.setOnEditorActionListener(this);
+
+        mTvDeviceCode.setText(Utils.getDeviceCode(this));
+        mTvVersion.setText(getString(R.string.version) + " " + Utils.getSoftWareVersion(this));
+
+        Utils.switchLanguage(this, Utils.getLangCode(this));
+
+        mSession = new SessionDataSource(this);
+        mShop = new ShopDataSource(this);
+        mComputer = new ComputerDataSource(this);
+        mFormat = new GlobalPropertyDataSource(this);
+        try {
+            if (!TextUtils.isEmpty(mShop.getShopName())) {
+                setTitle(mShop.getShopName());
+                getActionBar().setSubtitle(mComputer.getComputerProperty().getComputerName());
+            }
             String updateDateMillisec = Utils.getSyncDateTime(this);
-            if(!TextUtils.isEmpty(updateDateMillisec)) {
+            if (!TextUtils.isEmpty(updateDateMillisec)) {
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTimeInMillis(Long.parseLong(updateDateMillisec));
                 String updateDate = mFormat.dateTimeFormat(calendar.getTime());
                 mTvLastSyncTime.setText(getString(R.string.last_update) + " " + updateDate);
             }
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		// sync new master data every day
-		if(isAlreadySetUrl()){
-			if(!Utils.isAlreadySync(this))
-				requestValidUrl();
-		}
-	}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // sync new master data every day
+        if (isAlreadySetUrl()) {
+            if (!Utils.isAlreadySync(this))
+                requestValidUrl();
+        }
+        requestPermission();
+    }
 
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if(requestCode == REQUEST_FOR_SETTING_DATE){
-			if(resultCode == RESULT_OK){
-				gotoMainActivity();
-			}
-		}
-	}
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_FOR_SETTING_DATE) {
+            if (resultCode == RESULT_OK) {
+                gotoMainActivity();
+            }
+        }
+    }
 
-	private void setupThirdPartyLink(){
-		if(mThirdPartyMenu != null) {
-			SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-			String app1 = preferences.getString(SettingsActivity.KEY_PREF_THIRD_PARTY_NAME1, "");
-			String app2 = preferences.getString(SettingsActivity.KEY_PREF_THIRD_PARTY_NAME2, "");
-			String app3 = preferences.getString(SettingsActivity.KEY_PREF_THIRD_PARTY_NAME3, "");
-			String app4 = preferences.getString(SettingsActivity.KEY_PREF_THIRD_PARTY_NAME4, "");
-			String app5 = preferences.getString(SettingsActivity.KEY_PREF_THIRD_PARTY_NAME5, "");
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_PERMISSION: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0) {
+                    if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-			if (!TextUtils.isEmpty(app1) || !TextUtils.isEmpty(app2) || !TextUtils.isEmpty(app3) ||
-					!TextUtils.isEmpty(app4) || !TextUtils.isEmpty(app5)) {
-				mThirdPartyMenu.setVisible(true);
+                    } else {
 
-				SubMenu subMenu = mThirdPartyMenu.getSubMenu();
-				subMenu.clear();
-				if (!TextUtils.isEmpty(app1)) {
-					subMenu.add(Menu.NONE, 0x101, 1, app1);
-				}
-				if (!TextUtils.isEmpty(app2)) {
-					subMenu.add(Menu.NONE, 0x102, 2, app2);
-				}
-				if (!TextUtils.isEmpty(app3)) {
-					subMenu.add(Menu.NONE, 0x103, 3, app3);
-				}
-				if (!TextUtils.isEmpty(app4)) {
-					subMenu.add(Menu.NONE, 0x104, 4, app4);
-				}
-				if (!TextUtils.isEmpty(app5)) {
-					subMenu.add(Menu.NONE, 0x105, 5, app5);
-				}
-			}else{
-				mThirdPartyMenu.setVisible(false);
-			}
-		}
-	}
+                    }
+                    if (grantResults[1] == PackageManager.PERMISSION_GRANTED) {
 
-	/**
-	 * @return true if not have the session that is not end
-	 */
-	private boolean checkSessionDate(){
-		// check if have session
-		if(mSession.getLastSessionId() > 0){
-			ShopProperty shopProp = mShop.getShopProperty();
-			// get last session date
-			final Calendar lastSessDate = Calendar.getInstance();
-			lastSessDate.setTimeInMillis(Long.parseLong(mSession.getLastSessionDate()));
-			Calendar currentDate = Calendar.getInstance();
-			Calendar closeTime = Utils.getCloseTime(this);
-			/*
-			 *  sessionDate > currentDate
+                    } else {
+
+                    }
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request.
+        }
+    }
+
+    private void requestPermission() {
+        // Here, thisActivity is the current activity
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(this,
+                        Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                            Manifest.permission.ACCESS_COARSE_LOCATION,
+                    },
+                    REQUEST_PERMISSION);
+        }
+    }
+
+    private void setupThirdPartyLink() {
+        if (mThirdPartyMenu != null) {
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+            String app1 = preferences.getString(SettingsActivity.KEY_PREF_THIRD_PARTY_NAME1, "");
+            String app2 = preferences.getString(SettingsActivity.KEY_PREF_THIRD_PARTY_NAME2, "");
+            String app3 = preferences.getString(SettingsActivity.KEY_PREF_THIRD_PARTY_NAME3, "");
+            String app4 = preferences.getString(SettingsActivity.KEY_PREF_THIRD_PARTY_NAME4, "");
+            String app5 = preferences.getString(SettingsActivity.KEY_PREF_THIRD_PARTY_NAME5, "");
+
+            if (!TextUtils.isEmpty(app1) || !TextUtils.isEmpty(app2) || !TextUtils.isEmpty(app3) ||
+                    !TextUtils.isEmpty(app4) || !TextUtils.isEmpty(app5)) {
+                mThirdPartyMenu.setVisible(true);
+
+                SubMenu subMenu = mThirdPartyMenu.getSubMenu();
+                subMenu.clear();
+                if (!TextUtils.isEmpty(app1)) {
+                    subMenu.add(Menu.NONE, 0x101, 1, app1);
+                }
+                if (!TextUtils.isEmpty(app2)) {
+                    subMenu.add(Menu.NONE, 0x102, 2, app2);
+                }
+                if (!TextUtils.isEmpty(app3)) {
+                    subMenu.add(Menu.NONE, 0x103, 3, app3);
+                }
+                if (!TextUtils.isEmpty(app4)) {
+                    subMenu.add(Menu.NONE, 0x104, 4, app4);
+                }
+                if (!TextUtils.isEmpty(app5)) {
+                    subMenu.add(Menu.NONE, 0x105, 5, app5);
+                }
+            } else {
+                mThirdPartyMenu.setVisible(false);
+            }
+        }
+    }
+
+    /**
+     * @return true if not have the session that is not end
+     */
+    private boolean checkSessionDate() {
+        // check if have session
+        if (mSession.getLastSessionId() > 0) {
+            ShopProperty shopProp = mShop.getShopProperty();
+            // get last session date
+            final Calendar lastSessDate = Calendar.getInstance();
+            lastSessDate.setTimeInMillis(Long.parseLong(mSession.getLastSessionDate()));
+            Calendar currentDate = Calendar.getInstance();
+            Calendar closeTime = Utils.getCloseTime(this);
+            /*
+             *  sessionDate > currentDate
 			 *  mPOS will force to go to date & time Settings
 			 *  for setting correct date.
 			 */
-			if(lastSessDate.after(Utils.getDate())){
-				new AlertDialog.Builder(this)
-				.setCancelable(false)
-				.setTitle(R.string.system_date)
-				.setMessage(R.string.system_date_less)
-				.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-					
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-					}
-				})
-				.setPositiveButton(R.string.date_time_setting, new DialogInterface.OnClickListener() {
-					
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						startActivityForResult(
-								new Intent(android.provider.Settings.ACTION_DATE_SETTINGS),
-								REQUEST_FOR_SETTING_DATE);
-					}
-				}).show();
-				return false;
-			}else if(currentDate.after(closeTime)){
-				Calendar lastSessCal = Calendar.getInstance();
-				lastSessCal.setTimeInMillis(Long.parseLong(mSession.getLastSessionDate()));
-				Utils.endingMultipleDay(LoginActivity.this, mShop.getShopId(), 
-						mComputer.getComputerId(), mStaffId, lastSessCal);
-			}else{
-				if(mSession.checkEndday(String.valueOf(Utils.getDate().getTimeInMillis()))){
-					String enddayMsg = getString(R.string.sale_date) 
-							+ " " + mFormat.dateFormat(Utils.getDate().getTime()) 
-							+ " " + getString(R.string.alredy_endday);
-					new AlertDialog.Builder(this)
-					.setCancelable(false)
-					.setTitle(R.string.endday)
-					.setMessage(enddayMsg)
-					.setNeutralButton(R.string.close, new DialogInterface.OnClickListener() {
-						
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-						}
-					}).show();
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_login, menu);
+            if (lastSessDate.after(Utils.getDate())) {
+                new AlertDialog.Builder(this)
+                        .setCancelable(false)
+                        .setTitle(R.string.system_date)
+                        .setMessage(R.string.system_date_less)
+                        .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
 
-		mThirdPartyMenu = menu.findItem(R.id.itemThirdPartyApp);
-		setupThirdPartyLink();
-		return true;
-	}
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        })
+                        .setPositiveButton(R.string.date_time_setting, new DialogInterface.OnClickListener() {
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		Intent intent = null;
-		UserVerifyDialogFragment userFragment = null;
-		switch(item.getItemId()){
-		case R.id.itemSetting:
-			intent = new Intent(LoginActivity.this, SettingsActivity.class);
-			startActivity(intent);
-			return true;
-		case R.id.itemUpdate:
-			requestValidUrl();
-			return true;
-		case R.id.itemCheckUpdate:
-			intent = new Intent(LoginActivity.this, CheckUpdateActivity.class);
-			startActivity(intent);
-			return true;
-		case R.id.itemAbout:
-			intent = new Intent(LoginActivity.this, AboutActivity.class);
-			startActivity(intent);
-			return true;
-		case R.id.itemExit:
-			exit();
-			return true;
-		case R.id.itemPerformTest:
-			PerformTest f = PerformTest.newInstance();
-			f.show(getFragmentManager(), "PerformTest");
-			return true;
-		case android.R.id.home:
-			finish();
-			return true;
-		case R.id.itemUtils:
-			mWhatToDo = WhatToDo.UTILITY;
-			userFragment = UserVerifyDialogFragment.newInstance(UserVerifyDialogFragment.GRANT_PERMISSION);
-			userFragment.show(getFragmentManager(), UserVerifyDialogFragment.TAG);
-			return true;
-		case R.id.itemReport:
-			mWhatToDo = WhatToDo.VIEW_REPORT;
-			userFragment = UserVerifyDialogFragment.newInstance(StaffsDataSource.VIEW_REPORT_PERMISSION);
-			userFragment.show(getFragmentManager(), UserVerifyDialogFragment.TAG);
-			return true;
-		case R.id.itemSwLang:
-			SwitchLangFragment swf = SwitchLangFragment.newInstance();
-			swf.show(getFragmentManager(), "SwitchLangFragment");
-			return true;
-		case R.id.itemTeamViewer:
-			openTeamViewer();
-			return true;
-		case 0x101:
-			displayThirdPartyWebView(0x101);
-			return true;
-		case 0x102:
-			displayThirdPartyWebView(0x102);
-			return true;
-		case 0x103:
-			displayThirdPartyWebView(0x103);
-			return true;
-		case 0x104:
-			displayThirdPartyWebView(0x104);
-			return true;
-		case 0x105:
-			displayThirdPartyWebView(0x105);
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);	
-		}
-	}
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                startActivityForResult(
+                                        new Intent(android.provider.Settings.ACTION_DATE_SETTINGS),
+                                        REQUEST_FOR_SETTING_DATE);
+                            }
+                        }).show();
+                return false;
+            } else if (currentDate.after(closeTime)) {
+                Calendar lastSessCal = Calendar.getInstance();
+                lastSessCal.setTimeInMillis(Long.parseLong(mSession.getLastSessionDate()));
+                Utils.endingMultipleDay(LoginActivity.this, mShop.getShopId(),
+                        mComputer.getComputerId(), mStaffId, lastSessCal);
+            } else {
+                if (mSession.checkEndday(String.valueOf(Utils.getDate().getTimeInMillis()))) {
+                    String enddayMsg = getString(R.string.sale_date)
+                            + " " + mFormat.dateFormat(Utils.getDate().getTime())
+                            + " " + getString(R.string.alredy_endday);
+                    new AlertDialog.Builder(this)
+                            .setCancelable(false)
+                            .setTitle(R.string.endday)
+                            .setMessage(enddayMsg)
+                            .setNeutralButton(R.string.close, new DialogInterface.OnClickListener() {
 
-	private void displayThirdPartyWebView(int linkId){
-		ThirdPartyLinkFragment thirdPartyLinkDialog = ThirdPartyLinkFragment.newInstance(linkId);
-		thirdPartyLinkDialog.show(getFragmentManager(), ThirdPartyLinkFragment.TAG);
-	}
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            }).show();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
-	private void createUtilsPopup(final View v){
-		if(v != null){
-			PopupMenu popup = new PopupMenu(this, v);
-			popup.inflate(R.menu.action_utility);
-			popup.setOnMenuItemClickListener(new OnMenuItemClickListener(){
-	
-				@Override
-				public boolean onMenuItemClick(MenuItem item) {
-					Intent intent = null;
-					switch(item.getItemId()){
-					case R.id.itemBackup:
-						Utils.backupDatabase(LoginActivity.this);
-						return true;
-					case R.id.itemRestore:
-						RestoreDatabaseFragment restoreFragment = RestoreDatabaseFragment.newInstance();
-						restoreFragment.show(getFragmentManager(), RestoreDatabaseFragment.TAG);
-						return true;
-					case R.id.itemSendEndday:
-						intent = new Intent(LoginActivity.this, SendEnddayActivity.class);
-						intent.putExtra("staffId", 1);
-						intent.putExtra("shopId", mShop.getShopId());
-						intent.putExtra("computerId", mComputer.getComputerId());
-                        intent.putExtra("ignoreSendStatus", SendEnddayActivity.IGNORE_SEND_STATUS);
-						startActivity(intent);
-						return true;
-					case R.id.itemSendSale:
-						intent = new Intent(LoginActivity.this, SendSaleActivity.class);
-						intent.putExtra("staffId", 1);
-						intent.putExtra("shopId", mShop.getShopId());
-						intent.putExtra("computerId", mComputer.getComputerId());
-						startActivity(intent);
-						return true;
-					case R.id.itemResetEndday:
-						ResetEnddayStateDialogFragment resetFragment = ResetEnddayStateDialogFragment.newInstance();
-						resetFragment.show(getFragmentManager(), ResetEnddayStateDialogFragment.TAG);
-						return true;
-					case R.id.itemClearSale:
-						ClearSaleDialogFragment clearSaleFragment = ClearSaleDialogFragment.newInstance();
-						clearSaleFragment.show(getFragmentManager(), ClearSaleDialogFragment.TAG);
-						return true;
-					case R.id.itemResetSendStatus:
-						new AlertDialog.Builder(LoginActivity.this)
-						.setTitle(R.string.reset_send_status)
-						.setMessage(R.string.confirm_reset_send_status)
-						.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-							
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-							}
-						})
-						.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-							
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								//Utils.resetSendDataStatus(LoginActivity.this);
-							}
-						}).show();
-						return true;
-					default :
-						return false;
-					}
-				}
-				
-			});
-			popup.show();
-		}
-	}
-	
-	private void exit(){
-		new AlertDialog.Builder(this)
-		.setTitle(R.string.exit)
-		.setMessage(R.string.confirm_exit)
-		.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-			
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-			}
-		})
-		.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-			
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				finish();
-			}
-		}).show();
-	}
-	
-	@Override
-	protected void onResume() {
-		if(!isAlreadySetUrl()){
-			requestValidUrl();
-		}else{
-			mTxtUser.requestFocus();
-		}
-		displayWelcome();
-		checkUpdate();
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_login, menu);
 
-		setupThirdPartyLink();
-		super.onResume();
-	}
-	
-	private void checkUpdate(){
-		SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
-		String needToUpdate = sharedPref.getString(SettingsActivity.KEY_PREF_NEED_TO_UPDATE, "0");
-		if(TextUtils.equals(needToUpdate, "1")){
-			new AlertDialog.Builder(this)
-			.setTitle(getString(R.string.update_available))
-			.setMessage(getString(R.string.ok_to_continue))
-			.setNegativeButton(R.string.later, new DialogInterface.OnClickListener() {
-				
-				@Override
-				public void onClick(DialogInterface dialog, int which) {	
-				}
-			})
-			.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-				
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					Intent intent = new Intent(LoginActivity.this, CheckUpdateActivity.class);
-					intent.putExtra("auto_download", 1);
-					startActivity(intent);
-				}
-			}).show();
-		}
-	}
-	
-	private void displayWelcome(){
-		if(Utils.isEnableWintecCustomerDisplay(this)){
-			WintecCustomerDisplay dsp = new WintecCustomerDisplay(this);
-			dsp.displayWelcome();
-		}
-	}
-	
-	private void requestValidUrl(){
-		SoftwareRegister register = new SoftwareRegister(this, new RegisterReceiver(new Handler()));
-		ExecutorService executor = Executors.newSingleThreadExecutor();
-		executor.execute(register);
-		executor.shutdown();
-	}
+        mThirdPartyMenu = menu.findItem(R.id.itemThirdPartyApp);
+        setupThirdPartyLink();
+        return true;
+    }
 
-	private class MasterDataReceiver extends ResultReceiver{
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = null;
+        UserVerifyDialogFragment userFragment = null;
+        switch (item.getItemId()) {
+            case R.id.itemSetting:
+                intent = new Intent(LoginActivity.this, SettingsActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.itemUpdate:
+                requestValidUrl();
+                return true;
+            case R.id.itemCheckUpdate:
+                intent = new Intent(LoginActivity.this, CheckUpdateActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.itemAbout:
+                intent = new Intent(LoginActivity.this, AboutActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.itemExit:
+                exit();
+                return true;
+            case R.id.itemPerformTest:
+                PerformTest f = PerformTest.newInstance();
+                f.show(getFragmentManager(), "PerformTest");
+                return true;
+            case android.R.id.home:
+                finish();
+                return true;
+            case R.id.itemUtils:
+                mWhatToDo = WhatToDo.UTILITY;
+                userFragment = UserVerifyDialogFragment.newInstance(UserVerifyDialogFragment.GRANT_PERMISSION);
+                userFragment.show(getFragmentManager(), UserVerifyDialogFragment.TAG);
+                return true;
+            case R.id.itemReport:
+                mWhatToDo = WhatToDo.VIEW_REPORT;
+                userFragment = UserVerifyDialogFragment.newInstance(StaffsDataSource.VIEW_REPORT_PERMISSION);
+                userFragment.show(getFragmentManager(), UserVerifyDialogFragment.TAG);
+                return true;
+            case R.id.itemSwLang:
+                SwitchLangFragment swf = SwitchLangFragment.newInstance();
+                swf.show(getFragmentManager(), "SwitchLangFragment");
+                return true;
+            case R.id.itemTeamViewer:
+                openTeamViewer();
+                return true;
+            case 0x101:
+                displayThirdPartyWebView(0x101);
+                return true;
+            case 0x102:
+                displayThirdPartyWebView(0x102);
+                return true;
+            case 0x103:
+                displayThirdPartyWebView(0x103);
+                return true;
+            case 0x104:
+                displayThirdPartyWebView(0x104);
+                return true;
+            case 0x105:
+                displayThirdPartyWebView(0x105);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
-		private ProgressDialog progress;
-		
-		public MasterDataReceiver(Handler handler) {
-			super(handler);
-			progress = new ProgressDialog(LoginActivity.this);
-			progress.setMessage(getString(R.string.load_master_progress));
-			progress.setCanceledOnTouchOutside(false);
-			progress.show();
-		}
+    private void displayThirdPartyWebView(int linkId) {
+        ThirdPartyLinkFragment thirdPartyLinkDialog = ThirdPartyLinkFragment.newInstance(linkId);
+        thirdPartyLinkDialog.show(getFragmentManager(), ThirdPartyLinkFragment.TAG);
+    }
 
-		@Override
-		protected void onReceiveResult(int resultCode, Bundle resultData) {
-			super.onReceiveResult(resultCode, resultData);
-			switch(resultCode){
-			case MPOSServiceBase.RESULT_SUCCESS:
-				if(progress.isShowing())
-					progress.dismiss();
+    private void createUtilsPopup(final View v) {
+        if (v != null) {
+            PopupMenu popup = new PopupMenu(this, v);
+            popup.inflate(R.menu.action_utility);
+            popup.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 
-				checkUpdate();
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    Intent intent = null;
+                    switch (item.getItemId()) {
+                        case R.id.itemBackup:
+                            Utils.backupDatabase(LoginActivity.this);
+                            return true;
+                        case R.id.itemRestore:
+                            RestoreDatabaseFragment restoreFragment = RestoreDatabaseFragment.newInstance();
+                            restoreFragment.show(getFragmentManager(), RestoreDatabaseFragment.TAG);
+                            return true;
+                        case R.id.itemSendEndday:
+                            intent = new Intent(LoginActivity.this, SendEnddayActivity.class);
+                            intent.putExtra("staffId", 1);
+                            intent.putExtra("shopId", mShop.getShopId());
+                            intent.putExtra("computerId", mComputer.getComputerId());
+                            intent.putExtra("ignoreSendStatus", SendEnddayActivity.IGNORE_SEND_STATUS);
+                            startActivity(intent);
+                            return true;
+                        case R.id.itemSendSale:
+                            intent = new Intent(LoginActivity.this, SendSaleActivity.class);
+                            intent.putExtra("staffId", 1);
+                            intent.putExtra("shopId", mShop.getShopId());
+                            intent.putExtra("computerId", mComputer.getComputerId());
+                            startActivity(intent);
+                            return true;
+                        case R.id.itemResetEndday:
+                            ResetEnddayStateDialogFragment resetFragment = ResetEnddayStateDialogFragment.newInstance();
+                            resetFragment.show(getFragmentManager(), ResetEnddayStateDialogFragment.TAG);
+                            return true;
+                        case R.id.itemClearSale:
+                            ClearSaleDialogFragment clearSaleFragment = ClearSaleDialogFragment.newInstance();
+                            clearSaleFragment.show(getFragmentManager(), ClearSaleDialogFragment.TAG);
+                            return true;
+                        case R.id.itemResetSendStatus:
+                            new AlertDialog.Builder(LoginActivity.this)
+                                    .setTitle(R.string.reset_send_status)
+                                    .setMessage(R.string.confirm_reset_send_status)
+                                    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
 
-				FileManager fm = new FileManager(LoginActivity.this, MPOSApplication.IMG_DIR);
-				fm.clear();
-				startActivity(new Intent(LoginActivity.this, LoginActivity.class));
-				finish();
-				break;
-			case MPOSServiceBase.RESULT_ERROR:
-				if(progress.isShowing())
-					progress.dismiss();
-				String msg = resultData.getString("msg");
-				new AlertDialog.Builder(LoginActivity.this)
-				.setMessage(msg)
-				.setNeutralButton(R.string.close, new DialogInterface.OnClickListener() {
-					
-					@Override
-					public void onClick(DialogInterface arg0, int arg1) {
-					}
-				}).show();
-				break;
-			}
-		}
-		
-	}
-	
-	private class DeviceCheckerReceiver extends ResultReceiver{
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                        }
+                                    })
+                                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
 
-		private ProgressDialog mProgress;
-		
-		public DeviceCheckerReceiver(Handler handler) {
-			super(handler);
-			mProgress = new ProgressDialog(LoginActivity.this);
-			mProgress.setCanceledOnTouchOutside(false);
-			mProgress.setMessage(getString(R.string.loading));
-			mProgress.show();
-		}
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            //Utils.resetSendDataStatus(LoginActivity.this);
+                                        }
+                                    }).show();
+                            return true;
+                        default:
+                            return false;
+                    }
+                }
 
-		@Override
-		protected void onReceiveResult(int resultCode, Bundle resultData) {
-			super.onReceiveResult(resultCode, resultData);
-			switch(resultCode){
-			case MPOSServiceBase.RESULT_SUCCESS:
-				if(mProgress.isShowing())
-					mProgress.dismiss();
-				int shopId = resultData.getInt("shopId");
-				MasterDataLoader loader = new MasterDataLoader(LoginActivity.this, 
-						shopId, new MasterDataReceiver(new Handler()));
-				ExecutorService executor = Executors.newSingleThreadExecutor();
-				executor.execute(loader);
-				executor.shutdown();
-				break;
-			case MPOSServiceBase.RESULT_ERROR:
-				if(mProgress.isShowing())
-					mProgress.dismiss();
-				String msg = resultData.getString("msg");
-				new AlertDialog.Builder(LoginActivity.this)
-				.setMessage(msg)
-				.setNeutralButton(R.string.close, new DialogInterface.OnClickListener() {
-					
-					@Override
-					public void onClick(DialogInterface arg0, int arg1) {
-					}
-				}).show();
-				break;
-			}
-		}
-		
-	}
-	
-	private class RegisterReceiver extends ResultReceiver{
+            });
+            popup.show();
+        }
+    }
 
-		private ProgressDialog progress;
-		
-		public RegisterReceiver(Handler handler) {
-			super(handler);
-			progress = new ProgressDialog(LoginActivity.this);
-			progress.setCanceledOnTouchOutside(false);
-			progress.setMessage(getString(R.string.loading));
-			progress.show();
-		}
+    private void exit() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.exit)
+                .setMessage(R.string.confirm_exit)
+                .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
 
-		@Override
-		protected void onReceiveResult(int resultCode, Bundle resultData) {
-			super.onReceiveResult(resultCode, resultData);
-			switch(resultCode){
-			case MPOSServiceBase.RESULT_SUCCESS:
-				if(progress.isShowing())
-					progress.dismiss();
-				DeviceChecker checker = new DeviceChecker(LoginActivity.this, 
-						new DeviceCheckerReceiver(new Handler()));
-				ExecutorService executor = Executors.newSingleThreadExecutor();
-				executor.execute(checker);
-				executor.shutdown();
-				break;
-			case MPOSServiceBase.RESULT_ERROR:
-				if(progress.isShowing())
-					progress.dismiss();
-				String msg = resultData.getString("msg");
-				new AlertDialog.Builder(LoginActivity.this)
-				.setCancelable(false)
-				.setMessage(msg)
-				.setNegativeButton(R.string.close, new DialogInterface.OnClickListener() {
-					
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-					}
-				})
-				.setPositiveButton(R.string.try_again, new DialogInterface.OnClickListener() {
-					
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						requestValidUrl();
-					}
-				})
-				.show();
-				break;
-			}
-		}
-		
-	}
-	
-	private boolean isAlreadySetUrl(){
-		SharedPreferences sharedPref = PreferenceManager
-				.getDefaultSharedPreferences(this);
-		String url = sharedPref.getString(SettingsActivity.KEY_PREF_SERVER_URL, "");
-		if(url.isEmpty()){
-			return false;
-		}	
-		return true;
-	}
-	
-	private void gotoMainActivity(){
-		final Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-		intent.putExtra("staffId", mStaffId);
-		intent.putExtra("staffRoleId", mStaffRoleId);
-		SoftwareExpirationChecker swChecker = new SoftwareExpirationChecker(this, new SoftwareExpirationCheckerListener() {
-			
-			@Override
-			public void onNotExpired() {
-				startActivity(intent);
-		        finish();	
-			}
-			
-			@Override
-			public void onExpire(final Calendar lockDate, final boolean isLocked) {
-				String msg = getString(R.string.software_expired_msg);
-				msg += " " + mFormat.dateFormat(lockDate.getTime());
-				if(isLocked){
-					msg = getString(R.string.software_locked);
-				}
-				AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-				builder.setTitle(R.string.software_expired);
-				builder.setMessage(msg);
-				builder.setNeutralButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-					
-					@Override
-					public void onClick(DialogInterface arg0, int arg1) {
-						if(!isLocked){
-							startActivity(intent);
-					        finish();	
-						}
-					}
-				});
-				AlertDialog d = builder.create();
-				d.show();
-				
-			}
-		});
-		swChecker.checkExpDate();
-	}
-	
-	public void checkLogin(){
-		String user = "";
-		String pass = "";
-	
-		if(!TextUtils.isEmpty(mTxtUser.getText())){
-			user = mTxtUser.getText().toString();
-			
-			if(!TextUtils.isEmpty(mTxtPass.getText())){
-				pass = mTxtPass.getText().toString();
-				UserVerification login = new UserVerification(LoginActivity.this, user, pass);
-				
-				if(login.checkUser()){
-					Staff s = login.checkLogin();
-					if(s != null){
-						mStaffId = s.getStaffID();
-						mStaffRoleId = s.getStaffRoleID();
-						mTxtUser.setError(null);
-						mTxtPass.setError(null);
-						mTxtUser.setText(null);
-						mTxtPass.setText(null);
-						if(checkSessionDate()){
-							StaffsDataSource st = new StaffsDataSource(LoginActivity.this);
-							if(st.checkAccessPOSPermission(s.getStaffRoleID())){
-								gotoMainActivity();
-							}else{
-								new AlertDialog.Builder(LoginActivity.this)
-								.setTitle(R.string.permission_required)
-								.setMessage(R.string.not_have_permission_to_access_pos)
-								.setNeutralButton(R.string.close, new DialogInterface.OnClickListener() {
-									
-									@Override
-									public void onClick(DialogInterface dialog, int which) {
-									}
-								}).show();
-							}
-						}
-					}else{
-						mTxtUser.setError(null);
-						mTxtPass.setError(getString(R.string.incorrect_password));
-					}
-				}else{
-					mTxtUser.setError(getString(R.string.incorrect_staff_code));
-					mTxtPass.setError(null);
-				}
-			}else{
-				mTxtUser.setError(null);
-				mTxtPass.setError(getString(R.string.enter_password));
-			}
-		}else{
-			mTxtUser.setError(getString(R.string.enter_staff_code));
-			mTxtPass.setError(null);
-		}
-	}
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                })
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
 
-	@Override
-	public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-		if(actionId == EditorInfo.IME_ACTION_DONE){
-			checkLogin();
-			return true;
-		}
-		return false;
-	}
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                }).show();
+    }
 
-	@Override
-	public void onClick(View v) {
-		switch(v.getId()){
-			case R.id.btnLogin:
-				checkLogin();
-				break;
-		}
-	}
+    @Override
+    protected void onResume() {
+        if (!isAlreadySetUrl()) {
+            requestValidUrl();
+        } else {
+            mTxtUser.requestFocus();
+        }
+        displayWelcome();
+        checkUpdate();
 
-	@Override
-	public void onAllow(int staffId, int permissionId) {
-		switch(mWhatToDo){
-		case VIEW_REPORT:
-			Intent intent = new Intent(this, SaleReportActivity.class);
-			intent.putExtra("staffId", staffId);
-			startActivity(intent);
-			break;
-		case UTILITY:
-			createUtilsPopup(findViewById(R.id.itemUtils));
-			break;
-		}
-	}
+        setupThirdPartyLink();
+        super.onResume();
+    }
 
-	@Override
-	public void onChangeLanguage() {
-		startActivity(new Intent(LoginActivity.this, LoginActivity.class));
-		finish();
-	}
+    private void checkUpdate() {
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
+        String needToUpdate = sharedPref.getString(SettingsActivity.KEY_PREF_NEED_TO_UPDATE, "0");
+        if (TextUtils.equals(needToUpdate, "1")) {
+            new AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.update_available))
+                    .setMessage(getString(R.string.ok_to_continue))
+                    .setNegativeButton(R.string.later, new DialogInterface.OnClickListener() {
 
-    private void checkLocalSaleData(){
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    })
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(LoginActivity.this, CheckUpdateActivity.class);
+                            intent.putExtra("auto_download", 1);
+                            startActivity(intent);
+                        }
+                    }).show();
+        }
+    }
+
+    private void displayWelcome() {
+        if (Utils.isEnableWintecCustomerDisplay(this)) {
+            WintecCustomerDisplay dsp = new WintecCustomerDisplay(this);
+            dsp.displayWelcome();
+        }
+    }
+
+    private void requestValidUrl() {
+        SoftwareRegister register = new SoftwareRegister(this, new RegisterReceiver(new Handler()));
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.execute(register);
+        executor.shutdown();
+    }
+
+    private class MasterDataReceiver extends ResultReceiver {
+
+        private ProgressDialog progress;
+
+        public MasterDataReceiver(Handler handler) {
+            super(handler);
+            progress = new ProgressDialog(LoginActivity.this);
+            progress.setMessage(getString(R.string.load_master_progress));
+            progress.setCanceledOnTouchOutside(false);
+            progress.show();
+        }
+
+        @Override
+        protected void onReceiveResult(int resultCode, Bundle resultData) {
+            super.onReceiveResult(resultCode, resultData);
+            switch (resultCode) {
+                case MPOSServiceBase.RESULT_SUCCESS:
+                    if (progress.isShowing())
+                        progress.dismiss();
+
+                    checkUpdate();
+
+                    FileManager fm = new FileManager(LoginActivity.this, MPOSApplication.IMG_DIR);
+                    fm.clear();
+                    startActivity(new Intent(LoginActivity.this, LoginActivity.class));
+                    finish();
+                    break;
+                case MPOSServiceBase.RESULT_ERROR:
+                    if (progress.isShowing())
+                        progress.dismiss();
+                    String msg = resultData.getString("msg");
+                    new AlertDialog.Builder(LoginActivity.this)
+                            .setMessage(msg)
+                            .setNeutralButton(R.string.close, new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface arg0, int arg1) {
+                                }
+                            }).show();
+                    break;
+            }
+        }
+
+    }
+
+    private class DeviceCheckerReceiver extends ResultReceiver {
+
+        private ProgressDialog mProgress;
+
+        public DeviceCheckerReceiver(Handler handler) {
+            super(handler);
+            mProgress = new ProgressDialog(LoginActivity.this);
+            mProgress.setCanceledOnTouchOutside(false);
+            mProgress.setMessage(getString(R.string.loading));
+            mProgress.show();
+        }
+
+        @Override
+        protected void onReceiveResult(int resultCode, Bundle resultData) {
+            super.onReceiveResult(resultCode, resultData);
+            switch (resultCode) {
+                case MPOSServiceBase.RESULT_SUCCESS:
+                    if (mProgress.isShowing())
+                        mProgress.dismiss();
+                    int shopId = resultData.getInt("shopId");
+                    MasterDataLoader loader = new MasterDataLoader(LoginActivity.this,
+                            shopId, new MasterDataReceiver(new Handler()));
+                    ExecutorService executor = Executors.newSingleThreadExecutor();
+                    executor.execute(loader);
+                    executor.shutdown();
+                    break;
+                case MPOSServiceBase.RESULT_ERROR:
+                    if (mProgress.isShowing())
+                        mProgress.dismiss();
+                    String msg = resultData.getString("msg");
+                    new AlertDialog.Builder(LoginActivity.this)
+                            .setMessage(msg)
+                            .setNeutralButton(R.string.close, new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface arg0, int arg1) {
+                                }
+                            }).show();
+                    break;
+            }
+        }
+
+    }
+
+    private class RegisterReceiver extends ResultReceiver {
+
+        private ProgressDialog progress;
+
+        public RegisterReceiver(Handler handler) {
+            super(handler);
+            progress = new ProgressDialog(LoginActivity.this);
+            progress.setCanceledOnTouchOutside(false);
+            progress.setMessage(getString(R.string.loading));
+            progress.show();
+        }
+
+        @Override
+        protected void onReceiveResult(int resultCode, Bundle resultData) {
+            super.onReceiveResult(resultCode, resultData);
+            switch (resultCode) {
+                case MPOSServiceBase.RESULT_SUCCESS:
+                    if (progress.isShowing())
+                        progress.dismiss();
+                    DeviceChecker checker = new DeviceChecker(LoginActivity.this,
+                            new DeviceCheckerReceiver(new Handler()));
+                    ExecutorService executor = Executors.newSingleThreadExecutor();
+                    executor.execute(checker);
+                    executor.shutdown();
+                    break;
+                case MPOSServiceBase.RESULT_ERROR:
+                    if (progress.isShowing())
+                        progress.dismiss();
+                    String msg = resultData.getString("msg");
+                    new AlertDialog.Builder(LoginActivity.this)
+                            .setCancelable(false)
+                            .setMessage(msg)
+                            .setNegativeButton(R.string.close, new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            })
+                            .setPositiveButton(R.string.try_again, new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    requestValidUrl();
+                                }
+                            })
+                            .show();
+                    break;
+            }
+        }
+
+    }
+
+    private boolean isAlreadySetUrl() {
+        SharedPreferences sharedPref = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        String url = sharedPref.getString(SettingsActivity.KEY_PREF_SERVER_URL, "");
+        if (url.isEmpty()) {
+            return false;
+        }
+        return true;
+    }
+
+    private void gotoMainActivity() {
+        final Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        intent.putExtra("staffId", mStaffId);
+        intent.putExtra("staffRoleId", mStaffRoleId);
+        SoftwareExpirationChecker swChecker = new SoftwareExpirationChecker(this, new SoftwareExpirationCheckerListener() {
+
+            @Override
+            public void onNotExpired() {
+                startActivity(intent);
+                finish();
+            }
+
+            @Override
+            public void onExpire(final Calendar lockDate, final boolean isLocked) {
+                String msg = getString(R.string.software_expired_msg);
+                msg += " " + mFormat.dateFormat(lockDate.getTime());
+                if (isLocked) {
+                    msg = getString(R.string.software_locked);
+                }
+                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                builder.setTitle(R.string.software_expired);
+                builder.setMessage(msg);
+                builder.setNeutralButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        if (!isLocked) {
+                            startActivity(intent);
+                            finish();
+                        }
+                    }
+                });
+                AlertDialog d = builder.create();
+                d.show();
+
+            }
+        });
+        swChecker.checkExpDate();
+    }
+
+    public void checkLogin() {
+        String user = "";
+        String pass = "";
+
+        if (!TextUtils.isEmpty(mTxtUser.getText())) {
+            user = mTxtUser.getText().toString();
+
+            if (!TextUtils.isEmpty(mTxtPass.getText())) {
+                pass = mTxtPass.getText().toString();
+                UserVerification login = new UserVerification(LoginActivity.this, user, pass);
+
+                if (login.checkUser()) {
+                    Staff s = login.checkLogin();
+                    if (s != null) {
+                        mStaffId = s.getStaffID();
+                        mStaffRoleId = s.getStaffRoleID();
+                        mTxtUser.setError(null);
+                        mTxtPass.setError(null);
+                        mTxtUser.setText(null);
+                        mTxtPass.setText(null);
+                        if (checkSessionDate()) {
+                            StaffsDataSource st = new StaffsDataSource(LoginActivity.this);
+                            if (st.checkAccessPOSPermission(s.getStaffRoleID())) {
+                                gotoMainActivity();
+                            } else {
+                                new AlertDialog.Builder(LoginActivity.this)
+                                        .setTitle(R.string.permission_required)
+                                        .setMessage(R.string.not_have_permission_to_access_pos)
+                                        .setNeutralButton(R.string.close, new DialogInterface.OnClickListener() {
+
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                            }
+                                        }).show();
+                            }
+                        }
+                    } else {
+                        mTxtUser.setError(null);
+                        mTxtPass.setError(getString(R.string.incorrect_password));
+                    }
+                } else {
+                    mTxtUser.setError(getString(R.string.incorrect_staff_code));
+                    mTxtPass.setError(null);
+                }
+            } else {
+                mTxtUser.setError(null);
+                mTxtPass.setError(getString(R.string.enter_password));
+            }
+        } else {
+            mTxtUser.setError(getString(R.string.enter_staff_code));
+            mTxtPass.setError(null);
+        }
+    }
+
+    @Override
+    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+        if (actionId == EditorInfo.IME_ACTION_DONE) {
+            checkLogin();
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnLogin:
+                checkLogin();
+                break;
+        }
+    }
+
+    @Override
+    public void onAllow(int staffId, int permissionId) {
+        switch (mWhatToDo) {
+            case VIEW_REPORT:
+                Intent intent = new Intent(this, SaleReportActivity.class);
+                intent.putExtra("staffId", staffId);
+                startActivity(intent);
+                break;
+            case UTILITY:
+                createUtilsPopup(findViewById(R.id.itemUtils));
+                break;
+        }
+    }
+
+    @Override
+    public void onChangeLanguage() {
+        startActivity(new Intent(LoginActivity.this, LoginActivity.class));
+        finish();
+    }
+
+    private void checkLocalSaleData() {
         int total = 0;
         MPOSDatabase.MPOSOpenHelper helper = MPOSDatabase.MPOSOpenHelper.getInstance(this);
         SQLiteDatabase db = helper.getReadableDatabase();
         String sql = "select count(" + OrderTransTable.COLUMN_TRANS_ID + ")"
                 + " from " + OrderTransTable.TABLE_ORDER_TRANS;
         Cursor cursor = db.rawQuery(sql, null);
-        if(cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             total = cursor.getInt(0);
         }
         cursor.close();
-        if(total == 0){
+        if (total == 0) {
             RestoreLastSaleFragment restoreDialog =
                     RestoreLastSaleFragment.newInstance(mShop.getShopId(), mComputer.getComputerId());
             restoreDialog.show(getFragmentManager(), RestoreLastSaleFragment.TAG);
         }
     }
 
-	private void openTeamViewer(){
-		String teamViewerPkg = "com.teamviewer.quicksupport.market";
-		Intent intent = getPackageManager().getLaunchIntentForPackage(teamViewerPkg);
-		if(intent == null){
-			intent = new Intent(Intent.ACTION_VIEW);
-		    intent.setData(Uri.parse("market://details?id=" + teamViewerPkg));
-		}
-		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		startActivity(intent);
-		
+    private void openTeamViewer() {
+        String teamViewerPkg = "com.teamviewer.quicksupport.market";
+        Intent intent = getPackageManager().getLaunchIntentForPackage(teamViewerPkg);
+        if (intent == null) {
+            intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("market://details?id=" + teamViewerPkg));
+        }
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+
 //		final TVSessionConfiguration config = 
 //			    new TVSessionConfiguration.Builder(
 //			        new TVConfigurationID("hwkq8mp"))
@@ -829,5 +873,5 @@ public class LoginActivity extends Activity implements OnClickListener,
 //						}).show();
 //					}
 //				});
-	}
+    }
 }

@@ -11,6 +11,8 @@ import com.epson.epsonio.EpsonIoException;
 import com.synature.util.LevelTextPrint;
 import com.synature.util.LevelTextPrint.ThreeLevelByteCode;
 
+import java.io.Closeable;
+
 public class EPSONPrinter extends PrinterBase implements
         BatteryStatusChangeEventListener, StatusChangeEventListener {
 
@@ -24,32 +26,36 @@ public class EPSONPrinter extends PrinterBase implements
     public EPSONPrinter(Context context) throws EposException {
         super(context);
         mContext = context;
-        mPrinter = new Print(context.getApplicationContext());
-
-        if (mPrinter != null) {
-            mPrinter.setStatusChangeEventCallback(this);
-            mPrinter.setBatteryStatusChangeEventCallback(this);
-            String deviceName = Utils.getPrinterIp(context);
-            String modelName = Utils.getEPSONModelName(mContext);
-            int deviceType = Print.DEVTYPE_TCP;
-            int font = Builder.FONT_B;
-            if (Utils.isEnableBluetoothPrinter(context)) {
-                deviceType = Print.DEVTYPE_BLUETOOTH;
-                deviceName = Utils.getBluetoothAddress(context);
-                modelName = "TM-m30";
-                font = Builder.FONT_A;
+        try {
+            mPrinter = new Print(context.getApplicationContext());
+            if (mPrinter != null) {
+                mPrinter.setStatusChangeEventCallback(this);
+                mPrinter.setBatteryStatusChangeEventCallback(this);
+                String deviceName = Utils.getPrinterIp(context);
+                String modelName = Utils.getEPSONModelName(mContext);
+                int deviceType = Print.DEVTYPE_TCP;
+                int font = Builder.FONT_B;
+                if (Utils.isEnableBluetoothPrinter(context)) {
+                    deviceType = Print.DEVTYPE_BLUETOOTH;
+                    deviceName = Utils.getBluetoothAddress(context);
+                    modelName = "TM-m30";
+                    font = Builder.FONT_A;
+                }
+                if (open(deviceType, deviceName)) {
+                    mBuilder = new Builder(modelName, Builder.MODEL_ANK, mContext);
+                    mBuilder.addTextSize(1, 1);
+                    mBuilder.addTextFont(font);
+                }
             }
-            if (open(deviceType, deviceName)) {
-                mBuilder = new Builder(modelName, Builder.MODEL_ANK, mContext);
-                mBuilder.addTextSize(1, 1);
-                mBuilder.addTextFont(font);
-            }
+        }catch (EposException e){
+            close();
+            throw e;
         }
     }
 
     @Override
     public void print() {
-        if(mPrinter == null || mBuilder == null)
+        if(mPrinter == null)
             return;
         int[] status = new int[1];
         int[] battery = new int[1];
@@ -68,37 +74,31 @@ public class EPSONPrinter extends PrinterBase implements
     }
 
     private void createBuilder() throws EposException {
+        if(mBuilder == null)
+            return;
         mBuilder.addText(mTextToPrint.toString());
     }
 
-    private boolean open(int deviceType, String deviceName) {
+    private boolean open(int deviceType, String deviceName) throws EposException{
         try {
             mPrinter.openPrinter(deviceType, deviceName, Print.FALSE, Print.PARAM_DEFAULT);
             return true;
         } catch (EposException e) {
-            e.printStackTrace();
-            return false;
+            throw e;
         }
     }
 
     private void close() {
         try {
             mPrinter.closePrinter();
-            mPrinter = null;
-        } catch (EposException e) {
-            e.printStackTrace();
-        }
+        } catch (Exception e){}
     }
 
     @Override
     public void onStatusChangeEvent(String arg0, int arg1) {
-        // TODO Auto-generated method stub
-
     }
 
     @Override
     public void onBatteryStatusChangeEvent(String arg0, int arg1) {
-        // TODO Auto-generated method stub
-
     }
 }
