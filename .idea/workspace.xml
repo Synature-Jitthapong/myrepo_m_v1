@@ -10,22 +10,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8898c534-ce79-4b55-8427-455374fb306b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/libs/ePOS-Print.jar" afterPath="$PROJECT_DIR$/mPOS/libs/ePOS-Print.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/jniLibs/armeabi/libeposprint.so" afterPath="$PROJECT_DIR$/mPOS/src/main/jniLibs/armeabi/libeposprint.so" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build.gradle" afterPath="$PROJECT_DIR$/mPOS/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/mPOS/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/mPOS.iml" afterPath="$PROJECT_DIR$/mPOS/mPOS.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/mPOS/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/EPSONPrinter.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/EPSONPrinter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/LoginActivity.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/LoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ManageCashAmountFragment.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/ManageCashAmountFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PrintReport.java" afterPath="$PROJECT_DIR$/mPOS/src/main/java/com/synature/mpos/PrintReport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mPOS/src/main/res/xml/pref_headers.xml" afterPath="$PROJECT_DIR$/mPOS/src/main/res/xml/pref_headers.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/synSlidingTab/synSlidingTab.iml" afterPath="$PROJECT_DIR$/synSlidingTab/synSlidingTab.iml" />
-    </list>
+    <list default="true" id="8898c534-ce79-4b55-8427-455374fb306b" name="Default" comment="" />
     <ignored path="myrepo_m_v1.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -3446,7 +3431,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516614366992" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516614655588" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -3494,7 +3479,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516614366992" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516614655588" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3677,7 +3662,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516614366993" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516614655589" />
       </method>
     </configuration>
     <list size="1">
